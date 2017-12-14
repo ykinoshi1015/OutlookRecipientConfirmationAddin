@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Outlook;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace OutlookRecipientConfirmationAddin
         List<String> bccList;
 
         /// 検索結果の宛先情報のリスト
-        private List<RecipientInformationDto> RecipientInformationList;
+        private List<RecipientInformationDto> RecipientInformationList = new List<RecipientInformationDto>();
 
         /// コンストラクタ
         public SearchRecipient(List<String> toList, List<String> ccList, List<String> bccList)
@@ -36,10 +37,33 @@ namespace OutlookRecipientConfirmationAddin
         {
             /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
             ContactFactory contactFactory = new ContactFactory();
-            c = contactFactory.CreateContact();
+            List<IContact> contactList = contactFactory.CreateContacts();
+
+            /// toの宛先情報を取得する
+            foreach (var address in toList)
+            {
+
+                /// それぞれの連絡先クラスで宛先情報を検索する
+                foreach (var item in contactList)
+                {
+                    List<ContactItem> contactItemList = item.getContactItem();
+
+                    foreach (var contact in contactItemList)
+                    {
+                        /// addressととってきたcontactの連絡先が一致したら、RecipientInformationDtoにセット
+                        if (contact.Email1Address.Equals(address))
+                        {
+                            RecipientInformationDto recipientInformation = new RecipientInformationDto();
+                            RecipientInformationList.Add(recipientInformation);
+                            goto ExitLoop;
+                        }
+                    }
+                }
+
+                ExitLoop:;
 
 
-
+            }
             return RecipientInformationList;
         }
     }

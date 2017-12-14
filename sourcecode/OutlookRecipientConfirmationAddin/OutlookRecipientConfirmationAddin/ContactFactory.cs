@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
         ///  全ての連絡先クラスのリスト
         private List<IContact> contactClassList = new List<IContact>();
 
-        public List<IContact> CreateContact()
+        public List<IContact> CreateContacts()
         {
             IContact office365Contact = new Office365Contact();
             contactClassList.Add(office365Contact);

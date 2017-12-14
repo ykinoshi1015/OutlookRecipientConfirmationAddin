@@ -12,12 +12,16 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class Office365Contact : IContact
     {
-        public ContactItem getContactItem()
+        List<ContactItem> contactList;
+
+        public List<ContactItem> getContactItem()
         {
+
+            /// O365にある連絡先を全部返す
+         
             ///CreateItem
-            
-            /// 連絡先を持ってくる処理
-            return contact;
+
+            return contactList;
         }
     }
 }
