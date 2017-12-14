@@ -159,12 +159,6 @@
   -->
   <ItemGroup>
     <Compile Include="ContactFactory.cs" />
-    <Compile Include="画面設計\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="画面設計\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="IContact.cs" />
     <Compile Include="Office365Contact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

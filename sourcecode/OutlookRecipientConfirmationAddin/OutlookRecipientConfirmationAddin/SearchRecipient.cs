@@ -43,25 +43,32 @@ namespace OutlookRecipientConfirmationAddin
             foreach (var address in toList)
             {
 
-                /// それぞれの連絡先クラスで宛先情報を検索する
+                /// それぞれの連絡先クラスで検索する
                 foreach (var item in contactList)
                 {
                     List<ContactItem> contactItemList = item.getContactItem();
 
+                    /// 連絡先クラスにあるすべての連絡先から検索
                     foreach (var contact in contactItemList)
                     {
                         /// addressととってきたcontactの連絡先が一致したら、RecipientInformationDtoにセット
                         if (contact.Email1Address.Equals(address))
                         {
-                            RecipientInformationDto recipientInformation = new RecipientInformationDto();
+                            String fullName = contact.LastNameAndFirstName;
+                            String division = contact.Department;
+                            String companyName = contact.CompanyName;
+                            OlMailRecipientType recipientType = OlMailRecipientType.olTo;
+
+                            RecipientInformationDto recipientInformation = new RecipientInformationDto(fullName, division, companyName, recipientType);
                             RecipientInformationList.Add(recipientInformation);
+
+                            /// このアドレスの検索が完了
                             goto ExitLoop;
                         }
                     }
                 }
 
                 ExitLoop:;
-
 
             }
             return RecipientInformationList;
