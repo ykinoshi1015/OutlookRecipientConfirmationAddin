@@ -74,6 +74,7 @@ namespace OutlookRecipientConfirmationAddin
 
             /// 検索クラスを呼び出す
             SearchRecipient searchRecipient = new SearchRecipient(toList, ccList, bccList);
+            searchRecipient.SearchContact();
         }
     }
 }

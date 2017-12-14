@@ -33,7 +33,7 @@ namespace OutlookRecipientConfirmationAddin
         /// </summary>
         /// <param name="addressList"></param> メールのTO, CC, BCC
         /// <returns> 検索した宛先情報のリスト</returns>
-        public List<RecipientInformationDto> SearchContact(List<String> addressList)
+        public List<RecipientInformationDto> SearchContact()
         {
             /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
             ContactFactory contactFactory = new ContactFactory();
@@ -66,11 +66,17 @@ namespace OutlookRecipientConfirmationAddin
                             goto ExitLoop;
                         }
                     }
+                    /// 連絡先がなかったときにNullReferenceException?が発生?
                 }
 
                 ExitLoop:;
 
             }
+
+            //まだやってない
+            //cc
+            //bcc
+
             return RecipientInformationList;
         }
     }
