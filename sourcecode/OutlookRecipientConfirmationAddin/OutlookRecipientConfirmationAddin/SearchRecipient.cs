@@ -13,15 +13,15 @@ namespace OutlookRecipientConfirmationAddin
     class SearchRecipient
     {
         /// TO, CC, BCCに入力されたアドレスのリスト
-        List<String> toList;
-        List<String> ccList;
-        List<String> bccList;
+        List<Recipient> toList;
+        List<Recipient> ccList;
+        List<Recipient> bccList;
 
         /// 検索結果の宛先情報のリスト
         private List<RecipientInformationDto> RecipientInformationList = new List<RecipientInformationDto>();
 
         /// コンストラクタ
-        public SearchRecipient(List<String> toList, List<String> ccList, List<String> bccList)
+        public SearchRecipient(List<Recipient> toList, List<Recipient> ccList, List<Recipient> bccList)
         {
             this.toList = toList;
             this.ccList = ccList;
@@ -39,45 +39,44 @@ namespace OutlookRecipientConfirmationAddin
             ContactFactory contactFactory = new ContactFactory();
             List<IContact> contactList = contactFactory.CreateContacts();
 
-            /// toの宛先情報を取得する
-            foreach (var address in toList)
+            List<List<Recipient>> allRecipientList = new List<List<Recipient>> { toList, ccList, bccList };
+
+            foreach (var recipientList in allRecipientList)
             {
 
-                /// それぞれの連絡先クラスで検索する
-                foreach (var item in contactList)
+                /// ある1人の受信者の宛先情報を取得する
+                foreach (var recipient in recipientList)
                 {
-                    List<ContactItem> contactItemList = item.getContactItem();
 
-                    /// 連絡先クラスにあるすべての連絡先から検索
-                    foreach (var contact in contactItemList)
+                    /// それぞれの連絡先クラスで検索する
+                    foreach (var item in contactList)
                     {
-                        /// addressととってきたcontactの連絡先が一致したら、RecipientInformationDtoにセット
-                        if (contact.Email1Address.Equals(address))
+                        ContactItem contactItem = item.getContactItem(recipient);
+
+                        if (contactItem != null)
                         {
-                            String fullName = contact.LastNameAndFirstName;
-                            String division = contact.Department;
-                            String companyName = contact.CompanyName;
-                            OlMailRecipientType recipientType = OlMailRecipientType.olTo;
+                            /// みつかれば、RecipientInformationDtoにセット
+                            String fullName = contactItem.LastNameAndFirstName;
+                            String division = contactItem.Department;
+                            String companyName = contactItem.CompanyName;
+                            OlMailRecipientType recipientType = (OlMailRecipientType)recipient.Type;
 
                             RecipientInformationDto recipientInformation = new RecipientInformationDto(fullName, division, companyName, recipientType);
                             RecipientInformationList.Add(recipientInformation);
-
-                            /// このアドレスの検索が完了
-                            goto ExitLoop;
                         }
+
+                        /// このアドレスの検索が完了
+                       goto ExitLoop;
                     }
-                    /// 連絡先がなかったときにNullReferenceException?が発生?
+
+                    ExitLoop:;
                 }
-
-                ExitLoop:;
-
+                
             }
-
-            //まだやってない
-            //cc
-            //bcc
 
             return RecipientInformationList;
         }
+
+
     }
 }

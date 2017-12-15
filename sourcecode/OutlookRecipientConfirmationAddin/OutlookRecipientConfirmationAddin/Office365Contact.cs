@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,24 +13,61 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class Office365Contact : IContact
     {
-        List<ContactItem> contactList = null;
+        ContactItem contactItem;
 
         /// O365にある連絡先を全部返す
-        public List<ContactItem> getContactItem()
+        public ContactItem getContactItem(Recipient recipient)
         {
-            /// 連絡先フォルダ―から情報をもってくる
-            Application application = new Application(); ///newしていいの？
-            NameSpace outlookNameSpace = application.GetNamespace("MAPI");
-            MAPIFolder contactsFolder = outlookNameSpace.GetDefaultFolder(OlDefaultFolders.olFolderContacts);
-            Items contactItems = contactsFolder.Items;
+            contactItem = Globals.ThisAddIn.Application.CreateItem(OlItemType.olContactItem) as ContactItem;
 
-            /// リストに入れる
-            foreach(var contact in contactItems)
+            /// 連絡先フォルダ―から情報をもってくる
+            AddressLists addrLists;
+            addrLists = Globals.ThisAddIn.Application.Session.AddressLists;
+
+            ExchangeUser exchUser = recipient.AddressEntry.GetExchangeUser();
+
+            //Exchangeアドレス帳から選択されたユーザーの場合　
+            /// (受信者が勝手に入っているアドレス帳から選ばれた場合)
+            if (exchUser != null)
             {
-                contactList.Add(contact as ContactItem);
+                Debug.WriteLine(string.Format("{0}/{1}/{2}",
+                    exchUser.Name,
+                    exchUser.CompanyName,
+                    exchUser.Department));
+
+                contactItem.FullName = exchUser.Name;
+                contactItem.CompanyName = exchUser.CompanyName;
+                contactItem.Department = exchUser.Department;
+            }
+            else
+            {
+                //ローカルのアドレス帳から選択されたユーザーの場合
+                /// (受信者が連絡先に追加されたときの場合？)
+                contactItem = SearchInAllUsers(recipient.Address);
             }
 
-            return contactList;
+            return contactItem;
+        }
+
+        private ContactItem SearchInAllUsers(string address)
+        {
+            Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(address);
+            ExchangeUser exchUser = recResolve.AddressEntry.GetExchangeUser();
+            if (exchUser != null)
+            {
+                Debug.WriteLine(string.Format("{0} {1} {2} {3}",
+                    exchUser.Name,
+                    exchUser.CompanyName,
+                    exchUser.Department,
+                    exchUser.BusinessTelephoneNumber));
+
+                contactItem.FullName = exchUser.Name;
+                contactItem.CompanyName = exchUser.CompanyName;
+                contactItem.Department = exchUser.Department;
+            }
+            
+            return contactItem;
+
         }
     }
 }

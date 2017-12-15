@@ -17,7 +17,7 @@ namespace OutlookRecipientConfirmationAddin
         /// 連絡先を取得する抽象メソッド
         /// </summary>
         /// <returns></returns>
-        List<ContactItem> getContactItem();
+        ContactItem getContactItem(Recipient recipient);
             
       
     }
