@@ -27,13 +27,13 @@ namespace OutlookRecipientConfirmationAddin
             ExchangeUser exchUser = recipient.AddressEntry.GetExchangeUser();
 
             //Exchangeアドレス帳から選択されたユーザーの場合　
-            /// (受信者が勝手に入っているアドレス帳から選ばれた場合)
             if (exchUser != null)
             {
-                Debug.WriteLine(string.Format("{0}/{1}/{2}",
+                Debug.WriteLine(string.Format("{0}/{1}/{2}/{3}",
                     exchUser.Name,
                     exchUser.CompanyName,
-                    exchUser.Department));
+                    exchUser.Department,
+                    exchUser.JobTitle));
 
                 contactItem.FullName = exchUser.Name;
                 contactItem.CompanyName = exchUser.CompanyName;
@@ -41,8 +41,7 @@ namespace OutlookRecipientConfirmationAddin
             }
             else
             {
-                //ローカルのアドレス帳から選択されたユーザーの場合
-                /// (受信者が連絡先に追加されたときの場合？)
+                //ローカルのアドレス帳から選択されたユーザーの場合(お気に入りリストなど)
                 contactItem = SearchInAllUsers(recipient.Address);
             }
 

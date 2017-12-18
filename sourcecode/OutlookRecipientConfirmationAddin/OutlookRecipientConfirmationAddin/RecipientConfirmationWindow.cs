@@ -12,24 +12,84 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientConfirmationWindow : Form
     {
+        List<String> toList;
+        List<String> ccList;
+        List<String> bccList;
+
         public RecipientConfirmationWindow()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public RecipientConfirmationWindow(List<String> toList, List<String> ccList, List<String> bccList)
+        {
+            InitializeComponent();
+
+            this.toList = toList;
+            this.ccList = ccList;
+            this.bccList = bccList;
+        }
+
+        /// <summary>
+        /// テキストボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+        /// <summary>
+        /// OKボタンが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //メールを送信
+        }
 
+        /// <summary>
+        /// Cancelボタンが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        
+        /// <summary>
+        /// 宛名確認画面をロード、テキストボックスに値を設定する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RecipientConfirmationWindow_Load(object sender, EventArgs e)
         {
+            textBox1.Text = "To:" + toList.Count + "件\r\n";
+            foreach (var recipients in toList)
+            {
+                textBox1.Text += recipients + "\r\n";
+            }
 
+            textBox1.Text += "Cc:" + ccList.Count + "件\r\n";
+            foreach (var recipients in ccList)
+            {
+                textBox1.Text += recipients + "\r\n";
+            }
+
+            textBox1.Text += "Bcc:" + bccList.Count + "件\r\n";
+            foreach (var recipients in bccList)
+            {
+                textBox1.Text += recipients + "\r\n";
+            }
+
+            /// 読み取り専用、自動で折り返さない
+            textBox1.ReadOnly = true;
+            textBox1.WordWrap = false;
+
+            /// 必要な場合、垂直、水平両方のスクロールバーを表示
+            textBox1.ScrollBars = ScrollBars.Both;
         }
     }
 }

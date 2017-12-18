@@ -48,39 +48,61 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="cancel"></param>
         public void ConfirmContact(object Item, ref bool Cancel)
         {
-            /// TO, CC, BCCに入力されたアドレスのリスト
-            List<Outlook.Recipient> toList = new List<Outlook.Recipient>();
-            List<Outlook.Recipient> ccList = new List<Outlook.Recipient>();
-            List<Outlook.Recipient> bccList = new List<Outlook.Recipient>();
-
             Outlook.MailItem mail = Item as Outlook.MailItem;
 
-            /// 受信者のメールアドレスをタイプ別にリストに追加する
+            /// 受信者の情報をリストする
+            List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
             foreach (Outlook.Recipient recipient in mail.Recipients)
             {
-                switch (recipient.Type)
+                recipientsList.Add(recipient);
+            }
+
+            /// 検索クラスを呼び出す
+            SearchRecipient searchRecipient = new SearchRecipient(recipientsList);
+
+            /// 宛先情報のリストが戻ってくる
+            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact();
+
+            ///表示用にフォーマッティングするクラス
+            Utility utility = new Utility();
+            List<String> formattedToList = new List<String>();
+            List<String> formattedCcList = new List<String>();
+            List<String> formattedBccList = new List<String>();
+
+            /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
+            foreach (var recipientInformation in recipientList)
+            {
+                switch (recipientInformation.recipientType)
                 {
-                    case (int)Outlook.OlMailRecipientType.olTo:
-                        toList.Add(recipient);
+
+                    case Outlook.OlMailRecipientType.olTo:
+                        formattedToList.Add(utility.Formatting(recipientInformation));
                         break;
 
-                    case (int)Outlook.OlMailRecipientType.olCC:
-                        ccList.Add(recipient);
+                    case Outlook.OlMailRecipientType.olCC:
+                        formattedCcList.Add(utility.Formatting(recipientInformation));
                         break;
 
-                    case (int)Outlook.OlMailRecipientType.olBCC:
-                        bccList.Add(recipient);
+                    case Outlook.OlMailRecipientType.olBCC:
+                        formattedBccList.Add(utility.Formatting(recipientInformation));
                         break;
                 }
 
             }
 
-            /// 検索クラスを呼び出す
-            SearchRecipient searchRecipient = new SearchRecipient(toList, ccList, bccList);
-            searchRecipient.SearchContact();
+            /// 引数に宛先詳細を渡し、確認フォームを表示する
+            RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(formattedToList, formattedCcList, formattedBccList);
+            DialogResult result = recipientConfirmationWindow.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                //メールを送信
+            }
+            else if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                Cancel = true;
+            }
         }
-
-
 
     }
 }
