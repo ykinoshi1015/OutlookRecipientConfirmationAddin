@@ -19,6 +19,7 @@ namespace OutlookRecipientConfirmationAddin
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
+            /// 更新✅　10行でできる？！
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -48,6 +49,7 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="cancel"></param>
         public void ConfirmContact(object Item, ref bool Cancel)
         {
+
             Outlook.MailItem mail = Item as Outlook.MailItem;
 
             /// 受信者の情報をリストする
@@ -58,16 +60,16 @@ namespace OutlookRecipientConfirmationAddin
             }
 
             /// 検索クラスを呼び出す
-            SearchRecipient searchRecipient = new SearchRecipient(recipientsList);
+            SearchRecipient searchRecipient = new SearchRecipient();
 
-            /// 宛先情報のリストが戻ってくる
-            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact();
+            /// 引数にTO, CC, BCCに入力されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
+            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
-            ///表示用にフォーマッティングするクラス
+            /// 表示用にフォーマッティングするクラス
             Utility utility = new Utility();
-            List<String> formattedToList = new List<String>();
-            List<String> formattedCcList = new List<String>();
-            List<String> formattedBccList = new List<String>();
+            List<string> formattedToList = new List<string>();
+            List<string> formattedCcList = new List<string>();
+            List<string> formattedBccList = new List<string>();
 
             /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
             foreach (var recipientInformation in recipientList)
@@ -98,7 +100,7 @@ namespace OutlookRecipientConfirmationAddin
             {
                 //メールを送信
             }
-            else if (result == DialogResult.No || result == DialogResult.Cancel)
+            else 
             {
                 Cancel = true;
             }

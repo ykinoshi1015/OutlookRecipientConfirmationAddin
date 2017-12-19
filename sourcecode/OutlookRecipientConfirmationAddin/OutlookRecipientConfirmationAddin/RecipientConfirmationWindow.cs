@@ -19,6 +19,7 @@ namespace OutlookRecipientConfirmationAddin
         public RecipientConfirmationWindow()
         {
             InitializeComponent();
+            Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
         }
 
         public RecipientConfirmationWindow(List<String> toList, List<String> ccList, List<String> bccList)
@@ -30,35 +31,6 @@ namespace OutlookRecipientConfirmationAddin
             this.bccList = bccList;
         }
 
-        /// <summary>
-        /// テキストボックス
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        /// <summary>
-        /// OKボタンが押された場合
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //メールを送信
-        }
-
-        /// <summary>
-        /// Cancelボタンが押された場合
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-        
         /// <summary>
         /// 宛名確認画面をロード、テキストボックスに値を設定する
         /// </summary>
@@ -92,6 +64,40 @@ namespace OutlookRecipientConfirmationAddin
 
             /// 必要な場合、垂直、水平両方のスクロールバーを表示
             textBox1.ScrollBars = ScrollBars.Both;
+
+            /// アンカーを設定
+            textBox1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+            OK.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            Cancel.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+        }
+
+        /// <summary>
+        /// テキストボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// OKボタンが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Cancelボタンが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)

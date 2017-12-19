@@ -12,30 +12,22 @@ namespace OutlookRecipientConfirmationAddin
     class Utility
     {
 
-        public String Formatting(RecipientInformationDto recipientInformation)
+        public string Formatting(RecipientInformationDto recipientInformation)
         {
-            var formattedRecipient = new StringBuilder();
+            string formattedRecipient;
 
             /// 受信者の情報が見つかったとき
-            if (recipientInformation.fullName != null) {
-                formattedRecipient.Append(recipientInformation.fullName + " ");
-                formattedRecipient.Append(recipientInformation.jobTitle);
-                formattedRecipient.Append(" (");
-                formattedRecipient.Append(recipientInformation.division);
-                formattedRecipient.Append("【");
-                formattedRecipient.Append(recipientInformation.companyName);
-                formattedRecipient.Append("】");
-                formattedRecipient.Append(")");
+            if (recipientInformation.fullName != null && !recipientInformation.fullName.Equals(""))
+            {
+                formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipientInformation.fullName, recipientInformation.jobTitle, recipientInformation.division, recipientInformation.companyName);
             }
             /// 受信者の情報が見つからなかったとき
             else
             {
-                formattedRecipient.Append(recipientInformation.emailAddress);
+                formattedRecipient = recipientInformation.emailAddress;
             }
 
-            System.Diagnostics.Debug.WriteLine(formattedRecipient);
-            
-            return formattedRecipient.ToString();
+            return formattedRecipient;
         }
     }
 }
