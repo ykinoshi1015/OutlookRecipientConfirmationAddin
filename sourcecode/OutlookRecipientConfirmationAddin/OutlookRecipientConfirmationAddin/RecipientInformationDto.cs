@@ -20,14 +20,18 @@ namespace OutlookRecipientConfirmationAddin
         public String companyName { get; set; }
         /// 宛先タイプ
         public OlMailRecipientType recipientType { get; set; }
+        public String jobTitle { get; set; }
+        public String emailAddress { get; set; }
 
         public RecipientInformationDto(String fullName, String division,
-            String companyName, OlMailRecipientType recipientType)
+            String companyName, OlMailRecipientType recipientType, String jobTitle, String emailAddress)
         {
             this.fullName = fullName;
             this.division = division;
             this.companyName = companyName;
             this.recipientType = recipientType;
+            this.jobTitle = jobTitle;
+            this.emailAddress = emailAddress;
         }
 
 

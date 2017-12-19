@@ -71,12 +71,14 @@ namespace OutlookRecipientConfirmationAddin
             {
                 textBox1.Text += recipients + "\r\n";
             }
+            textBox1.AppendText("\r\n");
 
             textBox1.Text += "Cc:" + ccList.Count + "件\r\n";
             foreach (var recipients in ccList)
             {
                 textBox1.Text += recipients + "\r\n";
             }
+            textBox1.AppendText("\r\n");
 
             textBox1.Text += "Bcc:" + bccList.Count + "件\r\n";
             foreach (var recipients in bccList)
@@ -90,6 +92,11 @@ namespace OutlookRecipientConfirmationAddin
 
             /// 必要な場合、垂直、水平両方のスクロールバーを表示
             textBox1.ScrollBars = ScrollBars.Both;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

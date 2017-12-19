@@ -38,6 +38,7 @@ namespace OutlookRecipientConfirmationAddin
                 contactItem.FullName = exchUser.Name;
                 contactItem.CompanyName = exchUser.CompanyName;
                 contactItem.Department = exchUser.Department;
+                contactItem.JobTitle = exchUser.JobTitle;
             }
             else
             {
@@ -54,15 +55,17 @@ namespace OutlookRecipientConfirmationAddin
             ExchangeUser exchUser = recResolve.AddressEntry.GetExchangeUser();
             if (exchUser != null)
             {
-                Debug.WriteLine(string.Format("{0} {1} {2} {3}",
+                Debug.WriteLine(string.Format("{0} {1} {2} {3} {4}",
                     exchUser.Name,
                     exchUser.CompanyName,
                     exchUser.Department,
-                    exchUser.BusinessTelephoneNumber));
+                    exchUser.BusinessTelephoneNumber,
+                    exchUser.JobTitle));
 
                 contactItem.FullName = exchUser.Name;
                 contactItem.CompanyName = exchUser.CompanyName;
                 contactItem.Department = exchUser.Department;
+                contactItem.JobTitle = exchUser.JobTitle;
             }
             
             return contactItem;

@@ -15,29 +15,26 @@ namespace OutlookRecipientConfirmationAddin
         public String Formatting(RecipientInformationDto recipientInformation)
         {
             var formattedRecipient = new StringBuilder();
-            
-            ///{To:} 
-            formattedRecipient.Append(recipientInformation.fullName);
-            formattedRecipient.Append("(");
-            formattedRecipient.Append(recipientInformation.division);
-            formattedRecipient.Append("【");
-            formattedRecipient.Append(recipientInformation.companyName);
-            formattedRecipient.Append("】");
-            formattedRecipient.Append(")");
+
+            /// 受信者の情報が見つかったとき
+            if (recipientInformation.fullName != null) {
+                formattedRecipient.Append(recipientInformation.fullName + " ");
+                formattedRecipient.Append(recipientInformation.jobTitle);
+                formattedRecipient.Append(" (");
+                formattedRecipient.Append(recipientInformation.division);
+                formattedRecipient.Append("【");
+                formattedRecipient.Append(recipientInformation.companyName);
+                formattedRecipient.Append("】");
+                formattedRecipient.Append(")");
+            }
+            /// 受信者の情報が見つからなかったとき
+            else
+            {
+                formattedRecipient.Append(recipientInformation.emailAddress);
+            }
 
             System.Diagnostics.Debug.WriteLine(formattedRecipient);
-
-
-            //            /// 宛名
-            //private String fullName { get; set; }
-            ///// 部署
-            //private String division { get; set; }
-            ///// 会社名 
-            //private String companyName { get; set; }
-            ///// 宛先タイプ
-            //private OlMailRecipientType recipientType { get; set; }
-
-
+            
             return formattedRecipient.ToString();
         }
     }

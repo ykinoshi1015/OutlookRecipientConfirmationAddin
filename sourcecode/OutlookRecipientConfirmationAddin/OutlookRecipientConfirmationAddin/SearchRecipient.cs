@@ -35,6 +35,13 @@ namespace OutlookRecipientConfirmationAddin
             ContactFactory contactFactory = new ContactFactory();
             List<IContact> contactList = contactFactory.CreateContacts();
 
+            String fullName;
+            String division;
+            String companyName;
+            OlMailRecipientType recipientType;
+            String jobTitle;
+            String emailAddress;
+
             /// ある1人の受信者の宛先情報を取得する
             foreach (var recipient in recipientsList)
             {
@@ -44,25 +51,46 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     ContactItem contactItem = item.getContactItem(recipient);
 
-                    /// 送信先アドレスから、その人の情報が見つかればDtoにセット
-                    if (contactItem != null)
+                    /// 送信先アドレスからその人の情報が見つかれば、名、部署、会社名、タイプをDtoにセット
+                    if (contactItem.FullName != null)
                     {
+                        fullName = contactItem.FullName;
+                        division = contactItem.Department;
+                        companyName = contactItem.CompanyName;
+                        recipientType = (OlMailRecipientType)recipient.Type;
+                        emailAddress = "";
 
-                        String fullName = contactItem.FullName;
-                        String division = contactItem.Department;
-                        String companyName = contactItem.CompanyName;
-                        OlMailRecipientType recipientType = (OlMailRecipientType)recipient.Type;
-
-                        RecipientInformationDto recipientInformation = new RecipientInformationDto(fullName, division, companyName, recipientType);
-                        RecipientInformationList.Add(recipientInformation);
+                        /// 表示する役職ならDtoに入れる、違えば空文字を入れる
+                        if (contactItem.JobTitle != "" && contactItem.JobTitle != "担当")
+                        {
+                            jobTitle = contactItem.JobTitle;
+                        }
+                        else
+                        {
+                            jobTitle = null;
+                        }
+                        
                     }
+                    /// アドレス帳に登録されていない時は、タイプとメールアドレスをDtoにセット
+                    else
+                    {
+                        fullName = null;
+                        division = null;
+                        companyName = null;
+                        jobTitle = null;
+                        recipientType = (OlMailRecipientType)recipient.Type;
+                        emailAddress = recipient.Address;
+                    }
+
+                    RecipientInformationDto recipientInformation = new RecipientInformationDto(fullName, division, companyName, recipientType, jobTitle, emailAddress);
+                    RecipientInformationList.Add(recipientInformation);
 
                     /// このアドレスの検索が完了
                     break;
                 }
-               
+
             }
-            
+
             return RecipientInformationList;
         }
 
