@@ -12,7 +12,8 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class SearchRecipient
     {
-        private static string TANTOU = "担当";
+        /// 職種が担当の場合の定数
+        private const string TANTOU = "担当";
 
         /// <summary>
         /// メールのアドレスから宛先情報を検索する
@@ -44,7 +45,7 @@ namespace OutlookRecipientConfirmationAddin
                     {
                         /// 表示する役職ならDtoに入れる、違えば空文字を入れる
                         string jobTitle = contactItem.JobTitle;
-                        if ( contactItem.JobTitle == TANTOU)
+                        if ( contactItem.JobTitle.Equals(TANTOU))
                         {
                             jobTitle = "";
                         }
