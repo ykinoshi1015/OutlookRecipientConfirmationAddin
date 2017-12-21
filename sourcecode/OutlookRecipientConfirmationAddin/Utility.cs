@@ -12,7 +12,7 @@ namespace OutlookRecipientConfirmationAddin
     class Utility
     {
 
-        public string Formatting(RecipientInformationDto recipientInformation)
+        public static string Formatting(RecipientInformationDto recipientInformation)
         {
             string formattedRecipient;
 

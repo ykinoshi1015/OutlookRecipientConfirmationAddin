@@ -66,7 +66,6 @@ namespace OutlookRecipientConfirmationAddin
             List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
             /// 表示用にフォーマッティングするクラス
-            Utility utility = new Utility();
             List<string> formattedToList = new List<string>();
             List<string> formattedCcList = new List<string>();
             List<string> formattedBccList = new List<string>();
@@ -78,15 +77,15 @@ namespace OutlookRecipientConfirmationAddin
                 {
 
                     case Outlook.OlMailRecipientType.olTo:
-                        formattedToList.Add(utility.Formatting(recipientInformation));
+                        formattedToList.Add(Utility.Formatting(recipientInformation));
                         break;
 
                     case Outlook.OlMailRecipientType.olCC:
-                        formattedCcList.Add(utility.Formatting(recipientInformation));
+                        formattedCcList.Add(Utility.Formatting(recipientInformation));
                         break;
 
                     case Outlook.OlMailRecipientType.olBCC:
-                        formattedBccList.Add(utility.Formatting(recipientInformation));
+                        formattedBccList.Add(Utility.Formatting(recipientInformation));
                         break;
                 }
 
@@ -96,12 +95,10 @@ namespace OutlookRecipientConfirmationAddin
             RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(formattedToList, formattedCcList, formattedBccList);
             DialogResult result = recipientConfirmationWindow.ShowDialog();
 
-            if (result == DialogResult.OK)
+            /// 画面でOK以外が選択された場合
+            if (result != DialogResult.OK)
             {
-                //メールを送信
-            }
-            else 
-            {
+                //メール送信のイベントをキャンセルする
                 Cancel = true;
             }
         }

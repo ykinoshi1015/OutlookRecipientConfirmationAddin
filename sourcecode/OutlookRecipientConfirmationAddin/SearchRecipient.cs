@@ -12,19 +12,21 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class SearchRecipient
     {
-
-        /// 検索結果の宛先情報のリスト
-        private List<RecipientInformationDto> RecipientInformationList = new List<RecipientInformationDto>();
+        private static string TANTOU = "担当";
 
         /// <summary>
         /// メールのアドレスから宛先情報を検索する
         /// </summary>
-        /// <param name="addressList"></param> メールのTO, CC, BCC
+        /// <param name="addressList">メールのTO, CC, BCC</param> 
         /// <returns> 検索した宛先情報のリスト</returns>
         public List<RecipientInformationDto> SearchContact(List<Recipient> recipientsList)
         {
-            /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
-            ContactFactory contactFactory = new ContactFactory();
+
+        /// 検索結果の宛先情報のリスト
+        List<RecipientInformationDto> _recipientInformationList = new List<RecipientInformationDto>();
+
+        /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
+        ContactFactory contactFactory = new ContactFactory();
             List<IContact> contactList = contactFactory.CreateContacts();
 
             /// ある1人の受信者の宛先情報を取得する
@@ -41,14 +43,10 @@ namespace OutlookRecipientConfirmationAddin
                     if (contactItem != null)
                     {
                         /// 表示する役職ならDtoに入れる、違えば空文字を入れる
-                        string jobTitle;
-                        if (contactItem.JobTitle != "" && contactItem.JobTitle != "担当")
+                        string jobTitle = contactItem.JobTitle;
+                        if ( contactItem.JobTitle == TANTOU)
                         {
-                            jobTitle = contactItem.JobTitle;
-                        }
-                        else
-                        {
-                            jobTitle = null;
+                            jobTitle = "";
                         }
                         recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, (OlMailRecipientType)recipient.Type);
                         break;
@@ -58,10 +56,10 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     recipientInformation = new RecipientInformationDto(recipient.Address, (OlMailRecipientType)recipient.Type);
                 }
-                RecipientInformationList.Add(recipientInformation);
+                _recipientInformationList.Add(recipientInformation);
             }
 
-            return RecipientInformationList;
+            return _recipientInformationList;
         }
 
 
