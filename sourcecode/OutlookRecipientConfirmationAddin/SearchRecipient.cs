@@ -45,7 +45,7 @@ namespace OutlookRecipientConfirmationAddin
                     {
                         /// 表示する役職ならDtoに入れる、違えば空文字を入れる
                         string jobTitle = contactItem.JobTitle;
-                        if ( contactItem.JobTitle.Equals(TANTOU))
+                        if (contactItem.JobTitle == null && TANTOU.Equals(contactItem.JobTitle))
                         {
                             jobTitle = "";
                         }
