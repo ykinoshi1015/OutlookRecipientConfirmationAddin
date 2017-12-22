@@ -71,7 +71,8 @@ namespace OutlookRecipientConfirmationAddin
             List<string> formattedBccList = new List<string>();
 
             /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
-            foreach (var recipientInformation in recipientList)
+            foreach (var recipientInformation in
+                recipientList)
             {
                 switch (recipientInformation.recipientType)
                 {
@@ -101,7 +102,9 @@ namespace OutlookRecipientConfirmationAddin
                 //メール送信のイベントをキャンセルする
                 Cancel = true;
             }
-        }
 
+
+
+        }
     }
 }
