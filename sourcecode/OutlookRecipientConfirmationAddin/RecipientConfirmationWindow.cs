@@ -52,7 +52,7 @@ namespace OutlookRecipientConfirmationAddin
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += "■------------ Bcc:" + bccList.Count + "件 ------------■\r\n";
+            textBox1.Text += "■------------ Bcc:" + bccList.Count + "件 -----------■\r\n";
             foreach (var recipients in bccList)
             {
                 textBox1.Text += recipients + "\r\n";
