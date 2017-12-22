@@ -38,21 +38,21 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="e"></param>
         private void RecipientConfirmationWindow_Load(object sender, EventArgs e)
         {
-            textBox1.Text = "To:" + toList.Count + "件\r\n";
+            textBox1.Text = "■------------ To:" + toList.Count + "件 ------------■\r\n";
             foreach (var recipients in toList)
             {
                 textBox1.Text += recipients + "\r\n";
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += "Cc:" + ccList.Count + "件\r\n";
+            textBox1.Text += "■------------ Cc:" + ccList.Count + "件 ------------■\r\n";
             foreach (var recipients in ccList)
             {
                 textBox1.Text += recipients + "\r\n";
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += "Bcc:" + bccList.Count + "件\r\n";
+            textBox1.Text += "■------------ Bcc:" + bccList.Count + "件 ------------■\r\n";
             foreach (var recipients in bccList)
             {
                 textBox1.Text += recipients + "\r\n";
