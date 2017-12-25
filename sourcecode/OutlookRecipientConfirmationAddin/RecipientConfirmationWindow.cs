@@ -104,5 +104,15 @@ namespace OutlookRecipientConfirmationAddin
         {
 
         }
+
+        /// <summary>
+        ///  「提供元」のリンクが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin"); 
+        }
     }
 }

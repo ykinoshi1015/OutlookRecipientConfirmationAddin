@@ -32,6 +32,7 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // OK
@@ -86,6 +87,18 @@
             this.label1.Text = "以下の宛先に送信してよろしいですか？";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.linkLabel1.Location = new System.Drawing.Point(30, 348);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(57, 20);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "提供元";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // RecipientConfirmationWindow
             // 
             this.AcceptButton = this.OK;
@@ -94,6 +107,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(1003, 393);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Cancel);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
