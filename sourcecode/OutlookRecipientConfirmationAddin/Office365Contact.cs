@@ -28,9 +28,11 @@ namespace OutlookRecipientConfirmationAddin
             
             if (exchUser == null)
             {
-                //ローカルのアドレス帳から選択されたユーザーの場合(お気に入りリストなど)
-                Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(recipient.Address);
-                exchUser = recResolve.AddressEntry.GetExchangeUser();
+                    //ローカルのアドレス帳から選択されたユーザーの場合(お気に入りリストなど)
+                    Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(recipient.Address);
+                    exchUser = recResolve.AddressEntry.GetExchangeUser();
+
+
             }
             
             /// ExchangeUserが見つかれば、ContactItemに入れる

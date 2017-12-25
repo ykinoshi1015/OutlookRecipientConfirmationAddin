@@ -21,10 +21,16 @@ namespace OutlookRecipientConfirmationAddin
             {
                 formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipientInformation.fullName, recipientInformation.jobTitle, recipientInformation.division, recipientInformation.companyName);
             }
+            /// グループアドレスの場合、グループ名を表示する
+            else if (!recipientInformation.groupName.Equals(""))
+            {
+                formattedRecipient = recipientInformation.groupName;
+            }
             /// 受信者の情報が見つからなかったとき
             else
             {
-                formattedRecipient = recipientInformation.emailAddress;
+                /// アドレスだけ表示する
+                    formattedRecipient = recipientInformation.emailAddress;
             }
 
             return formattedRecipient;

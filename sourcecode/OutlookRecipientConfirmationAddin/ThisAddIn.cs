@@ -49,57 +49,66 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="cancel"></param>
         public void ConfirmContact(object Item, ref bool Cancel)
         {
-
-            Outlook.MailItem mail = Item as Outlook.MailItem;
-
-            /// 受信者の情報をリストする
-            List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            foreach (Outlook.Recipient recipient in mail.Recipients)
+            try
             {
-                recipientsList.Add(recipient);
-            }
 
-            /// 検索クラスを呼び出す
-            SearchRecipient searchRecipient = new SearchRecipient();
+                Outlook.MailItem mail = Item as Outlook.MailItem;
 
-            /// 引数にTO, CC, BCCに入力されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
-            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
-
-            /// 表示用にフォーマッティングするクラス
-            List<string> formattedToList = new List<string>();
-            List<string> formattedCcList = new List<string>();
-            List<string> formattedBccList = new List<string>();
-
-            /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
-            foreach (var recipientInformation in
-                recipientList)
-            {
-                switch (recipientInformation.recipientType)
+                /// 受信者の情報をリストする
+                List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
+                foreach (Outlook.Recipient recipient in mail.Recipients)
                 {
-
-                    case Outlook.OlMailRecipientType.olTo:
-                        formattedToList.Add(Utility.Formatting(recipientInformation));
-                        break;
-
-                    case Outlook.OlMailRecipientType.olCC:
-                        formattedCcList.Add(Utility.Formatting(recipientInformation));
-                        break;
-
-                    case Outlook.OlMailRecipientType.olBCC:
-                        formattedBccList.Add(Utility.Formatting(recipientInformation));
-                        break;
+                    recipientsList.Add(recipient);
                 }
 
+                /// 検索クラスを呼び出す
+                SearchRecipient searchRecipient = new SearchRecipient();
+
+                /// 引数にTO, CC, BCCに入力されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
+                List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
+
+                /// 表示用にフォーマッティングするクラス
+                List<string> formattedToList = new List<string>();
+                List<string> formattedCcList = new List<string>();
+                List<string> formattedBccList = new List<string>();
+
+                /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
+                foreach (var recipientInformation in
+                    recipientList)
+                {
+                    switch (recipientInformation.recipientType)
+                    {
+
+                        case Outlook.OlMailRecipientType.olTo:
+                            formattedToList.Add(Utility.Formatting(recipientInformation));
+                            break;
+
+                        case Outlook.OlMailRecipientType.olCC:
+                            formattedCcList.Add(Utility.Formatting(recipientInformation));
+                            break;
+
+                        case Outlook.OlMailRecipientType.olBCC:
+                            formattedBccList.Add(Utility.Formatting(recipientInformation));
+                            break;
+                    }
+
+                }
+
+                /// 引数に宛先詳細を渡し、確認フォームを表示する
+                RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(formattedToList, formattedCcList, formattedBccList);
+                DialogResult result = recipientConfirmationWindow.ShowDialog();
+
+                /// 画面でOK以外が選択された場合
+                if (result != DialogResult.OK)
+                {
+                    //メール送信のイベントをキャンセルする
+                    Cancel = true;
+                }
             }
-
-            /// 引数に宛先詳細を渡し、確認フォームを表示する
-            RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(formattedToList, formattedCcList, formattedBccList);
-            DialogResult result = recipientConfirmationWindow.ShowDialog();
-
-            /// 画面でOK以外が選択された場合
-            if (result != DialogResult.OK)
+            /// 何らかのエラーが発生したらイベントをキャンセルする
+            catch(Exception ex)
             {
-                //メール送信のイベントをキャンセルする
+                MessageBox.Show(ex.Message);
                 Cancel = true;
             }
 

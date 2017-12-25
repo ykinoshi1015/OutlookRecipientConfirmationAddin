@@ -22,6 +22,7 @@ namespace OutlookRecipientConfirmationAddin
         public OlMailRecipientType recipientType { get; set; }
         public string jobTitle { get; set; }
         public string emailAddress { get; set; }
+        public string groupName { get; set; }
 
         public RecipientInformationDto(string emailAddress, OlMailRecipientType recipientType)
         {
@@ -31,6 +32,7 @@ namespace OutlookRecipientConfirmationAddin
             this.recipientType = recipientType;
             this.jobTitle = "";
             this.emailAddress = emailAddress;
+            this.groupName = "";
         }
 
         public RecipientInformationDto(string fullName, string division,
@@ -42,6 +44,18 @@ namespace OutlookRecipientConfirmationAddin
             this.recipientType = recipientType;
             this.jobTitle = jobTitle;
             this.emailAddress = "";
+            this.groupName = "";
+        }
+
+        public RecipientInformationDto(OlMailRecipientType recipientType, string groupName)
+        {
+            this.fullName = "";
+            this.division = "";
+            this.companyName = "";
+            this.recipientType = recipientType;
+            this.jobTitle = "";
+            this.emailAddress = "";
+            this.groupName = groupName;
         }
 
 

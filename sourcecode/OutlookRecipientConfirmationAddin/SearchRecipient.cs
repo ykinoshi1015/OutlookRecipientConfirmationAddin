@@ -23,11 +23,11 @@ namespace OutlookRecipientConfirmationAddin
         public List<RecipientInformationDto> SearchContact(List<Recipient> recipientsList)
         {
 
-        /// 検索結果の宛先情報のリスト
-        List<RecipientInformationDto> _recipientInformationList = new List<RecipientInformationDto>();
+            /// 検索結果の宛先情報のリスト
+            List<RecipientInformationDto> _recipientInformationList = new List<RecipientInformationDto>();
 
-        /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
-        ContactFactory contactFactory = new ContactFactory();
+            /// ファクトリオブジェクトに連絡先クラスのインスタンスの生成をしてもらう
+            ContactFactory contactFactory = new ContactFactory();
             List<IContact> contactList = contactFactory.CreateContacts();
 
             /// ある1人の受信者の宛先情報を取得する
@@ -38,21 +38,33 @@ namespace OutlookRecipientConfirmationAddin
                 /// それぞれの連絡先クラスで検索する
                 foreach (var item in contactList)
                 {
-                    ContactItem contactItem = item.getContactItem(recipient);
-
-                    /// 送信先アドレスからその人の情報が見つかれば、名、部署、会社名、タイプをDtoにセット
-                    if (contactItem != null)
+                    try
                     {
-                        /// 表示する役職ならDtoに入れる、違えば空文字を入れる
-                        string jobTitle = contactItem.JobTitle;
-                        if (TANTOU.Equals(contactItem.JobTitle) || contactItem.JobTitle == null)
+                        ContactItem contactItem = item.getContactItem(recipient);
+
+
+                        /// 送信先アドレスからその人の情報が見つかれば、名、部署、会社名、タイプをDtoにセット
+                        if (contactItem != null)
                         {
-                            jobTitle = "";
+                            /// 表示する役職ならDtoに入れる、違えば空文字を入れる
+                            string jobTitle = contactItem.JobTitle;
+                            if (TANTOU.Equals(contactItem.JobTitle) || contactItem.JobTitle == null)
+                            {
+                                jobTitle = "";
+                            }
+                            recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, (OlMailRecipientType)recipient.Type);
+                            break;
                         }
-                        recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, (OlMailRecipientType)recipient.Type);
-                        break;
+
+                    }
+                    /// グループアドレスの時はこっち
+                    catch (System.Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        recipientInformation = new RecipientInformationDto((OlMailRecipientType)recipient.Type, recipient.Name);
                     }
                 }
+
                 if (recipientInformation == null)
                 {
                     recipientInformation = new RecipientInformationDto(recipient.Address, (OlMailRecipientType)recipient.Type);
