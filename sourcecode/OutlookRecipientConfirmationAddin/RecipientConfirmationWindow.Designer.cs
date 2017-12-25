@@ -39,9 +39,9 @@
             // 
             this.OK.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OK.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.OK.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.OK.ForeColor = System.Drawing.Color.Black;
-            this.OK.Location = new System.Drawing.Point(779, 348);
+            this.OK.Location = new System.Drawing.Point(801, 348);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(80, 30);
             this.OK.TabIndex = 0;
@@ -53,8 +53,8 @@
             // 
             this.Cancel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.Cancel.Location = new System.Drawing.Point(886, 348);
+            this.Cancel.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Cancel.Location = new System.Drawing.Point(911, 348);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(80, 30);
             this.Cancel.TabIndex = 1;
@@ -67,7 +67,7 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox1.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.textBox1.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBox1.Location = new System.Drawing.Point(12, 46);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -79,10 +79,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 20);
+            this.label1.Size = new System.Drawing.Size(212, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "以下の宛先に送信してよろしいですか？";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -113,7 +113,7 @@
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "RecipientConfirmationWindow";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
