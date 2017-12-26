@@ -16,21 +16,30 @@ namespace OutlookRecipientConfirmationAddin
         {
             string formattedRecipient;
 
-            /// 受信者の情報が見つかったとき
-            if (recipientInformation.fullName != null && !recipientInformation.fullName.Equals(""))
+            /// 名前を表示するとき
+            if (!recipientInformation.fullName.Equals(""))
             {
-                formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipientInformation.fullName, recipientInformation.jobTitle, recipientInformation.division, recipientInformation.companyName);
+                /// Exchangeアドレス帳で受信者の情報が見つかったとき
+                if (recipientInformation.division != null)
+                {
+                    formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipientInformation.fullName, recipientInformation.jobTitle, recipientInformation.division, recipientInformation.companyName);
+                }
+                /// グループ名のみを表示するとき
+                else
+                {
+                    formattedRecipient = recipientInformation.fullName;
+                }
             }
-            /// グループアドレスの場合、グループ名を表示する
-            else if (!recipientInformation.groupName.Equals(""))
+            /// SearchRecipientのループで例外が起き、recipient.Nameを表示するとき
+            else if (!recipientInformation.name.Equals(""))
             {
-                formattedRecipient = recipientInformation.groupName;
+                formattedRecipient = recipientInformation.name;
             }
             /// 受信者の情報が見つからなかったとき
             else
             {
                 /// アドレスだけ表示する
-                    formattedRecipient = recipientInformation.emailAddress;
+                formattedRecipient = recipientInformation.emailAddress;
             }
 
             return formattedRecipient;

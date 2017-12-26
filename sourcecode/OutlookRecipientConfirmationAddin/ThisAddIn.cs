@@ -108,7 +108,7 @@ namespace OutlookRecipientConfirmationAddin
             /// 何らかのエラーが発生したらイベントをキャンセルする
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
                 Cancel = true;
             }
 

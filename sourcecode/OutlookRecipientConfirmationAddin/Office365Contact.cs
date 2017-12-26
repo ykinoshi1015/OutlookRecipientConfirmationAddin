@@ -25,26 +25,33 @@ namespace OutlookRecipientConfirmationAddin
 
             //Exchangeアドレス帳から選択されたユーザーの場合
             ExchangeUser exchUser = recipient.AddressEntry.GetExchangeUser();
-            
+
             if (exchUser == null)
             {
-                    //ローカルのアドレス帳から選択されたユーザーの場合(お気に入りリストなど)
+                /// グループアドレスの場合
+                if (OlAddressEntryUserType.olExchangeDistributionListAddressEntry == recipient.AddressEntry.AddressEntryUserType)
+                {
+                    /// グループ名を入れる
+                    contactItem = Globals.ThisAddIn.Application.CreateItem(OlItemType.olContactItem);
+                    contactItem.FullName = recipient.Name;
+                }
+                //ローカルのアドレス帳から選択されたユーザーの場合(お気に入りリストなど)
+                else
+                {
                     Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(recipient.Address);
                     exchUser = recResolve.AddressEntry.GetExchangeUser();
-
+                }
 
             }
-            
             /// ExchangeUserが見つかれば、ContactItemに入れる
-            if (exchUser != null)
-            {
+            else {
                 contactItem = Globals.ThisAddIn.Application.CreateItem(OlItemType.olContactItem);
                 contactItem.FullName = exchUser.Name;
                 contactItem.CompanyName = exchUser.CompanyName;
                 contactItem.Department = exchUser.Department;
                 contactItem.JobTitle = exchUser.JobTitle;
             }
-            
+
             return contactItem;
         }
 

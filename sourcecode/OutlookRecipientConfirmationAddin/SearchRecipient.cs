@@ -57,7 +57,7 @@ namespace OutlookRecipientConfirmationAddin
                         }
 
                     }
-                    /// グループアドレスの時はこっち
+                    /// 例外が発生した場合、Nameを表示する
                     catch (System.Exception ex)
                     {
                         Console.WriteLine(ex.Message);
