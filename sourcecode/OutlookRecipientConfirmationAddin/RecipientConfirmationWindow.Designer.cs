@@ -90,13 +90,13 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.linkLabel1.Location = new System.Drawing.Point(30, 348);
+            this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.linkLabel1.Location = new System.Drawing.Point(9, 363);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(57, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(47, 15);
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "提供元";
+            this.linkLabel1.Text = "GitHub";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // RecipientConfirmationWindow
