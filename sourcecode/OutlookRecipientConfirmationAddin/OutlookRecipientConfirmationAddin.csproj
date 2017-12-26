@@ -34,13 +34,13 @@
     <PublishUrl>..\..\publish\</PublishUrl>
     <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/develop/publish/</InstallUrl>
     <TargetCulture>ja</TargetCulture>
-    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <ApplicationVersion>1.0.0.5</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>OutlookRecipientConfirmationAddin</ProductName>
-    <PublisherName />
+    <PublisherName>RITS 中西悠菜&amp;木下康行</PublisherName>
     <SupportUrl />
     <FriendlyName>OutlookRecipientConfirmationAddin</FriendlyName>
     <OfficeApplicationDescription />
@@ -244,7 +244,7 @@
     <ManifestKeyFile>OutlookRecipientConfirmationAddin.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C54029ECF028FABE9429F1E48EB30E6BADE017ED</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A71A445344E7B5AEEE5694EB9BB39092A9D45CF7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
