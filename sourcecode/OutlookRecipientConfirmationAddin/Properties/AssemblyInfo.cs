@@ -9,7 +9,7 @@ using System.Security;
 [assembly: AssemblyTitle("OutlookRecipientConfirmationAddin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("RITS 中西悠菜/木下康行")]
 [assembly: AssemblyProduct("OutlookRecipientConfirmationAddin")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
