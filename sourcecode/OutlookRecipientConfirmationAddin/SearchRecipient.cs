@@ -35,13 +35,12 @@ namespace OutlookRecipientConfirmationAddin
             {
                 RecipientInformationDto recipientInformation = null;
 
-                /// それぞれの連絡先クラスで検索する
-                foreach (var item in contactList)
+                try
                 {
-                    try
+                    /// それぞれの連絡先クラスで検索する
+                    foreach (var item in contactList)
                     {
                         ContactItem contactItem = item.getContactItem(recipient);
-
 
                         /// 送信先アドレスからその人の情報が見つかれば、名、部署、会社名、タイプをDtoにセット
                         if (contactItem != null)
@@ -55,21 +54,22 @@ namespace OutlookRecipientConfirmationAddin
                             recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, (OlMailRecipientType)recipient.Type);
                             break;
                         }
-
                     }
-                    /// 例外が発生した場合、Nameを表示する
-                    catch (System.Exception ex)
+
+                    if (recipientInformation == null)
                     {
-                        Console.WriteLine(ex.Message);
-                        recipientInformation = new RecipientInformationDto((OlMailRecipientType)recipient.Type, recipient.Name);
+                        recipientInformation = new RecipientInformationDto(recipient.Address, (OlMailRecipientType)recipient.Type);
                     }
-                }
+                    _recipientInformationList.Add(recipientInformation);
 
-                if (recipientInformation == null)
-                {
-                    recipientInformation = new RecipientInformationDto(recipient.Address, (OlMailRecipientType)recipient.Type);
                 }
-                _recipientInformationList.Add(recipientInformation);
+                /// 例外が発生した場合、Nameを表示する
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    recipientInformation = new RecipientInformationDto(recipient.Name, (OlMailRecipientType)recipient.Type);
+                    _recipientInformationList.Add(recipientInformation);
+                }
             }
 
             return _recipientInformationList;

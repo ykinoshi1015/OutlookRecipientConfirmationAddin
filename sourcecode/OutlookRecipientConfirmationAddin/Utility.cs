@@ -30,12 +30,7 @@ namespace OutlookRecipientConfirmationAddin
                     formattedRecipient = recipientInformation.fullName;
                 }
             }
-            /// SearchRecipientのループで例外が起き、recipient.Nameを表示するとき
-            else if (!recipientInformation.name.Equals(""))
-            {
-                formattedRecipient = recipientInformation.name;
-            }
-            /// 受信者の情報が見つからなかったとき
+            /// 受信者の情報が見つからなかったとき、例外のとき
             else
             {
                 /// アドレスだけ表示する

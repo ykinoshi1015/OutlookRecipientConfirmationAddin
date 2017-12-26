@@ -41,9 +41,9 @@
             this.OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OK.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.OK.ForeColor = System.Drawing.Color.Black;
-            this.OK.Location = new System.Drawing.Point(801, 348);
+            this.OK.Location = new System.Drawing.Point(766, 348);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(80, 30);
+            this.OK.Size = new System.Drawing.Size(105, 35);
             this.OK.TabIndex = 0;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
@@ -54,9 +54,9 @@
             this.Cancel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Cancel.Location = new System.Drawing.Point(911, 348);
+            this.Cancel.Location = new System.Drawing.Point(887, 348);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(80, 30);
+            this.Cancel.Size = new System.Drawing.Size(105, 35);
             this.Cancel.TabIndex = 1;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 17);
+            this.label1.Size = new System.Drawing.Size(323, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "以下の宛先に送信してよろしいですか？";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -93,7 +93,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.linkLabel1.Location = new System.Drawing.Point(9, 363);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(47, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(70, 23);
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "GitHub";
