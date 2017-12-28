@@ -3,7 +3,7 @@
 
 Outlook Recipient Confirmation Add-In、通称Outlook宛先表示アドイン。  
 
-メールを送信する際の宛先表示機能を、デスクトップ版 Outlook2016でも使えるよう開発されました。  
+メールを送信する際の宛先表示機能を、デスクトップ版 Outlook2016で使えるよう開発されました。  
 新しいバージョンも随時リリース予定です。
 
 
@@ -11,9 +11,13 @@ Outlook Recipient Confirmation Add-In、通称Outlook宛先表示アドイン。
 
 Outlookでメッセージの送信ボタンを押すと、以下のような宛先確認画面が表示されます。  
 
+確認画面で宛先を確認することで、メッセージの誤送信を防ぎます。
+
 ![readme_feature1](https://user-images.githubusercontent.com/29644865/34400946-fc5d14a6-ebd9-11e7-8489-f28e15b9d552.PNG)
 
 ## 必要条件
+
+Outlook宛先表示アドインには、以下の環境が必要です。
 
 *  Windows7またはWindows10
 *  **デスクトップ版** Outlook2016
@@ -41,8 +45,6 @@ Outlookでメッセージの送信ボタンを押すと、以下のような宛�
 ![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
 
 
-
-
 **お疲れ様でした:smiley:**  
 
 Outlook2016を起動すると、アドインが有効になります。  
@@ -51,5 +53,5 @@ Outlook2016を起動すると、アドインが有効になります。
 
 ## お問い合わせ
 
-バグや、改善点などご意見がありましたら、下記までご連絡お願いします 
+バグや、改善点などご意見がありましたら、下記までご連絡お願いします。 
 * yuna.nakanishi@jrits.ricoh.co.jp
