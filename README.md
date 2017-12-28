@@ -34,17 +34,19 @@ Outlookでメッセージの送信ボタンを押すと、以下のような宛�
 
 5. 詳細情報を押し、実行を選択します  
 ![readme_installation_protected](https://user-images.githubusercontent.com/29644865/34401202-666ff35c-ebdc-11e7-94b9-7651b27cb630.PNG)
-
-  ![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/34402338-31ab1e6e-ebe4-11e7-84cc-6d8a39125450.PNG)
+![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/34402338-31ab1e6e-ebe4-11e7-84cc-6d8a39125450.PNG)
 
 
 6. この画面が表示されたら、インストール完了です  
 ![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
 
-**お疲れ様でした**  
 
-Outlook2016を起動すると、アドインが有効になります  
-すでに開いている場合は再度開き直してください
+
+
+**お疲れ様でした:smiley:**  
+
+Outlook2016を起動すると、アドインが有効になります。  
+すでに開いている場合は、再度開き直してください。
 
 
 ## お問い合わせ
