@@ -9,7 +9,7 @@ Outlook Recipient Confirmation Add-In、通称Outlook宛先表示アドイン。
 
 ## 機能
 
-Outlookでメッセージの送信ボタンを押すと、以下のような宛先確認画面が表示されます。  
+Outlook宛先表示アドインを追加することにより、Outlookでメッセージの送信ボタンを押すと、以下のような宛先確認画面が表示されるようになります。  
 
 確認画面で宛先を確認することで、メッセージの誤送信を防ぎます。
 
@@ -45,7 +45,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 ![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
 
 
-**お疲れ様でした:smiley:**  
+**お疲れ様でした**  :smiley:
 
 Outlook2016を起動すると、アドインが有効になります。  
 すでに開いている場合は、再度開き直してください。
