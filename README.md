@@ -1,45 +1,53 @@
-# Outlookˆ¶æ•\¦ƒAƒhƒCƒ“
+# Outlookå®›å…ˆè¡¨ç¤ºã‚¢ãƒ‰ã‚¤ãƒ³
 
 
-Outlook Recipient Confirmation Add-InA’ÊÌOutlookˆ¶æ•\¦ƒAƒhƒCƒ“B  
+Outlook Recipient Confirmation Add-Inã€é€šç§°Outlookå®›å…ˆè¡¨ç¤ºã‚¢ãƒ‰ã‚¤ãƒ³ã€‚  
 
-ƒ[ƒ‹‚ğ‘—M‚·‚éÛ‚Ìˆ¶æ•\¦‹@”\‚ğAƒfƒXƒNƒgƒbƒv”Å Outlook2016‚Å‚àg‚¦‚é‚æ‚¤ŠJ”­‚³‚ê‚Ü‚µ‚½B  
-V‚µ‚¢ƒo[ƒWƒ‡ƒ“‚àƒŠƒŠ[ƒX—\’è‚Å‚·B
+ãƒ¡ãƒ¼ãƒ«ã‚’é€ä¿¡ã™ã‚‹éš›ã®å®›å…ˆè¡¨ç¤ºæ©Ÿèƒ½ã‚’ã€ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ç‰ˆ Outlook2016ã§ã‚‚ä½¿ãˆã‚‹ã‚ˆã†é–‹ç™ºã•ã‚Œã¾ã—ãŸã€‚  
+æ–°ã—ã„ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚‚éšæ™‚ãƒªãƒªãƒ¼ã‚¹äºˆå®šã§ã™ã€‚
 
 
-## ‹@”\
+## æ©Ÿèƒ½
 
-Outlook‚ÅƒƒbƒZ[ƒW‚Ì‘—Mƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆAˆÈ‰º‚Ì‚æ‚¤‚Èˆ¶æŠm”F‰æ–Ê‚ª•\¦‚³‚ê‚Ü‚·B  
+Outlookã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®é€ä¿¡ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã€ä»¥ä¸‹ã®ã‚ˆã†ãªå®›å…ˆç¢ºèªç”»é¢ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚  
 
 ![readme_feature1](https://user-images.githubusercontent.com/29644865/34400946-fc5d14a6-ebd9-11e7-8489-f28e15b9d552.PNG)
 
-## ƒCƒ“ƒXƒg[ƒ‹è‡
+## å¿…è¦æ¡ä»¶
 
-* ƒuƒ‰ƒ“ƒ`‚Ìƒvƒ‹ƒ_ƒEƒ“‚©‚çAdevelop‚ğ‘I‘ğ‚µ‚Ü‚·  
+*  Windows7ã¾ãŸã¯Windows10
+*  **ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ç‰ˆ** Outlook2016
+
+## ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«æ‰‹é †
+
+1. ãƒ–ãƒ©ãƒ³ãƒã®ãƒ—ãƒ«ãƒ€ã‚¦ãƒ³ã‹ã‚‰ã€developã‚’é¸æŠã—ã¾ã™  
 ![readme_installation_branch](https://user-images.githubusercontent.com/29644865/34401053-0e0cf6fc-ebdb-11e7-8c8b-e5d6b3839ac8.PNG)
 
-* setupƒtƒHƒ‹ƒ_‚ğƒNƒŠƒbƒN‚µ‚Ü‚·  
+2. setupãƒ•ã‚©ãƒ«ãƒ€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¾ã™  
 ![readme_installation_setupfolder](https://user-images.githubusercontent.com/29644865/34401084-5e808a04-ebdb-11e7-86d1-d8c645cee6cb.PNG)
 
-* setup.zip‚ğƒNƒŠƒbƒN‚µADownloadƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·  
+3. setup.zipã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã€Downloadãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¾ã™  
 ![readme_installation_setup zip](https://user-images.githubusercontent.com/29644865/34401117-aec2321a-ebdb-11e7-80c8-ef7945369371.PNG)
 
-* setup.zip‚ªƒ_ƒEƒ“ƒ[ƒh‚³‚ê‚é‚Ì‚ÅA“WŠJ‚µAsetup.bat‚ğŠÇ—Ò‚Æ‚µ‚ÄÀs‚µ‚Ü‚·  
+4. setup.zipãŒãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹ã®ã§ã€å±•é–‹ã—ã€setup.batã‚’**ç®¡ç†è€…ã¨ã—ã¦å®Ÿè¡Œ**ã—ã¾ã™  
 ![readme_installation_execute](https://user-images.githubusercontent.com/29644865/34401169-270d4bb0-ebdc-11e7-880c-fc8c719df1a9.PNG)
 
-* Ú×î•ñ‚ğ‰Ÿ‚µAÀs‚ğ‘I‘ğ‚µ‚Ü‚·  
+5. è©³ç´°æƒ…å ±ã‚’æŠ¼ã—ã€å®Ÿè¡Œã‚’é¸æŠã—ã¾ã™  
 ![readme_installation_protected](https://user-images.githubusercontent.com/29644865/34401202-666ff35c-ebdc-11e7-94b9-7651b27cb630.PNG)
 
-![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/34402338-31ab1e6e-ebe4-11e7-84cc-6d8a39125450.PNG)
+  ![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/34402338-31ab1e6e-ebe4-11e7-84cc-6d8a39125450.PNG)
 
 
-* ‚±‚Ì‰æ–Ê‚ª•\¦‚³‚ê‚½‚çAƒCƒ“ƒXƒg[ƒ‹Š®—¹‚Å‚·  
+6. ã“ã®ç”»é¢ãŒè¡¨ç¤ºã•ã‚ŒãŸã‚‰ã€ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å®Œäº†ã§ã™  
 ![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
 
-* ƒfƒXƒNƒgƒbƒv”Å Outlook2016‚ğ‹N“®‚·‚é‚Æi‚·‚Å‚ÉŠJ‚¢‚Ä‚¢‚éê‡‚ÍÄ“xŠJ‚«‚È‚¨‚·jAƒAƒhƒCƒ“‚ª—LŒø‚É‚È‚è‚Ü‚·  
+**ãŠç–²ã‚Œæ§˜ã§ã—ãŸ**  
+
+Outlook2016ã‚’èµ·å‹•ã™ã‚‹ã¨ã€ã‚¢ãƒ‰ã‚¤ãƒ³ãŒæœ‰åŠ¹ã«ãªã‚Šã¾ã™  
+ã™ã§ã«é–‹ã„ã¦ã„ã‚‹å ´åˆã¯å†åº¦é–‹ãç›´ã—ã¦ãã ã•ã„
 
 
-## ‚¨–â‚¢‡‚í‚¹
+## ãŠå•ã„åˆã‚ã›
 
-ƒoƒO‚âA‰ü‘P“_‚È‚Ç‚Ì‚²ˆÓŒ©‚ª‚ ‚è‚Ü‚µ‚½‚çA  
-*‚Ç‚¤‚·‚éHHH
+ãƒã‚°ã‚„ã€æ”¹å–„ç‚¹ãªã©ã”æ„è¦‹ãŒã‚ã‚Šã¾ã—ãŸã‚‰ã€ä¸‹è¨˜ã¾ã§ã”é€£çµ¡ãŠé¡˜ã„ã—ã¾ã™ 
+* yuna.nakanishi@jrits.ricoh.co.jp
