@@ -24,8 +24,8 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 
 ## インストール手順
 
-1. ブランチのプルダウンから、developを選択します  
-![readme_installation_branch](https://user-images.githubusercontent.com/29644865/34401053-0e0cf6fc-ebdb-11e7-8c8b-e5d6b3839ac8.PNG)
+1. ブランチのプルダウンが、masterであることを確認します  
+![readme_installation_master](https://user-images.githubusercontent.com/29644865/34702296-49e9c8cc-f530-11e7-967e-53392e39e19a.PNG)
 
 2. setupフォルダをクリックします  
 ![readme_installation_setupfolder](https://user-images.githubusercontent.com/29644865/34401084-5e808a04-ebdb-11e7-86d1-d8c645cee6cb.PNG)
@@ -33,7 +33,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 3. setup.zipをクリックし、Downloadボタンを押します  
 ![readme_installation_setup zip](https://user-images.githubusercontent.com/29644865/34401117-aec2321a-ebdb-11e7-80c8-ef7945369371.PNG)
 
-4. setup.zipがダウンロードされるので、展開し、setup.batを**管理者として実行**します  
+4. setup.zipがダウンロードされるので、zip展開し、setup.batを**管理者として実行**します  
 ![readme_installation_execute](https://user-images.githubusercontent.com/29644865/34401169-270d4bb0-ebdc-11e7-880c-fc8c719df1a9.PNG)
 
 5. 詳細情報を押し、実行を選択します  
@@ -42,7 +42,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 
 
 6. この画面が表示されたら、インストール完了です  
-![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
+![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34702265-2c3cde54-f530-11e7-9201-80bf9d8d00f4.PNG)
 
 
 **お疲れ様でした**  :smiley:
