@@ -53,5 +53,10 @@ Outlook2016を起動すると、アドインが有効になります。
 
 ## お問い合わせ
 
-バグや、改善点などご意見がありましたら、下記までご連絡お願いします。 
-* yuna.nakanishi@jrits.ricoh.co.jp
+バグや、改善点などご意見がありましたら、下記よりお問い合わせください。  
+
+RICROSS - Office365Outlook宛先確認アドイン グループ  
+https://sns.ricoh.jp/groups/office365outlook%E5%AE%9B%E5%85%88%E7%A2%BA%E8%AA%8D%E3%82%A2%E3%83%89%E3%82%A4%E3%83%B3
+
+
+
