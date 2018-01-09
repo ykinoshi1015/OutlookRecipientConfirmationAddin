@@ -25,7 +25,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 ## インストール手順
 
 1. ブランチのプルダウンが、masterであることを確認します  
-![readme_installation_master](https://user-images.githubusercontent.com/29644865/34702296-49e9c8cc-f530-11e7-967e-53392e39e19a.PNG)
+![readme_installation_master](https://user-images.githubusercontent.com/29644865/34702423-f928fa10-f530-11e7-801b-84c7e48eec0e.PNG)
 
 2. setupフォルダをクリックします  
 ![readme_installation_setupfolder](https://user-images.githubusercontent.com/29644865/34401084-5e808a04-ebdb-11e7-86d1-d8c645cee6cb.PNG)
