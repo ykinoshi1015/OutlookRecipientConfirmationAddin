@@ -25,22 +25,21 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 
 ## インストール手順
 
-2. setupフォルダをクリックします  
-![readme_installation_setupfolder](https://user-images.githubusercontent.com/29644865/34401084-5e808a04-ebdb-11e7-86d1-d8c645cee6cb.PNG)
+1. setupフォルダをクリックします  
+![readme_installation_setupfolder](https://user-images.githubusercontent.com/34431835/34713370-6470b122-f569-11e7-91a5-a9a3107010cd.PNG)
 
-3. setup.zipをクリックし、Downloadボタンを押します  
+2. setup.zipをクリックし、Downloadボタンを押します  
 ![readme_installation_setup zip](https://user-images.githubusercontent.com/29644865/34401117-aec2321a-ebdb-11e7-80c8-ef7945369371.PNG)
 
-4. setup.zipがダウンロードされるので、**すべて展開(解凍)し**、setup.cmdをダブルクリックします  
+34. setup.zipがダウンロードされるので、**すべて展開(解凍)し**、setup.cmdをダブルクリックします  
 ![setupcmd](https://user-images.githubusercontent.com/34431835/34712849-a20a93e2-f567-11e7-9f98-0b12769f2cfb.PNG)
 
-5. 詳細情報を押し、実行を選択します  
+4. 詳細情報を押し、実行を選択します  
 ![readme_installation_protected](https://user-images.githubusercontent.com/29644865/34401202-666ff35c-ebdc-11e7-94b9-7651b27cb630.PNG)
 ![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/34402338-31ab1e6e-ebe4-11e7-84cc-6d8a39125450.PNG)
 
-
-6. この画面が表示されたら、インストール完了です  
-![readme_installation_completed](https://user-images.githubusercontent.com/29644865/34401248-e5422092-ebdc-11e7-93a2-690d077cb094.PNG)
+5. この画面が表示されたら、インストール完了です  
+![readme_installation_completed](https://user-images.githubusercontent.com/34431835/34713423-8d34e07e-f569-11e7-89d4-8d592634326e.PNG)
 
 
 **お疲れ様でした**  :smiley:
