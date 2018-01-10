@@ -51,8 +51,10 @@ namespace OutlookRecipientConfirmationAddin
         {
             try
             {
+                RecipientConfirmationWindow.SendType itemType = RecipientConfirmationWindow.SendType.Mail;
+
                 /// メールでも会議招集でもなければ、そのまま送信する
-                Outlook.Recipients recipients = getRecipients(Item);                
+                Outlook.Recipients recipients = getRecipients(Item, ref itemType);                
                 if (recipients == null)
                 {
                     return;
@@ -99,7 +101,7 @@ namespace OutlookRecipientConfirmationAddin
                 }
 
                 /// 引数に宛先詳細を渡し、確認フォームを表示する
-                RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(formattedToList, formattedCcList, formattedBccList);
+                RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(itemType, formattedToList, formattedCcList, formattedBccList);
                 DialogResult result = recipientConfirmationWindow.ShowDialog();
 
                 /// 画面でOK以外が選択された場合
@@ -122,7 +124,7 @@ namespace OutlookRecipientConfirmationAddin
         /// </summary>
         /// <param name="item"></param>
         /// <returns>Recipientsインスタンス(nullの場合メールでも会議でもない)</returns>
-        private Outlook.Recipients getRecipients(object Item)
+        private Outlook.Recipients getRecipients(object Item, ref RecipientConfirmationWindow.SendType type)
         {
             Outlook.Recipients recipients = null;
 
@@ -130,6 +132,7 @@ namespace OutlookRecipientConfirmationAddin
             if (mail != null)
             {
                 recipients = mail.Recipients;
+                type = RecipientConfirmationWindow.SendType.Mail;
             }
             else
             {
@@ -137,6 +140,7 @@ namespace OutlookRecipientConfirmationAddin
                 if (meeting != null)
                 {
                     recipients = meeting.Recipients;
+                    type = RecipientConfirmationWindow.SendType.Meeting;
                 }
             }
             return recipients;
