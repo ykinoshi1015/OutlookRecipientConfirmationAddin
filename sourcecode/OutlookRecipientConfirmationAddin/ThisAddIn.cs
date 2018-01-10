@@ -51,12 +51,16 @@ namespace OutlookRecipientConfirmationAddin
         {
             try
             {
-
-                Outlook.MailItem mail = Item as Outlook.MailItem;
+                /// メールでも会議招集でもなければ、そのまま送信する
+                Outlook.Recipients recipients = getRecipients(Item);                
+                if (recipients == null)
+                {
+                    return;
+                }
 
                 /// 受信者の情報をリストする
                 List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-                foreach (Outlook.Recipient recipient in mail.Recipients)
+                foreach (Outlook.Recipient recipient in recipients)
                 {
                     recipientsList.Add(recipient);
                 }
@@ -111,9 +115,31 @@ namespace OutlookRecipientConfirmationAddin
                 Console.WriteLine(ex.Message);
                 Cancel = true;
             }
+        }
 
+        /// <summary>
+        /// ItemからMailItem or MettingItemのRecipientsの取得する
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>Recipientsインスタンス(nullの場合メールでも会議でもない)</returns>
+        private Outlook.Recipients getRecipients(object Item)
+        {
+            Outlook.Recipients recipients = null;
 
-
+            Outlook.MailItem mail = Item as Outlook.MailItem;
+            if (mail != null)
+            {
+                recipients = mail.Recipients;
+            }
+            else
+            {
+                Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
+                if (meeting != null)
+                {
+                    recipients = meeting.Recipients;
+                }
+            }
+            return recipients;
         }
     }
 }
