@@ -32,9 +32,9 @@
     <IsWebBootstrapper>True</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>..\..\publish\</PublishUrl>
-    <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/develop/publish/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/release/v1.0.0.4/publish/</InstallUrl>
     <TargetCulture>ja</TargetCulture>
-    <ApplicationVersion>1.0.0.11</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
