@@ -34,7 +34,7 @@
     <PublishUrl>..\..\publish\</PublishUrl>
     <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/master/publish/</InstallUrl>
     <TargetCulture>ja</TargetCulture>
-    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>

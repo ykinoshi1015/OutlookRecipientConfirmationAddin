@@ -28,19 +28,16 @@ namespace OutlookRecipientConfirmationAddin
                 return contactItem;
             }
 
-            ExchangeUser exchUser = null;
+            /// Exchangeアドレス帳から選択されたユーザーの場合は、ここで取得
+            ExchangeUser exchUser = recipient.AddressEntry.GetExchangeUser();
 
-            ///Outlook連絡先フォルダーのアドレスエントリの場合
-            if (OlAddressEntryUserType.olOutlookContactAddressEntry == recipient.AddressEntry.AddressEntryUserType)
+            /// それ以外の場合
+            /// （Outlook連絡先フォルダーのアドレスエントリ、もしくはNotesのクラウドメールアドレスからの受信メールに返信する際のアドレスエントリの場合など）
+            if (exchUser == null)
             {
                 Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(recipient.Address);
                 /// Exchangeアドレス帳に存在するアドレスなら、exchUserが見つかる
                 exchUser = recResolve.AddressEntry.GetExchangeUser();
-            }
-            /// Exchangeアドレス帳から選択されたユーザーの場合
-            else
-            {
-                exchUser = recipient.AddressEntry.GetExchangeUser();
             }
 
             /// ExchangeUserが見つかれば、ContactItemに入れる
