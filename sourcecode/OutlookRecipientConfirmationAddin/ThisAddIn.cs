@@ -18,8 +18,13 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="e"></param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            /// 送信イベントの時
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
-            /// 更新✅　10行でできる？！
+
+            /// 選択されるアイテムが変わる時
+            ///Outlook.Explorer currentExplorer = this.Application.ActiveExplorer();
+            ///currentExplorer.SelectionChange += new Outlook.ExplorerEvents_10_SelectionChangeEventHandler(CurrentExplorer_Event);
+
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -153,6 +158,53 @@ namespace OutlookRecipientConfirmationAddin
         protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
         {
             return new RecipientListRibbon();
+        }
+
+        /// <summary>
+        /// 選択されているアイテムの受信者を取得する
+        /// </summary>
+        private void CurrentExplorer_Event()
+        {
+            Outlook.MAPIFolder selectedFolder = this.Application.ActiveExplorer().CurrentFolder;
+
+            String expMessage = "Your current folder is " + selectedFolder.Name + ".\n";
+
+            try
+            {
+                /// アイテムが1個選択されている
+                if (this.Application.ActiveExplorer().Selection.Count == 1)
+                {
+                    Object selectedObject = this.Application.ActiveExplorer().Selection[1];
+
+                    Outlook.Recipients recipients = null;
+
+                    /// 表示しているのがMailItemの場合
+                    if (selectedObject is Outlook.MailItem)
+                    {
+                        Outlook.MailItem mail = (selectedObject as Outlook.MailItem);
+                        recipients = mail.Recipients;
+                        RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
+                    }
+
+                    //↓サンプルにはあった
+                    //else if (selObject is Outlook.ContactItem)
+                    //else if (selObject is Outlook.AppointmentItem)
+                    //else if (selObject is Outlook.TaskItem)
+
+                    /// 表示しているのがMeetingItemの場合（会議の開催通知）
+                    else if (selectedObject is Outlook.MeetingItem)
+                    {
+                        Outlook.MeetingItem meeting = (selectedObject as Outlook.MeetingItem);
+                        recipients = meeting.Recipients;
+                        RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Meeting;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 // TODO:  リボン (XML) アイテムを有効にするには、次の手順に従います。
 
@@ -46,7 +47,7 @@ namespace OutlookRecipientConfirmationAddin
 
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
-                this.ribbon = ribbonUI;
+            this.ribbon = ribbonUI;
 
         }
 
@@ -61,19 +62,55 @@ namespace OutlookRecipientConfirmationAddin
             try
             {
 
-            Microsoft.Office.Interop.Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
+                Microsoft.Office.Interop.Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
 
-            var explorer = Globals.ThisAddIn.Application.ActiveExplorer();
-            Microsoft.Office.Interop.Outlook.Selection selection = explorer.Selection;
-            Microsoft.Office.Interop.Outlook.MailItem mailItem = selection[1];
+                var explorer = Globals.ThisAddIn.Application.ActiveExplorer();
+                Microsoft.Office.Interop.Outlook.Selection selection = explorer.Selection;
+                object selectedItem = selection[1];
 
-            string str = mailItem.To;
+                ///string str = mailItem.To;
+               
+                ///とりあえずmailにしてみた
+                RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
 
-            /// 宛先リストの画面を表示する
-            RecipientListWindow recipientListWindow = new RecipientListWindow();
-            DialogResult result = recipientListWindow.ShowDialog();
 
- 
+                Outlook.Recipients recipients = null;
+                Outlook.MailItem mail = selectedItem as Outlook.MailItem;
+
+                if (selectedItem != null)
+                {
+                    recipients = mail.Recipients;
+                    type = RecipientConfirmationWindow.SendType.Mail;
+                }
+                else
+                {
+                    Outlook.MeetingItem meeting = selectedItem as Outlook.MeetingItem;
+                    if (meeting != null)
+                    {
+                        recipients = meeting.Recipients;
+                        type = RecipientConfirmationWindow.SendType.Meeting;
+                    }
+                }
+
+                /// 受信者の情報をリストする
+                List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
+                foreach (Outlook.Recipient recipient in recipients)
+                {
+                    recipientsList.Add(recipient);
+                }
+
+                /// 検索クラスを呼び出す
+                SearchRecipient searchRecipient = new SearchRecipient();
+
+                /// 引数に宛先に指定されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
+                List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
+
+
+                /// 宛先リストの画面を表示する
+                RecipientListWindow recipientListWindow = new RecipientListWindow(type, recipientList);
+                DialogResult result = recipientListWindow.ShowDialog();
+
+
             }
             catch (Exception e)
             {

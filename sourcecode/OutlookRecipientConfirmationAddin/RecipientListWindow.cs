@@ -7,40 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace OutlookRecipientConfirmationAddin
 {
+
     public partial class RecipientListWindow : Form
     {
+        RecipientConfirmationWindow.SendType _type;
+        List<RecipientInformationDto> _recipients;
+
         public RecipientListWindow()
         {
             InitializeComponent();
         }
 
+        public RecipientListWindow(RecipientConfirmationWindow.SendType type, List<RecipientInformationDto> recipients)
+        {
+            InitializeComponent();
+            this._type = type;
+            this._recipients = recipients;
+        }
+
         private void RecipientListWindow_Load(object sender, EventArgs e)
         {
-            //string firstHeader = "", secondHeder = "", thirdHeader = "";
-            //switch (_type)
-            //{
-            //    case SendType.Mail:
-            //        firstHeader = "To";
-            //        secondHeder = "Cc";
-            //        thirdHeader = "Bcc";
-            //        break;
+            string firstHeader = "", secondHeder = "", thirdHeader = "";
+            switch (_type)
+            {
+                case RecipientConfirmationWindow.SendType.Mail:
+                    firstHeader = "To";
+                    secondHeder = "Cc";
+                    thirdHeader = "Bcc";
+                    break;
 
-            //    case SendType.Meeting:
-            //        firstHeader = "参加者";
-            //        secondHeder = "参加者(任意)";
-            //        thirdHeader = "リソース";
-            //        break;
-            //}
+                case RecipientConfirmationWindow.SendType.Meeting:
+                    firstHeader = "参加者";
+                    secondHeder = "参加者(任意)";
+                    thirdHeader = "リソース";
+                    break;
+            }
 
-            //textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, toList.Count());
-            //foreach (var recipients in toList)
-            //{
-            //    textBox1.Text += recipients + "\r\n";
-            //}
-            //textBox1.AppendText("\r\n");
+            textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, 12345);
+            foreach (var recipients in _recipients)
+            {
+                textBox1.Text += recipients + "\r\n";
+            }
+            textBox1.AppendText("\r\n");
 
             //textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", secondHeder, ccList.Count());
             //foreach (var recipients in ccList)
