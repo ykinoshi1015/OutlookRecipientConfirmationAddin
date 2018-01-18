@@ -46,21 +46,39 @@ namespace OutlookRecipientConfirmationAddin
 
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
-            this.ribbon = ribbonUI;
+                this.ribbon = ribbonUI;
 
         }
 
         /// <summary>
         /// 宛先確認ボタンが押された場合
+        /// この中で、そのメールの受信者の一覧を探してきて、次の画面に渡す？
         /// </summary>
         /// <param name="ribbonUI"></param>
         public void RecipientListButton_Click(Office.IRibbonControl ribbonUI)
         {
             /// MessageBox.Show("宛先確認ボタンがおされました");
+            try
+            {
+
+            Microsoft.Office.Interop.Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
+
+            var explorer = Globals.ThisAddIn.Application.ActiveExplorer();
+            Microsoft.Office.Interop.Outlook.Selection selection = explorer.Selection;
+            Microsoft.Office.Interop.Outlook.MailItem mailItem = selection[1];
+
+            string str = mailItem.To;
 
             /// 宛先リストの画面を表示する
             RecipientListWindow recipientListWindow = new RecipientListWindow();
             DialogResult result = recipientListWindow.ShowDialog();
+
+ 
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
 
