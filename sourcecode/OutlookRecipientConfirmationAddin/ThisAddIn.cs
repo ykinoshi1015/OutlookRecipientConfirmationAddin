@@ -54,7 +54,7 @@ namespace OutlookRecipientConfirmationAddin
                 RecipientConfirmationWindow.SendType itemType = RecipientConfirmationWindow.SendType.Mail;
 
                 /// メールでも会議招集でもなければ、そのまま送信する
-                Outlook.Recipients recipients = getRecipients(Item, ref itemType);                
+                Outlook.Recipients recipients = getRecipients(Item, ref itemType);
                 if (recipients == null)
                 {
                     return;
@@ -112,7 +112,7 @@ namespace OutlookRecipientConfirmationAddin
                 }
             }
             /// 何らかのエラーが発生したらイベントをキャンセルする
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Cancel = true;
@@ -144,6 +144,15 @@ namespace OutlookRecipientConfirmationAddin
                 }
             }
             return recipients;
+        }
+
+        /// <summary>
+        /// リボン (XML) アイテムを有効にする
+        /// </summary>
+        /// <returns></returns>
+        protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            return new RecipientListRibbon();
         }
     }
 }

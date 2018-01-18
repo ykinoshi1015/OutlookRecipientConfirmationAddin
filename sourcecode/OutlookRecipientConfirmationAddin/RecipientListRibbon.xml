@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabMail">
+        <group id="RecipientList" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton" label="宛先リスト" size="large" 
+                  onAction="RecipientListButton_Click"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

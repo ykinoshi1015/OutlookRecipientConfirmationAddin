@@ -194,6 +194,13 @@
     <Compile Include="RecipientConfirmationWindow.Designer.cs">
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecipientListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipientListWindow.Designer.cs">
+      <DependentUpon>RecipientListWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecipientListRibbon.cs" />
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -206,6 +213,9 @@
     </Compile>
     <EmbeddedResource Include="RecipientConfirmationWindow.resx">
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipientListWindow.resx">
+      <DependentUpon>RecipientListWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OutlookRecipientConfirmationAddin.pfx" />
     <None Include="OutlookRecipientConfirmationAddin_TemporaryKey.pfx" />
@@ -232,6 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecipientListRibbon.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

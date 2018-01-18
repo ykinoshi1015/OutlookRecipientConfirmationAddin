@@ -82,7 +82,7 @@
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 25);
+            this.label1.Size = new System.Drawing.Size(212, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "以下の宛先に送信してよろしいですか？";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -93,7 +93,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.linkLabel1.Location = new System.Drawing.Point(9, 363);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(70, 23);
+            this.linkLabel1.Size = new System.Drawing.Size(47, 15);
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "GitHub";
