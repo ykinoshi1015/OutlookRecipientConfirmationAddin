@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     public partial class RecipientListWindow : Form
     {
         RecipientConfirmationWindow.SendType _type;
-        List<RecipientInformationDto> _recipients;
+        List<RecipientInformationDto> _recipientsList;
 
         public RecipientListWindow()
         {
@@ -26,11 +26,60 @@ namespace OutlookRecipientConfirmationAddin
         {
             InitializeComponent();
             this._type = type;
-            this._recipients = recipients;
+            this._recipientsList = recipients;
         }
 
         private void RecipientListWindow_Load(object sender, EventArgs e)
         {
+            /// 表示用にフォーマッティングした宛先と、その宛先を入れるリスト
+            string formattedRecipient;
+            List<string> toList = new List<string>();
+            List<string> ccList = new List<string>();
+            List<string> bccList = new List<string>();
+
+
+            /// 宛先をフォーマッティングする
+            foreach (var recipient in _recipientsList)
+            {
+                /// 宛先の何を表示するか
+                /// 名前を表示するとき
+                if (!recipient.fullName.Equals(""))
+                {
+                    /// Exchangeアドレス帳で受信者の情報が見つかったとき
+                    if (recipient.division != null)
+                    {
+                        formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipient.fullName, recipient.jobTitle, recipient.division, recipient.companyName);
+                    }
+                    /// グループ名のみを表示するとき
+                    else
+                    {
+                        formattedRecipient = recipient.fullName;
+                    }
+                }
+                /// 受信者の情報が見つからなかったとき、例外のとき
+                else
+                {
+                    /// アドレスだけ表示する
+                    formattedRecipient = recipient.emailAddress;
+                }
+
+                /// 宛先タイプごとにリストに追加
+                switch (recipient.recipientType)
+                {
+                    case Outlook.OlMailRecipientType.olTo:
+                        toList.Add(formattedRecipient);
+                        break;
+
+                    case Outlook.OlMailRecipientType.olCC:
+                        ccList.Add(formattedRecipient);
+                        break;
+
+                    case Outlook.OlMailRecipientType.olBCC:
+                        bccList.Add(formattedRecipient);
+                        break;
+                }
+            }
+
             string firstHeader = "", secondHeder = "", thirdHeader = "";
             switch (_type)
             {
@@ -47,25 +96,25 @@ namespace OutlookRecipientConfirmationAddin
                     break;
             }
 
-            textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, 12345);
-            foreach (var recipients in _recipients)
+            textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, toList.Count());
+            foreach (var recipient in toList)
             {
-                textBox1.Text += recipients.emailAddress + "\r\n";
+                textBox1.Text += recipient + "\r\n";
             }
             textBox1.AppendText("\r\n");
 
-            //textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", secondHeder, ccList.Count());
-            //foreach (var recipients in ccList)
-            //{
-            //    textBox1.Text += recipients + "\r\n";
-            //}
-            //textBox1.AppendText("\r\n");
+            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", secondHeder, ccList.Count());
+            foreach (var recipient in ccList)
+            {
+                textBox1.Text += recipient + "\r\n";
+            }
+            textBox1.AppendText("\r\n");
 
-            //textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", thirdHeader, bccList.Count());
-            //foreach (var recipients in bccList)
-            //{
-            //    textBox1.Text += recipients + "\r\n";
-            //}
+            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", thirdHeader, bccList.Count());
+            foreach (var recipient in bccList)
+            {
+                textBox1.Text += recipient + "\r\n";
+            }
 
             /// 読み取り専用、自動で折り返さない
             textBox1.ReadOnly = true;
@@ -80,6 +129,7 @@ namespace OutlookRecipientConfirmationAddin
         {
 
         }
+
         /// <summary>
         ///  「GitHub」のリンクが押された場合
         /// </summary>
@@ -88,6 +138,11 @@ namespace OutlookRecipientConfirmationAddin
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
