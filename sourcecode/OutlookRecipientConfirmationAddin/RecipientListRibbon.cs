@@ -58,57 +58,65 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="ribbonUI"></param>
         public void RecipientListButton_Click(Office.IRibbonControl ribbonUI)
         {
-            /// MessageBox.Show("宛先確認ボタンがおされました");
+
             try
             {
 
-                Microsoft.Office.Interop.Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
+                Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
 
-                var explorer = Globals.ThisAddIn.Application.ActiveExplorer();
-                Microsoft.Office.Interop.Outlook.Selection selection = explorer.Selection;
-                object selectedItem = selection[1];
+                /// 
+                var selectedItems = Globals.ThisAddIn.Application.ActiveExplorer();
 
-                ///string str = mailItem.To;
-               
-                ///とりあえずmailにしてみた
-                RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
+                /// 選択されているアイテムが一個の場合のみ、宛先確認を表示
+                if (selectedItems.Selection.Count == 1) {
+                    var selectedItem = selectedItems.Selection[1];
 
+                    Outlook.Recipients recipients = null;
 
-                Outlook.Recipients recipients = null;
-                Outlook.MailItem mail = selectedItem as Outlook.MailItem;
+                    /// とりあえずmailにしてみた！！！！
+                    RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
 
-                if (selectedItem != null)
-                {
-                    recipients = mail.Recipients;
-                    type = RecipientConfirmationWindow.SendType.Mail;
-                }
-                else
-                {
-                    Outlook.MeetingItem meeting = selectedItem as Outlook.MeetingItem;
-                    if (meeting != null)
+                    /// 表示しているのがMailItemの場合
+                    if (selectedItem is Outlook.MailItem)
                     {
-                        recipients = meeting.Recipients;
-                        type = RecipientConfirmationWindow.SendType.Meeting;
+                        Outlook.MailItem mail = (selectedItem as Outlook.MailItem);
+                        recipients = mail.Recipients;
+                        type = RecipientConfirmationWindow.SendType.Mail;
                     }
+                    /// 会議招集の場合
+                    else
+                    {
+                        Outlook.MeetingItem meeting = selectedItem as Outlook.MeetingItem;
+                        if (meeting != null)
+                        {
+                            recipients = meeting.Recipients;
+                            type = RecipientConfirmationWindow.SendType.Meeting;
+                        }
+                    }
+                    /////mailでもmeetingでもなければの処理　いる？
+                    //if (recipients == null)
+                    //{
+                    //    return;
+                    //}
+
+                    /// 受信者の情報をリストする
+                    List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
+                    foreach (Outlook.Recipient recipient in recipients)
+                    {
+                        recipientsList.Add(recipient);
+                    }
+                    /// 検索クラスを呼び出す
+                    SearchRecipient searchRecipient = new SearchRecipient();
+
+                    /// 引数に宛先に指定されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
+                    List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
+
+                    // 宛先リストの画面を表示する
+                    RecipientListWindow recipientListWindow = new RecipientListWindow(type, recipientList);
+                    DialogResult result = recipientListWindow.ShowDialog();
                 }
 
-                /// 受信者の情報をリストする
-                List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-                foreach (Outlook.Recipient recipient in recipients)
-                {
-                    recipientsList.Add(recipient);
-                }
 
-                /// 検索クラスを呼び出す
-                SearchRecipient searchRecipient = new SearchRecipient();
-
-                /// 引数に宛先に指定されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
-                List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
-
-
-                /// 宛先リストの画面を表示する
-                RecipientListWindow recipientListWindow = new RecipientListWindow(type, recipientList);
-                DialogResult result = recipientListWindow.ShowDialog();
 
 
             }

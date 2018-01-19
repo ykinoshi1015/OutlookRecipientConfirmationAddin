@@ -1,14 +1,47 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
   <ribbon>
+
     <tabs>
+
+      <!--ホームタブにボタン設置-->
       <tab idMso="TabMail">
-        <group id="RecipientList" label="宛先リスト" autoScale="true">
-          <button id="RecipientListButton" label="宛先リスト" size="large" 
+        <group id="RecipientList1" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton1" label="宛先確認" size="large"
                   onAction="RecipientListButton_Click"/>
         </group>
       </tab>
+
+      <!--新ウィンドウでメールを編集する時のメッセージタブにボタン設置-->
+      <tab idMso="TabNewMailMessage">
+        <group id="RecipientList2" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton2" label="宛先確認" size="large"
+                  onAction="RecipientListButton_Click"/>
+        </group>
+      </tab>
+
+      <!--新ウィンドウでメールを見る時のメッセージタブにボタン設置-->
+      <tab idMso="TabReadMessage">
+        <group id="RecipientList3" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton3" label="宛先確認" size="large"
+                  onAction="RecipientListButton_Click"/>
+        </group>
+      </tab>
+
     </tabs>
+
+    <!--作成ツールのメッセージタブにボタン設置-->
+    <contextualTabs>
+      <tabSet idMso="TabComposeTools">
+        <tab idMso="TabMessage">
+          <group id="RecipientList4" label="宛先リスト" autoScale="true">
+            <button id="RecipientListButton4" label="宛先確認" size="large"
+                    onAction="RecipientListButton_Click"/>
+          </group>
+        </tab>
+      </tabSet>
+    </contextualTabs>
+
   </ribbon>
 </customUI>
 

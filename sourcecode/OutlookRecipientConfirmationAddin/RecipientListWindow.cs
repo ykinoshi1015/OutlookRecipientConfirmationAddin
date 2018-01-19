@@ -50,7 +50,7 @@ namespace OutlookRecipientConfirmationAddin
             textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, 12345);
             foreach (var recipients in _recipients)
             {
-                textBox1.Text += recipients + "\r\n";
+                textBox1.Text += recipients.emailAddress + "\r\n";
             }
             textBox1.AppendText("\r\n");
 

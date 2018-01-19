@@ -36,6 +36,7 @@
             // Close
             // 
             this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close.Location = new System.Drawing.Point(844, 359);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(75, 23);
@@ -74,10 +75,10 @@
             // 
             // RecipientListWindow
             // 
-            this.AcceptButton = this.Close;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.Close;
             this.ClientSize = new System.Drawing.Size(940, 394);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBox1);

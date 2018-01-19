@@ -177,13 +177,14 @@ namespace OutlookRecipientConfirmationAddin
                     Object selectedObject = this.Application.ActiveExplorer().Selection[1];
 
                     Outlook.Recipients recipients = null;
+                    RecipientConfirmationWindow.SendType type;
 
                     /// 表示しているのがMailItemの場合
                     if (selectedObject is Outlook.MailItem)
                     {
                         Outlook.MailItem mail = (selectedObject as Outlook.MailItem);
                         recipients = mail.Recipients;
-                        RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
+                        type = RecipientConfirmationWindow.SendType.Mail;
                     }
 
                     //↓サンプルにはあった
@@ -196,8 +197,9 @@ namespace OutlookRecipientConfirmationAddin
                     {
                         Outlook.MeetingItem meeting = (selectedObject as Outlook.MeetingItem);
                         recipients = meeting.Recipients;
-                        RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Meeting;
+                        type = RecipientConfirmationWindow.SendType.Meeting;
                     }
+                    MessageBox.Show("recipients: "+ recipients );
                 }
             }
             catch (Exception ex)
