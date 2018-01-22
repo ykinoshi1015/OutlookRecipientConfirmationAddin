@@ -81,18 +81,8 @@ namespace OutlookRecipientConfirmationAddin
 
                         ///送信元のアカウントのユーザーに対応するSenderプロパティを取得
                         sender = mail.Sender;
-                        //try
-                        //{
-                        //    Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sender.Address);
-                        //    /// Exchangeアドレス帳に存在するアドレスなら、exchUserが見つかる
-                        //    exchUser = recResolve.AddressEntry.GetExchangeUser();
-                        //}
-                        //catch (NullReferenceException ex)
-                        //{
-                            Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
-                            exchUser = recResolve.AddressEntry.GetExchangeUser();
-                        //    Console.Write(ex.Message);
-                        //}
+                        Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
+                        exchUser = recResolve.AddressEntry.GetExchangeUser();
                     }
                     else
                     {
@@ -145,7 +135,7 @@ namespace OutlookRecipientConfirmationAddin
 
                         senderInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department,
                             contactItem.CompanyName, jobTitle, Outlook.OlMailRecipientType.olOriginator);
-                        
+
                     }
                     /// 送信者のExchangeUserが見つからなかった場合
                     else
@@ -185,7 +175,7 @@ namespace OutlookRecipientConfirmationAddin
                 Console.WriteLine(ex.Message);
             }
         }
-        
+
         #endregion
 
         #region ヘルパー

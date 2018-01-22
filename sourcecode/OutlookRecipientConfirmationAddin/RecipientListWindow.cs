@@ -104,7 +104,7 @@ namespace OutlookRecipientConfirmationAddin
                     break;
             }
 
-            textBox1.Text += string.Format("■□――――― 送信者 ―――――□■\r\n");
+            textBox1.Text += string.Format("□―――――― 送信者 ――――――□\r\n");
             textBox1.Text += originator + "\r\n";
             textBox1.Text += string.Format("―――――――――――――――――\r\n");
             textBox1.AppendText("\r\n");
