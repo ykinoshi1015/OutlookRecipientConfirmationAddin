@@ -29,43 +29,50 @@ namespace OutlookRecipientConfirmationAddin
             this._recipientsList = recipients;
         }
 
+        /// <summary>
+        /// リボンクラスから渡された宛先情報（To+Cc+Bcc+送信者）を表示用にフォーマッティングし、宛先画面をつくる
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RecipientListWindow_Load(object sender, EventArgs e)
         {
-            /// 表示用にフォーマッティングした宛先と、その宛先を入れるリスト
+            /// フォーマッティングした宛先と、それを入れるリスト
             string formattedRecipient;
+            string originator = null;
             List<string> toList = new List<string>();
             List<string> ccList = new List<string>();
             List<string> bccList = new List<string>();
 
-
             /// 宛先をフォーマッティングする
             foreach (var recipient in _recipientsList)
             {
-                /// 宛先の何を表示するか
-                /// 名前を表示するとき
                 if (!recipient.fullName.Equals(""))
                 {
-                    /// Exchangeアドレス帳で受信者の情報が見つかったとき
+                    /// Exchangeアドレス帳で受信者の情報が見つかった場合（名前、所属情報を表示）
                     if (recipient.division != null)
                     {
                         formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipient.fullName, recipient.jobTitle, recipient.division, recipient.companyName);
                     }
-                    /// グループ名のみを表示するとき
+                    /// グループ名のみを表示
                     else
                     {
                         formattedRecipient = recipient.fullName;
                     }
                 }
-                /// 受信者の情報が見つからなかったとき、例外のとき
+                /// 受信者の情報が見つからなかった場合、例外の場合
                 else
                 {
-                    /// アドレスだけ表示する
+                    /// アドレスだけ表示
                     formattedRecipient = recipient.emailAddress;
                 }
 
                 /// 宛先タイプごとにリストに追加
                 switch (recipient.recipientType)
                 {
+                    case Outlook.OlMailRecipientType.olOriginator:
+                        originator = formattedRecipient;
+                        break;
+
                     case Outlook.OlMailRecipientType.olTo:
                         toList.Add(formattedRecipient);
                         break;
@@ -90,13 +97,19 @@ namespace OutlookRecipientConfirmationAddin
                     break;
 
                 case RecipientConfirmationWindow.SendType.Meeting:
+                case RecipientConfirmationWindow.SendType.Appointment:
                     firstHeader = "参加者";
                     secondHeder = "参加者(任意)";
                     thirdHeader = "リソース";
                     break;
             }
 
-            textBox1.Text = string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, toList.Count());
+            textBox1.Text += string.Format("■□――――― 送信者 ―――――□■\r\n");
+            textBox1.Text += originator + "\r\n";
+            textBox1.Text += string.Format("―――――――――――――――――\r\n");
+            textBox1.AppendText("\r\n");
+
+            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, toList.Count());
             foreach (var recipient in toList)
             {
                 textBox1.Text += recipient + "\r\n";
@@ -110,7 +123,7 @@ namespace OutlookRecipientConfirmationAddin
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", thirdHeader, bccList.Count());
+            textBox1.Text += string.Format("■------------ {0}: {1}件 -----------■\r\n", thirdHeader, bccList.Count());
             foreach (var recipient in bccList)
             {
                 textBox1.Text += recipient + "\r\n";
