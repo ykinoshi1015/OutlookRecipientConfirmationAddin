@@ -37,7 +37,7 @@
             // 
             this.CloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseWindow.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CloseWindow.Location = new System.Drawing.Point(875, 343);
+            this.CloseWindow.Location = new System.Drawing.Point(771, 349);
             this.CloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.CloseWindow.Name = "CloseWindow";
             this.CloseWindow.Size = new System.Drawing.Size(100, 33);
@@ -59,7 +59,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(959, 317);
+            this.textBox1.Size = new System.Drawing.Size(855, 317);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -68,7 +68,7 @@
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.linkLabel1.Location = new System.Drawing.Point(16, 359);
+            this.linkLabel1.Location = new System.Drawing.Point(13, 359);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(47, 15);
@@ -84,7 +84,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.CloseWindow;
-            this.ClientSize = new System.Drawing.Size(1003, 393);
+            this.ClientSize = new System.Drawing.Size(884, 393);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.CloseWindow);
