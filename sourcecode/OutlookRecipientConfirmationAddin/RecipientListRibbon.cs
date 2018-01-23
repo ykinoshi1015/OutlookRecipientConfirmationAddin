@@ -167,6 +167,11 @@ namespace OutlookRecipientConfirmationAddin
                     RecipientListWindow recipientListWindow = new RecipientListWindow(type, recipientList);
                     recipientListWindow.ShowDialog();
                 }
+                //アイテムが2つ以上選択された場合
+                else
+                {
+                    MessageBox.Show("アイテムを1つ選択してください");
+                }
 
             }
             catch (Exception ex)

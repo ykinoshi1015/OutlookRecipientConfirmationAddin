@@ -19,7 +19,7 @@ namespace OutlookRecipientConfirmationAddin
         {
             ContactItem contactItem = null;
 
-            /// グループアドレスの場合
+            /// O365のグループアドレスの場合
             if (OlAddressEntryUserType.olExchangeDistributionListAddressEntry == recipient.AddressEntry.AddressEntryUserType)
             {
                 /// グループ名を入れて戻る
