@@ -14,6 +14,8 @@ namespace OutlookRecipientConfirmationAddin
 
     public partial class RecipientListWindow : Form
     {
+        private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
+
         RecipientConfirmationWindow.SendType _type;
         List<RecipientInformationDto> _recipientsList;
 
@@ -109,21 +111,21 @@ namespace OutlookRecipientConfirmationAddin
             textBox1.Text += string.Format("―――――――――――――――――\r\n");
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", firstHeader, toList.Count());
+            textBox1.Text += string.Format(RECIPIENT_HEADER, firstHeader, toList.Count());
             foreach (var recipient in toList)
             {
                 textBox1.Text += recipient + "\r\n";
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format("■------------ {0}: {1}件 ------------■\r\n", secondHeder, ccList.Count());
+            textBox1.Text += string.Format(RECIPIENT_HEADER, secondHeder, ccList.Count());
             foreach (var recipient in ccList)
             {
                 textBox1.Text += recipient + "\r\n";
             }
             textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format("■------------ {0}: {1}件 -----------■\r\n", thirdHeader, bccList.Count());
+            textBox1.Text += string.Format(RECIPIENT_HEADER, thirdHeader, bccList.Count());
             foreach (var recipient in bccList)
             {
                 textBox1.Text += recipient + "\r\n";
