@@ -64,33 +64,29 @@ namespace OutlookRecipientConfirmationAddin
             }
         }
 
-        /// <summary>
-        /// 画面で選択中のアイテムを取得する
-        /// </summary>
         private void FindSelectedItem()
         {
-            /// 選択されているアイテムを取得
-            Outlook.NameSpace objNamespace = Globals.ThisAddIn.Application.GetNamespace("MAPI");
-            Outlook.Explorer selectedItems = Globals.ThisAddIn.Application.ActiveExplorer();
+            /// ThisAddinクラスのメンバ変数を取得
+            Outlook.Inspector currentItem = Globals.ThisAddIn.GetCurrentItem();
 
-            /// 選択が1個の場合、宛先リストを表示するメソッドを呼ぶ
-            if (selectedItems.Selection.Count == 1)
-            {
-                ShowRecipientListWindow(selectedItems);
-            }
+            /// 選択が1個の場合、選択されているアイテムを取得し宛先リストを表示するメソッドを呼ぶ
+            //if (currentItem.Selection.Count == 1)
+            //{
+                ShowRecipientListWindow(currentItem);
+            //}
             //アイテムが2つ以上選択された場合は、メッセージを表示
-            else
-            {
-                MessageBox.Show("アイテムを1つ選択してください");
-            }
+            //else
+            //{
+            //    MessageBox.Show("アイテムを1つ選択してください");
+            //}
         }
 
         /// <summary>
         /// 送信者、To、Cc、Bccを取得と検索し、宛先リスト画面を呼び出す
         /// </summary>
-        private void ShowRecipientListWindow(Outlook.Explorer selectedItems)
+        private void ShowRecipientListWindow(Outlook.Inspector selectedItem)
         {
-            var selectedItem = selectedItems.Selection[1];
+            //var selectedItem = currentItems.Selection[1];
 
             Outlook.Recipients recipients = null;
             Outlook.AddressEntry sender = null;
@@ -100,11 +96,11 @@ namespace OutlookRecipientConfirmationAddin
 
             /// Mailで初期化
             RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
-            
+
             /// 表示しているのがMailItemの場合
-            if (selectedItem is Outlook.MailItem)
+            if (selectedItem.CurrentItem is Outlook.MailItem)
             {
-                Outlook.MailItem mail = (selectedItem as Outlook.MailItem);
+                Outlook.MailItem mail = (selectedItem.CurrentItem as Outlook.MailItem);
                 recipients = mail.Recipients;
 
                 ///送信元のアカウントのユーザーに対応するSenderプロパティを取得
@@ -113,9 +109,9 @@ namespace OutlookRecipientConfirmationAddin
                 exchUser = recResolve.AddressEntry.GetExchangeUser();
             }
             /// MeetingItemの場合
-            else if (selectedItem is Outlook.MeetingItem)
+            else if (selectedItem.CurrentItem is Outlook.MeetingItem)
             {
-                Outlook.MeetingItem meeting = selectedItem as Outlook.MeetingItem;
+                Outlook.MeetingItem meeting = selectedItem.CurrentItem as Outlook.MeetingItem;
                 type = RecipientConfirmationWindow.SendType.Meeting;
                 recipients = meeting.Recipients;
                 propAccess = meeting.PropertyAccessor;
@@ -123,9 +119,9 @@ namespace OutlookRecipientConfirmationAddin
                 exchUser = FindExchangeUser(propAccess);
             }
             /// AppointmentItemの場合(招待された会議のキャンセル通知)
-            else if (selectedItem is Outlook.AppointmentItem)
+            else if (selectedItem.CurrentItem is Outlook.AppointmentItem)
             {
-                Outlook.AppointmentItem appointment = selectedItem as Outlook.AppointmentItem;
+                Outlook.AppointmentItem appointment = selectedItem.CurrentItem as Outlook.AppointmentItem;
                 type = RecipientConfirmationWindow.SendType.Appointment;
                 recipients = appointment.Recipients;
                 propAccess = appointment.PropertyAccessor;

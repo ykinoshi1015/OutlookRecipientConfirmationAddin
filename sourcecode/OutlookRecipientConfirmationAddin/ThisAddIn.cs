@@ -11,6 +11,17 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class ThisAddIn
     {
+        /// 表示中のアイテムのメンバ変数
+        private Outlook.Inspector currentItem;
+
+        /// 表示中のアイテムのgetter
+        public Outlook.Inspector GetCurrentItem()
+        {
+            return currentItem;
+        }
+
+        Outlook.Inspectors inspectors;
+
         /// <summary>
         /// アドインが読み込まれると実行される
         /// </summary>
@@ -20,6 +31,11 @@ namespace OutlookRecipientConfirmationAddin
         {
             /// 送信イベントの時
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
+
+            /// インスペクターが開かれる
+            inspectors = this.Application.Inspectors;
+            inspectors.NewInspector += new Microsoft.Office.Interop.Outlook.InspectorsEvents_NewInspectorEventHandler(NewInspector);
+
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -117,6 +133,15 @@ namespace OutlookRecipientConfirmationAddin
                 Console.WriteLine(ex.Message);
                 Cancel = true;
             }
+        }
+
+        /// <summary>
+        /// インスペクターウィンドウで表示されるアイテムが新しくなると呼ばれる
+        /// </summary>
+        /// <param name="Inspector"></param>
+        void NewInspector(Outlook.Inspector Inspector)
+        {
+            currentItem = Inspector;
         }
 
         /// <summary>
