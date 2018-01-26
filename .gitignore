@@ -1,4 +1,4 @@
-.metadata
+﻿.metadata
 bin/
 tmp/
 *.tmp
@@ -25,4 +25,4 @@ obj/
 .suo
 *.user
 .gitignore
-�݌vUML.xml
+設計UML.xml
