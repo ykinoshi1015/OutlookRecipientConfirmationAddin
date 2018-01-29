@@ -54,7 +54,7 @@ namespace OutlookRecipientConfirmationAddin
                 RecipientConfirmationWindow.SendType itemType = RecipientConfirmationWindow.SendType.Mail;
 
                 /// メールでも会議招集でもなければ、そのまま送信する
-                Outlook.Recipients recipients = getRecipients(Item, ref itemType);                
+                Outlook.Recipients recipients = getRecipients(Item, ref itemType);
                 if (recipients == null)
                 {
                     return;
@@ -112,7 +112,7 @@ namespace OutlookRecipientConfirmationAddin
                 }
             }
             /// 何らかのエラーが発生したらイベントをキャンセルする
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Cancel = true;
@@ -128,6 +128,7 @@ namespace OutlookRecipientConfirmationAddin
         {
             Outlook.Recipients recipients = null;
 
+
             Outlook.MailItem mail = Item as Outlook.MailItem;
             if (mail != null)
             {
@@ -139,8 +140,35 @@ namespace OutlookRecipientConfirmationAddin
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
                 if (meeting != null)
                 {
-                    recipients = meeting.Recipients;
-                    type = RecipientConfirmationWindow.SendType.Meeting;
+                    if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
+                    {
+                        //会議招集の返信
+                        //"IPM.Schedule.Meeting.Resp.Neg";
+                        //"IPM.Schedule.Meeting.Resp.Pos";
+                        //"IPM.Schedule.Meeting.Resp.Tent";
+
+                        // 宛先確認画面が表示されないようnullを返す
+                        return null;
+                    }
+                    else
+                    {
+                        //会議招集依頼など
+                        //"IPM.Schedule.Meeting.Request";
+                        //"IPM.Schedule.Meeting.Canceled";
+                        //"IPM.Schedule.Meeting.Notification.Forward";
+
+                        recipients = meeting.Recipients;
+                        type = RecipientConfirmationWindow.SendType.Meeting;
+
+                        string PROPTAG_URL = "http://schemas.microsoft.com/mapi/proptag/0x661D008B";
+
+                        Outlook.PropertyAccessor propAccess = meeting.PropertyAccessor;
+                        Outlook.AddressEntry sender = null;
+
+                        string senderID = propAccess.BinaryToString(propAccess.GetProperty(PROPTAG_URL));
+                        sender = Globals.ThisAddIn.Application.Session.GetAddressEntryFromID(senderID);
+
+                    }
                 }
             }
             return recipients;
