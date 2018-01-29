@@ -159,15 +159,6 @@ namespace OutlookRecipientConfirmationAddin
 
                         recipients = meeting.Recipients;
                         type = RecipientConfirmationWindow.SendType.Meeting;
-
-                        string PROPTAG_URL = "http://schemas.microsoft.com/mapi/proptag/0x661D008B";
-
-                        Outlook.PropertyAccessor propAccess = meeting.PropertyAccessor;
-                        Outlook.AddressEntry sender = null;
-
-                        string senderID = propAccess.BinaryToString(propAccess.GetProperty(PROPTAG_URL));
-                        sender = Globals.ThisAddIn.Application.Session.GetAddressEntryFromID(senderID);
-
                     }
                 }
             }
