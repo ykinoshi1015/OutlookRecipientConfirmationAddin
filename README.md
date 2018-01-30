@@ -1,4 +1,4 @@
-# Outlook宛先表示アドイン
+﻿# Outlook宛先表示アドイン
 
 
 Outlook Recipient Confirmation Add-In、通称Outlook宛先表示アドイン。  
@@ -24,6 +24,11 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 * アドレス帳がExchangeを利用していること
 
 ## インストール手順
+
+インストール実施前に、以下をご確認ください。  
+
+*  インストールの実行をネットワークドライブ上で行わないこと
+*  プロキシを使用していないこと
 
 1. setupフォルダをクリックします  
 ![readme_installation_setupfolder](https://user-images.githubusercontent.com/34431835/34713370-6470b122-f569-11e7-91a5-a9a3107010cd.PNG)

@@ -153,6 +153,7 @@ namespace OutlookRecipientConfirmationAddin
         {
             Outlook.Recipients recipients = null;
 
+
             Outlook.MailItem mail = Item as Outlook.MailItem;
             if (mail != null)
             {
@@ -164,8 +165,26 @@ namespace OutlookRecipientConfirmationAddin
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
                 if (meeting != null)
                 {
-                    recipients = meeting.Recipients;
-                    type = RecipientConfirmationWindow.SendType.Meeting;
+                    if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
+                    {
+                        //会議招集の返信
+                        //"IPM.Schedule.Meeting.Resp.Neg";
+                        //"IPM.Schedule.Meeting.Resp.Pos";
+                        //"IPM.Schedule.Meeting.Resp.Tent";
+
+                        // 宛先確認画面が表示されないようnullを返す
+                        return null;
+                    }
+                    else
+                    {
+                        //会議招集依頼など
+                        //"IPM.Schedule.Meeting.Request";
+                        //"IPM.Schedule.Meeting.Canceled";
+                        //"IPM.Schedule.Meeting.Notification.Forward";
+
+                        recipients = meeting.Recipients;
+                        type = RecipientConfirmationWindow.SendType.Meeting;
+                    }
                 }
             }
             return recipients;
