@@ -306,11 +306,18 @@ namespace OutlookRecipientConfirmationAddin
             string mailSubject = String.Empty;
             if (originalSubject != null)
                 mailSubject = originalSubject.Trim();
-
-            if (mailSubject.Contains("RE:"))
-                mailSubject = mailSubject.Replace("RE:", "");
-            if (mailSubject.Contains("FW:"))
-                mailSubject = mailSubject.Replace("FW:", "");
+            
+            if (mailSubject.StartsWith("RE:"))
+            {
+                mailSubject = mailSubject.Remove(0, 3);
+                mailSubject = mailSubject.Trim();
+            }
+                
+            if (mailSubject.StartsWith("FW:"))
+            {
+                mailSubject = mailSubject.Remove(0, 3);
+                mailSubject = mailSubject.Trim();
+            }
 
             return "RE: " + mailSubject;
         }

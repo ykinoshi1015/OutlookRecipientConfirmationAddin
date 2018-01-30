@@ -9,7 +9,7 @@
         <group id="RecipientList1" label="宛先リスト" autoScale="true">
           <button id="RecipientListButton1" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
         </group>
-        <group id="ReplayWithAttachments_Home" insertBeforeMso="GroupMailRespond" label="添付付き返信" autoScale="true">
+        <group id="ReplayWithAttachments_Home" insertBeforeMso="GroupMailRespond" label="返信(添付あり)" autoScale="true">
           <button id="ReplayWithAttachmentsButton_Home" label="返信" image="Reply.png" size="large" onAction="ReplayWithAttachments_Click"/>
           <button id="ReplayAllWithAttachmentsButton_Home" label="全員に返信" image="ReplyAll.png" size="large" onAction="ReplayAllWithAttachments_Click"/>
         </group>
@@ -30,7 +30,7 @@
         <group id="RecipientList3" label="宛先リスト" autoScale="true">
           <button id="RecipientListButton3" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
         </group>
-        <group id="ReplayWithAttachments_ReadMessage" insertBeforeMso="GroupRespond" label="添付付き返信" autoScale="true">
+        <group id="ReplayWithAttachments_ReadMessage" insertBeforeMso="GroupRespond" label="返信(添付あり)" autoScale="true">
           <button id="ReplayWithAttachmentsButton_ReadMessage" label="返信" image="Reply.png" size="large" onAction="ReplayWithAttachments_Click"/>
           <button id="ReplayAllWithAttachmentsButton_ReadMessage" label="全員に返信" image="ReplyAll.png" size="large" onAction="ReplayAllWithAttachments_Click"/>
         </group>
