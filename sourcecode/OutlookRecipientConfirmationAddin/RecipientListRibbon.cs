@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
 using static OutlookRecipientConfirmationAddin.RecipientConfirmationWindow;
 using Office = Microsoft.Office.Core;
@@ -47,6 +48,15 @@ namespace OutlookRecipientConfirmationAddin
 
         }
 
+        public Bitmap LoadImage(string imageName)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream("OutlookRecipientConfirmationAddin." + imageName);
+
+            return new Bitmap(stream);
+        }
+
+        #region 宛先確認機能
         /// <summary>
         /// リボンの「宛先確認」ボタンが押された場合の処理
         /// </summary>
@@ -193,7 +203,118 @@ namespace OutlookRecipientConfirmationAddin
             sender = Globals.ThisAddIn.Application.Session.GetAddressEntryFromID(senderID);
             return sender.GetExchangeUser();
         }
+        #endregion
 
+        #region 添付ファイル付き返信機能
+        /// <summary>
+        /// 添付ファイル付き返信ボタンのクリックイベント
+        /// </summary>
+        public void ReplayWithAttachments_Click(Office.IRibbonControl ribbonUI)
+        {
+            Outlook.Explorer explorer = Globals.ThisAddIn.Application.ActiveExplorer();
+            foreach(object selectedItem in explorer.Selection)
+            {
+                CreateReplyAllwithAttachment(selectedItem, false);
+            }
+        }
+
+        /// <summary>
+        /// 添付ファイル付き全員に返信ボタンのクリックイベント
+        /// </summary>
+        public void ReplayAllWithAttachments_Click(Office.IRibbonControl ribbonUI)
+        {
+            Outlook.Explorer explorer = Globals.ThisAddIn.Application.ActiveExplorer();
+            foreach (object selectedItem in explorer.Selection)
+            {
+                CreateReplyAllwithAttachment(selectedItem, true);
+            }
+        }
+
+        /// <summary>
+        /// 添付ファイル付き返信メールを作成し、表示する
+        /// </summary>
+        /// <param name="targetItem">MailItem or MeetingItemのオブジェクト</param>
+        /// <param name="replyAll">trueなら全員に返信する</param>
+        private void CreateReplyAllwithAttachment(object targetItem, bool replyAll)
+        {
+            try
+            {
+                ///メール
+                if (targetItem is Outlook.MailItem)
+                {
+                    Outlook.MailItem mailItem = targetItem as Outlook.MailItem;
+                    Outlook.MailItem replymailitem = (Outlook.MailItem)Globals.ThisAddIn.Application.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+                    replymailitem = mailItem.Forward(); //Create a object as that of Forward as it automatically includes attachments as well
+
+                    if (replyAll)
+                    {
+                        replymailitem.To = mailItem.To;
+                        replymailitem.CC = mailItem.CC;
+                    }
+                    else
+                    {
+                        replymailitem.To = mailItem.SenderName;
+                    }
+                    replymailitem.Recipients.ResolveAll();
+                    replymailitem.Subject = CreateReplySubject(mailItem.Subject); //same subject +'RE:'              
+
+                    replymailitem.Display(false);
+                }
+                ///会議招待
+                else if (targetItem is Outlook.MeetingItem)
+                {
+                    Outlook.MeetingItem meetingItem = targetItem as Outlook.MeetingItem;
+                    Outlook.MailItem replymailitem;
+                    if (replyAll)
+                        replymailitem = meetingItem.ReplyAll();
+                    else
+                        replymailitem = meetingItem.Reply();
+
+                    /// 受信したMeetingItemに添付されているファイルをいったん別ファイルに保存し、
+                    /// それを返信用MailItemに添付する。
+                    List<string> tmpFiles = new List<string>();
+                    foreach (Outlook.Attachment attachment in meetingItem.Attachments)
+                    {
+                        string tmpFile = Path.GetTempPath() + attachment.FileName;
+                        tmpFiles.Add(tmpFile);
+                        attachment.SaveAsFile(tmpFile);
+                        replymailitem.Attachments.Add(tmpFile);
+                    }
+                    replymailitem.Display(false);
+
+                    ///別ファイルに保存した添付ファイルはもう不要のため削除する
+                    foreach (string tmpFile in tmpFiles)
+                    {
+                        File.Delete(tmpFile);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 返信用の件名を作成する
+        /// </summary>
+        /// <param name="originalSubject">返信元の件名</param>
+        /// <returns>先頭に"RE:"が付いた件名</returns>
+        private string CreateReplySubject(string originalSubject)
+        {
+            string mailSubject = String.Empty;
+            if (originalSubject != null)
+                mailSubject = originalSubject.Trim();
+
+            if (mailSubject.Contains("RE:"))
+                mailSubject = mailSubject.Replace("RE:", "");
+            if (mailSubject.Contains("FW:"))
+                mailSubject = mailSubject.Replace("FW:", "");
+
+            return "RE: " + mailSubject;
+        }
+        #endregion
 
         #endregion
 
