@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load" loadImage="LoadImage">
   <ribbon>
 
     <tabs>
@@ -7,8 +7,11 @@
       <!--ホームタブにボタン設置-->
       <tab idMso="TabMail">
         <group id="RecipientList1" label="宛先リスト" autoScale="true">
-          <button id="RecipientListButton1" label="宛先確認" imageMso="ContactProperties" size="large"
-                  onAction="RecipientListButton_Click"/>
+          <button id="RecipientListButton1" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
+        </group>
+        <group id="ReplayWithAttachments_Home" insertBeforeMso="GroupMailRespond" label="返信(添付あり)" autoScale="true">
+          <button id="ReplayWithAttachmentsButton_Home" label="返信" image="Reply.png" size="large" onAction="ReplayWithAttachments_Click"/>
+          <button id="ReplayAllWithAttachmentsButton_Home" label="全員に返信" image="ReplyAll.png" size="large" onAction="ReplayAllWithAttachments_Click"/>
         </group>
       </tab>
 
@@ -25,8 +28,11 @@
       <!--新ウィンドウでメールを見る時のメッセージタブにボタン設置-->
       <tab idMso="TabReadMessage">
         <group id="RecipientList3" label="宛先リスト" autoScale="true">
-          <button id="RecipientListButton3" label="宛先確認" imageMso="ContactProperties" size="large"
-                  onAction="RecipientListButton_Click"/>
+          <button id="RecipientListButton3" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
+        </group>
+        <group id="ReplayWithAttachments_ReadMessage" insertBeforeMso="GroupRespond" label="返信(添付あり)" autoScale="true">
+          <button id="ReplayWithAttachmentsButton_ReadMessage" label="返信" image="Reply.png" size="large" onAction="ReplayWithAttachments_Click"/>
+          <button id="ReplayAllWithAttachmentsButton_ReadMessage" label="全員に返信" image="ReplyAll.png" size="large" onAction="ReplayAllWithAttachments_Click"/>
         </group>
       </tab>
 
