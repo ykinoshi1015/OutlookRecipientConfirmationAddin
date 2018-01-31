@@ -15,15 +15,13 @@
         </group>
       </tab>
 
-      <!--新ウィンドウでメールを編集する時のメッセージタブにボタン設置
-      「新しい電子メール」を選択時に、親ウィンドウで選択中の宛先リストが表示されるので、ひとまず保留
-      コメントアウトで、下書きや削除済みアイテムをダブルクリックしたときにボタンが出なくなる
+      <!--新ウィンドウでメールを編集する時のメッセージタブにボタン設置-->
       <tab idMso="TabNewMailMessage">
         <group id="RecipientList2" label="宛先リスト" autoScale="true">
           <button id="RecipientListButton2" label="宛先確認" imageMso="ContactProperties" size="large"
                   onAction="RecipientListButton_Click"/>
         </group>
-      </tab> -->
+      </tab> 
 
       <!--新ウィンドウでメールを見る時のメッセージタブにボタン設置-->
       <tab idMso="TabReadMessage">

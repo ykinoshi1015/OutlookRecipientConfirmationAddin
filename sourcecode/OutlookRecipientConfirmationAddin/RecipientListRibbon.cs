@@ -11,7 +11,6 @@ using static OutlookRecipientConfirmationAddin.RecipientConfirmationWindow;
 using Office = Microsoft.Office.Core;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
-
 namespace OutlookRecipientConfirmationAddin
 {
     [ComVisible(true)]
@@ -74,101 +73,84 @@ namespace OutlookRecipientConfirmationAddin
             }
         }
 
+        /// <summary>
+        /// 表示されているアイテムの取得
+        /// </summary>
         private void FindSelectedItem()
         {
-            /// ThisAddinクラスのメンバ変数を取得
-            Outlook.Inspector currentItem = Globals.ThisAddIn.GetCurrentItem();
+            /// 一番上にあるエクスプローラorインスペクターを取得
+            object activeItem;
+            activeItem = Globals.ThisAddIn.Application.ActiveWindow();
 
-            /// 選択が1個の場合、選択されているアイテムを取得し宛先リストを表示するメソッドを呼ぶ
-            //if (currentItem.Selection.Count == 1)
-            //{
-                ShowRecipientListWindow(currentItem);
-            //}
-            //アイテムが2つ以上選択された場合は、メッセージを表示
-            //else
-            //{
-            //    MessageBox.Show("アイテムを1つ選択してください");
-            //}
+            /// エクスプローラ（クリックで選択）の場合
+            if (activeItem is Outlook.Explorer)
+            {
+                activeItem = Globals.ThisAddIn.Application.ActiveExplorer().Selection[1];
+            }
+            /// インスペクター（ダブルクリックで選択）の場合
+            else if (activeItem is Outlook.Inspector)
+            {
+                activeItem = Globals.ThisAddIn.Application.ActiveInspector().CurrentItem;
+            }
+
+            /// 
+            ShowRecipientListWindow(activeItem);
         }
 
         /// <summary>
         /// 送信者、To、Cc、Bccを取得と検索し、宛先リスト画面を呼び出す
         /// </summary>
-        private void ShowRecipientListWindow(Outlook.Inspector selectedItem)
+        private void ShowRecipientListWindow(object activeItem)
         {
-            //var selectedItem = currentItems.Selection[1];
-
             Outlook.Recipients recipients = null;
             Outlook.AddressEntry sender = null;
-            RecipientInformationDto senderInformation = null;
             Outlook.ExchangeUser exchUser = null;
             Outlook.PropertyAccessor propAccess = null;
+            RecipientInformationDto senderInformation = null;
+
 
             /// Mailで初期化
             RecipientConfirmationWindow.SendType type = RecipientConfirmationWindow.SendType.Mail;
 
             /// 表示しているのがMailItemの場合
-            if (selectedItem.CurrentItem is Outlook.MailItem)
+            if (activeItem is Outlook.MailItem)
             {
-                Outlook.MailItem mail = (selectedItem.CurrentItem as Outlook.MailItem);
+                Outlook.MailItem mail = (activeItem as Outlook.MailItem);
                 recipients = mail.Recipients;
 
                 ///送信元のアカウントのユーザーに対応するSenderプロパティを取得
                 sender = mail.Sender;
-                Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
-                exchUser = recResolve.AddressEntry.GetExchangeUser();
+                if (sender != null)
+                {
+                    Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sender.Address);
+                    exchUser = recResolve.AddressEntry.GetExchangeUser();
+                }
             }
             /// MeetingItemの場合
-            else if (selectedItem.CurrentItem is Outlook.MeetingItem)
+            else if (activeItem is Outlook.MeetingItem)
             {
-                Outlook.MeetingItem meeting = selectedItem.CurrentItem as Outlook.MeetingItem;
+                Outlook.MeetingItem meeting = activeItem as Outlook.MeetingItem;
                 type = RecipientConfirmationWindow.SendType.Meeting;
                 recipients = meeting.Recipients;
                 propAccess = meeting.PropertyAccessor;
 
-                exchUser = FindExchangeUser(propAccess);
+                exchUser = FindExchangeUser(propAccess, ref sender);
             }
             /// AppointmentItemの場合(招待された会議のキャンセル通知)
-            else if (selectedItem.CurrentItem is Outlook.AppointmentItem)
+            else if (activeItem is Outlook.AppointmentItem)
             {
-                Outlook.AppointmentItem appointment = selectedItem.CurrentItem as Outlook.AppointmentItem;
+                Outlook.AppointmentItem appointment = activeItem as Outlook.AppointmentItem;
                 type = RecipientConfirmationWindow.SendType.Appointment;
                 recipients = appointment.Recipients;
                 propAccess = appointment.PropertyAccessor;
 
-                exchUser = FindExchangeUser(propAccess);
+                exchUser = FindExchangeUser(propAccess, ref sender);
             }
 
             /// メールでも会議招集でもない場合、なにも起きない
             if (recipients == null)
             {
                 return;
-            }
-
-            Outlook.ContactItem contactItem = null;
-
-            /// 送信者のExchangeUserが見つかった場合
-            if (exchUser != null)
-            {
-                contactItem = Globals.ThisAddIn.Application.CreateItem(Outlook.OlItemType.olContactItem);
-                contactItem.FullName = exchUser.Name;
-                contactItem.CompanyName = exchUser.CompanyName;
-                contactItem.Department = exchUser.Department;
-
-                /// 表示する役職ならDtoに、違えば空文字を入れる
-                string jobTitle = exchUser.JobTitle;
-                if (TANTOU.Equals(contactItem.JobTitle) || contactItem.JobTitle == null)
-                {
-                    jobTitle = "";
-                }
-
-                senderInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department,
-                    contactItem.CompanyName, jobTitle, Outlook.OlMailRecipientType.olOriginator);
-            }
-            /// 送信者のExchangeUserが見つからなかった場合、表示名を表示
-            else
-            {
-                senderInformation = new RecipientInformationDto(sender.Name, Outlook.OlMailRecipientType.olOriginator);
             }
 
             /// 受信者の情報をリストに入れる
@@ -182,26 +164,68 @@ namespace OutlookRecipientConfirmationAddin
             SearchRecipient searchRecipient = new SearchRecipient();
             List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
-            /// 受信者の宛先情報のリストに、送信者の情報も追加する
-            recipientList.Add(senderInformation);
-
+            /// 送信者のExchangeUserオブジェクトが取得できた場合
+            if (exchUser != null)
+            {
+                senderInformation = SetSenderInformation(exchUser);
+                // 受信者の宛先情報のリストに、送信者の情報も追加する
+                recipientList.Add(senderInformation);
+            }
+            /// 送信者のExchangeUserが見つからなかった場合、表示名を表示
+            else if (sender != null)
+            {
+                senderInformation = new RecipientInformationDto(sender.Name, Outlook.OlMailRecipientType.olOriginator);
+                // 受信者の宛先情報のリストに、送信者の情報も追加する
+                recipientList.Add(senderInformation);
+            }
+            
             // 宛先リストの画面を表示する
             RecipientListWindow recipientListWindow = new RecipientListWindow(type, recipientList);
             recipientListWindow.ShowDialog();
         }
 
         /// <summary>
-        /// ExchangeUserを取得する（MeetingItemとAppointmentItemで共通）
-        /// </summary>
+        /// 送信者のExchangeUserを取得する（MeetingItemとAppointmentItem用）        
         /// <param name="propAccess"></param>
         /// <returns></returns>
-        private Outlook.ExchangeUser FindExchangeUser(Outlook.PropertyAccessor propAccess)
+        /// </summary>
+        private Outlook.ExchangeUser FindExchangeUser(Outlook.PropertyAccessor propAccess, ref Outlook.AddressEntry sender)
         {
-            Outlook.AddressEntry sender = null;
-
+            /// PropoertyAccessorで、送信者の情報を取得
             string senderID = propAccess.BinaryToString(propAccess.GetProperty(PROPTAG_URL));
             sender = Globals.ThisAddIn.Application.Session.GetAddressEntryFromID(senderID);
-            return sender.GetExchangeUser();
+
+            /// 送信者のメールアドレスから、ExchangeUserを見つける
+            Outlook.Recipient recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sender.Address);
+            Outlook.ExchangeUser exchUser = recResolve.AddressEntry.GetExchangeUser();
+
+            return exchUser; 
+        }
+
+        /// <summary>
+        /// 送信者のExchangeUserプロパティから、表示に必要な情報をセットする
+        /// </summary>
+        /// <param name="exchUser"></param>
+        /// <returns></returns>
+        private RecipientInformationDto SetSenderInformation(Outlook.ExchangeUser exchUser)
+        {
+            Outlook.ContactItem contactItem = null;
+
+                contactItem = Globals.ThisAddIn.Application.CreateItem(Outlook.OlItemType.olContactItem);
+                contactItem.FullName = exchUser.Name;
+                contactItem.CompanyName = exchUser.CompanyName;
+                contactItem.Department = exchUser.Department;
+
+                /// 表示する役職ならDtoに、違えば空文字を入れる
+                string jobTitle = exchUser.JobTitle;
+                if (TANTOU.Equals(contactItem.JobTitle) || contactItem.JobTitle == null)
+                {
+                    jobTitle = "";
+                }
+
+                return new RecipientInformationDto(contactItem.FullName, contactItem.Department,
+                    contactItem.CompanyName, jobTitle, Outlook.OlMailRecipientType.olOriginator);
+            
         }
         #endregion
 
@@ -212,7 +236,7 @@ namespace OutlookRecipientConfirmationAddin
         public void ReplayWithAttachments_Click(Office.IRibbonControl ribbonUI)
         {
             Outlook.Explorer explorer = Globals.ThisAddIn.Application.ActiveExplorer();
-            foreach(object selectedItem in explorer.Selection)
+            foreach (object selectedItem in explorer.Selection)
             {
                 CreateReplyAllwithAttachment(selectedItem, false);
             }
@@ -306,13 +330,13 @@ namespace OutlookRecipientConfirmationAddin
             string mailSubject = String.Empty;
             if (originalSubject != null)
                 mailSubject = originalSubject.Trim();
-            
+
             if (mailSubject.StartsWith("RE:"))
             {
                 mailSubject = mailSubject.Remove(0, 3);
                 mailSubject = mailSubject.Trim();
             }
-                
+
             if (mailSubject.StartsWith("FW:"))
             {
                 mailSubject = mailSubject.Remove(0, 3);
