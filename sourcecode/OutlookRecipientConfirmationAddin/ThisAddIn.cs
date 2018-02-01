@@ -22,11 +22,6 @@ namespace OutlookRecipientConfirmationAddin
         {
             /// 送信イベントの時
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
-
-            /// インスペクターが開かれる
-            inspectors = this.Application.Inspectors;
-            inspectors.NewInspector += new Microsoft.Office.Interop.Outlook.InspectorsEvents_NewInspectorEventHandler(NewInspector);
-              
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

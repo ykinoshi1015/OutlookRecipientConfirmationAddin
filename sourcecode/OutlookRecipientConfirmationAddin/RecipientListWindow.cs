@@ -93,6 +93,7 @@ namespace OutlookRecipientConfirmationAddin
             switch (_type)
             {
                 case RecipientConfirmationWindow.SendType.Mail:
+                case RecipientConfirmationWindow.SendType.MeetingResp:
                     firstHeader = "To";
                     secondHeder = "Cc";
                     thirdHeader = "Bcc";

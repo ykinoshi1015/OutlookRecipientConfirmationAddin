@@ -12,7 +12,7 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientConfirmationWindow : Form
     {
-        public enum SendType { Mail, Meeting, Appointment };
+        public enum SendType { Mail, Meeting, Appointment, MeetingResp };
 
         SendType _type;
         List<String> toList;
