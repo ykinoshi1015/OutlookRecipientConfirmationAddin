@@ -53,57 +53,36 @@ namespace OutlookRecipientConfirmationAddin
         {
             try
             {
-                RecipientConfirmationWindow.SendType itemType = RecipientConfirmationWindow.SendType.Mail;
-
-                /// メールでも会議招集でもなければ、そのまま送信する
-                Outlook.Recipients recipients = getRecipients(Item, ref itemType);
-                if (recipients == null)
-                {
-                    return;
-                }
-
-                /// 受信者の情報をリストする
+                Utility.SendType itemType = Utility.SendType.Mail;
+                RecipientInformationDto senderInformation = null;
+                 
+                /// メールの宛先を取得
+                Utility utility = new Utility();
                 List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-                foreach (Outlook.Recipient recipient in recipients)
-                {
-                    recipientsList.Add(recipient);
-                }
+                recipientsList = utility.getRecipients(Item, ref itemType, true);
 
-                /// 検索クラスを呼び出す
+                ///// メールでも会議招集でもなければ、そのまま送信する
+                /// 空なら、空の画面を表示するにする？
+                //if (recipientsList == null)
+                //{
+                //    return;
+                //}
+
+                /// 引数にRecipientのリストを渡すと、宛先情報のリストが戻ってくる
                 SearchRecipient searchRecipient = new SearchRecipient();
-
-                /// 引数にTO, CC, BCCに入力されたアドレスのリストを渡すと、宛先情報のリストが戻ってくる
                 List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
-                /// 表示用にフォーマッティングするクラス
-                List<string> formattedToList = new List<string>();
-                List<string> formattedCcList = new List<string>();
-                List<string> formattedBccList = new List<string>();
-
-                /// 受信者のタイプに応じたリストに、フォーマットしてから追加する
-                foreach (var recipientInformation in
-                    recipientList)
+                /// 送信者のExchangeUserオブジェクトを取得
+                senderInformation = utility.GetSenderInfomation(Item);
+                
+                /// 受信者の宛先情報のリストに、送信者の情報も追加する
+                if (senderInformation != null)
                 {
-                    switch (recipientInformation.recipientType)
-                    {
-
-                        case Outlook.OlMailRecipientType.olTo:
-                            formattedToList.Add(Utility.Formatting(recipientInformation));
-                            break;
-
-                        case Outlook.OlMailRecipientType.olCC:
-                            formattedCcList.Add(Utility.Formatting(recipientInformation));
-                            break;
-
-                        case Outlook.OlMailRecipientType.olBCC:
-                            formattedBccList.Add(Utility.Formatting(recipientInformation));
-                            break;
-                    }
-
+                    recipientList.Add(senderInformation);
                 }
 
                 /// 引数に宛先詳細を渡し、確認フォームを表示する
-                RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(itemType, formattedToList, formattedCcList, formattedBccList);
+                RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(itemType, recipientList);
                 DialogResult result = recipientConfirmationWindow.ShowDialog();
 
                 /// 画面でOK以外が選択された場合
@@ -119,52 +98,6 @@ namespace OutlookRecipientConfirmationAddin
                 Console.WriteLine(ex.Message);
                 Cancel = true;
             }
-        }
-
-        /// <summary>
-        /// ItemからMailItem or MettingItemのRecipientsの取得する
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns>Recipientsインスタンス(nullの場合メールでも会議でもない)</returns>
-        private Outlook.Recipients getRecipients(object Item, ref RecipientConfirmationWindow.SendType type)
-        {
-            Outlook.Recipients recipients = null;
-
-
-            Outlook.MailItem mail = Item as Outlook.MailItem;
-            if (mail != null)
-            {
-                recipients = mail.Recipients;
-                type = RecipientConfirmationWindow.SendType.Mail;
-            }
-            else
-            {
-                Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
-                if (meeting != null)
-                {
-                    if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
-                    {
-                        //会議招集の返信
-                        //"IPM.Schedule.Meeting.Resp.Neg";
-                        //"IPM.Schedule.Meeting.Resp.Pos";
-                        //"IPM.Schedule.Meeting.Resp.Tent";
-
-                        // 宛先確認画面が表示されないようnullを返す
-                        return null;
-                    }
-                    else
-                    {
-                        //会議招集依頼など
-                        //"IPM.Schedule.Meeting.Request";
-                        //"IPM.Schedule.Meeting.Canceled";
-                        //"IPM.Schedule.Meeting.Notification.Forward";
-
-                        recipients = meeting.Recipients;
-                        type = RecipientConfirmationWindow.SendType.Meeting;
-                    }
-                }
-            }
-            return recipients;
         }
 
         /// <summary>

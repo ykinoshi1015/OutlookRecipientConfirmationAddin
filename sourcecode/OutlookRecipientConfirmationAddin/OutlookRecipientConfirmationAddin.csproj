@@ -192,6 +192,12 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="RecipientCommonWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipientCommonWindow.Designer.cs">
+      <DependentUpon>RecipientCommonWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipientConfirmationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RecipientCommonWindow.resx">
+      <DependentUpon>RecipientCommonWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecipientConfirmationWindow.resx">
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
     </EmbeddedResource>
