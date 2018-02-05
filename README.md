@@ -58,3 +58,11 @@ Outlook2016を起動すると、アドインが有効になります。
 インストール時のエラーなど
 [FAQ](https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin/wiki/FAQ)
 
+
+## License
+
+Copyright (c) 2018 Yuna Nakanishi / Yasuyuki Kinoshita / Kenta Kosaka   
+Released under the MIT license   
+[MIT-LICENSE.txt](./MIT-LICENSE.txt)   
+
+
