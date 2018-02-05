@@ -102,28 +102,26 @@ namespace OutlookRecipientConfirmationAddin
         private void ShowRecipientListWindow(object activeItem)
         {
             /// Mailで初期化
-            Utility.SendType itemType = Utility.SendType.Mail;
+            Utility.OutlookItemType itemType = Utility.OutlookItemType.Mail;
             RecipientInformationDto senderInformation = null;
 
             /// メールの宛先を取得
-            Utility utility = new Utility();
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            recipientsList = utility.getRecipients(activeItem, ref itemType, false);
+            recipientsList = Utility.getRecipients(activeItem, ref itemType);
 
-            ///// メールでも会議招集でもない場合、なにも起きない
-            /// 空なら、空の画面を表示するにする？
-            //if (recipientsList == null)
-            //{
-            //    return;
-            //}
+            ///  会議招集の返信の場合、そのまま送信する
+            if (recipientsList == null)
+            {
+                return;
+            }
 
             /// 検索し、受信者の宛先情報リストが戻ってくる
             SearchRecipient searchRecipient = new SearchRecipient();
             List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
             /// 送信者のExchangeUserオブジェクトを取得
-            senderInformation = utility.GetSenderInfomation(activeItem);
-            
+            senderInformation = Utility.GetSenderInfomation(activeItem);
+
             /// 受信者の宛先情報のリストに、送信者の情報も追加する
             if (senderInformation != null)
             {

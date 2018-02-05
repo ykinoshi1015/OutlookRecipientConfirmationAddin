@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     {
         private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
 
-        Utility.SendType _type;
+        Utility.OutlookItemType _type;
         List<RecipientInformationDto> _recipientsList;
 
         public RecipientCommonWindow()
@@ -23,7 +23,7 @@ namespace OutlookRecipientConfirmationAddin
             InitializeComponent();
         }
 
-        public RecipientCommonWindow(Utility.SendType type, List<RecipientInformationDto> recipients)
+        public RecipientCommonWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients)
         {
             InitializeComponent();
             this._type = type;
@@ -95,15 +95,15 @@ namespace OutlookRecipientConfirmationAddin
             string firstHeader = "", secondHeder = "", thirdHeader = "";
             switch (_type)
             {
-                case Utility.SendType.Mail:
-                case Utility.SendType.MeetingResp:
+                case Utility.OutlookItemType.Mail:
+                case Utility.OutlookItemType.MeetingResponse:
                     firstHeader = "To";
                     secondHeder = "Cc";
                     thirdHeader = "Bcc";
                     break;
 
-                case Utility.SendType.Meeting:
-                case Utility.SendType.Appointment:
+                case Utility.OutlookItemType.Meeting:
+                case Utility.OutlookItemType.Appointment:
                     firstHeader = "参加者";
                     secondHeder = "参加者(任意)";
                     thirdHeader = "リソース";
@@ -143,11 +143,26 @@ namespace OutlookRecipientConfirmationAddin
             textBox1.ScrollBars = ScrollBars.Both;
 
         }
-    
 
+        /// <summary>
+        /// テキストボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        /// <summary>
+        ///  「GitHub」のリンクが押された場合
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin");
+        }
+
     }
 }

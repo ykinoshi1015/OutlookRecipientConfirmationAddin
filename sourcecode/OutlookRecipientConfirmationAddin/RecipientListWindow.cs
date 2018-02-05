@@ -14,7 +14,7 @@ namespace OutlookRecipientConfirmationAddin
 
     public partial class RecipientListWindow : RecipientCommonWindow
     {
-        Utility.SendType _type;
+        Utility.OutlookItemType _type;
         List<RecipientInformationDto> _recipientsList;
 
         public RecipientListWindow()
@@ -22,7 +22,7 @@ namespace OutlookRecipientConfirmationAddin
             InitializeComponent();
         }
 
-        public RecipientListWindow(Utility.SendType type, List<RecipientInformationDto> recipients) : base(type, recipients)
+        public RecipientListWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients) : base(type, recipients)
         {
             InitializeComponent();
             this._type = type;
@@ -45,24 +45,10 @@ namespace OutlookRecipientConfirmationAddin
 
         }
 
-        /// <summary>
-        ///  「GitHub」のリンクが押された場合
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin");
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
