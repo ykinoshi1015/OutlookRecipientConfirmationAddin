@@ -53,9 +53,14 @@ Outlook2016を起動すると、アドインが有効になります。
 すでに開いている場合は、再度開き直してください。
 
 
-## お問い合わせ
+## FAQ
 
-バグや、改善点などご意見がありましたら、下記よりお問い合わせください。  
+インストール時のエラーなど
+[FAQ](https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin/wiki/FAQ)
 
-RICROSS - Office365Outlook宛先確認アドイン グループ  
-https://sns.ricoh.jp/groups/office365outlook%E5%AE%9B%E5%85%88%E7%A2%BA%E8%AA%8D%E3%82%A2%E3%83%89%E3%82%A4%E3%83%B3
+## License
+
+Copyright (c) 2018 Yuna Nakanishi / Yasuyuki Kinoshita / Kenta Kosaka   
+Released under the MIT license   
+[MIT-LICENSE.txt](./MIT-LICENSE.txt)   
+
