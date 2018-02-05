@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PublishUrlHistory>..\..\publish\</PublishUrlHistory>
-    <InstallUrlHistory>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/develop/publish/</InstallUrlHistory>
+    <InstallUrlHistory>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/master/publish/|https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/release/v1.0.0.5/publish/|https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/develop/publish/</InstallUrlHistory>
     <SupportUrlHistory />
   </PropertyGroup>
 </Project>
