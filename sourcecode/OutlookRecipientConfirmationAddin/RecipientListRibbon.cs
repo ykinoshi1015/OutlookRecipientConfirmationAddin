@@ -16,9 +16,6 @@ namespace OutlookRecipientConfirmationAddin
     [ComVisible(true)]
     public class RecipientListRibbon : Office.IRibbonExtensibility
     {
-        //private const string TANTOU = "担当";
-        //private const string PROPTAG_URL = "http://schemas.microsoft.com/mapi/proptag/0x0C190102";
-
         private Office.IRibbonUI ribbon;
 
         public RecipientListRibbon()

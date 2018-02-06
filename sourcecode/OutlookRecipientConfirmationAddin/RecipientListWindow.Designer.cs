@@ -31,6 +31,7 @@
             this.OK = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // OK
@@ -46,6 +47,30 @@
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.button1_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 23);
+            this.linkLabel1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "このメールは以下の連絡先宛てです。";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // RecipientListWindow
             // 
             this.AcceptButton = this.OK;
@@ -55,6 +80,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.OK;
             this.ClientSize = new System.Drawing.Size(884, 393);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.OK);
@@ -71,6 +97,7 @@
             this.Controls.SetChildIndex(this.OK, 0);
             this.Controls.SetChildIndex(this.linkLabel1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,5 +107,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.Label label2;
     }
 }

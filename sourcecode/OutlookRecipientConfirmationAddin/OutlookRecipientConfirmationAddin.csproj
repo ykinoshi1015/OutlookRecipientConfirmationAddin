@@ -211,12 +211,6 @@
       <DependentUpon>RecipientListWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipientListRibbon.cs" />
-    <Compile Include="RibbonVisual.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RibbonVisual.Designer.cs">
-      <DependentUpon>RibbonVisual.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -235,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecipientListWindow.resx">
       <DependentUpon>RecipientListWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RibbonVisual.resx">
-      <DependentUpon>RibbonVisual.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OutlookRecipientConfirmationAddin.pfx" />
     <None Include="OutlookRecipientConfirmationAddin_TemporaryKey.pfx" />

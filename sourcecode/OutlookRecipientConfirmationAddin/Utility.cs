@@ -8,20 +8,22 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 namespace OutlookRecipientConfirmationAddin
 {
     /// <summary>
-    /// 宛先情報を表示用にフォーマッティングするクラス
+    /// 送信時の宛先表示とリボンの共通処理を入れるクラス
     /// </summary>
     public class Utility
     {
+        /// アイテムの種類
         public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse };
 
         private const string TANTOU = "担当";
-        private const string PROPTAG_URL = "http://schemas.microsoft.com/mapi/proptag/0x0C190102";
 
         /// <summary>
-        /// アイテムから、Recipientのリスト取得する
+        /// アイテムから、宛先(Recipient)のリスト取得する
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns>Recipientsインスタンス(nullの場合メールでも会議でもない)</returns>
+        /// <param name="Item">Outlookアイテムオブジェクト</param>
+        /// <param name="type">アイテムの種類</param>
+        /// <param name="IgnoreMeetingResponse">会議招集の返信かどうか</param>
+        /// <returns>Recipientsインスタンス(会議招集の返信や、MailItem,MeetingItem,AppointmentItemでない場合null)</returns>
         public static List<Outlook.Recipient> getRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
@@ -38,10 +40,10 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
 
-                /// 会議招集
-               //"IPM.Schedule.Meeting.Resp.Neg";
-                //"IPM.Schedule.Meeting.Resp.Pos";
-                //"IPM.Schedule.Meeting.Resp.Tent";
+                /// 会議招集の返信の場合
+                /// "IPM.Schedule.Meeting.Resp.Neg";
+                /// "IPM.Schedule.Meeting.Resp.Pos";
+                /// "IPM.Schedule.Meeting.Resp.Tent";
                 if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
                 {
                     type = OutlookItemType.MeetingResponse;
@@ -52,13 +54,14 @@ namespace OutlookRecipientConfirmationAddin
                         return null;
                     }
                 }
+                /// 会議出席依頼を送信する場合など
                 else
                 {
-                    //会議招集依頼を送信する場合など
                     type = OutlookItemType.Meeting;
                 }
                 recipients = meeting.Recipients;
             }
+            /// AppointmentItemの場合（編集中の会議招集メール）
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
@@ -79,22 +82,21 @@ namespace OutlookRecipientConfirmationAddin
         /// <summary>
         /// 送信者の情報(Dto)を取得する
         /// </summary>
-        /// <param name="Item"></param>
+        /// <param name="Item">Outlookアイテムオブジェクト</param>
         /// <returns>送信者の宛先情報インスタンス（送信者が取得できない場合null）</returns>
         public static RecipientInformationDto GetSenderInfomation(object Item)
         {
             Outlook.AddressEntry sender = null;
             Outlook.ExchangeUser exchUser = null;
-            Outlook.PropertyAccessor propAccess = null;
             RecipientInformationDto senderInformation = null;
             Outlook.Recipient recResolve;
-            //Outlook.AddressEntry addressEntry;
 
+            /// MailItemの場合
             if (Item is Outlook.MailItem)
             {
                 Outlook.MailItem mail = (Item as Outlook.MailItem);
 
-                ///送信元のアカウントのユーザーに対応するSenderプロパティを取得
+                ///送信元のアカウントに対応するSenderプロパティを取得
                 sender = mail.Sender;
                 if (sender != null)
                 {
@@ -113,31 +115,26 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
 
-                //送信者のExchangeUserを取得
-                propAccess = meeting.PropertyAccessor;
-
-                Outlook.AddressEntry addressEntry = GetSenderAddressEntry(propAccess);
-                exchUser = addressEntry.GetExchangeUser();
+                //SenderEmailAddressからExchangeUserを取得
+                recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(meeting.SenderEmailAddress);
+                exchUser = recResolve.AddressEntry.GetExchangeUser();
             }
-            /// AppointmentItemの場合(送信前の会議系のメール)
+            /// AppointmentItemの場合
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
 
-                //送信者のExchangeUserを取得
-                propAccess = appointment.PropertyAccessor;
-                Outlook.AddressEntry addressEntry  = GetSenderAddressEntry(propAccess);
-                /// 送信者のメールアドレスから、ExchangeUserを見つける
-                //recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(addressEntry.Address);
-                //exchUser = recResolve.AddressEntry.GetExchangeUser();
-                exchUser = addressEntry.GetExchangeUser();
+                /// 編集中のユーザを送信者として取得
+                sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
+                exchUser = sender.GetExchangeUser();
             }
 
+            /// 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
             {
-                senderInformation = FormatSenderInformation(exchUser);
+                senderInformation = new RecipientInformationDto(exchUser.Name, exchUser.Department,
+                exchUser.CompanyName, FormatJobTitle(exchUser.JobTitle), Outlook.OlMailRecipientType.olOriginator); ;
             }
-
             /// ExchangeUserが取得できないが、送信者はいる場合
             else if (sender != null)
             {
@@ -148,44 +145,10 @@ namespace OutlookRecipientConfirmationAddin
         }
 
         /// <summary>
-        /// 送信者のAddressEntryrを取得する（MeetingItemとAppointmentItem用）        
-        /// <param name="propAccess"></param>
-        /// <returns>送信者のAddressEntry</returns>
+        /// 表示する必要のない役職の場合、空文字を入れる
         /// </summary>
-        private static Outlook.AddressEntry GetSenderAddressEntry(Outlook.PropertyAccessor propAccess)
-        {
-            /// PropoertyAccessorで、送信者の情報を取得
-            string senderID = (propAccess.GetProperty(PROPTAG_URL));
-            string senderID2 = propAccess.BinaryToString(senderID);
-            Outlook.AddressEntry addressEntry = Globals.ThisAddIn.Application.Session.GetAddressEntryFromID(senderID);
-
-            return addressEntry;
-        }
-
-        /// <summary>
-        /// 送信者のExchangeUserプロパティから、表示に必要な情報を取り出す
-        /// </summary>
-        /// <param name="exchUser">送信者のExchangeUserインスタンス</param>
-        /// <returns>送信者の宛先情報インスタンス</returns>
-        private static RecipientInformationDto FormatSenderInformation(Outlook.ExchangeUser exchUser)
-        {
-            Outlook.ContactItem contactItem = null;
-
-            contactItem = Globals.ThisAddIn.Application.CreateItem(Outlook.OlItemType.olContactItem);
-            contactItem.FullName = exchUser.Name;
-            contactItem.CompanyName = exchUser.CompanyName;
-            contactItem.Department = exchUser.Department;
-            string jobTitle = FormatJobTitle(exchUser.JobTitle);
-
-            return new RecipientInformationDto(contactItem.FullName, contactItem.Department,
-                contactItem.CompanyName, jobTitle, Outlook.OlMailRecipientType.olOriginator);
-        }
-
-        /// <summary>
-        /// 表示する必要のない役職違えば空文字を入れる
-        /// </summary>
-        /// <param name="jobTitle"></param>
-        /// <returns></returns>
+        /// <param name="jobTitle">ExchangeUser の役職</param>
+        /// <returns>表示用の役職</returns>
         public static string FormatJobTitle(string jobTitle)
         {
             if (TANTOU.Equals(jobTitle) || jobTitle == null)

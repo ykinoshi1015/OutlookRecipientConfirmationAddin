@@ -13,7 +13,6 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class Office365Contact : IContact
     {
-
         /// O365にある連絡先を全部返す
         public ContactItem getContactItem(Recipient recipient)
         {
