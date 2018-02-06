@@ -51,8 +51,9 @@
             // 
             // GitHub
             // 
+            this.GitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GitHub.AutoSize = true;
-            this.GitHub.Location = new System.Drawing.Point(12, 371);
+            this.GitHub.Location = new System.Drawing.Point(12, 368);
             this.GitHub.Name = "GitHub";
             this.GitHub.Size = new System.Drawing.Size(40, 12);
             this.GitHub.TabIndex = 5;
