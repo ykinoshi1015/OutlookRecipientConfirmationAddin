@@ -13,9 +13,11 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientCommonWindow : Form
     {
+        /// 表示しているアイテムのタイプ
         protected Utility.OutlookItemType _type;
+        /// 宛先情報のリスト
         protected List<RecipientInformationDto> _recipientsList;
-
+        
         private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
 
         public RecipientCommonWindow()

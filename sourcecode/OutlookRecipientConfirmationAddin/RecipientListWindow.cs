@@ -19,12 +19,10 @@ namespace OutlookRecipientConfirmationAddin
         {
             InitializeComponent();
         }
-
+        
         public RecipientListWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients) : base(type, recipients)
         {
             InitializeComponent();
-            _type = type;
-            _recipientsList = recipients;
         }
 
         /// <summary>

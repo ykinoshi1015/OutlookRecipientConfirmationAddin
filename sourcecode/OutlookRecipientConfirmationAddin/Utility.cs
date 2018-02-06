@@ -134,10 +134,10 @@ namespace OutlookRecipientConfirmationAddin
             if (exchUser != null)
             {
                 senderInformation = new RecipientInformationDto(exchUser.Name,
-                                                                                          exchUser.Department,
-                                                                                          exchUser.CompanyName,
-                                                                                          FormatJobTitle(exchUser.JobTitle),
-                                                                                          Outlook.OlMailRecipientType.olOriginator); 
+                    exchUser.Department,
+                    exchUser.CompanyName,
+                    FormatJobTitle(exchUser.JobTitle),
+                    Outlook.OlMailRecipientType.olOriginator); 
             }
             /// ExchangeUserが取得できないが、送信者はいる場合
             else if (sender != null)
