@@ -13,10 +13,10 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientCommonWindow : Form
     {
-        private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
+        protected Utility.OutlookItemType _type;
+        protected List<RecipientInformationDto> _recipientsList;
 
-        Utility.OutlookItemType _type;
-        List<RecipientInformationDto> _recipientsList;
+        private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
 
         public RecipientCommonWindow()
         {
@@ -26,8 +26,8 @@ namespace OutlookRecipientConfirmationAddin
         public RecipientCommonWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients)
         {
             InitializeComponent();
-            this._type = type;
-            this._recipientsList = recipients;
+            _type = type;
+            _recipientsList = recipients;
         }
 
         /// <summary>
@@ -112,7 +112,6 @@ namespace OutlookRecipientConfirmationAddin
 
             textBox1.Text += string.Format("□―――――― 送信者 ――――――□\r\n");
             textBox1.Text += originator + "\r\n";
-            textBox1.Text += string.Format("―――――――――――――――――\r\n");
             textBox1.AppendText("\r\n");
 
             textBox1.Text += string.Format(RECIPIENT_HEADER, firstHeader, toList.Count());
@@ -141,16 +140,6 @@ namespace OutlookRecipientConfirmationAddin
 
             /// 必要な場合、垂直、水平両方のスクロールバーを表示
             textBox1.ScrollBars = ScrollBars.Both;
-
-        }
-
-        /// <summary>
-        /// テキストボックス
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

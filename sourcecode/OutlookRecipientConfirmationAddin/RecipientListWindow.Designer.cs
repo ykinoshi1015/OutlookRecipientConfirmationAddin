@@ -45,7 +45,6 @@
             this.OK.TabIndex = 0;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
-            this.OK.Click += new System.EventHandler(this.button1_Click);
             // 
             // linkLabel1
             // 
@@ -69,7 +68,6 @@
             this.label2.Size = new System.Drawing.Size(200, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "このメールは以下の連絡先宛てです。";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // RecipientListWindow
             // 

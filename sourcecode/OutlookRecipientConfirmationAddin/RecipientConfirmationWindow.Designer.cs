@@ -48,7 +48,6 @@
             this.OK.TabIndex = 0;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
-            this.OK.Click += new System.EventHandler(this.button1_Click);
             // 
             // Cancel
             // 
@@ -62,7 +61,6 @@
             this.Cancel.TabIndex = 1;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -86,7 +84,6 @@
             this.label2.Size = new System.Drawing.Size(212, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "以下の宛先に送信してよろしいですか？";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // RecipientConfirmationWindow
             // 

@@ -12,10 +12,7 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientConfirmationWindow : RecipientCommonWindow
     {
-
-        Utility.OutlookItemType _type;
-        List<RecipientInformationDto> _recipientsList;
-
+       
         public RecipientConfirmationWindow()
         {
             InitializeComponent();
@@ -24,8 +21,8 @@ namespace OutlookRecipientConfirmationAddin
         public RecipientConfirmationWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients) : base(type, recipients)
         {
             InitializeComponent();
-            this._type = type;
-            this._recipientsList = recipients;
+            _type = type;
+           _recipientsList = recipients;
         }
 
         /// <summary>
@@ -39,38 +36,5 @@ namespace OutlookRecipientConfirmationAddin
             RecipientCommonWindow_format();
         }
 
-        /// <summary>
-        /// テキストボックス
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        /// <summary>
-        /// OKボタンが押された場合
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Cancelボタンが押された場合
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

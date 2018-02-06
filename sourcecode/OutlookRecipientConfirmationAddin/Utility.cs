@@ -24,7 +24,7 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="type">アイテムの種類</param>
         /// <param name="IgnoreMeetingResponse">会議招集の返信かどうか</param>
         /// <returns>Recipientsインスタンス(会議招集の返信や、MailItem,MeetingItem,AppointmentItemでない場合null)</returns>
-        public static List<Outlook.Recipient> getRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
+        public static List<Outlook.Recipient> GetRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
 
@@ -115,9 +115,10 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
 
-                //SenderEmailAddressからExchangeUserを取得
+                /// SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
                 recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(meeting.SenderEmailAddress);
-                exchUser = recResolve.AddressEntry.GetExchangeUser();
+                sender = recResolve.AddressEntry;
+                exchUser = sender.GetExchangeUser();
             }
             /// AppointmentItemの場合
             else if (Item is Outlook.AppointmentItem)
@@ -132,8 +133,11 @@ namespace OutlookRecipientConfirmationAddin
             /// 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
             {
-                senderInformation = new RecipientInformationDto(exchUser.Name, exchUser.Department,
-                exchUser.CompanyName, FormatJobTitle(exchUser.JobTitle), Outlook.OlMailRecipientType.olOriginator); ;
+                senderInformation = new RecipientInformationDto(exchUser.Name,
+                                                                                          exchUser.Department,
+                                                                                          exchUser.CompanyName,
+                                                                                          FormatJobTitle(exchUser.JobTitle),
+                                                                                          Outlook.OlMailRecipientType.olOriginator); 
             }
             /// ExchangeUserが取得できないが、送信者はいる場合
             else if (sender != null)

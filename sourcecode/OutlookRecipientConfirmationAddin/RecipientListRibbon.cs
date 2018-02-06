@@ -104,7 +104,7 @@ namespace OutlookRecipientConfirmationAddin
 
             /// メールの宛先を取得
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            recipientsList = Utility.getRecipients(activeItem, ref itemType);
+            recipientsList = Utility.GetRecipients(activeItem, ref itemType);
 
             ///  会議招集の返信の場合、そのまま送信する
             if (recipientsList == null)

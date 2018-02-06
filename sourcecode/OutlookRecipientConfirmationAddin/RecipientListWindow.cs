@@ -14,8 +14,6 @@ namespace OutlookRecipientConfirmationAddin
 
     public partial class RecipientListWindow : RecipientCommonWindow
     {
-        Utility.OutlookItemType _type;
-        List<RecipientInformationDto> _recipientsList;
 
         public RecipientListWindow()
         {
@@ -25,8 +23,8 @@ namespace OutlookRecipientConfirmationAddin
         public RecipientListWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients) : base(type, recipients)
         {
             InitializeComponent();
-            this._type = type;
-            this._recipientsList = recipients;
+            _type = type;
+            _recipientsList = recipients;
         }
 
         /// <summary>
@@ -38,21 +36,6 @@ namespace OutlookRecipientConfirmationAddin
         {
             /// baseクラスでテキストボックスの内容を作る
             RecipientCommonWindow_format();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

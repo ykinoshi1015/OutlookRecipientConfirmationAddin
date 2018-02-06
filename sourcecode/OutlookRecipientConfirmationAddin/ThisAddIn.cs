@@ -55,7 +55,7 @@ namespace OutlookRecipientConfirmationAddin
                 
                 /// アイテムの宛先を取得
                  List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-                recipientsList = Utility.getRecipients(Item, ref itemType, true);
+                recipientsList = Utility.GetRecipients(Item, ref itemType, true);
 
                 /// 会議の招待に対する返事の場合、宛先表示しない
                 if (itemType == Utility.OutlookItemType.MeetingResponse)
