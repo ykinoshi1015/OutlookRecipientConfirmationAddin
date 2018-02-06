@@ -133,7 +133,8 @@ namespace OutlookRecipientConfirmationAddin
             /// 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
             {
-                senderInformation = new RecipientInformationDto(exchUser.Name,
+                senderInformation = new RecipientInformationDto(
+                    exchUser.Name,
                     exchUser.Department,
                     exchUser.CompanyName,
                     FormatJobTitle(exchUser.JobTitle),
