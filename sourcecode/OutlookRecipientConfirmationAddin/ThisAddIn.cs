@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
 using Outlook = Microsoft.Office.Interop.Outlook;
-using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
+using DoNotDisableAddinUpdaterDll;
 
 namespace OutlookRecipientConfirmationAddin
 {
@@ -18,32 +15,13 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="e"></param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
-
-            Microsoft.Win32.RegistryKey regkey = null;
-
-            //Outlookのバージョン番号を取得
+            ///Outlookのバージョン番号を取得、レジストリ確認のDLLを呼び出す
             string version = Application.Version;
+            DoNotDisableAddinUpdaterDllClass.checkDisable(version);
 
-            //Outlook2016を使っている場合
-            if (version.StartsWith("16."))
-            {
-                //アドイン無効化の監視対象の設定をするキーを開く
-                //キーが存在しないときは新しく作成
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisableAddinList");
-            }
-            //Outlook2013を使っている場合
-            else if (version.StartsWith("15."))
-            {
-                regkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\15.0\Outlook\Resiliency\DoNotDisableAddinList");
-            }
-
-            //REG_DWORDで書き込む
-            regkey.SetValue("OutlookRecipientConfirmationAddin", 0x000000001, Microsoft.Win32.RegistryValueKind.DWord);
-
-            //閉じる
-            regkey.Close();
+            Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
         }
+
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {

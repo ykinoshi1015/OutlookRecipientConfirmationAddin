@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookRecipientConfirmationAddin", "OutlookRecipientConfirmationAddin\OutlookRecipientConfirmationAddin.csproj", "{078C57F9-F77F-4810-AB68-DB1F1E3DA36D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNotDisableAddinUpdater", "DoNotDisableAddinUpdater.exe\DoNotDisableAddinUpdater.csproj", "{F49EA6FC-BC93-4649-9207-9159DEF1429A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoNotDisableAddinUpdaterDll", "DoNotDisableAddinUpdaterDll\DoNotDisableAddinUpdaterDll.csproj", "{94512222-DCF9-4E22-B4E9-51F90D7B6006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{078C57F9-F77F-4810-AB68-DB1F1E3DA36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078C57F9-F77F-4810-AB68-DB1F1E3DA36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078C57F9-F77F-4810-AB68-DB1F1E3DA36D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49EA6FC-BC93-4649-9207-9159DEF1429A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49EA6FC-BC93-4649-9207-9159DEF1429A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49EA6FC-BC93-4649-9207-9159DEF1429A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49EA6FC-BC93-4649-9207-9159DEF1429A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94512222-DCF9-4E22-B4E9-51F90D7B6006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94512222-DCF9-4E22-B4E9-51F90D7B6006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94512222-DCF9-4E22-B4E9-51F90D7B6006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94512222-DCF9-4E22-B4E9-51F90D7B6006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

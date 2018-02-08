@@ -32,7 +32,7 @@
     <IsWebBootstrapper>True</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>..\..\publish\</PublishUrl>
-    <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/master/publish/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/ykinoshi1015/OutlookRecipientConfirmationAddin/enhancement/%252341/publish/</InstallUrl>
     <TargetCulture>ja</TargetCulture>
     <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
@@ -232,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DoNotDisableAddinUpdaterDll\DoNotDisableAddinUpdaterDll.csproj">
+      <Project>{94512222-dcf9-4e22-b4e9-51f90d7b6006}</Project>
+      <Name>DoNotDisableAddinUpdaterDll</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
