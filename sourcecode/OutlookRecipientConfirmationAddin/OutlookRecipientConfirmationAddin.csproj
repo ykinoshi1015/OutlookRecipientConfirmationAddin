@@ -234,9 +234,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DoNotDisableAddinUpdaterDll\DoNotDisableAddinUpdaterDll.csproj">
-      <Project>{94512222-dcf9-4e22-b4e9-51f90d7b6006}</Project>
-      <Name>DoNotDisableAddinUpdaterDll</Name>
+    <ProjectReference Include="..\DoNotDisableAddinUpdater\DoNotDisableAddinUpdater.csproj">
+      <Project>{09c49308-873f-4d95-afb0-7403bcc3c541}</Project>
+      <Name>DoNotDisableAddinUpdater</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

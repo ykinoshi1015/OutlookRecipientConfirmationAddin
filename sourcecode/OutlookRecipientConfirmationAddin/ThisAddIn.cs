@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using System.Windows.Forms;
-using DoNotDisableAddinUpdaterDll;
+using DoNotDisableAddinUpdater;
 
 namespace OutlookRecipientConfirmationAddin
 {
@@ -15,9 +15,8 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="e"></param>
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            ///Outlookのバージョン番号を取得、レジストリ確認のDLLを呼び出す
-            string version = Application.Version;
-            DoNotDisableAddinUpdaterDllClass.checkDisable(version);
+            ///レジストリ確認のDLLを呼び出し、アドイン無効化の監視をしないようにする
+            DoNotDisableAddinListUpdater.UpdateDoNotDisableAddinList("OutlookRecipientConfirmationAddin", true);
 
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
         }
