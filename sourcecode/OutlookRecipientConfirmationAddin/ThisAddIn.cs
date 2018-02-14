@@ -16,7 +16,7 @@ namespace OutlookRecipientConfirmationAddin
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             ///レジストリ確認のDLLを呼び出し、アドイン無効化の監視をしないようにする
-            DoNotDisableAddinListUpdater.UpdateDoNotDisableAddinList("OutlookRecipientConfirmationAddin", true);
+            bool doNotDisableAddinListUpdaterResult = DoNotDisableAddinListUpdater.UpdateDoNotDisableAddinList("OutlookRecipientConfirmationAddin", true);
 
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
         }

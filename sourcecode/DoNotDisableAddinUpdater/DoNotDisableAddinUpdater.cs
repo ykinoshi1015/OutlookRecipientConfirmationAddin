@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
@@ -27,58 +28,56 @@ namespace DoNotDisableAddinUpdater
             //レジストリの設定変更したか
             bool updateStatus = false;
 
-            //起動中のOutlookのインスタンスを取得
-            Outlook.Application application = Marshal.GetActiveObject("Outlook.Application") as Outlook.Application;
-            OutlookVersion outlookVersion = OutlookVersion.Outlook2013;
+            RegistryKey regKey = null;
+            RegistryKey regKeyTemp = null;
 
-            if (application.Version.StartsWith("15."))
+            //Outlookのバージョン別にレジストリキーを取得
+            foreach (OutlookVersion outlookversion in Enum.GetValues(typeof(OutlookVersion)))
             {
-                outlookVersion = OutlookVersion.Outlook2013;
-            }
-            else if (application.Version.StartsWith("16."))
-            {
-                outlookVersion = OutlookVersion.Outlook2016;
+                regKeyTemp = getOutlookDoNotDisableAddinListRegistryKey(outlookversion);
+
+                if (regKeyTemp != null)
+                {
+                    regKey = regKeyTemp;
+                }
             }
 
-            RegistryKey outlookDoNotDisableAddinListRegistryKey = getOutlookDoNotDisableAddinListRegistryKey(outlookVersion);
-
-            //キーまたは値が存在しない場合、設定を変更しない
-            if (outlookDoNotDisableAddinListRegistryKey == null)
+            //キーが存在しない場合、設定を変更しない
+            if (regKey == null)
             {
                 return updateStatus;
             }
 
-            //アドイン名がOutlookRecipientConfirmationAddinで、アドイン無効化の監視対象にする場合
-            if (doNotDisable && addinName.Equals("OutlookRecipientConfirmationAddin"))
+            //アドイン名がOutlookRecipientConfirmationAddin、無効化の監視対象を外したい場合
+            //かつ、無効化の監視対象に入っている場合
+            if (addinName.Equals("OutlookRecipientConfirmationAddin") && doNotDisable && !0x00000001.Equals(regKey.GetValue(addinName)))
             {
-                //無効化しない設定がされていない場合（キー、名前/値ペアを設定する）
-                if (!0x000000001.Equals(outlookDoNotDisableAddinListRegistryKey))
-                {
-                    //REG_DWORDで書き込む
-                    outlookDoNotDisableAddinListRegistryKey.SetValue(addinName, 0x000000001, RegistryValueKind.DWord);
-                    updateStatus = true;
-                }
+                //キー、名前/値ペアを書き込む
+                regKey.SetValue(addinName, 0x000000001, RegistryValueKind.DWord);
 
+                updateStatus = true;
             }
-            return updateStatus;
 
+            //開いたレジストリキーを閉じる
+            regKey.Close();
+
+            return updateStatus;
         }
 
 
         /// <summary>
-        /// Outlookの無効化にしないレジストリキーを取得する
+        /// アドインを無効化にしないレジストリキーを取得する
         /// </summary>
         /// <param name="version">起動したOutlookのバージョン</param>
-        /// <returns>Outlookの無効化にしないレジストリキーObject</returns>
+        /// <returns>アドイン無効化にしないレジストリキーObject</returns>
         private static RegistryKey getOutlookDoNotDisableAddinListRegistryKey(OutlookVersion version)
         {
             RegistryKey outlookDoNotDisableAddinListRegistryKey = null;
             string regkeyDirectory = null;
-            RegistryKey regkey = null;
 
             try
             {
-                //アドイン無効化の監視対象の設定をするキーを開く
+                //操作するレジストリ・キーの名前を取得
                 switch (version)
                 {
                     case OutlookVersion.Outlook2013:
@@ -91,23 +90,16 @@ namespace DoNotDisableAddinUpdater
                 }
 
                 //指定したパスのレジストリキーを開く
-                regkey = Registry.CurrentUser.OpenSubKey(regkeyDirectory, true);
+                outlookDoNotDisableAddinListRegistryKey = Registry.CurrentUser.OpenSubKey(regkeyDirectory, true);
 
-                //レジストリの値を取得
-                outlookDoNotDisableAddinListRegistryKey = regkey.GetValue("OutlookRecipientConfirmationAddin") as RegistryKey;
             }
-            //キーまたは値が存在しない場合、nullを返す
+            //OpenSubKeyに失敗した場合
             catch (NullReferenceException)
             {
                 return null;
             }
-            //開いたレジストリキーを閉じる
-            finally
-            {
-                regkey.Close();
-            }
 
-            //キーが見つかった場合、RegistryKeyオブジェクトを返す
+            //RegistryKeyオブジェクトが見つかったら返す
             return outlookDoNotDisableAddinListRegistryKey;
 
         }
