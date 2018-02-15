@@ -44,7 +44,11 @@ namespace DoNotDisableAddinUpdater
                 {
                     //指定したパスのレジストリキーを開く
                     regKeyTemp = Registry.CurrentUser.OpenSubKey(regKey, true);
-                    regKeyList.Add(regKeyTemp);
+
+                    if (regKeyTemp != null)
+                    {
+                        regKeyList.Add(regKeyTemp);
+                    }
                 }
                 //OpenSubKeyに失敗した場合
                 catch (NullReferenceException)
