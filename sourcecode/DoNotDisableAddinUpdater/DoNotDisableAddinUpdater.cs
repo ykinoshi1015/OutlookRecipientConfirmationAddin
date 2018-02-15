@@ -17,11 +17,11 @@ namespace DoNotDisableAddinUpdater
         private enum OutlookVersion { Outlook2013, Outlook2016 };
 
         /// <summary>
-        /// レジストリを確認し、無効化しない設定でない場合、キーを追加し設定する
+        /// レジストリキーを確認し、doNotDisable(アドイン無効化の監視をする/しない)と違う値の場合、addinNameの値を設定変更する
         /// </summary>
         /// <param name="addinName">アドイン名</param>
         /// <param name="doNotDisable">アドイン無効化の監視をしないようにするか</param>
-        /// <returns>レジストリの設定変更した場合、true</returns>
+        /// <returns>キーの設定変更した場合、true</returns>
         public static bool UpdateDoNotDisableAddinList(string addinName, bool doNotDisable)
         {
             Console.WriteLine("in: DoNotDisableAddinUpdater");
@@ -29,7 +29,9 @@ namespace DoNotDisableAddinUpdater
             //レジストリの設定変更したか
             bool updateStatus = false;
 
+            //見つかったレジストリキーを入れるリスト
             List<RegistryKey> regKeyList = new List<RegistryKey>();
+
             RegistryKey regKeyTemp = null;
 
             //Outlookのバージョン別にレジストリキーを取得
@@ -43,13 +45,7 @@ namespace DoNotDisableAddinUpdater
                 }
             }
 
-            //キーが存在しない場合、設定を変更しない
-            if (regKeyList == null)
-            {
-                return updateStatus;
-            }
-
-
+            //レジストリキーの値がdoNotDisableと違う場合、値をdoNotDisableに変更する
             foreach (RegistryKey regKey in regKeyList)
             {
                 Console.WriteLine(doNotDisable);
@@ -59,13 +55,9 @@ namespace DoNotDisableAddinUpdater
                 //無効化の監視対象に入っている場合
                 if (!Convert.ToInt32(doNotDisable).Equals(regKey.GetValue(addinName)))
                 {
-                    //キー、名前/値ペアを書き込み、監視対象外にする
+                    //キーに、名前/値ペアを書き込む
                     regKey.SetValue(addinName, Convert.ToInt32(doNotDisable), RegistryValueKind.DWord);
-
-                    if (!updateStatus)
-                    {
-                        updateStatus = true;
-                    }
+                    updateStatus = true;
 
                 }
                 //開いたレジストリキーを閉じる
