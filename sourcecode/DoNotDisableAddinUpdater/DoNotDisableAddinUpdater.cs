@@ -39,9 +39,9 @@ namespace DoNotDisableAddinUpdater
             RegistryKey regKeyTemp = null;
 
             //Outlookのバージョン別にレジストリキーを取得
-            foreach (DictionaryEntry versionAndDirectory in outlookVersionAndDirectory)
+            foreach (string directory in outlookVersionAndDirectory.Values)
             {
-                regKeyTemp = getOutlookDoNotDisableAddinListRegistryKey(versionAndDirectory);
+                regKeyTemp = getOutlookDoNotDisableAddinListRegistryKey(directory);
                 
                 if (regKeyTemp != null)
                 {
@@ -74,16 +74,16 @@ namespace DoNotDisableAddinUpdater
         /// <summary>
         /// アドインを無効化にしないレジストリキーを取得する
         /// </summary>
-        /// <param name="versionAndDirectory">ハッシュマップのキーと値</param>
+        /// <param name="directory">ハッシュマップの値</param>
         /// <returns>アドイン無効化にしないレジストリキーObject、レジストリキーが存在しない場合null</returns>
-        private static RegistryKey getOutlookDoNotDisableAddinListRegistryKey(DictionaryEntry versionAndDirectory)
+        private static RegistryKey getOutlookDoNotDisableAddinListRegistryKey(string directory)
         {
             RegistryKey outlookDoNotDisableAddinListRegistryKey = null;
 
             try
             {
                 //指定したパスのレジストリキーを開く
-                outlookDoNotDisableAddinListRegistryKey = Registry.CurrentUser.OpenSubKey((string)versionAndDirectory.Value, true);
+                outlookDoNotDisableAddinListRegistryKey = Registry.CurrentUser.OpenSubKey(directory, true);
             }
             //OpenSubKeyに失敗した場合
             catch (NullReferenceException)
