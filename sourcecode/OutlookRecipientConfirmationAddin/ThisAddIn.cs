@@ -18,6 +18,11 @@ namespace OutlookRecipientConfirmationAddin
             ///レジストリ確認のDLLを呼び出し、アドイン無効化の監視をしないようにする
             bool doNotDisableAddinListUpdaterResult = DoNotDisableAddinListUpdater.UpdateDoNotDisableAddinList("OutlookRecipientConfirmationAddin", true);
 
+            ///Notesリンクを開こうとしたときに表示される警告を抑制するよう設定する
+            ///アドインの設定画面が実装された、その中で設定できるようにする
+            ///※起動時の設定は暫定
+            DoNotDisableAddinListUpdater.DisableProtocolSecurityPopup("notes:");
+
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
         }
 
