@@ -27,7 +27,7 @@ namespace DoNotDisableAddinUpdater
         /// <returns>キーの設定変更した場合、true</returns>
         public static bool UpdateDoNotDisableAddinList(string addinName, bool doNotDisable)
         {
-            Console.WriteLine("in: DoNotDisableAddinUpdater");
+            Debug.WriteLine("in: DoNotDisableAddinUpdater");
 
             //レジストリの設定変更したか
             bool updateStatus = false;
@@ -60,9 +60,9 @@ namespace DoNotDisableAddinUpdater
             //レジストリキーの値がdoNotDisableと違う場合、値をdoNotDisableに変更する
             foreach (RegistryKey regKey in regKeyList)
             {
-                Console.WriteLine(doNotDisable);
-                Console.WriteLine(Convert.ToInt32(doNotDisable));
-                Console.WriteLine(regKey.GetValue(addinName));
+                //Console.WriteLine(doNotDisable);
+                //Console.WriteLine(Convert.ToInt32(doNotDisable));
+                //Console.WriteLine(regKey.GetValue(addinName));
 
                 //無効化の監視対象に入っている場合
                 if (!Convert.ToInt32(doNotDisable).Equals(regKey.GetValue(addinName)))
