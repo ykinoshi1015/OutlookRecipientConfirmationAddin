@@ -49,8 +49,8 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 6. インストールボタンを押します  
 ![readme_installation_check](https://user-images.githubusercontent.com/29644865/36297991-09ed738c-1339-11e8-9ed3-9ed8002ab965.PNG)
 
-7. この画面が表示されたら、インストール完了です  
-![readme_installation_completed](https://user-images.githubusercontent.com/34431835/34713423-8d34e07e-f569-11e7-89d4-8d592634326e.PNG)
+7. インストール完了です  
+![readme_installation_completed](https://user-images.githubusercontent.com/29644865/36298698-ba952182-133c-11e8-8074-579497477808.PNG)
 
 
 **お疲れ様でした**  :smiley:
