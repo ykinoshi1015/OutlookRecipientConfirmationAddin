@@ -183,6 +183,12 @@
   -->
   <ItemGroup>
     <Compile Include="ContactFactory.cs" />
+    <Compile Include="ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDialog.Designer.cs">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="IContact.cs" />
     <Compile Include="Office365Contact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -195,6 +201,9 @@
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

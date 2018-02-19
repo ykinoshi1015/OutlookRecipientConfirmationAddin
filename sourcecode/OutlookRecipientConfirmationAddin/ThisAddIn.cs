@@ -56,6 +56,8 @@ namespace OutlookRecipientConfirmationAddin
         {
             try
             {
+                throw new Exception();
+
                 RecipientConfirmationWindow.SendType itemType = RecipientConfirmationWindow.SendType.Mail;
 
                 /// メールでも会議招集でもなければ、そのまま送信する
@@ -119,7 +121,9 @@ namespace OutlookRecipientConfirmationAddin
             /// 何らかのエラーが発生したらイベントをキャンセルする
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                ErrorDialog errorDialog = new ErrorDialog(ex);
+                errorDialog.ShowDialog();                
+
                 Cancel = true;
             }
         }
