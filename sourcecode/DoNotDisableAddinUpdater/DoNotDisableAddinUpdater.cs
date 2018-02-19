@@ -79,49 +79,49 @@ namespace DoNotDisableAddinUpdater
             return updateStatus;
         }
 
-        /// <summary>
-        /// メール内のリンクをクリックしたときにでるセキュリティポップアップを抑制する
-        /// </summary>
-        /// <param name="protocolName">抑制したいポップアップ(例："notes:")</param>
-        /// <returns>抑制設定した場合はtrue、何も設定しなかった場合はfalseを返す</returns>
-        public static bool DisableProtocolSecurityPopup(string protocolName)
-        {
-            bool changed = false;
-            string baseRegDirectory = @"Software\Policies\Microsoft\Office\16.0\Common\Security\Trusted Protocols\All Applications";
+        ///// <summary>
+        ///// メール内のリンクをクリックしたときにでるセキュリティポップアップを抑制する
+        ///// </summary>
+        ///// <param name="protocolName">抑制したいポップアップ(例："notes:")</param>
+        ///// <returns>抑制設定した場合はtrue、何も設定しなかった場合はfalseを返す</returns>
+        //public static bool DisableProtocolSecurityPopup(string protocolName)
+        //{
+        //    bool changed = false;
+        //    string baseRegDirectory = @"Software\Policies\Microsoft\Office\16.0\Common\Security\Trusted Protocols\All Applications";
 
-            //ベースのレジストリキーが存在するか(Officeがインストールされているか)確認する
-            try
-            {
-                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(baseRegDirectory);
-                regkey.Close();
-            }
-            catch (Exception)
-            {
-                //Officeがインストールされていなければ何もしない
-                return changed;
-            }
+        //    //ベースのレジストリキーが存在するか(Officeがインストールされているか)確認する
+        //    try
+        //    {
+        //        RegistryKey regkey = Registry.CurrentUser.OpenSubKey(baseRegDirectory);
+        //        regkey.Close();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        //Officeがインストールされていなければ何もしない
+        //        return changed;
+        //    }
 
-            //すでにDisable設定されているか確認する
-            string targetRegDirectory = string.Format("{0}\\{1}", baseRegDirectory, protocolName);
-            try
-            {
-                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(targetRegDirectory);
-                regkey.Close();
-            }
-            catch (NullReferenceException)
-            {
-                //Disable設定されていな(キーが存在しな)ければ設定する(キーを作る)
-                RegistryKey regkey = Registry.CurrentUser.CreateSubKey(targetRegDirectory);
-                regkey.Close();
-                changed = true;
-            }
-            catch (Exception)
-            {
-                ; //予期せぬエラーの時、何もしない
-            }
+        //    //すでにDisable設定されているか確認する
+        //    string targetRegDirectory = string.Format("{0}\\{1}", baseRegDirectory, protocolName);
+        //    try
+        //    {
+        //        RegistryKey regkey = Registry.CurrentUser.OpenSubKey(targetRegDirectory);
+        //        regkey.Close();
+        //    }
+        //    catch (NullReferenceException)
+        //    {
+        //        //Disable設定されていな(キーが存在しな)ければ設定する(キーを作る)
+        //        RegistryKey regkey = Registry.CurrentUser.CreateSubKey(targetRegDirectory);
+        //        regkey.Close();
+        //        changed = true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        ; //予期せぬエラーの時、何もしない
+        //    }
 
-            return changed;
-        }
+        //    return changed;
+        //}
 
     }
 }
