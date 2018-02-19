@@ -21,7 +21,7 @@ namespace OutlookRecipientConfirmationAddin
             ///Notesリンクを開こうとしたときに表示される警告を抑制するよう設定する
             ///アドインの設定画面が実装された、その中で設定できるようにする
             ///※起動時の設定は暫定
-            DoNotDisableAddinListUpdater.DisableProtocolSecurityPopup("notes:");
+            //DoNotDisableAddinListUpdater.DisableProtocolSecurityPopup("notes:");
 
             Application.ItemSend += new Outlook.ApplicationEvents_11_ItemSendEventHandler(ConfirmContact);
         }
