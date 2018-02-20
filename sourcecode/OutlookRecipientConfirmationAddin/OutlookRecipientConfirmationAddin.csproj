@@ -130,6 +130,10 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -183,10 +187,22 @@
   -->
   <ItemGroup>
     <Compile Include="ContactFactory.cs" />
+    <Compile Include="ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDialog.Designer.cs">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="IContact.cs" />
     <Compile Include="Office365Contact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RecipientCommonWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipientCommonWindow.Designer.cs">
+      <DependentUpon>RecipientCommonWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipientConfirmationWindow.cs">
       <SubType>Form</SubType>
@@ -194,7 +210,17 @@
     <Compile Include="RecipientConfirmationWindow.Designer.cs">
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecipientListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipientListWindow.Designer.cs">
+      <DependentUpon>RecipientListWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecipientListRibbon.cs" />
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -204,11 +230,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RecipientCommonWindow.resx">
+      <DependentUpon>RecipientCommonWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecipientConfirmationWindow.resx">
       <DependentUpon>RecipientConfirmationWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecipientListWindow.resx">
+      <DependentUpon>RecipientListWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="OutlookRecipientConfirmationAddin.pfx" />
     <None Include="OutlookRecipientConfirmationAddin_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -239,6 +272,15 @@
       <Name>DoNotDisableAddinUpdater</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecipientListRibbon.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reply.png" />
+    <EmbeddedResource Include="ReplyAll.png" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -258,6 +300,22 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>VSTO40;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>VSTO40;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
