@@ -13,13 +13,12 @@ namespace OutlookRecipientConfirmationAddin
     /// </summary>
     class Office365Contact : IContact
     {
-
         /// O365にある連絡先を全部返す
         public ContactItem getContactItem(Recipient recipient)
         {
             ContactItem contactItem = null;
 
-            /// グループアドレスの場合
+            /// O365のグループアドレスの場合
             if (OlAddressEntryUserType.olExchangeDistributionListAddressEntry == recipient.AddressEntry.AddressEntryUserType)
             {
                 /// グループ名を入れて戻る

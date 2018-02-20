@@ -10,7 +10,7 @@ namespace OutlookRecipientConfirmationAddin
     /// <summary>
     /// 宛先情報のDto
     /// </summary>
-    class RecipientInformationDto
+    public class RecipientInformationDto
     {
         /// 宛名
         public string fullName { get; set; }

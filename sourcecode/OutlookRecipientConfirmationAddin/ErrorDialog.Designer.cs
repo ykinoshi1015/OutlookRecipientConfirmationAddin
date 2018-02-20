@@ -59,8 +59,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1077, 173);
+            this.textBox1.Size = new System.Drawing.Size(1077, 165);
             this.textBox1.TabIndex = 1;
             // 
             // button1
@@ -68,10 +67,10 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 9.75F);
-            this.button1.Location = new System.Drawing.Point(970, 274);
+            this.button1.Location = new System.Drawing.Point(972, 269);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 35);
+            this.button1.Size = new System.Drawing.Size(125, 45);
             this.button1.TabIndex = 2;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,10 +80,11 @@
             this.GitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GitHub.AutoSize = true;
             this.GitHub.BackColor = System.Drawing.Color.White;
+            this.GitHub.Font = new System.Drawing.Font("Meiryo UI", 9.75F);
             this.GitHub.Location = new System.Drawing.Point(20, 285);
             this.GitHub.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.GitHub.Name = "GitHub";
-            this.GitHub.Size = new System.Drawing.Size(60, 18);
+            this.GitHub.Size = new System.Drawing.Size(79, 25);
             this.GitHub.TabIndex = 6;
             this.GitHub.TabStop = true;
             this.GitHub.Text = "GitHub";
