@@ -16,7 +16,7 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="e">発生したイベントのインスタンス</param>
         private void ThisAddIn_Startup(object sender, EventArgs e)
         {
-            ///レジストリ確認のDLLを呼び出し、アドイン無効化の監視をしないようにする
+            // レジストリ確認のDLLを呼び出し、アドイン無効化の監視をしないようにする
             bool doNotDisableAddinListUpdaterResult = DoNotDisableAddinListUpdater.UpdateDoNotDisableAddinList("OutlookRecipientConfirmationAddin", true);
 
             ///Notesリンクを開こうとしたときに表示される警告を抑制するよう設定する
@@ -56,42 +56,42 @@ namespace OutlookRecipientConfirmationAddin
         private void ConfirmContact(object Item, ref bool Cancel)
         {
             try
-            {
-                //アイテムタイプをMailで初期化
+            {//throw new Exception();
+                // アイテムタイプをMailで初期化
                 Utility.OutlookItemType itemType = Utility.OutlookItemType.Mail;
 
-                /// アイテムの宛先を取得
+                // アイテムの宛先を取得
                 List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
                 recipientsList = Utility.GetRecipients(Item, ref itemType, true);
 
-                /// 会議の招待に対する返事の場合、宛先表示しない
+                // 会議の招待に対する返事の場合、宛先表示しない
                 if (itemType == Utility.OutlookItemType.MeetingResponse)
                 {
                     return;
                 }
 
-                /// 宛先情報のリストを取得
+                // 宛先情報のリストを取得
                 SearchRecipient searchRecipient = new SearchRecipient();
                 List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
 
-                /// 送信者のExchangeUserオブジェクトを取得
+                // 送信者のExchangeUserオブジェクトを取得
                 RecipientInformationDto senderInformation = null;
                 senderInformation = Utility.GetSenderInfomation(Item);
 
-                /// 受信者の宛先情報のリストに、送信者の情報も追加する
+                // 受信者の宛先情報のリストに、送信者の情報も追加する
                 if (senderInformation != null)
                 {
                     recipientList.Add(senderInformation);
                 }
 
-                /// 引数に宛先情報を渡し、宛先表示画面を表示する
+                // 引数に宛先情報を渡し、宛先表示画面を表示する
                 RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(itemType, recipientList);
                 DialogResult result = recipientConfirmationWindow.ShowDialog();
 
-                /// 画面でOK以外が選択された場合
+                // 画面でOK以外が選択された場合
                 if (result != DialogResult.OK)
                 {
-                    //メール送信のイベントをキャンセルする
+                    // メール送信のイベントをキャンセルする
                     Cancel = true;
                 }
             }
@@ -99,8 +99,8 @@ namespace OutlookRecipientConfirmationAddin
             /// 送信イベントをキャンセルする
             catch (Exception ex)
             {
-                ErrorDialog errorDialog = new ErrorDialog(ex);
-                errorDialog.ShowDialog();                
+                // エラーダイアログの呼び出し
+                ErrorDialog.ShowException(ex);                
 
                 Cancel = true;
             }

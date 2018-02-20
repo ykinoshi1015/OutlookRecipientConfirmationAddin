@@ -66,8 +66,8 @@ namespace OutlookRecipientConfirmationAddin
             //例外が発生した場合、エラーダイアログを表示
             catch (Exception ex)
             {
-                ErrorDialog errorDialog = new ErrorDialog(ex);
-                errorDialog.ShowDialog();
+                // エラーダイアログの呼び出し
+                ErrorDialog.ShowException(ex);
             }
         }
 
