@@ -41,21 +41,22 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox1.Font = new System.Drawing.Font("Meiryo UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(22, 50);
+            this.textBox1.Location = new System.Drawing.Point(12, 42);
             this.textBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1330, 420);
+            this.textBox1.Size = new System.Drawing.Size(800, 262);
             this.textBox1.TabIndex = 4;
             // 
             // GitHub
             // 
             this.GitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GitHub.AutoSize = true;
-            this.GitHub.Location = new System.Drawing.Point(19, 508);
+            this.GitHub.Font = new System.Drawing.Font("Meiryo UI", 9.75F);
+            this.GitHub.Location = new System.Drawing.Point(9, 327);
             this.GitHub.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.GitHub.Name = "GitHub";
-            this.GitHub.Size = new System.Drawing.Size(60, 18);
+            this.GitHub.Size = new System.Drawing.Size(51, 17);
             this.GitHub.TabIndex = 5;
             this.GitHub.TabStop = true;
             this.GitHub.Text = "GitHub";
@@ -63,9 +64,8 @@
             // 
             // RecipientCommonWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 544);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(827, 363);
             this.Controls.Add(this.GitHub);
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -77,8 +77,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.LinkLabel GitHub;
+        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.LinkLabel GitHub;
     }
 }
