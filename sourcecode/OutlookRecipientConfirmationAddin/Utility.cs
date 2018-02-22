@@ -49,7 +49,7 @@ namespace OutlookRecipientConfirmationAddin
                 if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
                 {
                     type = OutlookItemType.MeetingResponse;
-                
+
                     // 会議招集の返信をする場合、宛先確認画面が表示されないようnullを返す
                     if (IgnoreMeetingResponse)
                     {
@@ -122,12 +122,13 @@ namespace OutlookRecipientConfirmationAddin
                 // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
                 recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(meeting.SenderEmailAddress);
 
-                try { 
+                try
+                {
                     sender = recResolve.AddressEntry;
                     exchUser = sender.GetExchangeUser();
                 }
                 //AddressEntryの取得に失敗した場合
-                catch(COMException)
+                catch (Exception)
                 {
                     sender = null;
                     senderName = meeting.SenderName;
