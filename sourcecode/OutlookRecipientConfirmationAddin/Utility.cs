@@ -64,7 +64,7 @@ namespace OutlookRecipientConfirmationAddin
                 }
                 recipients = meeting.Recipients;
             }
-            // AppointmentItemの場合（編集中の会議招集メール、開催者が取り消した会議のキャンセル通知？？？？？）
+            // AppointmentItemの場合（編集中の会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
