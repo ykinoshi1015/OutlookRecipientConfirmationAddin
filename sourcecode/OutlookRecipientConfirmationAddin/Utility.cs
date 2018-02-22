@@ -133,14 +133,15 @@ namespace OutlookRecipientConfirmationAddin
                 // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
                 recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(meeting.SenderEmailAddress);
 
-                if (recResolve.Address != null)
+                try
                 {
                     sender = recResolve.AddressEntry;
                     exchUser = sender.GetExchangeUser();
                 }
-                // AddressEntryの取得に失敗した場合
-                else
+                //AddressEntryの取得に失敗した場合
+                catch (Exception)
                 {
+                    sender = null;
                     senderName = meeting.SenderName;
                 }
 
