@@ -79,14 +79,16 @@ namespace OutlookRecipientConfirmationAddin
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
             foreach (Outlook.Recipient recipient in recipients)
             {
-                count++;
-
-                // AppointmentItemの場合、1番目のrecipientは送信者なのでrecipientsListに追加しない
-                if (isAppointmentItem && count == 1)
+                
+                // AppointmentItemの場合、先頭のrecipientは送信者なのでrecipientsListに追加しない
+                if (isAppointmentItem && count == 0)
                 {
+                    count++;
                     continue;
                 }
+
                 recipientsList.Add(recipient);
+                count++;
             }
 
             return recipientsList;
@@ -151,13 +153,8 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
 
-                // Recipientsの1番目に入っているのが送信者なので、送信者のExchangeUserを取得
-                Outlook.Recipients recipients = appointment.Recipients;
-                foreach(Outlook.Recipient recipient in recipients)
-                {
-                    exchUser = recipient.AddressEntry.GetExchangeUser();
-                    break;
-                }
+                // 先頭(Recipients[1])のRecipientは送信者なので、送信者のExchangeUserを取得
+                exchUser = appointment.Recipients[1].AddressEntry.GetExchangeUser();
             }
 
             // 送信者のExchangeUserが取得できた場合
