@@ -29,6 +29,7 @@ namespace OutlookRecipientConfirmationAddin
         public static List<Outlook.Recipient> GetRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
+            bool isAppointmentItem = false;
 
             Outlook.MailItem mail = Item as Outlook.MailItem;
             // MailItemの場合
@@ -49,7 +50,7 @@ namespace OutlookRecipientConfirmationAddin
                 if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
                 {
                     type = OutlookItemType.MeetingResponse;
-                
+
                     // 会議招集の返信をする場合、宛先確認画面が表示されないようnullを返す
                     if (IgnoreMeetingResponse)
                     {
@@ -63,18 +64,28 @@ namespace OutlookRecipientConfirmationAddin
                 }
                 recipients = meeting.Recipients;
             }
-            // AppointmentItemの場合（編集中の会議招集メール）
+            // AppointmentItemの場合（編集中の会議招集メール、開催者が取り消した会議のキャンセル通知？？？？？）
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
+                isAppointmentItem = true;
             }
+
+            int count = 0;
 
             // 受信者の情報をリストに入れる
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
             foreach (Outlook.Recipient recipient in recipients)
             {
+                count++;
+
+                // AppointmentItemの場合、1番目のrecipientは送信者なのでrecipientsListに追加しない
+                if (isAppointmentItem && count == 1)
+                {
+                    continue;
+                }
                 recipientsList.Add(recipient);
             }
 
@@ -127,7 +138,7 @@ namespace OutlookRecipientConfirmationAddin
                     sender = recResolve.AddressEntry;
                     exchUser = sender.GetExchangeUser();
                 }
-                //AddressEntryの取得に失敗した場合
+                // AddressEntryの取得に失敗した場合
                 else
                 {
                     senderName = meeting.SenderName;
@@ -139,9 +150,13 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
 
-                // 編集中のユーザを送信者として取得
-                sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
-                exchUser = sender.GetExchangeUser();
+                // Recipientsの1番目に入っているのが送信者なので、送信者のExchangeUserを取得
+                Outlook.Recipients recipients = appointment.Recipients;
+                foreach(Outlook.Recipient recipient in recipients)
+                {
+                    exchUser = recipient.AddressEntry.GetExchangeUser();
+                    break;
+                }
             }
 
             // 送信者のExchangeUserが取得できた場合
