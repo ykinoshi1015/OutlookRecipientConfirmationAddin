@@ -38,10 +38,10 @@
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.OK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.OK.Location = new System.Drawing.Point(1227, 488);
+            this.OK.Location = new System.Drawing.Point(690, 315);
             this.OK.Margin = new System.Windows.Forms.Padding(4);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(125, 45);
+            this.OK.Size = new System.Drawing.Size(105, 35);
             this.OK.TabIndex = 0;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
@@ -65,19 +65,19 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(303, 25);
+            this.label2.Size = new System.Drawing.Size(200, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "このメールは以下の連絡先宛てです。";
             // 
             // RecipientListWindow
             // 
             this.AcceptButton = this.OK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.OK;
-            this.ClientSize = new System.Drawing.Size(1378, 544);
+            this.ClientSize = new System.Drawing.Size(825, 363);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
