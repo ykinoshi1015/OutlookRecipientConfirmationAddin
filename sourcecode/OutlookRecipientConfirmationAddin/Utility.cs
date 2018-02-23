@@ -29,6 +29,7 @@ namespace OutlookRecipientConfirmationAddin
         public static List<Outlook.Recipient> GetRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
+            bool isAppointmentItem = false;
 
             Outlook.MailItem mail = Item as Outlook.MailItem;
             // MailItemの場合
@@ -63,22 +64,27 @@ namespace OutlookRecipientConfirmationAddin
                 }
                 recipients = meeting.Recipients;
             }
-            // AppointmentItemの場合（編集中の会議招集メール）
+            // AppointmentItemの場合（編集中/送信されていない状態でトレイにある会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
+                isAppointmentItem = true;
             }
 
             // 受信者の情報をリストに入れる
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            foreach (Outlook.Recipient recipient in recipients)
+
+            int i = isAppointmentItem ? 2 : 1;
+
+            for (; i <= recipients.Count; i++)
             {
-                recipientsList.Add(recipient);
+                recipientsList.Add(recipients[i]);
             }
 
             return recipientsList;
+
         }
 
         /// <summary>
@@ -140,9 +146,18 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
 
-                // 編集中のユーザを送信者として取得
-                sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
-                exchUser = sender.GetExchangeUser();
+                try
+                {
+                    // 先頭(Recipients[1])のRecipientは送信者なので、送信者のExchangeUserを取得
+                    exchUser = appointment.Recipients[1].AddressEntry.GetExchangeUser();
+                }
+                // Recipientsがまだ設定されていない場合
+                catch (Exception)
+                {
+                    // 起動されたOutlookのユーザを送信者として取得
+                    sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
+                    exchUser = sender.GetExchangeUser();
+                }
             }
 
             // 送信者のExchangeUserが取得できた場合
