@@ -75,24 +75,14 @@ namespace OutlookRecipientConfirmationAddin
 
             // 受信者の情報をリストに入れる
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            int i;
 
-            if (isAppointmentItem)
-            {
-                //先頭(Recipients[1])は送信者なのでAddしないため
-                i = 2;
-            }
-            else
-            {
-                i = 1;
-            }
-            
-            while(i <= recipients.Count)
+            int i = isAppointmentItem ? 2 : 1;
+
+            for (; i <= recipients.Count; i++)
             {
                 recipientsList.Add(recipients[i]);
-                i++;
             }
-            
+
             return recipientsList;
 
         }
