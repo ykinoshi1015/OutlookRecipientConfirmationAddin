@@ -56,7 +56,7 @@ namespace OutlookRecipientConfirmationAddin
         private void ConfirmContact(object Item, ref bool Cancel)
         {
             try
-            {//throw new Exception();
+            {
                 // アイテムタイプをMailで初期化
                 Utility.OutlookItemType itemType = Utility.OutlookItemType.Mail;
 

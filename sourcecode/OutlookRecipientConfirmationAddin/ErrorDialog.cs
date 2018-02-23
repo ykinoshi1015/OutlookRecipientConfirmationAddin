@@ -16,6 +16,15 @@ namespace OutlookRecipientConfirmationAddin
     public partial class ErrorDialog : Form
     {
         /// <summary>
+        /// ErrorDialogクラスのインスタンス生成されないため
+        /// privateなコンストラクタ
+        /// </summary>
+        private ErrorDialog()
+        {
+
+        }
+
+        /// <summary>
         /// エラーダイアログを表示するメソッド
         /// </summary>
         /// <param name="ex">発生した例外オブジェクト</param>
