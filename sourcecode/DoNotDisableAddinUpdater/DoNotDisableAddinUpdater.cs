@@ -1,11 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace DoNotDisableAddinUpdater
 {
@@ -40,37 +36,28 @@ namespace DoNotDisableAddinUpdater
             {
                 RegistryKey regKeyTemp = null;
 
-                try
+                //regKeyに指定されたバージョンのOutlookがインストールしてある（regKeyのSoftware～Resiliencyまでのパスがある）場合
+                if (Registry.CurrentUser.OpenSubKey(regKey.Replace(@"\DoNotDisableAddinList", "")) != null)
                 {
-                    //指定したパスのレジストリキーを開く
-                    regKeyTemp = Registry.CurrentUser.OpenSubKey(regKey, true);
-
-                    if (regKeyTemp != null)
-                    {
-                        regKeyList.Add(regKeyTemp);
-                    }
+                    //キーを開く/キーがない場合は新しく作成する
+                    regKeyTemp = Registry.CurrentUser.CreateSubKey(regKey);
                 }
-                //OpenSubKeyに失敗した場合
-                catch (NullReferenceException)
+
+                //更新するキーをリストに追加
+                if (regKeyTemp != null)
                 {
-                    continue;
+                    regKeyList.Add(regKeyTemp);
                 }
             }
-
-            //レジストリキーの値がdoNotDisableと違う場合、値をdoNotDisableに変更する
+            
             foreach (RegistryKey regKey in regKeyList)
             {
-                //Console.WriteLine(doNotDisable);
-                //Console.WriteLine(Convert.ToInt32(doNotDisable));
-                //Console.WriteLine(regKey.GetValue(addinName));
-
-                //無効化の監視対象に入っている場合
+                //レジストリキーの値がdoNotDisableと違う場合、値をdoNotDisableに変更する
                 if (!Convert.ToInt32(doNotDisable).Equals(regKey.GetValue(addinName)))
                 {
                     //キーに、名前/値ペアを書き込む
                     regKey.SetValue(addinName, Convert.ToInt32(doNotDisable), RegistryValueKind.DWord);
                     updateStatus = true;
-
                 }
                 //開いたレジストリキーを閉じる
                 regKey.Close();
