@@ -43,7 +43,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 ![readme_installation_protected](https://user-images.githubusercontent.com/29644865/36298153-f8a34402-1339-11e8-9694-b89422aab416.PNG)
 ![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/36298152-f87d8fdc-1339-11e8-8480-c7abc3960d35.PNG)
 
-5. この画面が2度表示されるので、Agreeボタンを押します  
+5. この画面が表示されるので、Agreeボタンを押します  
 ![readme_streams_agreement](https://user-images.githubusercontent.com/29644865/36298004-222d0bc4-1339-11e8-8d60-8a0a80ee9e26.PNG)
 
 6. インストールボタンを押します  
