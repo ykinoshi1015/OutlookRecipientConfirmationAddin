@@ -86,14 +86,8 @@ namespace OutlookRecipientConfirmationAddin
 
                 // 選択されたリソースごとに分割する
                 isAppointmentItem = true;
-                //selectedResources = appointment.Location.Split(new string[] { "; " }, StringSplitOptions.None);
+                selectedResources = appointment.Location.Split(new string[] { "; " }, StringSplitOptions.None);
 
-                    foreach (Outlook.Recipient rec in recipients)
-                {
-                    if (rec.Type == 3)
-                    {
-                    };
-                }
 
             }
 
