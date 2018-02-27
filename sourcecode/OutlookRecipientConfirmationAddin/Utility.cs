@@ -29,6 +29,8 @@ namespace OutlookRecipientConfirmationAddin
         public static List<Outlook.Recipient> GetRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
+            string[] selectedResources = new String[] { };
+            bool isMeeting = false;
             bool isAppointmentItem = false;
 
             Outlook.MailItem mail = Item as Outlook.MailItem;
@@ -43,10 +45,10 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
 
-                /// 会議招集の返信の場合
-                /// "IPM.Schedule.Meeting.Resp.Neg";
-                /// "IPM.Schedule.Meeting.Resp.Pos";
-                /// "IPM.Schedule.Meeting.Resp.Tent";
+                // 会議招集の返信の場合
+                // "IPM.Schedule.Meeting.Resp.Neg";
+                // "IPM.Schedule.Meeting.Resp.Pos";
+                // "IPM.Schedule.Meeting.Resp.Tent";
                 if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
                 {
                     type = OutlookItemType.MeetingResponse;
@@ -56,21 +58,43 @@ namespace OutlookRecipientConfirmationAddin
                     {
                         return null;
                     }
+
                 }
                 // 会議出席依頼を送信する場合など
                 else
                 {
+                    recipients = meeting.Recipients;
                     type = OutlookItemType.Meeting;
+
+                    // 会議出席依頼に関連付けられた予約アイテムから、リソース（会議室）を取得する
+                    Outlook.AppointmentItem appt = meeting.GetAssociatedAppointment(false);
+                    if (appt != null)
+                    {
+                        // 選択されたリソースごとに分割する
+                        isMeeting = true;
+                        selectedResources = appt.Location.Split(new string[] { "; " }, StringSplitOptions.None);
+                    }
                 }
-                recipients = meeting.Recipients;
             }
             // AppointmentItemの場合（編集中/送信されていない状態でトレイにある会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
+
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
+
+                // 選択されたリソースごとに分割する
                 isAppointmentItem = true;
+                //selectedResources = appointment.Location.Split(new string[] { "; " }, StringSplitOptions.None);
+
+                    foreach (Outlook.Recipient rec in recipients)
+                {
+                    if (rec.Type == 3)
+                    {
+                    };
+                }
+
             }
 
             // 受信者の情報をリストに入れる
@@ -80,7 +104,21 @@ namespace OutlookRecipientConfirmationAddin
 
             for (; i <= recipients.Count; i++)
             {
-                recipientsList.Add(recipients[i]);
+                if ((isAppointmentItem || isMeeting) && recipients[i].Type == 3)
+                {
+                    if (selectedResources.Contains(recipients[i].Name))
+                    {
+                        recipientsList.Add(recipients[i]);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    recipientsList.Add(recipients[i]);
+                }
             }
 
             return recipientsList;
