@@ -80,7 +80,10 @@ namespace OutlookRecipientConfirmationAddin
 
             for (; i <= recipients.Count; i++)
             {
-                recipientsList.Add(recipients[i]);
+                if (recipients[i].Sendable)
+                {
+                    recipientsList.Add(recipients[i]);
+                }
             }
 
             return recipientsList;
@@ -111,13 +114,13 @@ namespace OutlookRecipientConfirmationAddin
                 if (sender != null)
                 {
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sender.Address);
-                    exchUser = recResolve.AddressEntry.GetExchangeUser();
+                    exchUser = getExchangeUser(recResolve.AddressEntry);
                 }
                 // 新規メッセージ編集中/送信時はSenderはnullなので、SenderEmailAddressからExchangeUserを探す
                 else if (mail.SenderEmailAddress != null)
                 {
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
-                    exchUser = recResolve.AddressEntry.GetExchangeUser();
+                    exchUser = getExchangeUser(recResolve.AddressEntry);
                 }
             }
             // MeetingItemの場合
@@ -156,7 +159,7 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     // 起動されたOutlookのユーザを送信者として取得
                     sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
-                    exchUser = sender.GetExchangeUser();
+                    exchUser = getExchangeUser(sender);
                 }
             }
 
@@ -197,5 +200,23 @@ namespace OutlookRecipientConfirmationAddin
             return jobTitle;
         }
 
+        /// <summary>
+        /// AddressEntryを元にxchangeUserオブジェクトを取得する
+        /// </summary>
+        /// <param name="entry">AddressEntryオブジェクト</param>
+        /// <returns>AddressEntryに紐づいたExchangeUserオブジェクト。失敗した場合はnullを返す。</returns>
+        private static Outlook.ExchangeUser getExchangeUser(Outlook.AddressEntry entry)
+        {
+            Outlook.ExchangeUser exchUser;
+            try
+            {
+                exchUser = entry.GetExchangeUser();
+            }
+            catch (Exception)
+            {
+                exchUser = null;
+            }
+            return exchUser;
+        }
     }
 }
