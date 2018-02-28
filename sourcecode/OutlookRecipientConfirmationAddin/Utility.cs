@@ -43,10 +43,10 @@ namespace OutlookRecipientConfirmationAddin
             {
                 Outlook.MeetingItem meeting = Item as Outlook.MeetingItem;
 
-                /// 会議招集の返信の場合
-                /// "IPM.Schedule.Meeting.Resp.Neg";
-                /// "IPM.Schedule.Meeting.Resp.Pos";
-                /// "IPM.Schedule.Meeting.Resp.Tent";
+                // 会議招集の返信の場合
+                // "IPM.Schedule.Meeting.Resp.Neg";
+                // "IPM.Schedule.Meeting.Resp.Pos";
+                // "IPM.Schedule.Meeting.Resp.Tent";
                 if (meeting.MessageClass.Contains("IPM.Schedule.Meeting.Resp."))
                 {
                     type = OutlookItemType.MeetingResponse;
@@ -56,18 +56,20 @@ namespace OutlookRecipientConfirmationAddin
                     {
                         return null;
                     }
+
                 }
                 // 会議出席依頼を送信する場合など
                 else
                 {
+                    recipients = meeting.Recipients;
                     type = OutlookItemType.Meeting;
                 }
-                recipients = meeting.Recipients;
             }
             // AppointmentItemの場合（編集中/送信されていない状態でトレイにある会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
             else if (Item is Outlook.AppointmentItem)
             {
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
+
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
                 isAppointmentItem = true;
@@ -80,7 +82,25 @@ namespace OutlookRecipientConfirmationAddin
 
             for (; i <= recipients.Count; i++)
             {
-                recipientsList.Add(recipients[i]);
+                // recipients[i]がBccまたはリソース
+                if (recipients[i].Type == (int)Outlook.OlMailRecipientType.olBCC)
+                {
+                    // Bccや、選択されたリソースの場合
+                    if (recipients[i].Sendable)
+                    {
+                        recipientsList.Add(recipients[i]);
+                    }
+                    // 選択されていないリソースの場合
+                    else
+                    {
+                        continue;
+                    }
+                }
+                // 送信者、To、Ccの場合
+                else
+                {
+                    recipientsList.Add(recipients[i]);
+                }
             }
 
             return recipientsList;
