@@ -80,10 +80,7 @@ namespace OutlookRecipientConfirmationAddin
 
             for (; i <= recipients.Count; i++)
             {
-                if (recipients[i].Sendable)
-                {
-                    recipientsList.Add(recipients[i]);
-                }
+                recipientsList.Add(recipients[i]);
             }
 
             return recipientsList;
