@@ -83,7 +83,7 @@ namespace OutlookRecipientConfirmationAddin
             for (; i <= recipients.Count; i++)
             {
                 // recipients[i]がBccまたはリソース
-                if (recipients[i].Type == 3)
+                if (recipients[i].Type == (int)Outlook.OlMailRecipientType.olBCC)
                 {
                     // Bccや、選択されたリソースの場合
                     if (recipients[i].Sendable)
