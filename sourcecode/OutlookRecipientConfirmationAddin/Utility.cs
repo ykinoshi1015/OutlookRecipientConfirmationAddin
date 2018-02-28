@@ -29,8 +29,6 @@ namespace OutlookRecipientConfirmationAddin
         public static List<Outlook.Recipient> GetRecipients(object Item, ref OutlookItemType type, bool IgnoreMeetingResponse = false)
         {
             Outlook.Recipients recipients = null;
-            string[] selectedResources = new String[] { };
-            bool isMeeting = false;
             bool isAppointmentItem = false;
 
             Outlook.MailItem mail = Item as Outlook.MailItem;
@@ -65,15 +63,6 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     recipients = meeting.Recipients;
                     type = OutlookItemType.Meeting;
-
-                    // 会議出席依頼に関連付けられた予約アイテムから、リソース（会議室）を取得する
-                    Outlook.AppointmentItem appt = meeting.GetAssociatedAppointment(false);
-                    if (appt != null)
-                    {
-                        // 選択されたリソースごとに分割する
-                        isMeeting = true;
-                        selectedResources = appt.Location.Split(new string[] { "; " }, StringSplitOptions.None);
-                    }
                 }
             }
             // AppointmentItemの場合（編集中/送信されていない状態でトレイにある会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
@@ -83,12 +72,7 @@ namespace OutlookRecipientConfirmationAddin
 
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
-
-                // 選択されたリソースごとに分割する
                 isAppointmentItem = true;
-                selectedResources = appointment.Location.Split(new string[] { "; " }, StringSplitOptions.None);
-
-
             }
 
             // 受信者の情報をリストに入れる
@@ -98,17 +82,21 @@ namespace OutlookRecipientConfirmationAddin
 
             for (; i <= recipients.Count; i++)
             {
-                if ((isAppointmentItem || isMeeting) && recipients[i].Type == 3)
+                // recipients[i]がBccまたはリソース
+                if (recipients[i].Type == 3)
                 {
-                    if (selectedResources.Contains(recipients[i].Name))
+                    // Bccや、選択されたリソースの場合
+                    if (recipients[i].Sendable)
                     {
                         recipientsList.Add(recipients[i]);
                     }
+                    // 選択されていないリソースの場合
                     else
                     {
                         continue;
                     }
                 }
+                // 送信者、To、Ccの場合
                 else
                 {
                     recipientsList.Add(recipients[i]);
