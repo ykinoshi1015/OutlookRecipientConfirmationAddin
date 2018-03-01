@@ -61,9 +61,10 @@ namespace OutlookRecipientConfirmationAddin
                 // 会議出席依頼を送信する場合など
                 else
                 {
-                    recipients = meeting.Recipients;
                     type = OutlookItemType.Meeting;
                 }
+
+                recipients = meeting.Recipients;
             }
             // AppointmentItemの場合（編集中/送信されていない状態でトレイにある会議招集メール、開催者が取り消した会議のキャンセル通知（自分承認済み））
             else if (Item is Outlook.AppointmentItem)
