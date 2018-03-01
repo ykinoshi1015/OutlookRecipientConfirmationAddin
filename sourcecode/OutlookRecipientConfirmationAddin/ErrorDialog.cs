@@ -48,16 +48,15 @@ namespace OutlookRecipientConfirmationAddin
         {
             // 例外のメッセージを表示
             textBox1.Text = _ex.Message + "\r\n";
-            textBox1.AppendText("\r\n");
             // 例外が発生した時点のスタックトレースを表示
             textBox1.Text += _ex.StackTrace + "\r\n";
 
             // InnerExceptionが設定されている場合
             if (_ex.InnerException != null)
             {
-                textBox1.Text =  "Inner Exception:" + "\r\n";
-                textBox1.Text = _ex.InnerException.Message + "\r\n";
                 textBox1.AppendText("\r\n");
+                textBox1.Text += "Inner Exception:" + "\r\n";
+                textBox1.Text += _ex.InnerException.Message + "\r\n";
                 // 例外が発生した時点のスタックトレースを表示
                 textBox1.Text += _ex.InnerException.StackTrace + "\r\n";
             }
