@@ -79,11 +79,21 @@ namespace OutlookRecipientConfirmationAddin
             /// 一番上にあるエクスプローラorインスペクターを取得
             object activeItem;
             activeItem = Globals.ThisAddIn.Application.ActiveWindow();
-
+            
             /// エクスプローラ（クリックで選択）の場合
             if (activeItem is Outlook.Explorer)
             {
-                activeItem = Globals.ThisAddIn.Application.ActiveExplorer().Selection[1];
+                // アイテムが表示されている
+                if (Globals.ThisAddIn.Application.ActiveExplorer().Selection.Count > 0)
+                {
+                    activeItem = Globals.ThisAddIn.Application.ActiveExplorer().Selection[1];
+                }
+                // アイテムが表示されていない場合は、メッセージボックスを表示する
+                else
+                {
+                    MessageBox.Show("アイテムが選択されていません。");
+                    return;
+                }
             }
             /// インスペクター（ダブルクリックで選択）の場合
             else if (activeItem is Outlook.Inspector)

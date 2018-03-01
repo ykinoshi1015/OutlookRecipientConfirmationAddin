@@ -48,12 +48,21 @@ namespace OutlookRecipientConfirmationAddin
         {
             // 例外のメッセージを表示
             textBox1.Text = _ex.Message + "\r\n";
-            textBox1.AppendText("\r\n");
             // 例外が発生した時点のスタックトレースを表示
             textBox1.Text += _ex.StackTrace + "\r\n";
 
-            // 読み取り専用、自動で折り返さない
-            textBox1.ReadOnly = true;
+            // InnerExceptionが設定されている場合
+            if (_ex.InnerException != null)
+            {
+                textBox1.AppendText("\r\n");
+                textBox1.Text += "Inner Exception:" + "\r\n";
+                textBox1.Text += _ex.InnerException.Message + "\r\n";
+                // 例外が発生した時点のスタックトレースを表示
+                textBox1.Text += _ex.InnerException.StackTrace + "\r\n";
+            }
+
+                // 読み取り専用、自動で折り返さない
+                textBox1.ReadOnly = true;
             textBox1.WordWrap = false;
 
             // 必要な場合、垂直、水平両方のスクロールバーを表示

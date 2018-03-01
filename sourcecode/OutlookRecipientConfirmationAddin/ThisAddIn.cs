@@ -100,7 +100,7 @@ namespace OutlookRecipientConfirmationAddin
             catch (Exception ex)
             {
                 // エラーダイアログの呼び出し
-                ErrorDialog.ShowException(ex);                
+                ErrorDialog.ShowException(ex);
 
                 Cancel = true;
             }
