@@ -99,6 +99,7 @@ namespace OutlookRecipientConfirmationAddin
             {
                 case Utility.OutlookItemType.Mail:
                 case Utility.OutlookItemType.MeetingResponse:
+                case Utility.OutlookItemType.Sharing:
                     firstHeader = "To";
                     secondHeder = "Cc";
                     thirdHeader = "Bcc";

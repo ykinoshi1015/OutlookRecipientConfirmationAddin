@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     public class Utility
     {
         // アイテムの種類
-        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse };
+        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing };
 
         private const string TANTOU = "担当";
 
@@ -74,6 +74,13 @@ namespace OutlookRecipientConfirmationAddin
                 recipients = appointment.Recipients;
                 type = OutlookItemType.Appointment;
                 isAppointmentItem = true;
+            }
+            else if (Item is Outlook.SharingItem)
+            {
+                Outlook.SharingItem item = Item as Outlook.SharingItem;
+
+                recipients = item.Recipients;
+                type = OutlookItemType.Sharing;
             }
 
             // 受信者の情報をリストに入れる
