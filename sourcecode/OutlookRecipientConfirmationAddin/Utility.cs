@@ -82,6 +82,24 @@ namespace OutlookRecipientConfirmationAddin
                 recipients = item.Recipients;
                 type = OutlookItemType.Sharing;
             }
+            else if (Item is Outlook.ReportItem)
+            {
+                Outlook.ReportItem item = Item as Outlook.ReportItem;
+
+                //ReportItemのままだと送信先が取れないため、
+                //いったんIPM.Noteとして別名保存⇒ロードしてからRecipientsを取得する
+                Outlook.ReportItem copiedReport = item.Copy();
+                copiedReport.MessageClass = "IPM.Note";
+                copiedReport.Save();
+
+                //IPM.Noteとして穂zんしてからロードするとMailItemとして扱えるようになる
+                var newReportItem = Globals.ThisAddIn.Application.Session.GetItemFromID(copiedReport.EntryID);
+                Outlook.MailItem newMailItem = newReportItem as Outlook.MailItem;
+                recipients = newMailItem.Recipients;
+                type = OutlookItemType.Mail;
+
+                copiedReport.Delete();
+            }
 
             // 受信者の情報をリストに入れる
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
