@@ -111,6 +111,10 @@ namespace OutlookRecipientConfirmationAddin
                     secondHeder = "参加者(任意)";
                     thirdHeader = "リソース";
                     break;
+
+                case Utility.OutlookItemType.Report:
+                    firstHeader = "宛先";
+                    break;
             }
 
             textBox1.Text += string.Format("□―――――― 送信者 ――――――□\r\n");
