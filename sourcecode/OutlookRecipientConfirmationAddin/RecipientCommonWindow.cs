@@ -122,21 +122,23 @@ namespace OutlookRecipientConfirmationAddin
             {
                 textBox1.Text += recipient + "\r\n";
             }
-            textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format(RECIPIENT_HEADER, secondHeder, ccList.Count());
-            foreach (var recipient in ccList)
+            if (_type != Utility.OutlookItemType.Report)
             {
-                textBox1.Text += recipient + "\r\n";
-            }
-            textBox1.AppendText("\r\n");
+                textBox1.AppendText("\r\n");
+                textBox1.Text += string.Format(RECIPIENT_HEADER, secondHeder, ccList.Count());
+                foreach (var recipient in ccList)
+                {
+                    textBox1.Text += recipient + "\r\n";
+                }
+                textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format(RECIPIENT_HEADER, thirdHeader, bccList.Count());
-            foreach (var recipient in bccList)
-            {
-                textBox1.Text += recipient + "\r\n";
+                textBox1.Text += string.Format(RECIPIENT_HEADER, thirdHeader, bccList.Count());
+                foreach (var recipient in bccList)
+                {
+                    textBox1.Text += recipient + "\r\n";
+                }
             }
-
             /// 読み取り専用、自動で折り返さない
             textBox1.ReadOnly = true;
             textBox1.WordWrap = false;
