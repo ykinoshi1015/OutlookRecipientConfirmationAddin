@@ -12,12 +12,6 @@ namespace OutlookRecipientConfirmationAddin
 {
     public partial class RecipientConfirmationWindow : RecipientCommonWindow
     {
-       
-        public RecipientConfirmationWindow()
-        {
-            InitializeComponent();
-        }
-       
         public RecipientConfirmationWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients) : base(type, recipients) 
         {
             InitializeComponent();

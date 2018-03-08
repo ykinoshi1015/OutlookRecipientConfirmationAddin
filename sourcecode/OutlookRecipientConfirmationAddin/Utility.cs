@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     public class Utility
     {
         // アイテムの種類
-        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing };
+        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing, Report };
 
         private const string TANTOU = "担当";
 
@@ -96,7 +96,7 @@ namespace OutlookRecipientConfirmationAddin
                 var newReportItem = Globals.ThisAddIn.Application.Session.GetItemFromID(copiedReport.EntryID);
                 Outlook.MailItem newMailItem = newReportItem as Outlook.MailItem;
                 recipients = newMailItem.Recipients;
-                type = OutlookItemType.Mail;
+                type = OutlookItemType.Report;
 
                 copiedReport.Delete();
             }
@@ -213,6 +213,32 @@ namespace OutlookRecipientConfirmationAddin
                     exchUser = getExchangeUser(sender);
                 }
             }
+            else if (Item is Outlook.ReportItem)
+            {
+                Outlook.ReportItem report = Item as Outlook.ReportItem;
+
+                senderName = "Microsoft Outlook";
+            }
+            else if (Item is Outlook.SharingItem)
+            {
+                Outlook.SharingItem sharing = Item as Outlook.SharingItem;
+
+                // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
+                recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sharing.SenderEmailAddress);
+
+                try
+                {
+                    sender = recResolve.AddressEntry;
+                    exchUser = sender.GetExchangeUser();
+                }
+                //AddressEntryの取得に失敗した場合
+                catch (Exception)
+                {
+                    sender = null;
+                    senderName = sharing.SenderName;
+                    senderAddress = sharing.SenderEmailAddress;
+                }
+            }
 
             // 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
@@ -287,7 +313,10 @@ namespace OutlookRecipientConfirmationAddin
         /// <returns>表示名</returns>
         public static string FormatDisplayNameAndAddress(string Name, string MailAddress)
         {
-            return string.Format("{0}<{1}>", Name, MailAddress);
+            if (MailAddress == null)
+                return string.Format("{0}", Name);
+            else
+                return string.Format("{0}<{1}>", Name, MailAddress);
         }
 
         /// <summary>
