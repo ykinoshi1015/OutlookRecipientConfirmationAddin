@@ -267,17 +267,15 @@ namespace OutlookRecipientConfirmationAddin
         public static string GetDisplayNameAndAddress(Outlook.Recipient recipient)
         {
             string displayName;
-            Outlook.ContactItem contact = recipient.AddressEntry.GetContact();
-            if (contact != null)
+            if (recipient.Name.Contains("("))
             {
-                //すでに「名前<メールアドレス>」の形式になっている
+                //すでに「名前(メールアドレス)」の形式になっている
                 displayName = recipient.Name;
             }
             else
             {
                 displayName = FormatDisplayNameAndAddress(recipient.Name, recipient.Address);
             }
-
             return displayName;
         }
 
