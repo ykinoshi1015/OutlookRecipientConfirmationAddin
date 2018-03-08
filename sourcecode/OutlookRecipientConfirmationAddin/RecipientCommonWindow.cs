@@ -20,12 +20,12 @@ namespace OutlookRecipientConfirmationAddin
         
         private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
 
-        public RecipientCommonWindow()
+        private RecipientCommonWindow()
         {
             InitializeComponent();
         }
 
-        public RecipientCommonWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients)
+        protected RecipientCommonWindow(Utility.OutlookItemType type, List<RecipientInformationDto> recipients)
         {
             InitializeComponent();
             _type = type;
