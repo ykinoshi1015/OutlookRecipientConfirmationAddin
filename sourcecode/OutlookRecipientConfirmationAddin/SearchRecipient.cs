@@ -51,7 +51,9 @@ namespace OutlookRecipientConfirmationAddin
 
                     if (recipientInformation == null)
                     {
-                        recipientInformation = new RecipientInformationDto(recipient.Name, (OlMailRecipientType)recipient.Type);
+                        recipientInformation = new RecipientInformationDto(
+                            Utility.GetDisplayNameAndAddress(recipient),
+                            (OlMailRecipientType)recipient.Type);
                     }
                     _recipientInformationList.Add(recipientInformation);
 
@@ -60,8 +62,10 @@ namespace OutlookRecipientConfirmationAddin
                 catch (System.Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    recipientInformation = new RecipientInformationDto(recipient.Name, (OlMailRecipientType)recipient.Type);
-                    _recipientInformationList.Add(recipientInformation);
+
+                    _recipientInformationList.Add(new RecipientInformationDto(
+                        Utility.GetDisplayNameAndAddress(recipient),
+                        (OlMailRecipientType)recipient.Type));
                 }
             }
 

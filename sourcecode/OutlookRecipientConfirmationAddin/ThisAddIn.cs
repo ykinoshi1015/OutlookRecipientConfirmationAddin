@@ -55,6 +55,7 @@ namespace OutlookRecipientConfirmationAddin
         /// <param name="cancel">送信をしないかどうか</param>
         private void ConfirmContact(object Item, ref bool Cancel)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 // アイテムタイプをMailで初期化
@@ -83,6 +84,8 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     recipientList.Add(senderInformation);
                 }
+
+                Cursor.Current = Cursors.Default;
 
                 // 引数に宛先情報を渡し、宛先表示画面を表示する
                 RecipientConfirmationWindow recipientConfirmationWindow = new RecipientConfirmationWindow(itemType, recipientList);

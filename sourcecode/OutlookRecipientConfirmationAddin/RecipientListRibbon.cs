@@ -109,6 +109,8 @@ namespace OutlookRecipientConfirmationAddin
         /// </summary>
         private void ShowRecipientListWindow(object activeItem)
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             /// Mailで初期化
             Utility.OutlookItemType itemType = Utility.OutlookItemType.Mail;
             RecipientInformationDto senderInformation = null;
@@ -135,6 +137,8 @@ namespace OutlookRecipientConfirmationAddin
             {
                 recipientList.Add(senderInformation);
             }
+
+            Cursor.Current = Cursors.Default;
 
             // 宛先リストの画面を表示する
             RecipientListWindow recipientListWindow = new RecipientListWindow(itemType, recipientList);

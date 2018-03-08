@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     public class Utility
     {
         // アイテムの種類
-        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse };
+        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing, Report };
 
         private const string TANTOU = "担当";
 
@@ -75,6 +75,31 @@ namespace OutlookRecipientConfirmationAddin
                 type = OutlookItemType.Appointment;
                 isAppointmentItem = true;
             }
+            else if (Item is Outlook.SharingItem)
+            {
+                Outlook.SharingItem item = Item as Outlook.SharingItem;
+
+                recipients = item.Recipients;
+                type = OutlookItemType.Sharing;
+            }
+            else if (Item is Outlook.ReportItem)
+            {
+                Outlook.ReportItem item = Item as Outlook.ReportItem;
+
+                //ReportItemのままだと送信先が取れないため、
+                //いったんIPM.Noteとして別名保存⇒ロードしてからRecipientsを取得する
+                Outlook.ReportItem copiedReport = item.Copy();
+                copiedReport.MessageClass = "IPM.Note";
+                copiedReport.Save();
+
+                //IPM.Noteとして穂zんしてからロードするとMailItemとして扱えるようになる
+                var newReportItem = Globals.ThisAddIn.Application.Session.GetItemFromID(copiedReport.EntryID);
+                Outlook.MailItem newMailItem = newReportItem as Outlook.MailItem;
+                recipients = newMailItem.Recipients;
+                type = OutlookItemType.Report;
+
+                copiedReport.Delete();
+            }
 
             // 受信者の情報をリストに入れる
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
@@ -118,9 +143,10 @@ namespace OutlookRecipientConfirmationAddin
             Outlook.AddressEntry sender = null;
             Outlook.ExchangeUser exchUser = null;
             RecipientInformationDto senderInformation = null;
-            Outlook.Recipient recResolve;
+            Outlook.Recipient recResolve = null;
 
             string senderName = null;
+            string senderAddress = null;
 
             // MailItemの場合
             if (Item is Outlook.MailItem)
@@ -139,6 +165,12 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
                     exchUser = getExchangeUser(recResolve.AddressEntry);
+                }
+                if (exchUser == null)
+                {
+                    sender = null;
+                    senderName = mail.SenderName;
+                    senderAddress = mail.SenderEmailAddress;
                 }
             }
             // MeetingItemの場合
@@ -159,6 +191,7 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     sender = null;
                     senderName = meeting.SenderName;
+                    senderAddress = meeting.SenderEmailAddress;
                 }
 
             }
@@ -180,6 +213,32 @@ namespace OutlookRecipientConfirmationAddin
                     exchUser = getExchangeUser(sender);
                 }
             }
+            else if (Item is Outlook.ReportItem)
+            {
+                Outlook.ReportItem report = Item as Outlook.ReportItem;
+
+                senderName = "Microsoft Outlook";
+            }
+            else if (Item is Outlook.SharingItem)
+            {
+                Outlook.SharingItem sharing = Item as Outlook.SharingItem;
+
+                // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
+                recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sharing.SenderEmailAddress);
+
+                try
+                {
+                    sender = recResolve.AddressEntry;
+                    exchUser = sender.GetExchangeUser();
+                }
+                //AddressEntryの取得に失敗した場合
+                catch (Exception)
+                {
+                    sender = null;
+                    senderName = sharing.SenderName;
+                    senderAddress = sharing.SenderEmailAddress;
+                }
+            }
 
             // 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
@@ -193,12 +252,20 @@ namespace OutlookRecipientConfirmationAddin
             // ExchangeUserが取得できないが、送信者はいる場合
             else if (sender != null)
             {
-                senderInformation = new RecipientInformationDto(sender.Name, Outlook.OlMailRecipientType.olOriginator);
+                string displayName;
+                if (recResolve != null)
+                    displayName = GetDisplayNameAndAddress(recResolve);
+                else
+                    displayName = FormatDisplayNameAndAddress(sender.Name, sender.Address);
+
+                senderInformation = new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
             }
             // MeetingItemでAddressEntryの取得に失敗した場合
             else if (senderName != null)
             {
-                senderInformation = new RecipientInformationDto(senderName, Outlook.OlMailRecipientType.olOriginator);
+                senderInformation = new RecipientInformationDto(
+                    FormatDisplayNameAndAddress(senderName, senderAddress),
+                    Outlook.OlMailRecipientType.olOriginator);
             }
 
             return senderInformation;
@@ -216,6 +283,40 @@ namespace OutlookRecipientConfirmationAddin
                 jobTitle = "";
             }
             return jobTitle;
+        }
+
+        /// <summary>
+        /// 表示用に"名前<メールアドレス>"の形式の文字列を取得する
+        /// </summary>
+        /// <param name="recipient">Recipientオブジェクト</param>
+        /// <returns>表示名</returns>
+        public static string GetDisplayNameAndAddress(Outlook.Recipient recipient)
+        {
+            string displayName;
+            if (recipient.Name.Contains("("))
+            {
+                //すでに「名前(メールアドレス)」の形式になっている
+                displayName = recipient.Name;
+            }
+            else
+            {
+                displayName = FormatDisplayNameAndAddress(recipient.Name, recipient.Address);
+            }
+            return displayName;
+        }
+
+        /// <summary>
+        /// 名前とアドレスを表示用に整形する
+        /// </summary>
+        /// <param name="Name">名前</param>
+        /// <param name="MailAddress">メールアドレス</param>
+        /// <returns>表示名</returns>
+        public static string FormatDisplayNameAndAddress(string Name, string MailAddress)
+        {
+            if (MailAddress == null)
+                return string.Format("{0}", Name);
+            else
+                return string.Format("{0}<{1}>", Name, MailAddress);
         }
 
         /// <summary>
