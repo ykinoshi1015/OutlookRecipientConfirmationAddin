@@ -111,6 +111,10 @@ namespace OutlookRecipientConfirmationAddin
                     secondHeder = "参加者(任意)";
                     thirdHeader = "リソース";
                     break;
+
+                case Utility.OutlookItemType.Report:
+                    firstHeader = "宛先";
+                    break;
             }
 
             textBox1.Text += string.Format("□―――――― 送信者 ――――――□\r\n");
@@ -122,21 +126,23 @@ namespace OutlookRecipientConfirmationAddin
             {
                 textBox1.Text += recipient + "\r\n";
             }
-            textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format(RECIPIENT_HEADER, secondHeder, ccList.Count());
-            foreach (var recipient in ccList)
+            if (_type != Utility.OutlookItemType.Report)
             {
-                textBox1.Text += recipient + "\r\n";
-            }
-            textBox1.AppendText("\r\n");
+                textBox1.AppendText("\r\n");
+                textBox1.Text += string.Format(RECIPIENT_HEADER, secondHeder, ccList.Count());
+                foreach (var recipient in ccList)
+                {
+                    textBox1.Text += recipient + "\r\n";
+                }
+                textBox1.AppendText("\r\n");
 
-            textBox1.Text += string.Format(RECIPIENT_HEADER, thirdHeader, bccList.Count());
-            foreach (var recipient in bccList)
-            {
-                textBox1.Text += recipient + "\r\n";
+                textBox1.Text += string.Format(RECIPIENT_HEADER, thirdHeader, bccList.Count());
+                foreach (var recipient in bccList)
+                {
+                    textBox1.Text += recipient + "\r\n";
+                }
             }
-
             /// 読み取り専用、自動で折り返さない
             textBox1.ReadOnly = true;
             textBox1.WordWrap = false;
