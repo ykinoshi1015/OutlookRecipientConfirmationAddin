@@ -219,6 +219,26 @@ namespace OutlookRecipientConfirmationAddin
 
                 senderName = "Microsoft Outlook";
             }
+            else if (Item is Outlook.SharingItem)
+            {
+                Outlook.SharingItem sharing = Item as Outlook.SharingItem;
+
+                // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
+                recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sharing.SenderEmailAddress);
+
+                try
+                {
+                    sender = recResolve.AddressEntry;
+                    exchUser = sender.GetExchangeUser();
+                }
+                //AddressEntryの取得に失敗した場合
+                catch (Exception)
+                {
+                    sender = null;
+                    senderName = sharing.SenderName;
+                    senderAddress = sharing.SenderEmailAddress;
+                }
+            }
 
             // 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
