@@ -143,9 +143,10 @@ namespace OutlookRecipientConfirmationAddin
             Outlook.AddressEntry sender = null;
             Outlook.ExchangeUser exchUser = null;
             RecipientInformationDto senderInformation = null;
-            Outlook.Recipient recResolve;
+            Outlook.Recipient recResolve = null;
 
             string senderName = null;
+            string senderAddress = null;
 
             // MailItemの場合
             if (Item is Outlook.MailItem)
@@ -164,6 +165,12 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
                     exchUser = getExchangeUser(recResolve.AddressEntry);
+                }
+                if (exchUser == null)
+                {
+                    sender = null;
+                    senderName = mail.SenderName;
+                    senderAddress = mail.SenderEmailAddress;
                 }
             }
             // MeetingItemの場合
@@ -184,6 +191,7 @@ namespace OutlookRecipientConfirmationAddin
                 {
                     sender = null;
                     senderName = meeting.SenderName;
+                    senderAddress = meeting.SenderEmailAddress;
                 }
 
             }
@@ -218,12 +226,20 @@ namespace OutlookRecipientConfirmationAddin
             // ExchangeUserが取得できないが、送信者はいる場合
             else if (sender != null)
             {
-                senderInformation = new RecipientInformationDto(sender.Name, Outlook.OlMailRecipientType.olOriginator);
+                string displayName;
+                if (recResolve != null)
+                    displayName = GetDisplayNameAndAddress(recResolve);
+                else
+                    displayName = FormatDisplayNameAndAddress(sender.Name, sender.Address);
+
+                senderInformation = new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
             }
             // MeetingItemでAddressEntryの取得に失敗した場合
             else if (senderName != null)
             {
-                senderInformation = new RecipientInformationDto(senderName, Outlook.OlMailRecipientType.olOriginator);
+                senderInformation = new RecipientInformationDto(
+                    FormatDisplayNameAndAddress(senderName, senderAddress),
+                    Outlook.OlMailRecipientType.olOriginator);
             }
 
             return senderInformation;
@@ -241,6 +257,39 @@ namespace OutlookRecipientConfirmationAddin
                 jobTitle = "";
             }
             return jobTitle;
+        }
+
+        /// <summary>
+        /// 表示用に"名前<メールアドレス>"の形式の文字列を取得する
+        /// </summary>
+        /// <param name="recipient">Recipientオブジェクト</param>
+        /// <returns>表示名</returns>
+        public static string GetDisplayNameAndAddress(Outlook.Recipient recipient)
+        {
+            string displayName;
+            Outlook.ContactItem contact = recipient.AddressEntry.GetContact();
+            if (contact != null)
+            {
+                //すでに「名前<メールアドレス>」の形式になっている
+                displayName = recipient.Name;
+            }
+            else
+            {
+                displayName = FormatDisplayNameAndAddress(recipient.Name, recipient.Address);
+            }
+
+            return displayName;
+        }
+
+        /// <summary>
+        /// 名前とアドレスを表示用に整形する
+        /// </summary>
+        /// <param name="Name">名前</param>
+        /// <param name="MailAddress">メールアドレス</param>
+        /// <returns>表示名</returns>
+        public static string FormatDisplayNameAndAddress(string Name, string MailAddress)
+        {
+            return string.Format("{0}<{1}>", Name, MailAddress);
         }
 
         /// <summary>
