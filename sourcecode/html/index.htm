@@ -14,16 +14,57 @@
 <col />
 </colgroup>
 <tbody>
-<tr><th>Generated on:</th><td>2018/03/06 - 15:29:59</td></tr>
+<tr><th>Generated on:</th><td>2018/03/15 - 10:15:49</td></tr>
 <tr><th>Parser:</th><td>OpenCoverParser</td></tr>
 <tr><th>Assemblies:</th><td>1</td></tr>
-<tr><th>Classes:</th><td>1</td></tr>
-<tr><th>Files:</th><td>1</td></tr>
-<tr><th>Covered lines:</th><td>3</td></tr>
-<tr><th>Uncovered lines:</th><td>2</td></tr>
-<tr><th>Coverable lines:</th><td>5</td></tr>
-<tr><th>Total lines:</th><td>17</td></tr>
-<tr><th>Line coverage:</th><td>60%</td></tr>
+<tr><th>Classes:</th><td>18</td></tr>
+<tr><th>Files:</th><td>18</td></tr>
+<tr><th>Covered lines:</th><td>9</td></tr>
+<tr><th>Uncovered lines:</th><td>943</td></tr>
+<tr><th>Coverable lines:</th><td>952</td></tr>
+<tr><th>Total lines:</th><td>2118</td></tr>
+<tr><th>Line coverage:</th><td>0.9%</td></tr>
+<tr><th>Branch coverage:</th><td>0.7%</td></tr>
+</tbody>
+</table>
+<h1>Risk Hotspots</h1>
+<div data-ng-if="riskHotspots.length > 0" data-reactive-risk-hotspot-table data-risk-hotspots="riskHotspots" data-risk-hotspot-metrics="riskHotspotMetrics"></div>
+<table data-ng-if="false" class="overview table-fixed stripped">
+<colgroup>
+<col />
+<col />
+<col />
+<col class="column105" />
+<col class="column105" />
+</colgroup>
+<thead><tr><th>Assembly</th>
+<th>Class</th>
+<th>Method</th>
+<th class="right">Cyclomatic complexity <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon-info-circled"></i></a></th>
+<th class="right">NPath complexity <a href="https://modess.io/npath-complexity-cyclomatic-complexity-explained"><i class="icon-info-circled"></i></a></th>
+</tr></thead>
+<tbody>
+<tr>
+<td>OutlookRecipientConfirmationAddin</td>
+<td><a href="OutlookRecipientConfirmationAddin_Utility.htm">OutlookRecipientConfirmationAddin.Utility</a></td>
+<td>GetSenderInfomation(...)</td>
+<td class="right lightgreen">13</td>
+<td class="right lightred">4096</td>
+</tr>
+<tr>
+<td>OutlookRecipientConfirmationAddin</td>
+<td><a href="OutlookRecipientConfirmationAddin_Utility.htm">OutlookRecipientConfirmationAddin.Utility</a></td>
+<td>GetRecipients(...)</td>
+<td class="right lightgreen">14</td>
+<td class="right lightred">2048</td>
+</tr>
+<tr>
+<td>OutlookRecipientConfirmationAddin</td>
+<td><a href="OutlookRecipientConfirmationAddin_RecipientCommonWindow.htm">OutlookRecipientConfirmationAddin.RecipientCommonWindow</a></td>
+<td>RecipientCommonWindow_format()</td>
+<td class="right lightgreen">15</td>
+<td class="right lightred">280</td>
+</tr>
 </tbody>
 </table>
 <h1>Coverage</h1>
@@ -45,10 +86,27 @@
 </colgroup>
 <thead><tr><th>Name</th><th class="right">Covered</th><th class="right">Uncovered</th><th class="right">Coverable</th><th class="right">Total</th><th class="center" colspan="2">Line coverage</th><th class="center" colspan="2">Branch coverage</th></tr></thead>
 <tbody>
-<tr><th>TestApp</th><th class="right">3</th><th class="right">2</th><th class="right">5</th><th class="right">17</th><th title="LineCoverage" class="right">60%</th><th><table class="coverage"><tr><td class="green covered60">&nbsp;</td><td class="red covered40">&nbsp;</td></tr></table></th><th class="right"></th><th><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="TestApp_Program.htm">TestApp.Program</a></td><td class="right">3</td><td class="right">2</td><td class="right">5</td><td class="right">17</td><td title="LineCoverage" class="right">60%</td><td><table class="coverage"><tr><td class="green covered60">&nbsp;</td><td class="red covered40">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><th>OutlookRecipientConfirmationAddin</th><th class="right">9</th><th class="right">943</th><th class="right">952</th><th class="right">3262</th><th title="LineCoverage" class="right">0.9%</th><th><table class="coverage"><tr><td class="green covered1">&nbsp;</td><td class="red covered99">&nbsp;</td></tr></table></th><th class="right">0.7%</th><th><table class="coverage"><tr><td class="green covered1">&nbsp;</td><td class="red covered99">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ApplicationEvents_11_ItemSendEventHandler.htm">Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemSendEventHandler</a></td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td title="MethodCoverage" class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ContactFactory.htm">OutlookRecipientConfirmationAddin.ContactFactory</a></td><td class="right">0</td><td class="right">6</td><td class="right">6</td><td class="right">29</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ErrorDialog.htm">OutlookRecipientConfirmationAddin.ErrorDialog</a></td><td class="right">0</td><td class="right">114</td><td class="right">114</td><td class="right">218</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_Globals.htm">OutlookRecipientConfirmationAddin.Globals</a></td><td class="right">5</td><td class="right">29</td><td class="right">34</td><td class="right">286</td><td title="LineCoverage" class="right">14.7%</td><td><table class="coverage"><tr><td class="green covered15">&nbsp;</td><td class="red covered85">&nbsp;</td></tr></table></td><td class="right">12.5%</td><td><table class="coverage"><tr><td class="green covered12">&nbsp;</td><td class="red covered88">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_Office365Contact.htm">OutlookRecipientConfirmationAddin.Office365Contact</a></td><td class="right">0</td><td class="right">23</td><td class="right">23</td><td class="right">56</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_Resources.htm">OutlookRecipientConfirmationAddin.Properties.Resources</a></td><td class="right">0</td><td class="right">15</td><td class="right">15</td><td class="right">62</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_Settings.htm">OutlookRecipientConfirmationAddin.Properties.Settings</a></td><td class="right">0</td><td class="right">4</td><td class="right">4</td><td class="right">26</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_RecipientCommonWindow.htm">OutlookRecipientConfirmationAddin.RecipientCommonWindow</a></td><td class="right">0</td><td class="right">131</td><td class="right">131</td><td class="right">249</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_RecipientConfirmationWindow.htm">OutlookRecipientConfirmationAddin.RecipientConfirmationWindow</a></td><td class="right">0</td><td class="right">85</td><td class="right">85</td><td class="right">160</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_RecipientInformationDto.htm">OutlookRecipientConfirmationAddin.RecipientInformationDto</a></td><td class="right">0</td><td class="right">25</td><td class="right">25</td><td class="right">48</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_RecipientListRibbon.htm">OutlookRecipientConfirmationAddin.RecipientListRibbon</a></td><td class="right">0</td><td class="right">78</td><td class="right">78</td><td class="right">293</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_RecipientListWindow.htm">OutlookRecipientConfirmationAddin.RecipientListWindow</a></td><td class="right">0</td><td class="right">79</td><td class="right">79</td><td class="right">152</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_SearchRecipient.htm">OutlookRecipientConfirmationAddin.SearchRecipient</a></td><td class="right">0</td><td class="right">35</td><td class="right">35</td><td class="right">77</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ThisAddIn.htm">OutlookRecipientConfirmationAddin.ThisAddIn</a></td><td class="right">4</td><td class="right">103</td><td class="right">107</td><td class="right">407</td><td title="LineCoverage" class="right">3.7%</td><td><table class="coverage"><tr><td class="green covered4">&nbsp;</td><td class="red covered96">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ThisFormRegionCollection.htm">OutlookRecipientConfirmationAddin.ThisFormRegionCollection</a></td><td class="right">0</td><td class="right">8</td><td class="right">8</td><td class="right">286</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_ThisRibbonCollection.htm">OutlookRecipientConfirmationAddin.ThisRibbonCollection</a></td><td class="right">0</td><td class="right">8</td><td class="right">8</td><td class="right">286</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_Utility.htm">OutlookRecipientConfirmationAddin.Utility</a></td><td class="right">0</td><td class="right">198</td><td class="right">198</td><td class="right">341</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OutlookRecipientConfirmationAddin_WindowFormRegionCollection.htm">OutlookRecipientConfirmationAddin.WindowFormRegionCollection</a></td><td class="right">0</td><td class="right">2</td><td class="right">2</td><td class="right">286</td><td title="LineCoverage" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
 </tbody>
 </table>
-<div class="footer">Generated by: ReportGenerator 3.1.2.0<br />2018/03/06 - 15:29:59<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="http://www.palmmedia.de">www.palmmedia.de</a></div></div></div>
+<div class="footer">Generated by: ReportGenerator 3.1.2.0<br />2018/03/15 - 10:15:49<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="http://www.palmmedia.de">www.palmmedia.de</a></div></div></div>
 <script type="text/javascript" src="combined.js"></script>
 </body></html>

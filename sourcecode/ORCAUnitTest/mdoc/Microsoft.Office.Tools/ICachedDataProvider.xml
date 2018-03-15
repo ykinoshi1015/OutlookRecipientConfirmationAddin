@@ -1,0 +1,25 @@
+<Type Name="ICachedDataProvider" FullName="Microsoft.Office.Tools.ICachedDataProvider">
+  <TypeSignature Language="C#" Value="public interface ICachedDataProvider" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract ICachedDataProvider" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("D576C22C-643C-4FB7-B8F1-2B9091456358")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

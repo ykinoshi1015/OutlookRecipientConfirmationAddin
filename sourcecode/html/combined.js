@@ -323,16 +323,53 @@ window.matchMedia || (window.matchMedia = function() {
 
 var assemblies = [
   {
-    "name": "TestApp",
+    "name": "OutlookRecipientConfirmationAddin",
     "classes": [
-      { "name": "TestApp.Program", "reportPath": "TestApp_Program.htm", "coveredLines": 3, "uncoveredLines": 2, "coverableLines": 5, "totalLines": 17, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemSendEventHandler", "reportPath": "OutlookRecipientConfirmationAddin_ApplicationEvents_11_ItemSendEventHandler.htm", "coveredLines": 0, "uncoveredLines": 0, "coverableLines": 0, "totalLines": 0, "coverageType": "MethodCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.ContactFactory", "reportPath": "OutlookRecipientConfirmationAddin_ContactFactory.htm", "coveredLines": 0, "uncoveredLines": 6, "coverableLines": 6, "totalLines": 29, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.ErrorDialog", "reportPath": "OutlookRecipientConfirmationAddin_ErrorDialog.htm", "coveredLines": 0, "uncoveredLines": 114, "coverableLines": 114, "totalLines": 218, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 4, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.Globals", "reportPath": "OutlookRecipientConfirmationAddin_Globals.htm", "coveredLines": 5, "uncoveredLines": 29, "coverableLines": 34, "totalLines": 286, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 1, "totalBranches": 8, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.Office365Contact", "reportPath": "OutlookRecipientConfirmationAddin_Office365Contact.htm", "coveredLines": 0, "uncoveredLines": 23, "coverableLines": 23, "totalLines": 56, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 6, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.Properties.Resources", "reportPath": "OutlookRecipientConfirmationAddin_Resources.htm", "coveredLines": 0, "uncoveredLines": 15, "coverableLines": 15, "totalLines": 62, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 2, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.Properties.Settings", "reportPath": "OutlookRecipientConfirmationAddin_Settings.htm", "coveredLines": 0, "uncoveredLines": 4, "coverableLines": 4, "totalLines": 26, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.RecipientCommonWindow", "reportPath": "OutlookRecipientConfirmationAddin_RecipientCommonWindow.htm", "coveredLines": 0, "uncoveredLines": 131, "coverableLines": 131, "totalLines": 249, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 20, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.RecipientConfirmationWindow", "reportPath": "OutlookRecipientConfirmationAddin_RecipientConfirmationWindow.htm", "coveredLines": 0, "uncoveredLines": 85, "coverableLines": 85, "totalLines": 160, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 2, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.RecipientInformationDto", "reportPath": "OutlookRecipientConfirmationAddin_RecipientInformationDto.htm", "coveredLines": 0, "uncoveredLines": 25, "coverableLines": 25, "totalLines": 48, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.RecipientListRibbon", "reportPath": "OutlookRecipientConfirmationAddin_RecipientListRibbon.htm", "coveredLines": 0, "uncoveredLines": 78, "coverableLines": 78, "totalLines": 293, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 16, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.RecipientListWindow", "reportPath": "OutlookRecipientConfirmationAddin_RecipientListWindow.htm", "coveredLines": 0, "uncoveredLines": 79, "coverableLines": 79, "totalLines": 152, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 4, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.SearchRecipient", "reportPath": "OutlookRecipientConfirmationAddin_SearchRecipient.htm", "coveredLines": 0, "uncoveredLines": 35, "coverableLines": 35, "totalLines": 77, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 4, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.ThisAddIn", "reportPath": "OutlookRecipientConfirmationAddin_ThisAddIn.htm", "coveredLines": 4, "uncoveredLines": 103, "coverableLines": 107, "totalLines": 407, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 10, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.ThisFormRegionCollection", "reportPath": "OutlookRecipientConfirmationAddin_ThisFormRegionCollection.htm", "coveredLines": 0, "uncoveredLines": 8, "coverableLines": 8, "totalLines": 286, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.ThisRibbonCollection", "reportPath": "OutlookRecipientConfirmationAddin_ThisRibbonCollection.htm", "coveredLines": 0, "uncoveredLines": 8, "coverableLines": 8, "totalLines": 286, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.Utility", "reportPath": "OutlookRecipientConfirmationAddin_Utility.htm", "coveredLines": 0, "uncoveredLines": 198, "coverableLines": 198, "totalLines": 341, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 52, "lineCoverageHistory": [], "branchCoverageHistory": [] },
+      { "name": "OutlookRecipientConfirmationAddin.WindowFormRegionCollection", "reportPath": "OutlookRecipientConfirmationAddin_WindowFormRegionCollection.htm", "coveredLines": 0, "uncoveredLines": 2, "coverableLines": 2, "totalLines": 286, "coverageType": "LineCoverage", "methodCoverage": "-", "coveredBranches": 0, "totalBranches": 0, "lineCoverageHistory": [], "branchCoverageHistory": [] },
     ]},
 ];
 
 var riskHotspotMetrics = [
+      { "name": "Cyclomatic complexity", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" },
+      { "name": "NPath complexity", "explanationUrl": "https://modess.io/npath-complexity-cyclomatic-complexity-explained" },
 ];
 
 var riskHotspots = [
+  {
+    "assembly": "OutlookRecipientConfirmationAddin", "class": "OutlookRecipientConfirmationAddin.Utility", "reportPath": "OutlookRecipientConfirmationAddin_Utility.htm", "method": "GetSenderInfomation(...)",
+    "metrics": [
+      { "value": 13, "exceeded": false },
+      { "value": 4096, "exceeded": true },
+    ]},
+  {
+    "assembly": "OutlookRecipientConfirmationAddin", "class": "OutlookRecipientConfirmationAddin.Utility", "reportPath": "OutlookRecipientConfirmationAddin_Utility.htm", "method": "GetRecipients(...)",
+    "metrics": [
+      { "value": 14, "exceeded": false },
+      { "value": 2048, "exceeded": true },
+    ]},
+  {
+    "assembly": "OutlookRecipientConfirmationAddin", "class": "OutlookRecipientConfirmationAddin.RecipientCommonWindow", "reportPath": "OutlookRecipientConfirmationAddin_RecipientCommonWindow.htm", "method": "RecipientCommonWindow_format()",
+    "metrics": [
+      { "value": 15, "exceeded": false },
+      { "value": 280, "exceeded": true },
+    ]},
 ];
 
 var branchCoverageAvailable = true;

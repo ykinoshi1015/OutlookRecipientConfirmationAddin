@@ -1,0 +1,129 @@
+<Type Name="Factory" FullName="Microsoft.Office.Tools.Factory">
+  <TypeSignature Language="C#" Value="public interface Factory" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Factory" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("857D6117-1E7B-422B-A9E3-F907304C709A")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CreateAddIn">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.AddIn CreateAddIn (IServiceProvider serviceProvider, Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent, Microsoft.Office.Tools.IAddInExtension extension);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.AddIn CreateAddIn(class System.IServiceProvider serviceProvider, class Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent, class Microsoft.Office.Tools.IAddInExtension extension) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.AddIn</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="serviceProvider" Type="System.IServiceProvider" />
+        <Parameter Name="hostItemProvider" Type="Microsoft.Office.Tools.IHostItemProvider" />
+        <Parameter Name="primaryCookie" Type="System.String" />
+        <Parameter Name="identifier" Type="System.String" />
+        <Parameter Name="containerComponent" Type="System.Object" />
+        <Parameter Name="extension" Type="Microsoft.Office.Tools.IAddInExtension" />
+      </Parameters>
+      <Docs>
+        <param name="serviceProvider">To be added.</param>
+        <param name="hostItemProvider">To be added.</param>
+        <param name="primaryCookie">To be added.</param>
+        <param name="identifier">To be added.</param>
+        <param name="containerComponent">To be added.</param>
+        <param name="extension">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateCustomTaskPaneCollection">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.CustomTaskPaneCollection CreateCustomTaskPaneCollection (IServiceProvider serviceProvider, Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.CustomTaskPaneCollection CreateCustomTaskPaneCollection(class System.IServiceProvider serviceProvider, class Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.CustomTaskPaneCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="serviceProvider" Type="System.IServiceProvider" />
+        <Parameter Name="hostItemProvider" Type="Microsoft.Office.Tools.IHostItemProvider" />
+        <Parameter Name="primaryCookie" Type="System.String" />
+        <Parameter Name="identifier" Type="System.String" />
+        <Parameter Name="containerComponent" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="serviceProvider">To be added.</param>
+        <param name="hostItemProvider">To be added.</param>
+        <param name="primaryCookie">To be added.</param>
+        <param name="identifier">To be added.</param>
+        <param name="containerComponent">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSmartTagCollection">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.SmartTagCollection CreateSmartTagCollection (IServiceProvider serviceProvider, Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.SmartTagCollection CreateSmartTagCollection(class System.IServiceProvider serviceProvider, class Microsoft.Office.Tools.IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.SmartTagCollection</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="serviceProvider" Type="System.IServiceProvider" />
+        <Parameter Name="hostItemProvider" Type="Microsoft.Office.Tools.IHostItemProvider" />
+        <Parameter Name="primaryCookie" Type="System.String" />
+        <Parameter Name="identifier" Type="System.String" />
+        <Parameter Name="containerComponent" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="serviceProvider">To be added.</param>
+        <param name="hostItemProvider">To be added.</param>
+        <param name="primaryCookie">To be added.</param>
+        <param name="identifier">To be added.</param>
+        <param name="containerComponent">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRibbonFactory">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Ribbon.RibbonFactory GetRibbonFactory ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Ribbon.RibbonFactory GetRibbonFactory() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Ribbon.RibbonFactory</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

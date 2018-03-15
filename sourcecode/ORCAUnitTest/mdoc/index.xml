@@ -1,0 +1,119 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="ORCAUnitTest" Version="1.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.EnableEditAndContinue)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyConfiguration("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("Copyright ©  2018")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyFileVersion("1.0.0.0")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyProduct("ORCAUnitTest")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("ORCAUnitTest")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.CompilationRelaxations(8)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.ComVisible(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.Guid("f40ad99e-30c6-430a-bdcf-d621d0c30047")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETFramework,Version=v4.5.2", FrameworkDisplayName=".NET Framework 4.5.2")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Microsoft.Office.Interop.Outlook">
+      <Type Name="_Application" Kind="Interface" />
+      <Type Name="_ContactItem" Kind="Interface" />
+      <Type Name="_ExchangeUser" Kind="Interface" />
+      <Type Name="_Explorer" Kind="Interface" />
+      <Type Name="_FormRegion" Kind="Interface" />
+      <Type Name="_Inspector" Kind="Interface" />
+      <Type Name="_NameSpace" Kind="Interface" />
+      <Type Name="AddressEntry" Kind="Interface" />
+      <Type Name="Application" Kind="Interface" />
+      <Type Name="ApplicationEvents_11" Kind="Interface" />
+      <Type Name="ApplicationEvents_11_Event" Kind="Interface" />
+      <Type Name="ContactItem" Kind="Interface" />
+      <Type Name="ExchangeUser" Kind="Interface" />
+      <Type Name="Explorer" Kind="Interface" />
+      <Type Name="ExplorerEvents_10" Kind="Interface" />
+      <Type Name="ExplorerEvents_10_Event" Kind="Interface" />
+      <Type Name="FormRegion" Kind="Interface" />
+      <Type Name="FormRegionEvents" Kind="Interface" />
+      <Type Name="FormRegionEvents_Event" Kind="Interface" />
+      <Type Name="Inspector" Kind="Interface" />
+      <Type Name="InspectorEvents_10" Kind="Interface" />
+      <Type Name="InspectorEvents_10_Event" Kind="Interface" />
+      <Type Name="ItemEvents_10" Kind="Interface" />
+      <Type Name="ItemEvents_10_Event" Kind="Interface" />
+      <Type Name="NameSpace" Kind="Interface" />
+      <Type Name="NameSpaceEvents" Kind="Interface" />
+      <Type Name="NameSpaceEvents_Event" Kind="Interface" />
+      <Type Name="OlAddressEntryUserType" Kind="Enumeration" />
+      <Type Name="OlFormRegionMode" Kind="Enumeration" />
+      <Type Name="OlFormRegionSize" Kind="Enumeration" />
+      <Type Name="Recipient" Kind="Interface" />
+    </Namespace>
+    <Namespace Name="Microsoft.Office.Tools">
+      <Type Name="AddIn" Kind="Interface" />
+      <Type Name="CustomTaskPane" Kind="Interface" />
+      <Type Name="CustomTaskPaneCollection" Kind="Interface" />
+      <Type Name="EntryPoint" Kind="Interface" />
+      <Type Name="Factory" Kind="Interface" />
+      <Type Name="IAddInExtension" Kind="Interface" />
+      <Type Name="ICachedDataProvider" Kind="Interface" />
+      <Type Name="IExtension" Kind="Interface" />
+      <Type Name="IHostItemProvider" Kind="Interface" />
+      <Type Name="SmartTagCollection" Kind="Interface" />
+    </Namespace>
+    <Namespace Name="Microsoft.Office.Tools.Outlook">
+      <Type Name="Factory" Kind="Interface" />
+      <Type Name="FormRegionControl" Kind="Interface" />
+      <Type Name="FormRegionCustomAction" Kind="Interface" />
+      <Type Name="FormRegionFactoryResolveEventArgs" Kind="Interface" />
+      <Type Name="FormRegionFactoryResolveEventHandler" Kind="Delegate" />
+      <Type Name="FormRegionInitializingEventArgs" Kind="Interface" />
+      <Type Name="FormRegionManifest" Kind="Interface" />
+      <Type Name="IFormRegion" Kind="Interface" />
+      <Type Name="IImportedFormRegionExtension" Kind="Interface" />
+      <Type Name="ImportedFormRegion" Kind="Interface" />
+      <Type Name="OutlookAddIn" Kind="Interface" />
+    </Namespace>
+    <Namespace Name="Microsoft.Office.Tools.Ribbon">
+      <Type Name="RibbonFactory" Kind="Interface" />
+    </Namespace>
+    <Namespace Name="ORCAUnitTest">
+      <Type Name="UnitTest1" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>ORCAUnitTest</Title>
+</Overview>

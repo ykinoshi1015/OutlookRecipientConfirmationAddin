@@ -1,0 +1,29 @@
+<Type Name="FormRegionFactoryResolveEventHandler" FullName="Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void FormRegionFactoryResolveEventHandler(object sender, FormRegionFactoryResolveEventArgs e);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed FormRegionFactoryResolveEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("FAEE1024-4A02-4311-9D49-42309C386DF0", "Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="sender" Type="System.Object" />
+    <Parameter Name="e" Type="Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventArgs" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="sender">To be added.</param>
+    <param name="e">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>
