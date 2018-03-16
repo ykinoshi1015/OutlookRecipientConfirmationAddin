@@ -292,17 +292,50 @@ namespace OutlookRecipientConfirmationAddin
         /// <returns>表示名</returns>
         public static string GetDisplayNameAndAddress(Outlook.Recipient recipient)
         {
-            string displayName;
-            if (recipient.Name.Contains("("))
+            //表示名がメールアドレスになっていたら、メールアドレスだけを表示する
+            if (recipient.Name != null && recipient.Address != null)
             {
-                //すでに「名前(メールアドレス)」の形式になっている
-                displayName = recipient.Name;
+                if (recipient.Name.CompareTo(recipient.Address) == 0)
+                {
+                    return recipient.Address;
+                }
             }
-            else
+
+            //表示名内のカッコの中をチェックする
+            //カッコの中がメールアドレスだったらメールアドレスが重複表示しないように、表示名をそのまま返す
+            System.Text.RegularExpressions.Regex pattern = new System.Text.RegularExpressions.Regex(@".+\((.+)\)");
+            System.Text.RegularExpressions.Match match = pattern.Match(recipient.Name);
+            if (match.Success)
             {
-                displayName = FormatDisplayNameAndAddress(recipient.Name, recipient.Address);
+                string detail = match.Groups[1].Value;
+                if (isEmailAddress(detail))
+                {
+                    return recipient.Name;
+                }
             }
+            
+            //表示名にカッコがなかったり、カッコの中がメールアドレスではなければ、
+            //"表示名 <メールアドレス>"の形式を返す
+            string displayName = FormatDisplayNameAndAddress(recipient.Name, recipient.Address);
             return displayName;
+        }
+
+        /// <summary>
+        /// 文字列がEメールアドレスかどうか判定する
+        /// </summary>
+        /// <param name="address">判定したい文字列</param>
+        /// <returns>true:Eメールアドレス false:Eメールアドレスではない</returns>
+        public static bool isEmailAddress(string address)
+        {
+            try
+            {
+                System.Net.Mail.MailAddress mailAddress = new System.Net.Mail.MailAddress(address);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+            return true;
         }
 
         /// <summary>
@@ -316,7 +349,7 @@ namespace OutlookRecipientConfirmationAddin
             if (MailAddress == null)
                 return string.Format("{0}", Name);
             else
-                return string.Format("{0}<{1}>", Name, MailAddress);
+                return string.Format("{0} <{1}>", Name, MailAddress);
         }
 
         /// <summary>
