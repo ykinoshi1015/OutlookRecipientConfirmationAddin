@@ -8,8 +8,8 @@ start /wait streams.exe -d "callRegistryDll.ps1"
 rem -----セキュリティ証明書-----
 certutil -addstore ROOT OutlookRecipientConfirmationAddin.cer
 
-rem -----Microsoft Visual C++ 2010 SP1 再頒布可能パッケージ (x86)-----
-vcredist_x86.exe /Setup /passive /promptrestart
+rem -----Visual Studio 2010 Tools for Office Runtime-----
+vstor_redist.exe /Setup /passive /promptrestart
 
 rem -----インストーラー呼び出し-----
 call addinInstaller.exe
