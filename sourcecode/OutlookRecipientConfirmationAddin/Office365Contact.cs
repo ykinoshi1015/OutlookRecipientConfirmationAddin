@@ -48,6 +48,11 @@ namespace OutlookRecipientConfirmationAddin
                 contactItem.Department = exchUser.Department;
                 contactItem.JobTitle = exchUser.JobTitle;
             }
+            else
+            {
+                /// 個人の「連絡先」から取得
+                contactItem = recipient.AddressEntry.GetContact();
+            }
 
             return contactItem;
         }
