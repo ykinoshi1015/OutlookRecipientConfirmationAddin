@@ -140,23 +140,31 @@ namespace OutlookRecipientConfirmationAddin
         /// <returns>送信者の宛先情報インスタンス（送信者が取得できない場合null）</returns>
         public static RecipientInformationDto GetSenderInfomation(object Item)
         {
-            Outlook.AddressEntry sender = null;
-            Outlook.ExchangeUser exchUser = null;
-            RecipientInformationDto senderInformation = null;
-            Outlook.Recipient recResolve = null;
-            Outlook.ContactItem contactItem = null;
-
-            string senderName = null;
-            string senderAddress = null;
+            Outlook.AddressEntry sender;
+            Outlook.ExchangeUser exchUser;
+            Outlook.Recipient recResolve;
+            Outlook.ContactItem contactItem;
+            string senderName;
+            string senderAddress;
 
             // MailItemの場合
             if (Item is Outlook.MailItem)
             {
                 Outlook.MailItem mail = (Item as Outlook.MailItem);
+                recResolve = null;
+                exchUser = null;
+                contactItem = null;
 
                 // 送信元のアカウントに対応するSenderプロパティを取得
                 sender = mail.Sender;
-                if (sender != null)
+                if (sender == null)
+                {
+                    // 起動されたOutlookのユーザを送信者として取得
+                    recResolve = Globals.ThisAddIn.Application.Session.CurrentUser;
+                    sender = recResolve.AddressEntry;
+                    exchUser = getExchangeUser(sender);
+                }
+                else if (sender != null)
                 {
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sender.Address);
                     exchUser = getExchangeUser(recResolve.AddressEntry);
@@ -167,6 +175,7 @@ namespace OutlookRecipientConfirmationAddin
                     recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(mail.SenderEmailAddress);
                     exchUser = getExchangeUser(recResolve.AddressEntry);
                 }
+         
                 if (recResolve != null)
                 {
                     contactItem = recResolve.AddressEntry.GetContact();
@@ -181,6 +190,10 @@ namespace OutlookRecipientConfirmationAddin
 
                 // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
                 recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(meeting.SenderEmailAddress);
+                exchUser = null;
+                sender = null;
+                contactItem = null;
+
                 if (recResolve != null)
                 {
                     sender = recResolve.AddressEntry;
@@ -196,7 +209,8 @@ namespace OutlookRecipientConfirmationAddin
                 Outlook.AppointmentItem appointment = Item as Outlook.AppointmentItem;
 
                 // 先頭(Recipients[1])のRecipientは送信者なので、送信者のExchangeUserを取得
-                sender = appointment.Recipients[1].AddressEntry;
+                recResolve = appointment.Recipients[1];
+                sender = recResolve.AddressEntry;
                 exchUser = getExchangeUser(sender);
                 if (exchUser == null)
                 {
@@ -204,13 +218,20 @@ namespace OutlookRecipientConfirmationAddin
                     sender = Globals.ThisAddIn.Application.Session.CurrentUser.AddressEntry;
                     exchUser = getExchangeUser(sender);
                 }
-                contactItem = sender.GetContact();
+                contactItem = null;
+                senderName = null;
+                senderAddress = null;
             }
             else if (Item is Outlook.ReportItem)
             {
                 Outlook.ReportItem report = Item as Outlook.ReportItem;
 
+                exchUser = null;
+                recResolve = null;
+                sender = null;
+                contactItem = null;
                 senderName = "Microsoft Outlook";
+                senderAddress = null;
             }
             else if (Item is Outlook.SharingItem)
             {
@@ -218,15 +239,28 @@ namespace OutlookRecipientConfirmationAddin
 
                 // SenderEmailAddressから、送信者のAddressEntry及びExchangeUserを取得
                 recResolve = Globals.ThisAddIn.Application.Session.CreateRecipient(sharing.SenderEmailAddress);
+                exchUser = null;
+                sender = null;
+                contactItem = null;
                 if (recResolve != null)
                 {
                     sender = recResolve.AddressEntry;
                     exchUser = getExchangeUser(sender);
-                    contactItem = sender.GetContact();
                 }
                 senderName = sharing.SenderName;
                 senderAddress = sharing.SenderEmailAddress;
             }
+            else
+            {
+                exchUser = null;
+                recResolve = null;
+                sender = null;
+                contactItem = null;
+                senderName = null;
+                senderAddress = null;
+            }
+
+            RecipientInformationDto senderInformation = null;
 
             // 送信者のExchangeUserが取得できた場合
             if (exchUser != null)
@@ -246,23 +280,23 @@ namespace OutlookRecipientConfirmationAddin
                                                                 FormatJobTitle(contactItem.JobTitle),
                                                                 Outlook.OlMailRecipientType.olOriginator);
             }
-            // ExchangeUserが取得できないが、送信者情報は取得できた場合
-            else if (sender != null)
-            {
-                string displayName;
-                if (recResolve != null)
-                    displayName = GetDisplayNameAndAddress(recResolve);
-                else
-                    displayName = FormatDisplayNameAndAddress(sender.Name, sender.Address);
-
-                senderInformation = new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
-            }
             // いずれも失敗した場合
             else if (senderName != null)
             {
                 senderInformation = new RecipientInformationDto(
                     FormatDisplayNameAndAddress(senderName, senderAddress),
                     Outlook.OlMailRecipientType.olOriginator);
+            }
+            // ExchangeUserが取得できないが、送信者情報は取得できた場合
+            else if (sender != null)
+            {
+                string displayName;
+                if (recResolve != null && !Utility.IsEmailAddress(recResolve.Name))
+                    displayName = GetDisplayNameAndAddress(recResolve);
+                else
+                    displayName = FormatDisplayNameAndAddress(sender.Name, sender.Address);
+
+                senderInformation = new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
             }
 
             return senderInformation;
@@ -305,7 +339,7 @@ namespace OutlookRecipientConfirmationAddin
             if (match.Success)
             {
                 string detail = match.Groups[1].Value;
-                if (isEmailAddress(detail))
+                if (IsEmailAddress(detail))
                 {
                     return recipient.Name;
                 }
@@ -322,7 +356,7 @@ namespace OutlookRecipientConfirmationAddin
         /// </summary>
         /// <param name="address">判定したい文字列</param>
         /// <returns>true:Eメールアドレス false:Eメールアドレスではない</returns>
-        public static bool isEmailAddress(string address)
+        public static bool IsEmailAddress(string address)
         {
             try
             {
