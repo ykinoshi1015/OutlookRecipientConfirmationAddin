@@ -91,6 +91,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GetRecipientsUnitTest.cs" />
+    <Compile Include="GetSenderInfomationUnitTest.cs" />
     <Compile Include="MyTestClasses.cs" />
     <Compile Include="GetContactItemUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

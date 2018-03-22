@@ -14,45 +14,6 @@ namespace ORCAUnitTest
     [TestFixture]
     public class GetRecipientsUnitTest
     {
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///現在のテストの実行についての情報および機能を
-        ///提供するテスト コンテキストを取得または設定します。
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region 追加のテスト属性
-        //
-        // テストを作成する際には、次の追加属性を使用できます:
-        //
-        // クラス内で最初のテストを実行する前に、ClassInitialize を使用してコードを実行してください
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // クラス内のテストをすべて実行したら、ClassCleanup を使用してコードを実行してください
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // 各テストを実行する前に、TestInitialize を使用してコードを実行してください
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // 各テストを実行した後に、TestCleanup を使用してコードを実行してください
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
 
         private Recipient testRec;
         private AddressEntry testAdd;
@@ -68,8 +29,10 @@ namespace ORCAUnitTest
         private MeetingItem testMeeting;
         private AppointmentItem testAppointment;
         private SharingItem testSharing;
+        private TestReportItem testReport;
+
         private Recipient expectedRec1;
-        private Recipient expectedRec2; 
+        private Recipient expectedRec2;
 
         /// <summary>
         /// テスト時に、一度だけ実行される処理（アセンブリの読み込み、Typeの取得など）
@@ -89,6 +52,7 @@ namespace ORCAUnitTest
             testMeeting = Substitute.For<MeetingItem>();
             testAppointment = Substitute.For<AppointmentItem>();
             testSharing = Substitute.For<SharingItem>();
+            testReport = Substitute.For<TestReportItem>();
 
             expectedRec1 = Substitute.For<Recipient>();
             expectedRec2 = Substitute.For<Recipient>();
@@ -111,7 +75,7 @@ namespace ORCAUnitTest
             testNs = Substitute.For<NameSpace>();
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
-
+            
             // リフレクション
             // アセンブリを読み込み、モジュールを取得
             //(VSでテストする時)
@@ -141,17 +105,20 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest1()
         {
-
-
             // モックでつかうデータを用意
             string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
-            testMail.Recipients.Count.Returns(testRecNames.Length);
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
 
+            // モックのReturn値と、期待結果のリストの値を設定
+            testMail.Recipients.Count.Returns(testRecNames.Length);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMail);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             // ここではList<Recipient>にキャストできない（理由は？）
@@ -161,37 +128,14 @@ namespace ORCAUnitTest
             // テスト対象メソッドの返り値をList<Recipient>型にする
             List<Recipient> actualRecList = new List<Recipient>();
             IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
-
             foreach (var actual in actualEnumList)
             {
                 actualRecList.Add(actual);
             }
 
-            // 期待結果を入れるリスト
-            List<Recipient> expectedRecList = new List<Recipient>();
-
-            // 期待結果1のデータをリストに追加
-            expectedRec1.Address.Returns("testemailaddress1@example.com");
-            expectedRec1.Sendable.Returns(true);
-            expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-            expectedRecList.Add(expectedRec1);
-
-            // 期待結果2のデータをリストに追加
-            expectedRec2.Address.Returns("testemailaddress2@example.com");
-            expectedRec2.Sendable.Returns(true);
-            expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-            expectedRecList.Add(expectedRec2);
-
             // actualとexpectedのリストを比較
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
-
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeが正しいことを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Mail));
@@ -205,18 +149,21 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest2()
         {
-
-
             // モックでつかうデータを用意
             string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
+
+            // モックのReturn値と、期待結果のリストの値を設定
             testMeeting.Recipients.Count.Returns(testRecNames.Length);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMeeting);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
             testMeeting.MessageClass.Returns("IPM.Schedule.Meeting.Request");
-            
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testMeeting, Utility.OutlookItemType.Mail, false };
@@ -231,31 +178,9 @@ namespace ORCAUnitTest
                 actualRecList.Add(actual);
             }
 
-            // 期待結果を入れるリスト
-            List<Recipient> expectedRecList = new List<Recipient>();
-
-            // 期待結果1のデータをリストに追加
-            expectedRec1.Address.Returns("testemailaddress1@example.com");
-            expectedRec1.Sendable.Returns(true);
-            expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-            expectedRecList.Add(expectedRec1);
-
-            // 期待結果2のデータをリストに追加
-            expectedRec2.Address.Returns("testemailaddress2@example.com");
-            expectedRec2.Sendable.Returns(true);
-            expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-            expectedRecList.Add(expectedRec2);
-
             // actualとexpectedのリストを比較
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
-
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeがMeetingになっていることを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Meeting));
@@ -275,11 +200,16 @@ namespace ORCAUnitTest
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
+
+            // モックのReturn値と、期待結果のリストの値を設定
             testMeeting.Recipients.Count.Returns(testRecNames.Length);
             testMeeting.MessageClass.Returns("IPM.Schedule.Meeting.Resp.Pos");
-            
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMeeting);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testMeeting, Utility.OutlookItemType.Mail, false };
@@ -294,31 +224,9 @@ namespace ORCAUnitTest
                 actualRecList.Add(actual);
             }
 
-            // 期待結果を入れるリスト
-            List<Recipient> expectedRecList = new List<Recipient>();
-
-            // 期待結果1のデータをリストに追加
-            expectedRec1.Address.Returns("testemailaddress1@example.com");
-            expectedRec1.Sendable.Returns(true);
-            expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-            expectedRecList.Add(expectedRec1);
-
-            // 期待結果2のデータをリストに追加
-            expectedRec2.Address.Returns("testemailaddress2@example.com");
-            expectedRec2.Sendable.Returns(true);
-            expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-            expectedRecList.Add(expectedRec2);
-
             // actualとexpectedのリストを比較
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
-
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeがMeetingになっていることを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.MeetingResponse));
@@ -339,12 +247,16 @@ namespace ORCAUnitTest
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
+
+            // モックのReturn値と、期待結果のリストの値を設定
             testMeeting.Recipients.Count.Returns(testRecNames.Length);
             testMeeting.MessageClass.Returns("IPM.Schedule.Meeting.Canceled");
-
-
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMeeting);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testMeeting, Utility.OutlookItemType.Mail, false };
@@ -359,31 +271,9 @@ namespace ORCAUnitTest
                 actualRecList.Add(actual);
             }
 
-            // 期待結果を入れるリスト
-            List<Recipient> expectedRecList = new List<Recipient>();
-
-            // 期待結果1のデータをリストに追加
-            expectedRec1.Address.Returns("testemailaddress1@example.com");
-            expectedRec1.Sendable.Returns(true);
-            expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-            expectedRecList.Add(expectedRec1);
-
-            // 期待結果2のデータをリストに追加
-            expectedRec2.Address.Returns("testemailaddress2@example.com");
-            expectedRec2.Sendable.Returns(true);
-            expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-            expectedRecList.Add(expectedRec2);
-
             // actualとexpectedのリストを比較
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
-
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeがMeetingになっていることを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Meeting));
@@ -397,17 +287,21 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest5()
         {
-
             // モックでつかうデータを用意
             string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
+
+            // モックのReturn値と、期待結果のリストの値を設定
             testMeeting.Recipients.Count.Returns(testRecNames.Length);
             testMeeting.MessageClass.Returns("IPM.Schedule.Meeting.Resp.Neg");
-
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMeeting);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testMeeting, Utility.OutlookItemType.Mail, true };
@@ -427,10 +321,8 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest6()
         {
-         
-
             // 自分の情報を取得
-            Outlook.Application app = new Outlook.Application();
+            Application app = new Application();
             ExchangeUser currentUser = app.Session.CurrentUser.AddressEntry.GetExchangeUser();
 
             // モックでつかうデータを用意
@@ -439,24 +331,9 @@ namespace ORCAUnitTest
             bool[] testRecSendable = { true, true, true, false };
             int[] testRecType = { (int)OlMailRecipientType.olOriginator, (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olBCC, (int)OlMailRecipientType.olBCC };
 
-            // モックのReturn値を設定
+            // モックのReturn値と、期待結果のリストの値を設定
             testAppointment.Recipients.Count.Returns(testRecNames.Length);
-
-
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
-
-            // テストするメソッドにアクセスし、実際の結果を取得
-            var objArray = new object[] { testAppointment, Utility.OutlookItemType.Mail, false };
-            object actualObj = mi.Invoke(obj, objArray);
-
-            // テスト対象メソッドの返り値をList<Recipient>型にする
-            List<Recipient> actualRecList = new List<Recipient>();
-            IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
-
-            foreach (var actual in actualEnumList)
-            {
-                actualRecList.Add(actual);
-            }
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testAppointment);
 
             // 期待結果を入れるリスト
             List<Recipient> expectedRecList = new List<Recipient>();
@@ -473,18 +350,22 @@ namespace ORCAUnitTest
             expectedRec2.Type.Returns((int)OlMailRecipientType.olBCC);
             expectedRecList.Add(expectedRec2);
 
+            // テストするメソッドにアクセスし、実際の結果を取得
+            var objArray = new object[] { testAppointment, Utility.OutlookItemType.Mail, false };
+            object actualObj = mi.Invoke(obj, objArray);
+
+            // テスト対象メソッドの返り値をList<Recipient>型にする
+            List<Recipient> actualRecList = new List<Recipient>();
+            IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
+
+            foreach (var actual in actualEnumList)
+            {
+                actualRecList.Add(actual);
+            }
 
             // リストのサイズから、自分（送信者）と、Sendableがfalseのリソースが返り値のリストに入っていないことを確認
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count, testRecNames.Length - 2);
-
-            // actualとexpectedのリストを比較
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeがAppointmentになっていることを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Appointment));
@@ -498,7 +379,7 @@ namespace ORCAUnitTest
         public void GetRecipientsTest7()
         {
             // 自分の情報を取得
-            Outlook.Application app = new Outlook.Application();
+            Application app = new Application();
             ExchangeUser currentUser = app.Session.CurrentUser.AddressEntry.GetExchangeUser();
 
             // モックでつかうデータを用意
@@ -507,11 +388,9 @@ namespace ORCAUnitTest
             bool[] testRecSendable = { true, true, true };
             int[] testRecType = { (int)OlMailRecipientType.olOriginator, (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // モックのReturn値と、期待結果のリストの値を設定
             testAppointment.Recipients.Count.Returns(testRecNames.Length);
-
-
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testAppointment);
 
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testAppointment, Utility.OutlookItemType.Mail, false };
@@ -543,15 +422,7 @@ namespace ORCAUnitTest
 
             // リストのサイズから、自分（送信者）が返り値のリストに入っていないことを確認
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count, testRecNames.Length - 1);
-
-            // actualとexpectedのリストを比較
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeがMeetingになっていることを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Appointment));
@@ -564,22 +435,24 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest8()
         {
-
             // モックでつかうデータを用意
             string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
             bool[] testRecSendable = { true, true };
             int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-            // モックのReturn値を設定
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
+
+            // モックのReturn値と、期待結果のリストの値を設定
             testSharing.Recipients.Count.Returns(testRecNames.Length);
-            
-            SubstituteRecProps(testRecNames, testRecSendable, testRecType);
+            SubstituteRecProps(testRecNames, testRecSendable, testRecType, testSharing);
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // テストするメソッドにアクセスし、実際の結果を取得
-            // ここではList<Recipient>にキャストできない（理由は？）
             var objArray = new object[] { testSharing, Utility.OutlookItemType.Mail, false };
             object actualObj = mi.Invoke(obj, objArray);
-
             // テスト対象メソッドの返り値をList<Recipient>型にする
             List<Recipient> actualRecList = new List<Recipient>();
             IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
@@ -589,121 +462,188 @@ namespace ORCAUnitTest
                 actualRecList.Add(actual);
             }
 
-            // 期待結果を入れるリスト
-            List<Recipient> expectedRecList = new List<Recipient>();
-
-            // 期待結果1のデータをリストに追加
-            expectedRec1.Address.Returns("testemailaddress1@example.com");
-            expectedRec1.Sendable.Returns(true);
-            expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-            expectedRecList.Add(expectedRec1);
-
-            // 期待結果2のデータをリストに追加
-            expectedRec2.Address.Returns("testemailaddress2@example.com");
-            expectedRec2.Sendable.Returns(true);
-            expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-            expectedRecList.Add(expectedRec2);
-
             // actualとexpectedのリストを比較
             Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
-
-            Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-            Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-            Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
-
-            Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-            Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-            Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            CompareLists(actualRecList, expectedRecList);
 
             // ref引数のtypeが正しいことを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Sharing));
 
         }
 
-        ///// <summary>
-        /////  MailItemの場合
-        /////  Recipientsを取得でき、TypeがMailのままになる
-        ///// </summary>
-        //[Test]
-        //public void GetRecipientsTest1()
-        //{
-        //    // テスト用のMailItemを、モックで作成
-        //    MailItem testMail = Substitute.For<MailItem>();
+        /// <summary>
+        ///  ReportItemの場合
+        ///  Recipientsを取得でき、TypeがReportになる
+        /// </summary>
+        [Test]
+        public void GetRecipientsTest9()
+        {
+            // モックでつかうデータを用意
+            string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
+            bool[] testRecSendable = { true, true };
+            int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
-        //    // モックでつかうデータを用意
-        //    string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress2@example.com" };
-        //    bool[] testRecSendable = { true, true };
-        //    int[] testRecType = { (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
+            // 期待結果を入れるリスト
+            List<Recipient> expectedRecList = new List<Recipient>();
+            expectedRecList.Add(expectedRec1);
+            expectedRecList.Add(expectedRec2);
 
-        //    // モックのReturn値を設定
-        //    testMail.Recipients.Count.Returns(testRecNames.Length);
+            testReport.CopyHon().Returns(testReport);
 
-        //    int i = 0;
-        //    foreach (string testRec in testRecNames)
-        //    {
-        //        testMail.Recipients[i + 1].Address.Returns(testRecNames[i]);
-        //        testMail.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
-        //        testMail.Recipients[i + 1].Type.Returns(testRecType[i]);
-        //        i++;
-        //    }
+            //testMail.Recipients.Count.Returns(testRecNames.Length);
+            //SubstituteRecProps(testRecNames, testRecSendable, testRecType, testMail);
 
-        //    // テストするメソッドにアクセスし、実際の結果を取得
-        //    // ここではList<Recipient>にキャストできない（理由は？）
-        //    var objArray = new object[] { testMail, Utility.OutlookItemType.Mail, false };
-        //    object actualObj = mi.Invoke(obj, objArray);
 
-        //    // テスト対象メソッドの返り値をList<Recipient>型にする
-        //    List<Recipient> actualRecList = new List<Recipient>();
-        //    IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
+            // モックのReturn値と、期待結果のリストの値を設定
+            MyTestNs myTestNs = Substitute.For<MyTestNs>();
+            testApp.Session.Returns(myTestNs);
+            myTestNs.GetItemFromIDHon(Arg.Any<string>()).Returns(testMail);
 
-        //    foreach (var actual in actualEnumList)
-        //    {
-        //        actualRecList.Add(actual);
-        //    }
+            
+            // テストするメソッドにアクセスし、実際の結果を取得
+            var objArray = new object[] { testReport, Utility.OutlookItemType.Mail, false };
+            object actualObj = mi.Invoke(obj, objArray);
 
-        //    // 期待結果を入れるリスト
-        //    List<Recipient> expectedRecList = new List<Recipient>();
+            // テスト対象メソッドの返り値をList<Recipient>型にする
+            List<Recipient> actualRecList = new List<Recipient>();
+            IEnumerable<Recipient> actualEnumList = (IEnumerable<Recipient>)actualObj;
+            foreach (var actual in actualEnumList)
+            {
+                actualRecList.Add(actual);
+            }
+            
+            SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
-        //    // 期待結果1のデータをリストに追加
-        //    Recipient expectedRec1 = Substitute.For<Recipient>();
-        //    expectedRec1.Address.Returns("testemailaddress1@example.com");
-        //    expectedRec1.Sendable.Returns(true);
-        //    expectedRec1.Type.Returns((int)OlMailRecipientType.olTo);
-        //    expectedRecList.Add(expectedRec1);
+            // actualとexpectedのリストを比較
+            Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
+            CompareLists(actualRecList, expectedRecList);
 
-        //    // 期待結果2のデータをリストに追加
-        //    Recipient expectedRec2 = Substitute.For<Recipient>();
-        //    expectedRec2.Address.Returns("testemailaddress2@example.com");
-        //    expectedRec2.Sendable.Returns(true);
-        //    expectedRec2.Type.Returns((int)OlMailRecipientType.olCC);
-        //    expectedRecList.Add(expectedRec2);
+            // ref引数のtypeが正しいことを確認
+            Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Report));
 
-        //    // actualとexpectedのリストを比較
-        //    Assert.AreEqual(actualRecList.Count, expectedRecList.Count);
+        }
 
-        //    Assert.That(actualRecList[0].Address, Is.EqualTo(expectedRecList[0].Address));
-        //    Assert.That(actualRecList[0].Sendable, Is.EqualTo(expectedRecList[0].Sendable));
-        //    Assert.That(actualRecList[0].Type, Is.EqualTo(expectedRecList[0].Type));
+        /// <summary>
+        /// テスト対象メソッドで使われる値のReturnsを設定するメソッド
+        /// </summary>
+        /// <param name="testRecNames">Recipientのアドレス</param>
+        /// <param name="testRecSendable">RecipientのSendableプロパティ</param>
+        /// <param name="testRecType">RecipientのType</param>
+        /// <param name="item">選択されたitem</param>
+        private void SubstituteRecProps(string[] testRecNames, bool[] testRecSendable, int[] testRecType, object item)
+        {
 
-        //    Assert.That(actualRecList[1].Address, Is.EqualTo(expectedRecList[1].Address));
-        //    Assert.That(actualRecList[1].Sendable, Is.EqualTo(expectedRecList[1].Sendable));
-        //    Assert.That(actualRecList[1].Type, Is.EqualTo(expectedRecList[1].Type));
+            int i = 0;
 
-        //    // ref引数のtypeが正しいことを確認
-        //    Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Mail));
+            if (item is MailItem)
+            {
+                MailItem testItem = (MailItem)item;
 
-        //}
+                foreach (string testRec in testRecNames)
+                {
+                    // テスト用Recipientのプロパティに値を設定
+                    testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
+                    testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
+                    testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
 
-        private void SubstituteRecProps(string[] testRecNames, bool[] testRecSendable, int[] testRecType)
+                    i++;
+                }
+            }
+            else if (item is MeetingItem)
+            {
+                MeetingItem testItem = (MeetingItem)item;
+
+                foreach (string testRec in testRecNames)
+                {
+                    // テスト用Recipientのプロパティに値を設定
+                    testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
+                    testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
+                    testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
+
+                    i++;
+                }
+            }
+            else if (item is AppointmentItem)
+            {
+                AppointmentItem testItem = (AppointmentItem)item;
+
+                foreach (string testRec in testRecNames)
+                {
+                    // テスト用Recipientのプロパティに値を設定
+                    testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
+                    testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
+                    testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
+
+                    i++;
+                }
+
+            }
+            else if (item is SharingItem)
+            {
+                SharingItem testItem = (SharingItem)item;
+
+                foreach (string testRec in testRecNames)
+                {
+                    // テスト用Recipientのプロパティに値を設定
+                    testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
+                    testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
+                    testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
+
+                    i++;
+                }
+            }
+            //else if (item is ReportItem)
+            //{
+            //    ReportItem testItem = (ReportItem)item;
+
+            //    foreach (string testRec in testRecNames)
+            //    {
+            //        // テスト用Recipientのプロパティに値を設定
+            //        testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
+            //        testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
+            //        testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
+
+            //        i++;
+            //    }
+            //}
+
+
+        }
+
+        /// <summary>
+        /// 期待する結果リストの値を設定するメソッド
+        /// </summary>
+        /// <param name="testRecNames">Recipientのアドレス</param>
+        /// <param name="testRecSendable">RecipientのSendableプロパティ</param>
+        /// <param name="testRecType">RecipientのType</param>
+        /// <param name="expectedRecList">期待結果のRecipient型リスト</param>
+        private void SetExpectedValues(string[] testRecNames, bool[] testRecSendable, int[] testRecType, List<Recipient> expectedRecList)
         {
             int i = 0;
             foreach (string testRec in testRecNames)
             {
-                testMail.Recipients[i + 1].Address.Returns(testRecNames[i]);
-                testMail.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
-                testMail.Recipients[i + 1].Type.Returns(testRecType[i]);
+                expectedRecList[i].Address.Returns(testRecNames[i]);
+                expectedRecList[i].Sendable = testRecSendable[i];
+                expectedRecList[i].Type = testRecType[i];
                 i++;
             }
         }
+
+        /// <summary>
+        /// 実際の値と、期待する値を比較するメソッド
+        /// </summary>
+        /// <param name="actualList">メソッドからもどってきたRecipient型リスト</param>
+        /// <param name="expectedList">期待する結果を入れたRecipient型リスト</param>
+        private void CompareLists(List<Recipient> actualList, List<Recipient> expectedList)
+        {
+            for (int i = 0; i < expectedList.Count; i++)
+            {
+                Assert.That(actualList[i].Address, Is.EqualTo(expectedList[i].Address));
+                Assert.That(actualList[i].Sendable, Is.EqualTo(expectedList[i].Sendable));
+                Assert.That(actualList[i].Type, Is.EqualTo(expectedList[i].Type));
+            }
+        }
+
+
     }
 }
