@@ -61,9 +61,9 @@ namespace ORCAUnitTest
             // リフレクション
             // アセンブリを読み込み、モジュールを取得
             //(VSでテストする時)
-            Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
             //(batで実行するとき)
-            //Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
             mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
 
             // Globalsのタイプと、ThisAddInプロパティを取得
@@ -291,7 +291,7 @@ namespace ORCAUnitTest
             testExchUser.CompanyName.Returns(testCompanyName);
             testExchUser.Department.Returns(testDepartment);
             testExchUser.JobTitle.Returns(testJobTitle);
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             ContactItem actual = (ContactItem)mi.Invoke(obj, new object[] { testRec });
 
@@ -300,7 +300,7 @@ namespace ORCAUnitTest
             Assert.That(actual.Department, Does.Match(testDepartment));
             Assert.That(actual.JobTitle, Does.Match(testJobTitle));
         }
-        
+
     }
 
 }

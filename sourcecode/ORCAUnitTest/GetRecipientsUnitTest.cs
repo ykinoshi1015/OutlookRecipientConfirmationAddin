@@ -79,9 +79,9 @@ namespace ORCAUnitTest
             // リフレクション
             // アセンブリを読み込み、モジュールを取得
             //(VSでテストする時)
-            Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
             //(batで実行するとき)
-            //Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
             mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
 
             // Globalsのタイプと、ThisAddInプロパティを取得

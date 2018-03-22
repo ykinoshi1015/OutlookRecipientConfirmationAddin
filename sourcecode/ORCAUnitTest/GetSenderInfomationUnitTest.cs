@@ -42,7 +42,7 @@ namespace ORCAUnitTest
         {
             // テスト対象のクラス内で使われる変数のモック
             testRec = Substitute.For<Recipient>();
-            testAdd = Substitute.For<AddressEntry>();
+            //testAdd = Substitute.For<AddressEntry>();
             testExchUser = Substitute.For<ExchangeUser>();
 
             // テスト用のXXXItemを、モックで作成
@@ -77,9 +77,9 @@ namespace ORCAUnitTest
             // リフレクション
             // アセンブリを読み込み、モジュールを取得
             //(VSでテストする時)
-            Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
             //(batで実行するとき)
-            //Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
             mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
 
             // Globalsのタイプと、ThisAddInプロパティを取得
@@ -94,7 +94,16 @@ namespace ORCAUnitTest
             obj = Activator.CreateInstance(type);
             mi = type.GetMethod("GetSenderInfomation");
         }
-
+        
+        ///// <summary>
+        ///// 各メソッド実行後に呼ばれる
+        ///// </summary>
+        //[TearDown]
+        //public void Dispose()
+        //{
+        //   testAdd.GetExchangeUser().Returns((ExchangeUser)null);
+        //}
+        
         /// <summary>
         /// MailItem
         /// Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
@@ -109,6 +118,8 @@ namespace ORCAUnitTest
             string testDepartment = "ビジネスソリューションズ事業部 システム開発センター 第１開発部 第１グループ";
             string testJobTitle = "担当";
             string expectedJobTitle = "";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックでつかうデータを用意
             testMail.Sender = testAdd;
@@ -131,7 +142,6 @@ namespace ORCAUnitTest
 
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
-
         }
 
         /// <summary>
@@ -146,6 +156,8 @@ namespace ORCAUnitTest
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
 
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックでつかうデータを用意
             testMail.Sender = testAdd;
             testAdd.Address = "kenta.kosaka@jp.ricoh.com";
@@ -153,21 +165,21 @@ namespace ORCAUnitTest
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
 
-            // getExchangeUserメソッドで、ExchangeUserが見つからない
-            testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
+                // getExchangeUserメソッドで、ExchangeUserが見つからない
+                testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
 
             testMail.SenderName.Returns(testName);
             testMail.SenderEmailAddress.Returns(testEmailAddress);
 
-            // テストするメソッドにアクセスし、実際の結果を取得
-            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
+                // テストするメソッドにアクセスし、実際の結果を取得
+                RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
+
 
             // 期待結果
             RecipientInformationDto expected = new RecipientInformationDto(expectedNameAndAddress, OlMailRecipientType.olOriginator);
 
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
-
         }
         
         /// <summary>
@@ -184,13 +196,17 @@ namespace ORCAUnitTest
             string testDepartment = "ビジネスソリューションズ事業部 システム開発センター 第１開発部 第１グループ";
             string testJobTitle = "部長";
 
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックでつかうデータを用意
             testMail.Sender = null;
             testMail.SenderEmailAddress.Returns("gen.kobayashi@jp.ricoh.com");
-            
+
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
-
+            
             testExchUser.Name.Returns(testName);
             testExchUser.Department.Returns(testDepartment);
             testExchUser.CompanyName.Returns(testCompanyName);
@@ -220,6 +236,8 @@ namespace ORCAUnitTest
             string testName = "Kosaka Kenta (小坂 健太)";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックでつかうデータを用意
             testMail.Sender = null;
@@ -251,6 +269,8 @@ namespace ORCAUnitTest
         [Test]
         public void GetSenderInfoMailTest5()
         {
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックでつかうデータを用意
             testMail.Sender = null;
             testMail.SenderEmailAddress.Returns((string)null);
@@ -281,6 +301,8 @@ namespace ORCAUnitTest
             string testJobTitle = "担当";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedJobTitle = "";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックのReturn値を設定
             testMeeting.SenderEmailAddress.Returns(testEmailAddress);
@@ -314,6 +336,8 @@ namespace ORCAUnitTest
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
 
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックでつかうデータを用意
             testMeeting.SenderName.Returns(testName);
             testMeeting.SenderEmailAddress.Returns(testEmailAddress);
@@ -343,6 +367,8 @@ namespace ORCAUnitTest
         public void GetSenderInfoMeetingTest3()
         {
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックでつかうデータを用意
             testMeeting.SenderName.Returns((string)null);
@@ -376,6 +402,8 @@ namespace ORCAUnitTest
             string testJobTitle = "担当";
             string expectedJobTitle = "";
 
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックのReturn値を設定
             testAppointment.Recipients[1].AddressEntry.Returns(testAdd);
 
@@ -405,22 +433,20 @@ namespace ORCAUnitTest
         [Test]
         public void GetSenderInfoAppointTest2()
         {
-            // 自分の情報を取得
-            Application app = new Application();
-            AddressEntry currentAdd = app.Session.CurrentUser.AddressEntry;
-            ExchangeUser currentExchUser = currentAdd.GetExchangeUser();
-
-            string testName = currentExchUser.Name;
-            string testCompanyName = currentExchUser.CompanyName;
-            string testDepartment = currentExchUser.Department;
-            string testJobTitle = currentExchUser.JobTitle;
+            string testName = "Kosaka Kenta (小坂 健太)";
+            string testCompanyName = "リコーITソリューションズ";
+            string testDepartment = "ビジネスソリューションズ事業部 システム開発センター 第１開発部 第１グループ";
+            string testJobTitle = "担当";
             string expectedJobTitle = "";
+
+            testAdd = Substitute.For<AddressEntry>();
+            testAppointment = Substitute.For<AppointmentItem>();
 
             // Recipients[1]のExchangeUserで例外が発生
             testAppointment.Recipients[1].AddressEntry.Returns(x => { throw new System.Exception(); });
 
             // モックのReturn値を設定
-            testNs.CurrentUser.AddressEntry.Returns(currentAdd);
+            testNs.CurrentUser.AddressEntry.Returns(testAdd);
 
             testExchUser.Name.Returns(testName);
             testExchUser.Department.Returns(testDepartment);
@@ -447,17 +473,16 @@ namespace ORCAUnitTest
         [Test]
         public void GetSenderInfoAppointTest3()
         {
-            // 自分の情報を取得
-            Application app = new Application();
-            AddressEntry currentAdd = app.Session.CurrentUser.AddressEntry;
-            ExchangeUser currentExchUser = currentAdd.GetExchangeUser();
+
+            testAdd = Substitute.For<AddressEntry>();
+            testAppointment = Substitute.For<AppointmentItem>();
 
             // Recipients[1]のExchangeUserで例外が発生
             testAppointment.Recipients[1].AddressEntry.Returns(x => { throw new System.Exception(); });
 
             // モックのReturn値を設定
             testNs.CurrentUser.AddressEntry.Returns((AddressEntry)null);
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testAppointment });
 
@@ -475,6 +500,8 @@ namespace ORCAUnitTest
         public void GetSenderInfoReportTest1()
         {
             string testSender = "Microsoft Outlook";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testReport });
@@ -502,6 +529,8 @@ namespace ORCAUnitTest
             string testJobTitle = "担当";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedJobTitle = "";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックのReturn値を設定
             testSharing.SenderEmailAddress.Returns(testEmailAddress);
@@ -535,6 +564,8 @@ namespace ORCAUnitTest
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
             string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
 
+            testAdd = Substitute.For<AddressEntry>();
+
             // モックでつかうデータを用意
             testSharing.SenderName.Returns(testName);
             testSharing.SenderEmailAddress.Returns(testEmailAddress);
@@ -565,6 +596,8 @@ namespace ORCAUnitTest
         public void GetSenderInfoSharingTest3()
         {
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
+
+            testAdd = Substitute.For<AddressEntry>();
 
             // モックでつかうデータを用意
             testSharing.SenderName.Returns((string)null);
