@@ -29,6 +29,7 @@ namespace ORCAUnitTest
         private AppointmentItem testAppointment;
         private SharingItem testSharing;
         private TestReportItem testReport;
+        private DocumentItem testDocument;
 
         // テスト対象のクラスで使われる変数のモック
         private Recipient testRec;
@@ -570,6 +571,24 @@ namespace ORCAUnitTest
 
             // ref引数のtypeが正しいことを確認
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.Report));
+
+        }
+
+        /// <summary>
+        /// <para> アイテムが、DocumentItemの場合</para>
+        /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para> 例外が発生する</para>
+        /// </remarks>
+        [Test]
+        public void GetRecipientsTest10()
+        {
+            // テストするメソッドにアクセスし、実際の結果を取得
+            var objArray = new object[] { testDocument, Utility.OutlookItemType.Mail, false };
+            
+            // 例外が発生することを確認
+            Assert.That(() => mi.Invoke(obj, objArray), Throws.Exception);
 
         }
 

@@ -29,6 +29,7 @@ namespace ORCAUnitTest
         private AppointmentItem testAppointment;
         private SharingItem testSharing;
         private TestReportItem testReport;
+        private DocumentItem testDocument;
 
         // テスト対象のクラスで使われる変数のモック
         private Recipient testRec;
@@ -57,6 +58,7 @@ namespace ORCAUnitTest
             testAppointment = Substitute.For<AppointmentItem>();
             testSharing = Substitute.For<SharingItem>();
             testReport = Substitute.For<TestReportItem>();
+            testDocument = Substitute.For<DocumentItem>();
 
             // ------------------------------------------------------------------------------------------------
             // VSで実行する場合
@@ -794,6 +796,25 @@ namespace ORCAUnitTest
 
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testSharing });
+
+            // メソッドの戻り値がnullであることを確認
+            Assert.IsNull(actual);
+        }
+
+        /// <summary>
+        /// <para>アイテムが、DocumentItemの場合</para>
+        /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
+        [Test]
+
+        public void GetSenderInfoDocumentTest1()
+        {
+
+            // テストするメソッドにアクセスし、実際の結果を取得
+            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testDocument });
 
             // メソッドの戻り値がnullであることを確認
             Assert.IsNull(actual);
