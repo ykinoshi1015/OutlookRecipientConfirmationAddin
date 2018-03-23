@@ -207,8 +207,7 @@
     </div>
     <h1 class="PageTitle" id="T:ORCAUnitTest.GetContactItemUnitTest">GetContactItemUnitTest  Class</h1>
     <p class="Summary" id="T:ORCAUnitTest.GetContactItemUnitTest:Summary">
-            Office365ContactクラスgetContactItemメソッドのテストクラス
-            Microsoft Exchange Serverなどから連絡先情報を探す
+            Office365Contactクラス getContactItemメソッドのテストクラス
             </p>
     <div>
       <h2>Syntax</h2>
@@ -217,8 +216,8 @@
     <div class="Remarks" id="T:ORCAUnitTest.GetContactItemUnitTest:Docs">
       <h2 class="Section">Remarks</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetContactItemUnitTest:Docs:Remarks">
-        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-      </div>
+            Microsoft Exchange Serverなどから連絡先情報を探すメソッドの単体テストコード
+            </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetContactItemUnitTest:Docs:Version Information">
         <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -267,7 +266,7 @@
                   <i>
                     <a href="javascript:alert(&quot;Documentation not found.&quot;)">OutlookRecipientConfirmationAddin.ThisAddIn</a>
                   </i>. 
-            テストクラス全てで使う共通のThisAddInクラス
+            テストクラス全てで使う、共通のThisAddInクラスのインスタンス
             </td>
               </tr>
             </table>
@@ -286,8 +285,7 @@
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest1()">GetContactItemTest1</a>
                   </b>()<blockquote>
-            RecipientがNotesメールのグループアドレスの場合
-            ContactItemがnull
+            Recipientが、Notesメールのグループアドレスの場合
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -299,8 +297,7 @@
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest2()">GetContactItemTest2</a>
                   </b>()<blockquote>
-            Recipientがアドレス帳のAll Groupsにあるグループアドレスの場合
-            ContactItemのFullNameにグループ名が入る
+            Recipientが、アドレス帳のAll Groupsに存在するグループアドレスの場合
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -311,10 +308,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest3()">GetContactItemTest3</a>
-                  </b>()<blockquote>
-            Recipientがアドレス帳の、グローバルアドレス一覧にあるNotesメールのアドレスの場合（グループアドレスでない）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </blockquote></td>
+                  </b>()<blockquote><p>Recipientが、アドレス帳のグローバルアドレス一覧にあるNotesメールのアドレスの場合</p><p>（グループアドレスでない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -324,10 +318,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest4()">GetContactItemTest4</a>
-                  </b>()<blockquote>
-            Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合（グループアドレスでない）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </blockquote></td>
+                  </b>()<blockquote><p>Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合</p><p>（グループアドレスでない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -337,10 +328,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest5()">GetContactItemTest5</a>
-                  </b>()<blockquote>
-            Recipientが連絡先に登録されたアドレスの場合（グローバルアドレス一覧に存在しないもの）
-            ContactItemがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>　Recipientが連絡先に登録されたアドレスの場合</p><p>（アドレスがグローバルアドレス一覧に存在しない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -350,10 +338,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest6()">GetContactItemTest6</a>
-                  </b>()<blockquote>
-            Recipientが連絡先に登録されたアドレスの場合（Notesメールアドレス）
-            ContactItemのFullName, CompanyName, Departmentに正しい情報が入る
-            </blockquote></td>
+                  </b>()<blockquote><p>Recipientが連絡先に登録されたアドレスの場合</p><p>（Notesメールアドレス）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -363,10 +348,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest7()">GetContactItemTest7</a>
-                  </b>()<blockquote>
-            Recipientが連絡先に登録されたアドレスの場合（O365メールアドレス）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </blockquote></td>
+                  </b>()<blockquote><p>Recipientが連絡先に登録されたアドレスの場合</p><p>（O365メールアドレス）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -378,7 +360,6 @@
                     <a href="#M:ORCAUnitTest.GetContactItemUnitTest.Init()">Init</a>
                   </b>()<blockquote>
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </blockquote></td>
               </tr>
             </table>
@@ -408,15 +389,14 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest1()">GetContactItemTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest1():member">
           <div class="msummary">
-            RecipientがNotesメールのグループアドレスの場合
-            ContactItemがnull
+            Recipientが、Notesメールのグループアドレスの場合
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemがnull
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -425,15 +405,14 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest2()">GetContactItemTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest2():member">
           <div class="msummary">
-            Recipientがアドレス帳のAll Groupsにあるグループアドレスの場合
-            ContactItemのFullNameにグループ名が入る
+            Recipientが、アドレス帳のAll Groupsに存在するグループアドレスの場合
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemのFullNameプロパティにグループ名が入る
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -442,15 +421,15 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest3()">GetContactItemTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest3():member">
           <div class="msummary">
-            Recipientがアドレス帳の、グローバルアドレス一覧にあるNotesメールのアドレスの場合（グループアドレスでない）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </div>
+            <p>Recipientが、アドレス帳のグローバルアドレス一覧にあるNotesメールのアドレスの場合</p>
+            <p>（グループアドレスでない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -459,15 +438,15 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest4()">GetContactItemTest4 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest4():member">
           <div class="msummary">
-            Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合（グループアドレスでない）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </div>
+            <p>Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合</p>
+            <p>（グループアドレスでない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest4</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest4():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemのFullName, CompanyName, Department, JobTitleにRecipientの情報が入る
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest4():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -476,15 +455,15 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest5()">GetContactItemTest5 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest5():member">
           <div class="msummary">
-            Recipientが連絡先に登録されたアドレスの場合（グローバルアドレス一覧に存在しないもの）
-            ContactItemがnull
-            </div>
+            <p>　Recipientが連絡先に登録されたアドレスの場合</p>
+            <p>（アドレスがグローバルアドレス一覧に存在しない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest5</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest5():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemがnull
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest5():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -493,15 +472,15 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest6()">GetContactItemTest6 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest6():member">
           <div class="msummary">
-            Recipientが連絡先に登録されたアドレスの場合（Notesメールアドレス）
-            ContactItemのFullName, CompanyName, Departmentに正しい情報が入る
-            </div>
+            <p>Recipientが連絡先に登録されたアドレスの場合</p>
+            <p>（Notesメールアドレス）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest6</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest6():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemのFullName, CompanyName, DepartmentにRecipientの情報が入る
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest6():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -510,15 +489,15 @@
         <h3 id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest7()">GetContactItemTest7 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest7():member">
           <div class="msummary">
-            Recipientが連絡先に登録されたアドレスの場合（O365メールアドレス）
-            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
-            </div>
+            <p>Recipientが連絡先に登録されたアドレスの場合</p>
+            <p>（O365メールアドレス）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetContactItemTest7</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest7():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】ContactItemのFullName, CompanyName, DepartmentにRecipientの情報が入る
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.GetContactItemTest7():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -528,14 +507,13 @@
         <blockquote id="M:ORCAUnitTest.GetContactItemUnitTest.Init():member">
           <div class="msummary">
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.OneTimeSetUp]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Init</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.Init():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetContactItemUnitTest.Init():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -544,7 +522,7 @@
         <h3 id="F:ORCAUnitTest.GetContactItemUnitTest.testAddIn">testAddIn Field</h3>
         <blockquote id="F:ORCAUnitTest.GetContactItemUnitTest.testAddIn:member">
           <div class="msummary">
-            テストクラス全てで使う共通のThisAddInクラス
+            テストクラス全てで使う、共通のThisAddInクラスのインスタンス
             </div>
           <h2>Syntax</h2>
           <div class="Signature">public static <a href="javascript:alert(&quot;Documentation not found.&quot;)">OutlookRecipientConfirmationAddin.ThisAddIn</a> <b>testAddIn</b> </div>

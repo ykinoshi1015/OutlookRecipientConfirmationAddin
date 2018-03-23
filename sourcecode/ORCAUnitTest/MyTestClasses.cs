@@ -9,11 +9,10 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Microsoft.Office.Core;
 
-/// <summary>
-/// Unitテスト用に作成した自作クラス
-/// </summary>
+// Unitテスト用に作成した自作クラス
 namespace ORCAUnitTest
 {
+    // Unitテスト用に作成した自作クラス
     class MyTestClasses
     {
     }
@@ -143,9 +142,7 @@ namespace ORCAUnitTest
         }
     }
 
-    /// <summary>
-    /// dynamiを返すCreateItemで怒られるのの対策
-    /// </summary>
+    // dynamicを返すCreateItemで怒られるのの対策
     public abstract class TestApplication : Microsoft.Office.Interop.Outlook.Application
     {
         public abstract Microsoft.Office.Core.AnswerWizard AnswerWizard { get; }
@@ -238,9 +235,7 @@ namespace ORCAUnitTest
         public abstract void RefreshFormRegionDefinition(string RegionName);
     }
 
-    /// <summary>
-    /// dynamicを返すCopyで怒られるのの対策
-    /// </summary>
+    // dynamicを返すCopyで怒られるのの対策
     public abstract class TestReportItem : ReportItem
     {
         public abstract Actions Actions { get; }
@@ -368,9 +363,7 @@ namespace ORCAUnitTest
         public abstract void ShowCategoriesDialog();
     }
 
-    /// <summary>
-    /// dynamicを返すGetItemFromIDで怒られるのの対策
-    /// </summary>
+    // dynamicを返すGetItemFromIDで怒られるのの対策
     public abstract class MyTestNs : NameSpace
     {
         public abstract Accounts Accounts { get; }

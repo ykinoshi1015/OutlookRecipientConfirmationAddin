@@ -17,7 +17,9 @@
     <summary>
             dynamiを返すCreateItemで怒られるのの対策
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+            dynamiを返すCreateItemで怒られるのの対策
+            </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">

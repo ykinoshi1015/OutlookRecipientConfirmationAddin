@@ -207,8 +207,7 @@
     </div>
     <h1 class="PageTitle" id="T:ORCAUnitTest.GetRecipientsUnitTest">GetRecipientsUnitTest  Class</h1>
     <p class="Summary" id="T:ORCAUnitTest.GetRecipientsUnitTest:Summary">
-            UtilityクラスGetRecipientsメソッドのテストクラス
-            アイテムから、宛先を取得する
+            Utilityクラス GetRecipientsメソッドのテストクラス
             </p>
     <div>
       <h2>Syntax</h2>
@@ -217,8 +216,8 @@
     <div class="Remarks" id="T:ORCAUnitTest.GetRecipientsUnitTest:Docs">
       <h2 class="Section">Remarks</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetRecipientsUnitTest:Docs:Remarks">
-        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-      </div>
+            アイテムから、そのアイテムの宛先(Recipient型のリスト)を取得するメソッドの単体テストコード
+            </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetRecipientsUnitTest:Docs:Version Information">
         <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -263,8 +262,7 @@
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest1()">GetRecipientsTest1</a>
                   </b>()<blockquote>
-             MailItemの場合
-             Recipientsを取得でき、TypeがMailのままになる
+             アイテムが、MailItemの場合
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -275,10 +273,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest2()">GetRecipientsTest2</a>
-                  </b>()<blockquote>
-             ItemがMeetingItemの場合（会議出席依頼の返信でない）
-             Recipientsを取得でき、TypeがMeetingになる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（会議出席依頼の返信でない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -288,11 +283,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest3()">GetRecipientsTest3</a>
-                  </b>()<blockquote>
-             ItemがMeetingItemの場合
-             会議出席依頼の返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがfalse
-             Recipientsを取得でき、TypeがMeetingResponseになる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（会議出席依頼の返信 i.e. MessageClassプロパティに"IPM.Schedule.Meeting.Resp."が含まれる）</p><p>（IgnoreMeetingResponseがfalse）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -302,11 +293,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest4()">GetRecipientsTest4</a>
-                  </b>()<blockquote>
-             ItemがMeetingItemの場合
-             会議キャンセル通知メールなど（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれない）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得し、TypeがMeetingになる
-            </blockquote></td>
+                  </b>()<blockquote><p> アイテムが、MeetingItemの場合</p><p>（会議出席依頼の返信でない）</p><p>（IgnoreMeetingResponseがtrue）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -316,11 +303,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest5()">GetRecipientsTest5</a>
-                  </b>()<blockquote>
-             ItemがMeetingItemの場合
-             会議招集メールの返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得せず、TypeがMeetingResponseになる
-            </blockquote></td>
+                  </b>()<blockquote><p> アイテムが、MeetingItemの場合</p><p>（会議招集メールの返信 i.e. MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）</p><p>（IgnoreMeetingResponseがtrue）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -330,10 +313,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest6()">GetRecipientsTest6</a>
-                  </b>()<blockquote>
-             ItemがAppointmentItemの場合（リソース選択あり）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </blockquote></td>
+                  </b>()<blockquote><p> アイテムが、AppointmentItemの場合</p><p>（リソース選択あり）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -343,10 +323,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest7()">GetRecipientsTest7</a>
-                  </b>()<blockquote>
-             ItemがAppointmentItemの場合（リソース選択なし）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </blockquote></td>
+                  </b>()<blockquote><p> アイテムが、AppointmentItemの場合</p><p>（リソース選択なし）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -356,10 +333,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest8()">GetRecipientsTest8</a>
-                  </b>()<blockquote>
-             SharingItemの場合
-             Recipientsを取得でき、TypeがSharingのままになる
-            </blockquote></td>
+                  </b>()<blockquote> アイテムが、SharingItemの場合</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -369,10 +343,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest9()">GetRecipientsTest9</a>
-                  </b>()<blockquote>
-             ReportItemの場合
-             Recipientsを取得でき、TypeがReportになる
-            </blockquote></td>
+                  </b>()<blockquote> アイテムが、ReportItemの場合</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -384,7 +355,6 @@
                     <a href="#M:ORCAUnitTest.GetRecipientsUnitTest.Init()">Init</a>
                   </b>()<blockquote>
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </blockquote></td>
               </tr>
             </table>
@@ -414,15 +384,14 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest1()">GetRecipientsTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest1():member">
           <div class="msummary">
-             MailItemの場合
-             Recipientsを取得でき、TypeがMailのままになる
+             アイテムが、MailItemの場合
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>Recipientsを取得できる</p><p>TypeがMailのままになる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -431,15 +400,15 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest2()">GetRecipientsTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest2():member">
           <div class="msummary">
-             ItemがMeetingItemの場合（会議出席依頼の返信でない）
-             Recipientsを取得でき、TypeがMeetingになる
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（会議出席依頼の返信でない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>Recipientsを取得できる</p><p>TypeがMeetingになる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -448,16 +417,16 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest3()">GetRecipientsTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest3():member">
           <div class="msummary">
-             ItemがMeetingItemの場合
-             会議出席依頼の返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがfalse
-             Recipientsを取得でき、TypeがMeetingResponseになる
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（会議出席依頼の返信 i.e. MessageClassプロパティに"IPM.Schedule.Meeting.Resp."が含まれる）</p>
+            <p>（IgnoreMeetingResponseがfalse）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>Recipientsを取得できる</p><p>TypeがMeetingResponseになる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -466,15 +435,17 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest4()">GetRecipientsTest4 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest4():member">
           <div class="msummary">
-             ItemがMeetingItemの場合
-             会議キャンセル通知メールなど（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれない）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得し、TypeがMeetingになる
-            </div>
+            <p> アイテムが、MeetingItemの場合</p>
+            <p>（会議出席依頼の返信でない）</p>
+            <p>（IgnoreMeetingResponseがtrue）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest4</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest4():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p>Recipientsを取得できる</p>
+            <p>TypeがMeetingになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest4():Version Information">
@@ -484,15 +455,17 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest5()">GetRecipientsTest5 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest5():member">
           <div class="msummary">
-             ItemがMeetingItemの場合
-             会議招集メールの返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得せず、TypeがMeetingResponseになる
-            </div>
+            <p> アイテムが、MeetingItemの場合</p>
+            <p>（会議招集メールの返信 i.e. MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）</p>
+            <p>（IgnoreMeetingResponseがtrue）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest5</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest5():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p>Recipientsがnull</p>
+            <p>TypeがMeetingResponseになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest5():Version Information">
@@ -502,14 +475,16 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest6()">GetRecipientsTest6 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest6():member">
           <div class="msummary">
-             ItemがAppointmentItemの場合（リソース選択あり）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </div>
+            <p> アイテムが、AppointmentItemの場合</p>
+            <p>（リソース選択あり）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest6</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest6():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p> 自分（送信者）以外のRecipientsが取得できる</p>
+            <p> TypeがAppointmentになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest6():Version Information">
@@ -519,14 +494,16 @@
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest7()">GetRecipientsTest7 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest7():member">
           <div class="msummary">
-             ItemがAppointmentItemの場合（リソース選択なし）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </div>
+            <p> アイテムが、AppointmentItemの場合</p>
+            <p>（リソース選択なし）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest7</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest7():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p> 自分（送信者）以外のRecipientsが取得できる</p>
+            <p> TypeがAppointmentになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest7():Version Information">
@@ -535,15 +512,14 @@
         </blockquote>
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest8()">GetRecipientsTest8 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest8():member">
-          <div class="msummary">
-             SharingItemの場合
-             Recipientsを取得でき、TypeがSharingのままになる
-            </div>
+          <div class="msummary"> アイテムが、SharingItemの場合</div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest8</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest8():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p> Recipientsを取得できる</p>
+            <p> TypeがSharingになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest8():Version Information">
@@ -552,15 +528,14 @@
         </blockquote>
         <h3 id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest9()">GetRecipientsTest9 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest9():member">
-          <div class="msummary">
-             ReportItemの場合
-             Recipientsを取得でき、TypeがReportになる
-            </div>
+          <div class="msummary"> アイテムが、ReportItemの場合</div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetRecipientsTest9</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest9():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>【期待結果】</p>
+            <p> Recipientsを取得できる</p>
+            <p> TypeがReportになる</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.GetRecipientsTest9():Version Information">
@@ -571,14 +546,13 @@
         <blockquote id="M:ORCAUnitTest.GetRecipientsUnitTest.Init():member">
           <div class="msummary">
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.OneTimeSetUp]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Init</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.Init():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetRecipientsUnitTest.Init():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>

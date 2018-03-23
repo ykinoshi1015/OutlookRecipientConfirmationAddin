@@ -9,9 +9,11 @@ using System.Collections.Generic;
 namespace ORCAUnitTest
 {
     /// <summary>
-    /// UtilityクラスGetRecipientsメソッドのテストクラス
-    /// アイテムから、宛先を取得する
+    /// Utilityクラス GetRecipientsメソッドのテストクラス
     /// </summary>
+    /// <remarks>
+    /// アイテムから、そのアイテムの宛先(Recipient型のリスト)を取得するメソッドの単体テストコード
+    /// </remarks>
     [TestFixture]
     public class GetRecipientsUnitTest
     {
@@ -41,8 +43,10 @@ namespace ORCAUnitTest
 
         /// <summary>
         /// テスト時に一度だけ実行される処理
-        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
+        /// <remarks>
+        /// アセンブリの読み込み、Typeの取得、モックの作成など
+        /// </remarks>
         [OneTimeSetUp]
         public void Init()
         {
@@ -102,7 +106,7 @@ namespace ORCAUnitTest
             testNs = Substitute.For<NameSpace>();
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
-            
+
             // テスト対象のクラス（Utility）のタイプを取得
             Type type = mod.GetType("OutlookRecipientConfirmationAddin.Utility");
             // インスタンスを生成し、メソッドにアクセスできるようにする
@@ -110,11 +114,15 @@ namespace ORCAUnitTest
             // mi2 = type2.GetMethod("GetRecipients", new Type[] { typeof(object), typeof(Utility.OutlookItemType), typeof(bool)  });
             mi = type.GetMethod("GetRecipients");
         }
-        
+
         /// <summary>
-        ///  MailItemの場合
-        ///  Recipientsを取得でき、TypeがMailのままになる
+        ///  アイテムが、MailItemの場合
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>Recipientsを取得できる</para>
+        /// <para>TypeがMailのままになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest1()
         {
@@ -156,9 +164,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ItemがMeetingItemの場合（会議出席依頼の返信でない）
-        ///  Recipientsを取得でき、TypeがMeetingになる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（会議出席依頼の返信でない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>Recipientsを取得できる</para>
+        /// <para>TypeがMeetingになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest2()
         {
@@ -200,10 +213,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ItemがMeetingItemの場合
-        ///  会議出席依頼の返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがfalse
-        ///  Recipientsを取得でき、TypeがMeetingResponseになる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（会議出席依頼の返信 i.e. MessageClassプロパティに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+        /// <para>（IgnoreMeetingResponseがfalse）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>Recipientsを取得できる</para>
+        /// <para>TypeがMeetingResponseになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest3()
         {
@@ -245,12 +263,16 @@ namespace ORCAUnitTest
             Assert.That(objArray[1], Is.EqualTo(Utility.OutlookItemType.MeetingResponse));
         }
 
-
         /// <summary>
-        ///  ItemがMeetingItemの場合
-        ///  会議キャンセル通知メールなど（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれない）で、IgnoreMeetingResponseがtrue
-        ///  Recipientsを取得し、TypeがMeetingになる
+        /// <para> アイテムが、MeetingItemの場合</para>
+        /// <para>（会議出席依頼の返信でない）</para>
+        /// <para>（IgnoreMeetingResponseがtrue）</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para>Recipientsを取得できる</para>
+        /// <para>TypeがMeetingになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest4()
         {
@@ -293,10 +315,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ItemがMeetingItemの場合
-        ///  会議招集メールの返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがtrue
-        ///  Recipientsを取得せず、TypeがMeetingResponseになる
+        /// <para> アイテムが、MeetingItemの場合</para>
+        /// <para>（会議招集メールの返信 i.e. MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+        /// <para>（IgnoreMeetingResponseがtrue）</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para>Recipientsがnull</para>
+        /// <para>TypeがMeetingResponseになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest5()
         {
@@ -328,9 +355,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ItemがAppointmentItemの場合（リソース選択あり）
-        ///  自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
+        /// <para> アイテムが、AppointmentItemの場合</para>
+        /// <para>（リソース選択あり）</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para> 自分（送信者）以外のRecipientsが取得できる</para>
+        /// <para> TypeがAppointmentになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest6()
         {
@@ -381,9 +413,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ItemがAppointmentItemの場合（リソース選択なし）
-        ///  自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
+        /// <para> アイテムが、AppointmentItemの場合</para>
+        /// <para>（リソース選択なし）</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para> 自分（送信者）以外のRecipientsが取得できる</para>
+        /// <para> TypeがAppointmentになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest7()
         {
@@ -434,9 +471,13 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  SharingItemの場合
-        ///  Recipientsを取得でき、TypeがSharingのままになる
+        /// <para> アイテムが、SharingItemの場合</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para> Recipientsを取得できる</para>
+        /// <para> TypeがSharingになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest8()
         {
@@ -477,9 +518,13 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        ///  ReportItemの場合
-        ///  Recipientsを取得でき、TypeがReportになる
+        /// <para> アイテムが、ReportItemの場合</para>
         /// </summary>
+        /// <remarks>
+        /// <para>【期待結果】</para>
+        /// <para> Recipientsを取得できる</para>
+        /// <para> TypeがReportになる</para>
+        /// </remarks>
         [Test]
         public void GetRecipientsTest9()
         {
@@ -504,7 +549,7 @@ namespace ORCAUnitTest
             testApp.Session.Returns(myTestNs);
             myTestNs.GetItemFromIDHon(Arg.Any<string>()).Returns(testMail);
 
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             var objArray = new object[] { testReport, Utility.OutlookItemType.Mail, false };
             object actualObj = mi.Invoke(obj, objArray);
@@ -516,7 +561,7 @@ namespace ORCAUnitTest
             {
                 actualRecList.Add(actual);
             }
-            
+
             SetExpectedValues(testRecNames, testRecSendable, testRecType, expectedRecList);
 
             // actualとexpectedのリストを比較

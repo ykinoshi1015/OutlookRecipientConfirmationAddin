@@ -16,10 +16,11 @@
   </Attributes>
   <Docs>
     <summary>
-            UtilityクラスGetSenderInformationメソッドのテストクラス
-            アイテムから、送信者情報を取得する
+            Utilityクラス GetSenderInformationメソッドのテストクラス
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+            アイテムから、送信者情報を取得するメソッドの単体テストコード
+            </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -53,12 +54,12 @@
       <Parameters />
       <Docs>
         <summary>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoAppointTest2">
@@ -79,13 +80,13 @@
       <Parameters />
       <Docs>
         <summary>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できる
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoAppointTest3">
@@ -106,12 +107,13 @@
       <Parameters />
       <Docs>
         <summary>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoAppointTest4">
@@ -132,12 +134,13 @@
       <Parameters />
       <Docs>
         <summary>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryが取得できない
-            senderInformationDtoがnull
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>(現在のユーザの AddressEntryが取得できない)</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMailTest1">
@@ -158,12 +161,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MailItem
-            Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティが取得できる）</para>
+          <para>（Senderプロパティから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMailTest2">
@@ -184,11 +188,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MailItem
-            Senderプロパティが取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティが取得できる）</para>
+          <para>（Senderプロパティから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMailTest3">
@@ -209,12 +215,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MailItem
-            Senderプロパティがnullだが、SenderEamilAddressプロパティからExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが"部長"になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティがnull）</para>
+          <para>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが"部長"になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMailTest4">
@@ -235,12 +242,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MailItem
-            Senderプロパティがnull
-            SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティがnull）</para>
+          <para>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMailTest5">
@@ -261,11 +269,12 @@
       <Parameters />
       <Docs>
         <summary>
-            MailItem
-            Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない場合
-            senderInformationDtoがnull
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMeetingTest1">
@@ -286,12 +295,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MeetingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserも取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para> senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para> jobTitleが""になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMeetingTest2">
@@ -312,11 +322,13 @@
       <Parameters />
       <Docs>
         <summary>
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(例外が発生)場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para> senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMeetingTest3">
@@ -337,11 +349,12 @@
       <Parameters />
       <Docs>
         <summary>
-            MeetingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMeetingTest4">
@@ -362,12 +375,14 @@
       <Parameters />
       <Docs>
         <summary>
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
-            RecipientのNameプロパティですでに「名前(メールアドレス)」の形式
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+          <para>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoMeetingTest5">
@@ -387,8 +402,15 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+          <para>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoReportTest1">
@@ -409,12 +431,13 @@
       <Parameters />
       <Docs>
         <summary>
-            ReportItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoがnull
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、ReportItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoSharingTest1">
@@ -435,12 +458,13 @@
       <Parameters />
       <Docs>
         <summary>
-            SharingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoSharingTest2">
@@ -461,11 +485,13 @@
       <Parameters />
       <Docs>
         <summary>
-            SharingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSenderInfoSharingTest3">
@@ -486,11 +512,12 @@
       <Parameters />
       <Docs>
         <summary>
-            SharingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="Init">
@@ -512,9 +539,10 @@
       <Docs>
         <summary>
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </remarks>
       </Docs>
     </Member>
   </Members>

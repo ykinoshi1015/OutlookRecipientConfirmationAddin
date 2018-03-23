@@ -7,10 +7,13 @@ using System.Reflection;
 
 namespace ORCAUnitTest
 {
+
     /// <summary>
-    /// UtilityクラスGetSenderInformationメソッドのテストクラス
-    /// アイテムから、送信者情報を取得する
+    /// Utilityクラス GetSenderInformationメソッドのテストクラス
     /// </summary>
+    /// <remarks>
+    /// アイテムから、送信者情報を取得するメソッドの単体テストコード
+    /// </remarks>
     [TestFixture]
     public class GetSenderInformationUnitTest
     {
@@ -19,7 +22,7 @@ namespace ORCAUnitTest
 
         // テスト対象のメソッド属性
         private MethodInfo mi;
-        
+
         // テストするアイテムのモック
         private MailItem testMail;
         private MeetingItem testMeeting;
@@ -36,8 +39,10 @@ namespace ORCAUnitTest
 
         /// <summary>
         /// テスト時に一度だけ実行される処理
-        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
+        /// <remarks>
+        /// アセンブリの読み込み、Typeの取得、モックの作成など
+        /// </remarks>
         [OneTimeSetUp]
         public void Init()
         {
@@ -112,12 +117,17 @@ namespace ORCAUnitTest
             mi = type.GetMethod("GetSenderInfomation");
         }
 
+
         /// <summary>
-        /// MailItem
-        /// Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが""になる
+        /// <para>アイテムが、MailItemの場合</para>
+        /// <para>（Senderプロパティが取得できる）</para>
+        /// <para>（Senderプロパティから、ExchangeUserが取得できる）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para>jobTitleが""になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMailTest1()
         {
@@ -153,10 +163,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MailItem
-        /// Senderプロパティが取得できるが、それを使いExchangeUserが取得できない場合
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、MailItemの場合</para>
+        /// <para>（Senderプロパティが取得できる）</para>
+        /// <para>（Senderプロパティから、ExchangeUserが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMailTest2()
         {
@@ -191,11 +205,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MailItem
-        /// Senderプロパティがnullだが、SenderEamilAddressプロパティからExchangeUserが取得できる場合
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが"部長"になる
+        /// <para>アイテムが、MailItemの場合</para>
+        /// <para>（Senderプロパティがnull）</para>
+        /// <para>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para>jobTitleが"部長"になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMailTest3()
         {
@@ -231,13 +249,15 @@ namespace ORCAUnitTest
             CompareRecInfoDto(actual, expected);
         }
 
-
         /// <summary>
-        /// MailItem
-        /// Senderプロパティがnull
-        /// SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない場合
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、MailItemの場合</para>
+        /// <para>（Senderプロパティがnull）</para>
+        /// <para>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMailTest4()
         {
@@ -270,10 +290,13 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MailItem
-        /// Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない場合
-        /// senderInformationDtoがnull
+        /// <para>アイテムが、MailItemの場合</para>
+        /// <para>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMailTest5()
         {
@@ -294,13 +317,16 @@ namespace ORCAUnitTest
             Assert.IsNull(actual);
         }
 
-
         /// <summary>
-        /// MeetingItem
-        /// 送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが""になる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryから、ExchangeUserも取得できる）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para> senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para> jobTitleが""になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMeetingTest1()
         {
@@ -334,10 +360,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MeetingItem
-        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(例外が発生)場合
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para> senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMeetingTest2()
         {
@@ -368,10 +398,13 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MeetingItem
-        /// 送信者のAddressEntry が取得できない場合
-        /// senderInformationDtoがnull
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMeetingTest3()
         {
@@ -397,11 +430,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MeetingItem
-        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
-        /// RecipientのNameプロパティですでに「名前(メールアドレス)」の形式
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+        /// <para>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMeetingTest4()
         {
@@ -433,11 +470,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// MeetingItem
-        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
-        /// 表示用に"名前<メールアドレス>"の形式の文字列にする
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、MeetingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+        /// <para>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoMeetingTest5()
         {
@@ -468,13 +509,16 @@ namespace ORCAUnitTest
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
         }
-
+        
         /// <summary>
-        /// AppointmentItem
-        /// Recipients[1]のExchangeUserが取得できる場合
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが""になる
+        /// <para>アイテムが、AppointmentItemの場合</para>
+        /// <para>（Recipients[1]のExchangeUserが取得できる）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para>jobTitleが""になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoAppointTest1()
         {
@@ -506,12 +550,15 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// AppointmentItem
-        /// Recipients[1]のExchangeUserが取得できない
-        /// 現在のユーザの AddressEntryから、ExchangeUserが取得できる
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが""になる
+        /// <para>アイテムが、AppointmentItemの場合</para>
+        /// <para>（Recipients[1]のExchangeUserが取得できない）</para>
+        /// <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para>jobTitleが""になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoAppointTest2()
         {
@@ -547,11 +594,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// AppointmentItem
-        /// Recipients[1]のExchangeUserが取得できない
-        /// 現在のユーザの AddressEntryから、ExchangeUserが取得できない
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、AppointmentItemの場合</para>
+        /// <para>（Recipients[1]のExchangeUserが取得できない）</para>
+        /// <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoAppointTest3()
         {
@@ -580,13 +630,16 @@ namespace ORCAUnitTest
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
         }
-
+       
         /// <summary>
-        /// AppointmentItem
-        /// Recipients[1]のExchangeUserが取得できない
-        /// 現在のユーザの AddressEntryが取得できない
-        /// senderInformationDtoがnull
+        /// <para>アイテムが、AppointmentItemの場合</para>
+        /// <para>（Recipients[1]のExchangeUserが取得できない）</para>
+        /// <para>(現在のユーザの AddressEntryが取得できない)</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoAppointTest4()
         {
@@ -608,11 +661,14 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// ReportItem
-        /// Recipients[1]のExchangeUserが取得できない
-        /// 現在のユーザの AddressEntryから、ExchangeUserが取得できない
-        /// senderInformationDtoがnull
+        /// <para>アイテムが、ReportItemの場合</para>
+        /// <para>（Recipients[1]のExchangeUserが取得できない）</para>
+        /// <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoReportTest1()
         {
@@ -629,14 +685,17 @@ namespace ORCAUnitTest
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
         }
-
-
+        
         /// <summary>
-        /// SharingItem
-        /// 送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-        /// senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-        /// jobTitleが""になる
+        /// <para>アイテムが、SharingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para>
+        /// <para>jobTitleが""になる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoSharingTest1()
         {
@@ -668,12 +727,16 @@ namespace ORCAUnitTest
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
         }
-
+      
         /// <summary>
-        /// SharingItem
-        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない場合
-        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// <para>アイテムが、SharingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できる）</para>
+        /// <para>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para>
+        /// </remarks>
         [Test]
         public void GetSenderInfoSharingTest2()
         {
@@ -704,10 +767,13 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// SharingItem
-        /// 送信者のAddressEntry が取得できない場合
-        /// senderInformationDtoがnull
+        /// <para>アイテムが、SharingItemの場合</para>
+        /// <para>（送信者のAddressEntryが取得できない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】
+        /// <para>senderInformationDtoがnull</para>
+        /// </remarks>
         [Test]
 
         public void GetSenderInfoSharingTest3()
@@ -732,7 +798,7 @@ namespace ORCAUnitTest
             // メソッドの戻り値がnullであることを確認
             Assert.IsNull(actual);
         }
-        
+
         /// <summary>
         /// テスト対象メソッドの戻り値と、期待結果を比較するメソッド
         /// </summary>

@@ -5,12 +5,17 @@ using Microsoft.Office.Interop.Outlook;
 using OutlookRecipientConfirmationAddin;
 using System.Reflection;
 
+/// <summary>
+/// Outlook宛先表示アドインの単体テスト用プロジェクト
+/// </summary>
 namespace ORCAUnitTest
 {
     /// <summary>
-    /// Office365ContactクラスgetContactItemメソッドのテストクラス
-    /// Microsoft Exchange Serverなどから連絡先情報を探す
+    /// Office365Contactクラス getContactItemメソッドのテストクラス
     /// </summary>
+    /// <remarks>
+    /// Microsoft Exchange Serverなどから連絡先情報を探すメソッドの単体テストコード
+    /// </remarks>
     [TestFixture]
     public class GetContactItemUnitTest
     {
@@ -29,14 +34,16 @@ namespace ORCAUnitTest
         private NameSpace testNs;
         
         /// <summary>
-        /// テストクラス全てで使う共通のThisAddInクラス
+        /// テストクラス全てで使う、共通のThisAddInクラスのインスタンス
         /// </summary>
         public static ThisAddIn testAddIn;
-        
+
         /// <summary>
         /// テスト時に一度だけ実行される処理
-        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
+        /// <remarks>
+        /// アセンブリの読み込み、Typeの取得、モックの作成など
+        /// </remarks>
         [OneTimeSetUp]
         public void Init()
         {
@@ -100,9 +107,11 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// RecipientがNotesメールのグループアドレスの場合
-        /// ContactItemがnull
+        /// Recipientが、Notesメールのグループアドレスの場合
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemがnull
+        /// </remarks>
         [Test]
         public void GetContactItemTest1()
         {
@@ -122,9 +131,11 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientがアドレス帳のAll Groupsにあるグループアドレスの場合
-        /// ContactItemのFullNameにグループ名が入る
+        /// Recipientが、アドレス帳のAll Groupsに存在するグループアドレスの場合
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemのFullNameプロパティにグループ名が入る
+        /// </remarks>
         [Test]
         public void GetContactItemTest2()
         {
@@ -150,9 +161,12 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientがアドレス帳の、グローバルアドレス一覧にあるNotesメールのアドレスの場合（グループアドレスでない）
-        /// ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+        /// <para>Recipientが、アドレス帳のグローバルアドレス一覧にあるNotesメールのアドレスの場合
+        /// <para>（グループアドレスでない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemのFullName, CompanyName, Department, JobTitleにRecipientの情報が入る
+        /// </remarks>
         [Test]
         public void GetContactItemTest3()
         {
@@ -183,9 +197,12 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合（グループアドレスでない）
-        /// ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+        /// <para>Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合</para>
+        /// <para>（グループアドレスでない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemのFullName, CompanyName, Department, JobTitleにRecipientの情報が入る
+        /// </remarks>
         [Test]
         public void GetContactItemTest4()
         {
@@ -216,9 +233,12 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientが連絡先に登録されたアドレスの場合（グローバルアドレス一覧に存在しないもの）
-        /// ContactItemがnull
+        /// <para>　Recipientが連絡先に登録されたアドレスの場合</para>
+        /// <para>（アドレスがグローバルアドレス一覧に存在しない）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemがnull
+        /// </remarks>
         [Test]
         public void GetContactItemTest5()
         {
@@ -239,9 +259,12 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientが連絡先に登録されたアドレスの場合（Notesメールアドレス）
-        /// ContactItemのFullName, CompanyName, Departmentに正しい情報が入る
+        /// <para>Recipientが連絡先に登録されたアドレスの場合</para>
+        /// <para>（Notesメールアドレス）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemのFullName, CompanyName, DepartmentにRecipientの情報が入る
+        /// </remarks> 
         [Test]
         public void GetContactItemTest6()
         {
@@ -282,9 +305,12 @@ namespace ORCAUnitTest
         }
 
         /// <summary>
-        /// Recipientが連絡先に登録されたアドレスの場合（O365メールアドレス）
-        /// ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+        /// <para>Recipientが連絡先に登録されたアドレスの場合</para>
+        /// <para>（O365メールアドレス）</para>
         /// </summary>
+        /// <remarks>
+        /// 【期待結果】ContactItemのFullName, CompanyName, DepartmentにRecipientの情報が入る
+        /// </remarks> 
         [Test]
         public void GetContactItemTest7()
         {

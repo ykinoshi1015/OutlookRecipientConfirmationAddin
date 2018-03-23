@@ -207,8 +207,7 @@
     </div>
     <h1 class="PageTitle" id="T:ORCAUnitTest.GetSenderInformationUnitTest">GetSenderInformationUnitTest  Class</h1>
     <p class="Summary" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Summary">
-            UtilityクラスGetSenderInformationメソッドのテストクラス
-            アイテムから、送信者情報を取得する
+            Utilityクラス GetSenderInformationメソッドのテストクラス
             </p>
     <div>
       <h2>Syntax</h2>
@@ -217,8 +216,8 @@
     <div class="Remarks" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs">
       <h2 class="Section">Remarks</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs:Remarks">
-        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-      </div>
+            アイテムから、送信者情報を取得するメソッドの単体テストコード
+            </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs:Version Information">
         <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -262,12 +261,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1()">GetSenderInfoAppointTest1</a>
-                  </b>()<blockquote>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できる）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -277,13 +271,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2()">GetSenderInfoAppointTest2</a>
-                  </b>()<blockquote>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できる
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -293,12 +281,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3()">GetSenderInfoAppointTest3</a>
-                  </b>()<blockquote>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -308,12 +291,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4()">GetSenderInfoAppointTest4</a>
-                  </b>()<blockquote>
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryが取得できない
-            senderInformationDtoがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>(現在のユーザの AddressEntryが取得できない)</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -323,12 +301,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1()">GetSenderInfoMailTest1</a>
-                  </b>()<blockquote>
-            MailItem
-            Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティが取得できる）</p><p>（Senderプロパティから、ExchangeUserが取得できる）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -338,11 +311,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2()">GetSenderInfoMailTest2</a>
-                  </b>()<blockquote>
-            MailItem
-            Senderプロパティが取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティが取得できる）</p><p>（Senderプロパティから、ExchangeUserが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -352,12 +321,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3()">GetSenderInfoMailTest3</a>
-                  </b>()<blockquote>
-            MailItem
-            Senderプロパティがnullだが、SenderEamilAddressプロパティからExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが"部長"になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティがnull）</p><p>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -367,12 +331,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4()">GetSenderInfoMailTest4</a>
-                  </b>()<blockquote>
-            MailItem
-            Senderプロパティがnull
-            SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティがnull）</p><p>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -382,11 +341,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5()">GetSenderInfoMailTest5</a>
-                  </b>()<blockquote>
-            MailItem
-            Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない場合
-            senderInformationDtoがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -396,12 +351,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1()">GetSenderInfoMeetingTest1</a>
-                  </b>()<blockquote>
-            MeetingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserも取得できる）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -411,11 +361,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2()">GetSenderInfoMeetingTest2</a>
-                  </b>()<blockquote>
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(例外が発生)場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -425,11 +371,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3()">GetSenderInfoMeetingTest3</a>
-                  </b>()<blockquote>
-            MeetingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -439,12 +381,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4()">GetSenderInfoMeetingTest4</a>
-                  </b>()<blockquote>
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
-            RecipientのNameプロパティですでに「名前(メールアドレス)」の形式
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p><p>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -454,7 +391,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5()">GetSenderInfoMeetingTest5</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p><p>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -464,12 +401,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1()">GetSenderInfoReportTest1</a>
-                  </b>()<blockquote>
-            ReportItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、ReportItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -479,12 +411,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1()">GetSenderInfoSharingTest1</a>
-                  </b>()<blockquote>
-            SharingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -494,11 +421,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2()">GetSenderInfoSharingTest2</a>
-                  </b>()<blockquote>
-            SharingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -508,11 +431,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3()">GetSenderInfoSharingTest3</a>
-                  </b>()<blockquote>
-            SharingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </blockquote></td>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できない）</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -524,7 +443,6 @@
                     <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.Init()">Init</a>
                   </b>()<blockquote>
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </blockquote></td>
               </tr>
             </table>
@@ -554,17 +472,15 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1()">GetSenderInfoAppointTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():member">
           <div class="msummary">
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </div>
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できる）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -573,18 +489,16 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2()">GetSenderInfoAppointTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():member">
           <div class="msummary">
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できる
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </div>
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -593,17 +507,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3()">GetSenderInfoAppointTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():member">
           <div class="msummary">
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -612,17 +523,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4()">GetSenderInfoAppointTest4 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():member">
           <div class="msummary">
-            AppointmentItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryが取得できない
-            senderInformationDtoがnull
-            </div>
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>(現在のユーザの AddressEntryが取得できない)</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest4</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():Remarks">senderInformationDtoがnull</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -631,17 +539,16 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1()">GetSenderInfoMailTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():member">
           <div class="msummary">
-            MailItem
-            Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </div>
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティが取得できる）</p>
+            <p>（Senderプロパティから、ExchangeUserが取得できる）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -650,16 +557,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2()">GetSenderInfoMailTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():member">
           <div class="msummary">
-            MailItem
-            Senderプロパティが取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティが取得できる）</p>
+            <p>（Senderプロパティから、ExchangeUserが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -668,17 +573,16 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3()">GetSenderInfoMailTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():member">
           <div class="msummary">
-            MailItem
-            Senderプロパティがnullだが、SenderEamilAddressプロパティからExchangeUserが取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが"部長"になる
-            </div>
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティがnull）</p>
+            <p>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが"部長"になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -687,17 +591,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4()">GetSenderInfoMailTest4 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():member">
           <div class="msummary">
-            MailItem
-            Senderプロパティがnull
-            SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティがnull）</p>
+            <p>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest4</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -706,16 +607,13 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5()">GetSenderInfoMailTest5 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():member">
           <div class="msummary">
-            MailItem
-            Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない場合
-            senderInformationDtoがnull
-            </div>
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest5</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():Remarks">senderInformationDtoがnull</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -724,17 +622,16 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1()">GetSenderInfoMeetingTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():member">
           <div class="msummary">
-            MeetingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserも取得できる）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p> senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p> jobTitleが""になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -743,16 +640,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2()">GetSenderInfoMeetingTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():member">
           <div class="msummary">
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(例外が発生)場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():Remarks"> senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -761,16 +656,13 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3()">GetSenderInfoMeetingTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():member">
           <div class="msummary">
-            MeetingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():Remarks">senderInformationDtoがnull</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -779,17 +671,15 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4()">GetSenderInfoMeetingTest4 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():member">
           <div class="msummary">
-            MeetingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
-            RecipientのNameプロパティですでに「名前(メールアドレス)」の形式
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p>
+            <p>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest4</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -798,14 +688,15 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5()">GetSenderInfoMeetingTest5 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():member">
           <div class="msummary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p>
+            <p>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</p>
           </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest5</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -814,17 +705,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1()">GetSenderInfoReportTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():member">
           <div class="msummary">
-            ReportItem
-            Recipients[1]のExchangeUserが取得できない
-            現在のユーザの AddressEntryから、ExchangeUserが取得できない
-            senderInformationDtoがnull
-            </div>
+            <p>アイテムが、ReportItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoReportTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():Remarks">senderInformationDtoがnull</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -833,17 +721,16 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1()">GetSenderInfoSharingTest1 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():member">
           <div class="msummary">
-            SharingItem
-            送信者のAddressEntry が取得でき、それを使いExchangeUserも取得できる場合
-            senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる
-            jobTitleが""になる
-            </div>
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest1</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -852,16 +739,14 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2()">GetSenderInfoSharingTest2 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():member">
           <div class="msummary">
-            SharingItem
-            送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない場合
-            senderInformationDtoのrecipientTypeとemailAddressが取得できる
-            </div>
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest2</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -870,16 +755,13 @@
         <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3()">GetSenderInfoSharingTest3 Method</h3>
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():member">
           <div class="msummary">
-            SharingItem
-            送信者のAddressEntry が取得できない場合
-            senderInformationDtoがnull
-            </div>
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できない）</p>
+          </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest3</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():Remarks">senderInformationDtoがnull</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
@@ -889,14 +771,13 @@
         <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():member">
           <div class="msummary">
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </div>
           <h2>Syntax</h2>
           <div class="Signature">[NUnit.Framework.OneTimeSetUp]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Init</b> ()</div>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():Version Information">
             <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>

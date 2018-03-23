@@ -16,10 +16,11 @@
   </Attributes>
   <Docs>
     <summary>
-            UtilityクラスGetRecipientsメソッドのテストクラス
-            アイテムから、宛先を取得する
+            Utilityクラス GetRecipientsメソッドのテストクラス
             </summary>
-    <remarks>To be added.</remarks>
+    <remarks>
+            アイテムから、そのアイテムの宛先(Recipient型のリスト)を取得するメソッドの単体テストコード
+            </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -53,10 +54,11 @@
       <Parameters />
       <Docs>
         <summary>
-             MailItemの場合
-             Recipientsを取得でき、TypeがMailのままになる
+             アイテムが、MailItemの場合
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMailのままになる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest2">
@@ -77,10 +79,12 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがMeetingItemの場合（会議出席依頼の返信でない）
-             Recipientsを取得でき、TypeがMeetingになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信でない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMeetingになる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest3">
@@ -101,11 +105,13 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがMeetingItemの場合
-             会議出席依頼の返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがfalse
-             Recipientsを取得でき、TypeがMeetingResponseになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信 i.e. MessageClassプロパティに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+          <para>（IgnoreMeetingResponseがfalse）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMeetingResponseになる</para></remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest4">
@@ -126,11 +132,15 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがMeetingItemの場合
-             会議キャンセル通知メールなど（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれない）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得し、TypeがMeetingになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信でない）</para>
+          <para>（IgnoreMeetingResponseがtrue）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para>Recipientsを取得できる</para>
+          <para>TypeがMeetingになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest5">
@@ -151,11 +161,15 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがMeetingItemの場合
-             会議招集メールの返信（MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）で、IgnoreMeetingResponseがtrue
-             Recipientsを取得せず、TypeがMeetingResponseになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、MeetingItemの場合</para>
+          <para>（会議招集メールの返信 i.e. MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+          <para>（IgnoreMeetingResponseがtrue）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para>Recipientsがnull</para>
+          <para>TypeがMeetingResponseになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest6">
@@ -176,10 +190,14 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがAppointmentItemの場合（リソース選択あり）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、AppointmentItemの場合</para>
+          <para>（リソース選択あり）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> 自分（送信者）以外のRecipientsが取得できる</para>
+          <para> TypeがAppointmentになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest7">
@@ -200,10 +218,14 @@
       <Parameters />
       <Docs>
         <summary>
-             ItemがAppointmentItemの場合（リソース選択なし）
-             自分（送信者）以外のRecipientsを取得し、TypeがAppointmentになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、AppointmentItemの場合</para>
+          <para>（リソース選択なし）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> 自分（送信者）以外のRecipientsが取得できる</para>
+          <para> TypeがAppointmentになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest8">
@@ -224,10 +246,13 @@
       <Parameters />
       <Docs>
         <summary>
-             SharingItemの場合
-             Recipientsを取得でき、TypeがSharingのままになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、SharingItemの場合</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> Recipientsを取得できる</para>
+          <para> TypeがSharingになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRecipientsTest9">
@@ -248,10 +273,13 @@
       <Parameters />
       <Docs>
         <summary>
-             ReportItemの場合
-             Recipientsを取得でき、TypeがReportになる
-            </summary>
-        <remarks>To be added.</remarks>
+          <para> アイテムが、ReportItemの場合</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> Recipientsを取得できる</para>
+          <para> TypeがReportになる</para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Init">
@@ -273,9 +301,10 @@
       <Docs>
         <summary>
             テスト時に一度だけ実行される処理
-            アセンブリの読み込み、Typeの取得など
             </summary>
-        <remarks>To be added.</remarks>
+        <remarks>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </remarks>
       </Docs>
     </Member>
   </Members>
