@@ -50,38 +50,180 @@
   <Remarks>To be added.</Remarks>
   <Copyright>To be added.</Copyright>
   <Types>
+    <Namespace Name="Microsoft.Office.Core">
+      <Type Name="_IMsoDispObj" Kind="Interface" />
+      <Type Name="_IMsoOleAccDispObj" Kind="Interface" />
+      <Type Name="AnswerWizard" Kind="Interface" />
+      <Type Name="Assistant" Kind="Interface" />
+      <Type Name="COMAddIn" Kind="Interface" />
+      <Type Name="COMAddIns" Kind="Interface" />
+      <Type Name="CommandBar" Kind="Interface" />
+      <Type Name="ContactCard" Kind="Interface" />
+      <Type Name="IAccessible" Kind="Interface" />
+      <Type Name="IAssistance" Kind="Interface" />
+      <Type Name="LanguageSettings" Kind="Interface" />
+      <Type Name="MsoFeatureInstall" Kind="Enumeration" />
+      <Type Name="PickerDialog" Kind="Interface" />
+    </Namespace>
     <Namespace Name="Microsoft.Office.Interop.Outlook">
+      <Type Name="_Accounts" Kind="Interface" />
       <Type Name="_Application" Kind="Interface" />
+      <Type Name="_AppointmentItem" Kind="Interface" />
+      <Type Name="_AttachmentSelection" Kind="Interface" />
+      <Type Name="_Categories" Kind="Interface" />
       <Type Name="_ContactItem" Kind="Interface" />
+      <Type Name="_Conversation" Kind="Interface" />
       <Type Name="_ExchangeUser" Kind="Interface" />
       <Type Name="_Explorer" Kind="Interface" />
+      <Type Name="_Explorers" Kind="Interface" />
+      <Type Name="_Folders" Kind="Interface" />
       <Type Name="_FormRegion" Kind="Interface" />
       <Type Name="_Inspector" Kind="Interface" />
+      <Type Name="_Inspectors" Kind="Interface" />
+      <Type Name="_MailItem" Kind="Interface" />
+      <Type Name="_MeetingItem" Kind="Interface" />
       <Type Name="_NameSpace" Kind="Interface" />
+      <Type Name="_PropertyAccessor" Kind="Interface" />
+      <Type Name="_Reminders" Kind="Interface" />
+      <Type Name="_ReportItem" Kind="Interface" />
+      <Type Name="_SelectNamesDialog" Kind="Interface" />
+      <Type Name="_SharingItem" Kind="Interface" />
+      <Type Name="_Store" Kind="Interface" />
+      <Type Name="_Stores" Kind="Interface" />
+      <Type Name="_TimeZones" Kind="Interface" />
+      <Type Name="Accounts" Kind="Interface" />
+      <Type Name="AccountsEvents" Kind="Interface" />
+      <Type Name="AccountsEvents_Event" Kind="Interface" />
+      <Type Name="Actions" Kind="Interface" />
       <Type Name="AddressEntry" Kind="Interface" />
+      <Type Name="AddressList" Kind="Interface" />
+      <Type Name="AddressLists" Kind="Interface" />
       <Type Name="Application" Kind="Interface" />
       <Type Name="ApplicationEvents_11" Kind="Interface" />
+      <Type Name="ApplicationEvents_11_AdvancedSearchCompleteEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_AdvancedSearchStoppedEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_AttachmentContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_BeforeFolderSharingDialogEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ContextMenuCloseEventHandler" Kind="Delegate" />
       <Type Name="ApplicationEvents_11_Event" Kind="Interface" />
+      <Type Name="ApplicationEvents_11_FolderContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ItemContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ItemLoadEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ItemSendEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_MAPILogonCompleteEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_NewMailEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_NewMailExEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_OptionsPagesAddEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_QuitEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ReminderEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ShortcutContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_StartupEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_StoreContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="ApplicationEvents_11_ViewContextMenuDisplayEventHandler" Kind="Delegate" />
+      <Type Name="AppointmentItem" Kind="Interface" />
+      <Type Name="Attachment" Kind="Interface" />
+      <Type Name="Attachments" Kind="Interface" />
+      <Type Name="AttachmentSelection" Kind="Interface" />
+      <Type Name="Categories" Kind="Interface" />
+      <Type Name="Conflicts" Kind="Interface" />
       <Type Name="ContactItem" Kind="Interface" />
+      <Type Name="Conversation" Kind="Interface" />
       <Type Name="ExchangeUser" Kind="Interface" />
       <Type Name="Explorer" Kind="Interface" />
       <Type Name="ExplorerEvents_10" Kind="Interface" />
       <Type Name="ExplorerEvents_10_Event" Kind="Interface" />
+      <Type Name="Explorers" Kind="Interface" />
+      <Type Name="ExplorersEvents" Kind="Interface" />
+      <Type Name="ExplorersEvents_Event" Kind="Interface" />
+      <Type Name="Folders" Kind="Interface" />
+      <Type Name="FoldersEvents" Kind="Interface" />
+      <Type Name="FoldersEvents_Event" Kind="Interface" />
+      <Type Name="FormDescription" Kind="Interface" />
       <Type Name="FormRegion" Kind="Interface" />
       <Type Name="FormRegionEvents" Kind="Interface" />
       <Type Name="FormRegionEvents_Event" Kind="Interface" />
       <Type Name="Inspector" Kind="Interface" />
       <Type Name="InspectorEvents_10" Kind="Interface" />
       <Type Name="InspectorEvents_10_Event" Kind="Interface" />
+      <Type Name="Inspectors" Kind="Interface" />
+      <Type Name="InspectorsEvents" Kind="Interface" />
+      <Type Name="InspectorsEvents_Event" Kind="Interface" />
       <Type Name="ItemEvents_10" Kind="Interface" />
+      <Type Name="ItemEvents_10_AfterWriteEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_AttachmentAddEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_AttachmentReadEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_AttachmentRemoveEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAttachmentAddEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAttachmentPreviewEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAttachmentReadEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAttachmentSaveEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAttachmentWriteToTempFileEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeAutoSaveEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeCheckNamesEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeDeleteEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_BeforeReadEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_CloseEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_CustomActionEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_CustomPropertyChangeEventHandler" Kind="Delegate" />
       <Type Name="ItemEvents_10_Event" Kind="Interface" />
+      <Type Name="ItemEvents_10_ForwardEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_OpenEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_PropertyChangeEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_ReadCompleteEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_ReadEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_ReplyAllEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_ReplyEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_SendEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_UnloadEventHandler" Kind="Delegate" />
+      <Type Name="ItemEvents_10_WriteEventHandler" Kind="Delegate" />
+      <Type Name="ItemProperties" Kind="Interface" />
+      <Type Name="Links" Kind="Interface" />
+      <Type Name="MailItem" Kind="Interface" />
+      <Type Name="MAPIFolder" Kind="Interface" />
+      <Type Name="MeetingItem" Kind="Interface" />
       <Type Name="NameSpace" Kind="Interface" />
       <Type Name="NameSpaceEvents" Kind="Interface" />
+      <Type Name="NameSpaceEvents_AutoDiscoverCompleteEventHandler" Kind="Delegate" />
       <Type Name="NameSpaceEvents_Event" Kind="Interface" />
+      <Type Name="NameSpaceEvents_OptionsPagesAddEventHandler" Kind="Delegate" />
       <Type Name="OlAddressEntryUserType" Kind="Enumeration" />
+      <Type Name="OlAutoDiscoverConnectionMode" Kind="Enumeration" />
+      <Type Name="OlContextMenu" Kind="Enumeration" />
+      <Type Name="OlDefaultFolders" Kind="Enumeration" />
+      <Type Name="OlDownloadState" Kind="Enumeration" />
+      <Type Name="OlExchangeConnectionMode" Kind="Enumeration" />
       <Type Name="OlFormRegionMode" Kind="Enumeration" />
       <Type Name="OlFormRegionSize" Kind="Enumeration" />
+      <Type Name="OlImportance" Kind="Enumeration" />
+      <Type Name="OlInspectorClose" Kind="Enumeration" />
+      <Type Name="OlItemType" Kind="Enumeration" />
+      <Type Name="OlMailRecipientType" Kind="Enumeration" />
+      <Type Name="OlObjectClass" Kind="Enumeration" />
+      <Type Name="OlReferenceType" Kind="Enumeration" />
+      <Type Name="OlRemoteStatus" Kind="Enumeration" />
+      <Type Name="OlSensitivity" Kind="Enumeration" />
+      <Type Name="OlStoreType" Kind="Enumeration" />
+      <Type Name="OutlookBarShortcut" Kind="Interface" />
+      <Type Name="PropertyAccessor" Kind="Interface" />
+      <Type Name="PropertyPages" Kind="Interface" />
       <Type Name="Recipient" Kind="Interface" />
+      <Type Name="Recipients" Kind="Interface" />
+      <Type Name="ReminderCollectionEvents" Kind="Interface" />
+      <Type Name="ReminderCollectionEvents_Event" Kind="Interface" />
+      <Type Name="Reminders" Kind="Interface" />
+      <Type Name="ReportItem" Kind="Interface" />
+      <Type Name="Search" Kind="Interface" />
+      <Type Name="Selection" Kind="Interface" />
+      <Type Name="SelectNamesDialog" Kind="Interface" />
+      <Type Name="SharingItem" Kind="Interface" />
+      <Type Name="Store" Kind="Interface" />
+      <Type Name="Stores" Kind="Interface" />
+      <Type Name="StoresEvents_12" Kind="Interface" />
+      <Type Name="StoresEvents_12_Event" Kind="Interface" />
+      <Type Name="SyncObjects" Kind="Interface" />
+      <Type Name="TimeZones" Kind="Interface" />
+      <Type Name="UserProperties" Kind="Interface" />
+      <Type Name="View" Kind="Interface" />
     </Namespace>
     <Namespace Name="Microsoft.Office.Tools">
       <Type Name="AddIn" Kind="Interface" />
@@ -112,7 +254,12 @@
       <Type Name="RibbonFactory" Kind="Interface" />
     </Namespace>
     <Namespace Name="ORCAUnitTest">
-      <Type Name="UnitTest1" Kind="Class" />
+      <Type Name="GetContactItemUnitTest" Kind="Class" />
+      <Type Name="GetRecipientsUnitTest" Kind="Class" />
+      <Type Name="GetSenderInformationUnitTest" Kind="Class" />
+      <Type Name="MyTestNs" Kind="Class" />
+      <Type Name="TestApplication" Kind="Class" />
+      <Type Name="TestReportItem" Kind="Class" />
     </Namespace>
   </Types>
   <Title>ORCAUnitTest</Title>

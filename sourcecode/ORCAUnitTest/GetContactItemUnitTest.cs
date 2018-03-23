@@ -4,29 +4,38 @@ using NSubstitute;
 using Microsoft.Office.Interop.Outlook;
 using OutlookRecipientConfirmationAddin;
 using System.Reflection;
-using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace ORCAUnitTest
 {
     /// <summary>
     /// Office365ContactクラスgetContactItemメソッドのテストクラス
+    /// Microsoft Exchange Serverなどから連絡先情報を探す
     /// </summary>
     [TestFixture]
     public class GetContactItemUnitTest
     {
+        // テスト対象のクラスのインスタンス
+        private object obj;
+
+        // テスト対象のメソッド属性
+        private MethodInfo mi;
+
+        // テスト対象のクラスで使われる変数のモック
         private Recipient testRec;
         private Recipient testRec2;
         private AddressEntry testAdd;
         private ExchangeUser testExchUser;
-        private Module mod;
-        private Type typeThisAddIn;
         private Application testApp;
-        private object obj;
-        private MethodInfo mi;
         private NameSpace testNs;
-
+        
         /// <summary>
-        /// テスト時に、一度だけ実行される処理（アセンブリの読み込み、Typeの取得など）
+        /// テストクラス全てで使う共通のThisAddInクラス
+        /// </summary>
+        public static ThisAddIn testAddIn;
+        
+        /// <summary>
+        /// テスト時に一度だけ実行される処理
+        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
         [OneTimeSetUp]
         public void Init()
@@ -39,14 +48,33 @@ namespace ORCAUnitTest
             testExchUser = Substitute.For<ExchangeUser>();
             testRec2 = Substitute.For<Recipient>();
 
+            // リフレクション
+            // アセンブリを読み込み、モジュールを取得
+
+            // ------------------------------------------------------------------------------------------------
+            // VSで実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+            // batで、このプロジェクトのテストをまとめて実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+
             // ThisAddInクラスを作るのに必要な引数（Factory、IServiceProvider）を作成
             // Factoryクラスは、自作のTestFactoryクラス＆その中で使うTestAddInクラスがないとうまくいかない
             TestFactory testFactory = new TestFactory();
             IServiceProvider testService = Substitute.For<IServiceProvider>();
 
             // ThisAddInクラスのタイプを取得
-            ThisAddIn testAddIn = new ThisAddIn(testFactory, testService);
-            typeThisAddIn = testAddIn.GetType();
+            testAddIn = new ThisAddIn(testFactory, testService);
+            Type typeThisAddIn = testAddIn.GetType();
+
+            Module mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
 
             // Applicaitionのモック作成
             FieldInfo fieldApp = typeThisAddIn.GetField("Application", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -57,15 +85,7 @@ namespace ORCAUnitTest
             testNs = Substitute.For<NameSpace>();
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
-
-            // リフレクション
-            // アセンブリを読み込み、モジュールを取得
-            //(VSでテストする時)
-            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
-            //(batで実行するとき)
-            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
-            mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
-
+            
             // Globalsのタイプと、ThisAddInプロパティを取得
             Type typeGlobal = mod.GetType("OutlookRecipientConfirmationAddin.Globals");
             PropertyInfo testProp = typeGlobal.GetProperty("ThisAddIn", BindingFlags.NonPublic | BindingFlags.Static);

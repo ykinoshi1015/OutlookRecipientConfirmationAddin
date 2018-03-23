@@ -5,37 +5,43 @@ using Microsoft.Office.Interop.Outlook;
 using OutlookRecipientConfirmationAddin;
 using System.Reflection;
 using System.Collections.Generic;
-using Outlook = Microsoft.Office.Interop.Outlook;
+
 namespace ORCAUnitTest
 {
     /// <summary>
     /// UtilityクラスGetRecipientsメソッドのテストクラス
+    /// アイテムから、宛先を取得する
     /// </summary>
     [TestFixture]
     public class GetRecipientsUnitTest
     {
-
-        private Recipient testRec;
-        private AddressEntry testAdd;
-        private ExchangeUser testExchUser;
-        private Module mod;
-        private Type typeThisAddIn;
-        private Application testApp;
+        // テスト対象のクラスのインスタンス
         private object obj;
-        private MethodInfo mi;
-        private NameSpace testNs;
 
+        // テスト対象のメソッド属性
+        private MethodInfo mi;
+
+        // テストするアイテムのモック
         private MailItem testMail;
         private MeetingItem testMeeting;
         private AppointmentItem testAppointment;
         private SharingItem testSharing;
         private TestReportItem testReport;
 
+        // テスト対象のクラスで使われる変数のモック
+        private Recipient testRec;
+        private AddressEntry testAdd;
+        private ExchangeUser testExchUser;
+        private Application testApp;
+        private NameSpace testNs;
+
+        // テスト結果のRecipient
         private Recipient expectedRec1;
         private Recipient expectedRec2;
 
         /// <summary>
-        /// テスト時に、一度だけ実行される処理（アセンブリの読み込み、Typeの取得など）
+        /// テスト時に一度だけ実行される処理
+        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
         [OneTimeSetUp]
         public void Init()
@@ -57,14 +63,35 @@ namespace ORCAUnitTest
             expectedRec1 = Substitute.For<Recipient>();
             expectedRec2 = Substitute.For<Recipient>();
 
-            // ThisAddInクラスを作るのに必要な引数（Factory、IServiceProvider）を作成
-            // Factoryクラスは、自作のTestFactoryクラス＆その中で使うTestAddInクラスがないとうまくいかない
-            TestFactory testFactory = new TestFactory();
-            IServiceProvider testService = Substitute.For<IServiceProvider>();
+            // ------------------------------------------------------------------------------------------------
+            // VSで実行する場合
+            // ------------------------------------------------------------------------------------------------
 
-            // ThisAddInクラスのタイプを取得
-            ThisAddIn testAddIn = new ThisAddIn(testFactory, testService);
-            typeThisAddIn = testAddIn.GetType();
+            //// Factoryクラスは、自作のTestFactoryクラス＆その中で使うTestAddInクラスがないとうまくいかない
+            //// ThisAddInクラスのタイプを取得
+            //TestFactory testFactory = new TestFactory();
+            //IServiceProvider testService = Substitute.For<IServiceProvider>();
+            //ThisAddIn testAddIn = new ThisAddIn(testFactory, testService);
+
+            //// リフレクション
+            //// アセンブリを読み込み、モジュールを取得
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+            // batで、このプロジェクトのテストをまとめて実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            // 共通で使うThisAddInクラスを取得
+            ThisAddIn testAddIn = GetContactItemUnitTest.testAddIn;
+
+            // リフレクション
+            // アセンブリを読み込み、モジュールを取得
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+
+            Module mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
+            Type typeThisAddIn = testAddIn.GetType();
 
             // Applicaitionのモック作成
             FieldInfo fieldApp = typeThisAddIn.GetField("Application", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -76,20 +103,6 @@ namespace ORCAUnitTest
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
             
-            // リフレクション
-            // アセンブリを読み込み、モジュールを取得
-            //(VSでテストする時)
-            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
-            //(batで実行するとき)
-            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
-            mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
-
-            // Globalsのタイプと、ThisAddInプロパティを取得
-            Type typeGlobal = mod.GetType("OutlookRecipientConfirmationAddin.Globals");
-            PropertyInfo testProp = typeGlobal.GetProperty("ThisAddIn", BindingFlags.NonPublic | BindingFlags.Static);
-            // ThisAddinプロパティに、モックなどを使って作った値をセットする
-            testProp.SetValue(null, testAddIn);
-
             // テスト対象のクラス（Utility）のタイプを取得
             Type type = mod.GetType("OutlookRecipientConfirmationAddin.Utility");
             // インスタンスを生成し、メソッドにアクセスできるようにする
@@ -97,7 +110,7 @@ namespace ORCAUnitTest
             // mi2 = type2.GetMethod("GetRecipients", new Type[] { typeof(object), typeof(Utility.OutlookItemType), typeof(bool)  });
             mi = type.GetMethod("GetRecipients");
         }
-
+        
         /// <summary>
         ///  MailItemの場合
         ///  Recipientsを取得でき、TypeがMailのままになる
@@ -321,13 +334,9 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest6()
         {
-            // 自分の情報を取得
-            Application app = new Application();
-            ExchangeUser currentUser = app.Session.CurrentUser.AddressEntry.GetExchangeUser();
-
             // モックでつかうデータを用意
             //（自分と、BCC(リソース)もテスト用Recに入れる）
-            string[] testRecNames = { currentUser.Address, "testemailaddress1@example.com", "testemailaddress2@example.com", "testemailaddress3@example.com" };
+            string[] testRecNames = { "testOriginator@example.com", "testemailaddress1@example.com", "testemailaddress2@example.com", "testemailaddress3@example.com" };
             bool[] testRecSendable = { true, true, true, false };
             int[] testRecType = { (int)OlMailRecipientType.olOriginator, (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olBCC, (int)OlMailRecipientType.olBCC };
 
@@ -378,13 +387,9 @@ namespace ORCAUnitTest
         [Test]
         public void GetRecipientsTest7()
         {
-            // 自分の情報を取得
-            Application app = new Application();
-            ExchangeUser currentUser = app.Session.CurrentUser.AddressEntry.GetExchangeUser();
-
             // モックでつかうデータを用意
             //（自分と、BCC(リソース)もテスト用Recに入れる）
-            string[] testRecNames = { currentUser.Address, "testemailaddress1@example.com", "testemailaddress2@example.com" };
+            string[] testRecNames = { "testemailaddress1@example.com", "testemailaddress1@example.com", "testemailaddress2@example.com" };
             bool[] testRecSendable = { true, true, true };
             int[] testRecType = { (int)OlMailRecipientType.olOriginator, (int)OlMailRecipientType.olTo, (int)OlMailRecipientType.olCC };
 
@@ -532,7 +537,6 @@ namespace ORCAUnitTest
         /// <param name="item">選択されたitem</param>
         private void SubstituteRecProps(string[] testRecNames, bool[] testRecSendable, int[] testRecType, object item)
         {
-
             int i = 0;
 
             if (item is MailItem)
@@ -592,21 +596,6 @@ namespace ORCAUnitTest
                     i++;
                 }
             }
-            //else if (item is ReportItem)
-            //{
-            //    ReportItem testItem = (ReportItem)item;
-
-            //    foreach (string testRec in testRecNames)
-            //    {
-            //        // テスト用Recipientのプロパティに値を設定
-            //        testItem.Recipients[i + 1].Address.Returns(testRecNames[i]);
-            //        testItem.Recipients[i + 1].Sendable.Returns(testRecSendable[i]);
-            //        testItem.Recipients[i + 1].Type.Returns(testRecType[i]);
-
-            //        i++;
-            //    }
-            //}
-
 
         }
 

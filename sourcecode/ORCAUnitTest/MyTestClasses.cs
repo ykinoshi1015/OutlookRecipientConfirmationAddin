@@ -86,6 +86,7 @@ namespace ORCAUnitTest
 
     class TestFactory : Microsoft.Office.Tools.Outlook.Factory
     {
+        
         public AddIn CreateAddIn(IServiceProvider serviceProvider, IHostItemProvider hostItemProvider, string primaryCookie, string identifier, object containerComponent, IAddInExtension extension)
         {
             return new TestAddIn();
@@ -443,7 +444,7 @@ namespace ORCAUnitTest
             mockMail.Recipients.Count.Returns(testRecNames.Length);
             return mockMail;
 
-           // return GetItemFromIDHon(EntryIDItem, EntryIDStore);
+            // return GetItemFromIDHon(EntryIDItem, EntryIDStore);
         }
 
         public virtual MailItem GetItemFromIDHon(string EntryIDItem, object EntryIDStore)

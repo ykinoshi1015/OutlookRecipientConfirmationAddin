@@ -1,0 +1,2105 @@
+<html>
+  <head>
+    <title>ORCAUnitTest.MyTestNs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ORCAUnitTest</a> : <a href="index.html">ORCAUnitTest Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ORCAUnitTest.MyTestNs">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.MyTestNs:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.MyTestNs:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.MyTestNs:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ORCAUnitTest.MyTestNs">MyTestNs  Class</h1>
+    <p class="Summary" id="T:ORCAUnitTest.MyTestNs:Summary">
+            dynamicを返すGetItemFromIDで怒られるのの対策
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ORCAUnitTest.MyTestNs:Signature">public abstract class  <b>MyTestNs</b> : <a href="../Microsoft.Office.Interop.Outlook/NameSpace.html">Microsoft.Office.Interop.Outlook.NameSpace</a></div>
+    </div>
+    <div class="Remarks" id="T:ORCAUnitTest.MyTestNs:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ORCAUnitTest.MyTestNs:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ORCAUnitTest.MyTestNs:Docs:Version Information">
+        <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Protected Constructors</h2>
+        <div class="SectionBox" id="Protected Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ORCAUnitTest.MyTestNs()">MyTestNs</a>
+                    </b>()</div>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Accounts">Accounts</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Accounts.html">Microsoft.Office.Interop.Outlook.Accounts</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.AddressLists">AddressLists</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/AddressLists.html">Microsoft.Office.Interop.Outlook.AddressLists</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Application">Application</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Application.html">Microsoft.Office.Interop.Outlook.Application</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode">AutoDiscoverConnectionMode</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/OlAutoDiscoverConnectionMode.html">Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.AutoDiscoverXml">AutoDiscoverXml</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Categories">Categories</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Categories.html">Microsoft.Office.Interop.Outlook.Categories</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Class">Class</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/OlObjectClass.html">Microsoft.Office.Interop.Outlook.OlObjectClass</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.CurrentProfileName">CurrentProfileName</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.CurrentUser">CurrentUser</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.DefaultStore">DefaultStore</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Store.html">Microsoft.Office.Interop.Outlook.Store</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode">ExchangeConnectionMode</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/OlExchangeConnectionMode.html">Microsoft.Office.Interop.Outlook.OlExchangeConnectionMode</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName">ExchangeMailboxServerName</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion">ExchangeMailboxServerVersion</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Folders">Folders</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Folders.html">Microsoft.Office.Interop.Outlook.Folders</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.MAPIOBJECT">MAPIOBJECT</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Offline">Offline</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Parent">Parent</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Session">Session</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/NameSpace.html">Microsoft.Office.Interop.Outlook.NameSpace</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Stores">Stores</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/Stores.html">Microsoft.Office.Interop.Outlook.Stores</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.SyncObjects">SyncObjects</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../Microsoft.Office.Interop.Outlook/SyncObjects.html">Microsoft.Office.Interop.Outlook.SyncObjects</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ORCAUnitTest.MyTestNs.Type">Type</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.AddStore(System.Object)">AddStore</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType)">AddStoreEx</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="../Microsoft.Office.Interop.Outlook/OlStoreType.html">Microsoft.Office.Interop.Outlook.OlStoreType</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String)">CompareEntryIDs</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry)">CreateContactCard</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/AddressEntry.html">Microsoft.Office.Interop.Outlook.AddressEntry</a>)<nobr> : <a href="../Microsoft.Office.Core/ContactCard.html">Microsoft.Office.Core.ContactCard</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String)">CreateRecipient</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object)">CreateSharingItem</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/SharingItem.html">Microsoft.Office.Interop.Outlook.SharingItem</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.Dial(System.Object)">Dial</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String)">GetAddressEntryFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/AddressEntry.html">Microsoft.Office.Interop.Outlook.AddressEntry</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders)">GetDefaultFolder</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/OlDefaultFolders.html">Microsoft.Office.Interop.Outlook.OlDefaultFolders</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object)">GetFolderFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetGlobalAddressList()">GetGlobalAddressList</a>
+                  </b>()<nobr> : <a href="../Microsoft.Office.Interop.Outlook/AddressList.html">Microsoft.Office.Interop.Outlook.AddressList</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String)">GetItemFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object)">GetItemFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String)">GetItemFromIDHon</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MailItem.html">Microsoft.Office.Interop.Outlook.MailItem</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object)">GetItemFromIDHon</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MailItem.html">Microsoft.Office.Interop.Outlook.MailItem</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String)">GetRecipientFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog()">GetSelectNamesDialog</a>
+                  </b>()<nobr> : <a href="../Microsoft.Office.Interop.Outlook/SelectNamesDialog.html">Microsoft.Office.Interop.Outlook.SelectNamesDialog</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders)">GetSharedDefaultFolder</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a>, <a href="../Microsoft.Office.Interop.Outlook/OlDefaultFolders.html">Microsoft.Office.Interop.Outlook.OlDefaultFolders</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String)">GetStoreFromID</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/Store.html">Microsoft.Office.Interop.Outlook.Store</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.Logoff()">Logoff</a>
+                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object)">Logon</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object)">OpenSharedFolder</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String)">OpenSharedItem</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.PickFolder()">PickFolder</a>
+                  </b>()<nobr> : <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.RefreshRemoteHeaders()">RefreshRemoteHeaders</a>
+                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder)">RemoveStore</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean)">SendAndReceive</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Events</h2>
+        <div class="SectionBox" id="Public Events">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#E:ORCAUnitTest.MyTestNs.AutoDiscoverComplete">AutoDiscoverComplete</a>
+                  </b>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#E:ORCAUnitTest.MyTestNs.OptionsPagesAdd">OptionsPagesAdd</a>
+                  </b>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ORCAUnitTest.MyTestNs:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:ORCAUnitTest.MyTestNs()">MyTestNs Constructor</h3>
+        <blockquote id="C:ORCAUnitTest.MyTestNs():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">protected  <b>MyTestNs</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ORCAUnitTest.MyTestNs():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ORCAUnitTest.MyTestNs():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Accounts">Accounts Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Accounts:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Accounts.html">Microsoft.Office.Interop.Outlook.Accounts</a> <b>Accounts</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Accounts:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Accounts:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Accounts:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.AddressLists">AddressLists Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.AddressLists:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/AddressLists.html">Microsoft.Office.Interop.Outlook.AddressLists</a> <b>AddressLists</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.AddressLists:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AddressLists:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AddressLists:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.AddStore(System.Object)">AddStore Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.AddStore(System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddStore</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Store)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.AddStore(System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>Store</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.AddStore(System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.AddStore(System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType)">AddStoreEx Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddStoreEx</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Store, <a href="../Microsoft.Office.Interop.Outlook/OlStoreType.html">Microsoft.Office.Interop.Outlook.OlStoreType</a> Type)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType):Parameters">
+            <dl>
+              <dt>
+                <i>Store</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>Type</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.AddStoreEx(System.Object,Microsoft.Office.Interop.Outlook.OlStoreType):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Application">Application Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Application:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Application.html">Microsoft.Office.Interop.Outlook.Application</a> <b>Application</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Application:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Application:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Application:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="E:ORCAUnitTest.MyTestNs.AutoDiscoverComplete">AutoDiscoverComplete Event</h3>
+        <blockquote id="E:ORCAUnitTest.MyTestNs.AutoDiscoverComplete:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract event <a href="../Microsoft.Office.Interop.Outlook/NameSpaceEvents_AutoDiscoverCompleteEventHandler.html">Microsoft.Office.Interop.Outlook.NameSpaceEvents_AutoDiscoverCompleteEventHandler</a> <b>AutoDiscoverComplete</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="E:ORCAUnitTest.MyTestNs.AutoDiscoverComplete:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="E:ORCAUnitTest.MyTestNs.AutoDiscoverComplete:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode">AutoDiscoverConnectionMode Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/OlAutoDiscoverConnectionMode.html">Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</a> <b>AutoDiscoverConnectionMode</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverConnectionMode:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.AutoDiscoverXml">AutoDiscoverXml Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.AutoDiscoverXml:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>AutoDiscoverXml</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverXml:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverXml:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.AutoDiscoverXml:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Categories">Categories Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Categories:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Categories.html">Microsoft.Office.Interop.Outlook.Categories</a> <b>Categories</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Categories:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Categories:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Categories:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Class">Class Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Class:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/OlObjectClass.html">Microsoft.Office.Interop.Outlook.OlObjectClass</a> <b>Class</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Class:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Class:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Class:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String)">CompareEntryIDs Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>CompareEntryIDs</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> FirstEntryID, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> SecondEntryID)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String):Parameters">
+            <dl>
+              <dt>
+                <i>FirstEntryID</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>SecondEntryID</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CompareEntryIDs(System.String,System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry)">CreateContactCard Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Core/ContactCard.html">Microsoft.Office.Core.ContactCard</a> <b>CreateContactCard</b> (<a href="../Microsoft.Office.Interop.Outlook/AddressEntry.html">Microsoft.Office.Interop.Outlook.AddressEntry</a> AddressEntry)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry):Parameters">
+            <dl>
+              <dt>
+                <i>AddressEntry</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateContactCard(Microsoft.Office.Interop.Outlook.AddressEntry):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String)">CreateRecipient Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a> <b>CreateRecipient</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> RecipientName)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>RecipientName</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateRecipient(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object)">CreateSharingItem Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/SharingItem.html">Microsoft.Office.Interop.Outlook.SharingItem</a> <b>CreateSharingItem</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Context, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Provider)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>Context</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>Provider</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.CreateSharingItem(System.Object,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.CurrentProfileName">CurrentProfileName Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.CurrentProfileName:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>CurrentProfileName</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentProfileName:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentProfileName:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentProfileName:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.CurrentUser">CurrentUser Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.CurrentUser:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a> <b>CurrentUser</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentUser:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentUser:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.CurrentUser:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.DefaultStore">DefaultStore Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.DefaultStore:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Store.html">Microsoft.Office.Interop.Outlook.Store</a> <b>DefaultStore</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.DefaultStore:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.DefaultStore:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.DefaultStore:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.Dial(System.Object)">Dial Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.Dial(System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Dial</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> ContactItem)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.Dial(System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>ContactItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Dial(System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Dial(System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode">ExchangeConnectionMode Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/OlExchangeConnectionMode.html">Microsoft.Office.Interop.Outlook.OlExchangeConnectionMode</a> <b>ExchangeConnectionMode</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeConnectionMode:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName">ExchangeMailboxServerName Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ExchangeMailboxServerName</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerName:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion">ExchangeMailboxServerVersion Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ExchangeMailboxServerVersion</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.ExchangeMailboxServerVersion:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Folders">Folders Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Folders:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Folders.html">Microsoft.Office.Interop.Outlook.Folders</a> <b>Folders</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Folders:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Folders:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Folders:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String)">GetAddressEntryFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/AddressEntry.html">Microsoft.Office.Interop.Outlook.AddressEntry</a> <b>GetAddressEntryFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> ID)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>ID</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetAddressEntryFromID(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders)">GetDefaultFolder Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> <b>GetDefaultFolder</b> (<a href="../Microsoft.Office.Interop.Outlook/OlDefaultFolders.html">Microsoft.Office.Interop.Outlook.OlDefaultFolders</a> FolderType)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders):Parameters">
+            <dl>
+              <dt>
+                <i>FolderType</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object)">GetFolderFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> <b>GetFolderFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryIDFolder, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> EntryIDStore)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>EntryIDFolder</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>EntryIDStore</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetFolderFromID(System.String,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetGlobalAddressList()">GetGlobalAddressList Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetGlobalAddressList():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/AddressList.html">Microsoft.Office.Interop.Outlook.AddressList</a> <b>GetGlobalAddressList</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetGlobalAddressList():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetGlobalAddressList():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetGlobalAddressList():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String)">GetItemFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> <b>GetItemFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryIDItem)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>EntryIDItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object)">GetItemFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> <b>GetItemFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryIDItem, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> EntryIDStore)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>EntryIDItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>EntryIDStore</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromID(System.String,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String)">GetItemFromIDHon Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public virtual <a href="../Microsoft.Office.Interop.Outlook/MailItem.html">Microsoft.Office.Interop.Outlook.MailItem</a> <b>GetItemFromIDHon</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryIDItem)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>EntryIDItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object)">GetItemFromIDHon Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public virtual <a href="../Microsoft.Office.Interop.Outlook/MailItem.html">Microsoft.Office.Interop.Outlook.MailItem</a> <b>GetItemFromIDHon</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryIDItem, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> EntryIDStore)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>EntryIDItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>EntryIDStore</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetItemFromIDHon(System.String,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String)">GetRecipientFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a> <b>GetRecipientFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> EntryID)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>EntryID</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetRecipientFromID(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog()">GetSelectNamesDialog Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/SelectNamesDialog.html">Microsoft.Office.Interop.Outlook.SelectNamesDialog</a> <b>GetSelectNamesDialog</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetSelectNamesDialog():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders)">GetSharedDefaultFolder Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> <b>GetSharedDefaultFolder</b> (<a href="../Microsoft.Office.Interop.Outlook/Recipient.html">Microsoft.Office.Interop.Outlook.Recipient</a> Recipient, <a href="../Microsoft.Office.Interop.Outlook/OlDefaultFolders.html">Microsoft.Office.Interop.Outlook.OlDefaultFolders</a> FolderType)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders):Parameters">
+            <dl>
+              <dt>
+                <i>Recipient</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>FolderType</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetSharedDefaultFolder(Microsoft.Office.Interop.Outlook.Recipient,Microsoft.Office.Interop.Outlook.OlDefaultFolders):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String)">GetStoreFromID Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Store.html">Microsoft.Office.Interop.Outlook.Store</a> <b>GetStoreFromID</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> ID)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>ID</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.GetStoreFromID(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.Logoff()">Logoff Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.Logoff():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Logoff</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Logoff():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Logoff():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object)">Logon Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Logon</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Profile, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Password, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> ShowDialog, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> NewSession)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>Profile</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>Password</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>ShowDialog</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>NewSession</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.Logon(System.Object,System.Object,System.Object,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.MAPIOBJECT">MAPIOBJECT Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.MAPIOBJECT:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> <b>MAPIOBJECT</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.MAPIOBJECT:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.MAPIOBJECT:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.MAPIOBJECT:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Offline">Offline Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Offline:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Offline</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Offline:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Offline:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Offline:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object)">OpenSharedFolder Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> <b>OpenSharedFolder</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> Path, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> Name, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> DownloadAttachments, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> UseTTL)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object):Parameters">
+            <dl>
+              <dt>
+                <i>Path</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>Name</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>DownloadAttachments</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>UseTTL</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedFolder(System.String,System.Object,System.Object,System.Object):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String)">OpenSharedItem Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> <b>OpenSharedItem</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> Path)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>Path</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.OpenSharedItem(System.String):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="E:ORCAUnitTest.MyTestNs.OptionsPagesAdd">OptionsPagesAdd Event</h3>
+        <blockquote id="E:ORCAUnitTest.MyTestNs.OptionsPagesAdd:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract event <a href="../Microsoft.Office.Interop.Outlook/NameSpaceEvents_OptionsPagesAddEventHandler.html">Microsoft.Office.Interop.Outlook.NameSpaceEvents_OptionsPagesAddEventHandler</a> <b>OptionsPagesAdd</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="E:ORCAUnitTest.MyTestNs.OptionsPagesAdd:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="E:ORCAUnitTest.MyTestNs.OptionsPagesAdd:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Parent">Parent Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Parent:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> <b>Parent</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Parent:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Parent:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Parent:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.PickFolder()">PickFolder Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.PickFolder():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> <b>PickFolder</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.PickFolder():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.PickFolder():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.PickFolder():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.RefreshRemoteHeaders()">RefreshRemoteHeaders Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.RefreshRemoteHeaders():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>RefreshRemoteHeaders</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.RefreshRemoteHeaders():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.RefreshRemoteHeaders():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder)">RemoveStore Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>RemoveStore</b> (<a href="../Microsoft.Office.Interop.Outlook/MAPIFolder.html">Microsoft.Office.Interop.Outlook.MAPIFolder</a> Folder)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder):Parameters">
+            <dl>
+              <dt>
+                <i>Folder</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.RemoveStore(Microsoft.Office.Interop.Outlook.MAPIFolder):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean)">SendAndReceive Method</h3>
+        <blockquote id="M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>SendAndReceive</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> showProgressDialog)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean):Parameters">
+            <dl>
+              <dt>
+                <i>showProgressDialog</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.MyTestNs.SendAndReceive(System.Boolean):Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Session">Session Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Session:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/NameSpace.html">Microsoft.Office.Interop.Outlook.NameSpace</a> <b>Session</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Session:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Session:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Session:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Stores">Stores Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Stores:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/Stores.html">Microsoft.Office.Interop.Outlook.Stores</a> <b>Stores</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Stores:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Stores:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Stores:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.SyncObjects">SyncObjects Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.SyncObjects:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../Microsoft.Office.Interop.Outlook/SyncObjects.html">Microsoft.Office.Interop.Outlook.SyncObjects</a> <b>SyncObjects</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.SyncObjects:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.SyncObjects:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.SyncObjects:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ORCAUnitTest.MyTestNs.Type">Type Property</h3>
+        <blockquote id="P:ORCAUnitTest.MyTestNs.Type:member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Type</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ORCAUnitTest.MyTestNs.Type:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Type:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ORCAUnitTest.MyTestNs.Type:Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

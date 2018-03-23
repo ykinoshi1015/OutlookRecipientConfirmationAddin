@@ -1,0 +1,27 @@
+<Type Name="ApplicationEvents_11_AdvancedSearchCompleteEventHandler" FullName="Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchCompleteEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ApplicationEvents_11_AdvancedSearchCompleteEventHandler(Search SearchObject);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ApplicationEvents_11_AdvancedSearchCompleteEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchCompleteEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="SearchObject" Type="Microsoft.Office.Interop.Outlook.Search" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="SearchObject">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

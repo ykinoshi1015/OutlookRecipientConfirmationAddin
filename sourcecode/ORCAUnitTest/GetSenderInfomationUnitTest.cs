@@ -1,41 +1,42 @@
 ﻿using System;
 using NUnit.Framework;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using Microsoft.Office.Interop.Outlook;
 using OutlookRecipientConfirmationAddin;
 using System.Reflection;
 
-
 namespace ORCAUnitTest
 {
     /// <summary>
-    /// Office365ContactクラスgetContactItemメソッドのテストクラス
+    /// UtilityクラスGetSenderInformationメソッドのテストクラス
+    /// アイテムから、送信者情報を取得する
     /// </summary>
     [TestFixture]
     public class GetSenderInformationUnitTest
     {
-        private Recipient testRec;
-        private AddressEntry testAdd;
-        private ExchangeUser testExchUser;
-        private Module mod;
-        private Type typeThisAddIn;
-        private Application testApp;
+        // テスト対象のクラスのインスタンス
         private object obj;
-        private MethodInfo mi;
-        private NameSpace testNs;
 
+        // テスト対象のメソッド属性
+        private MethodInfo mi;
+        
+        // テストするアイテムのモック
         private MailItem testMail;
         private MeetingItem testMeeting;
         private AppointmentItem testAppointment;
         private SharingItem testSharing;
         private TestReportItem testReport;
 
-        private Recipient expectedRec1;
-        private Recipient expectedRec2;
+        // テスト対象のクラスで使われる変数のモック
+        private Recipient testRec;
+        private AddressEntry testAdd;
+        private ExchangeUser testExchUser;
+        private Application testApp;
+        private NameSpace testNs;
 
         /// <summary>
-        /// テスト時に、一度だけ実行される処理（アセンブリの読み込み、Typeの取得など）
+        /// テスト時に一度だけ実行される処理
+        /// アセンブリの読み込み、Typeの取得など
         /// </summary>
         [OneTimeSetUp]
         public void Init()
@@ -52,17 +53,35 @@ namespace ORCAUnitTest
             testSharing = Substitute.For<SharingItem>();
             testReport = Substitute.For<TestReportItem>();
 
-            expectedRec1 = Substitute.For<Recipient>();
-            expectedRec2 = Substitute.For<Recipient>();
+            // ------------------------------------------------------------------------------------------------
+            // VSで実行する場合
+            // ------------------------------------------------------------------------------------------------
 
-            // ThisAddInクラスを作るのに必要な引数（Factory、IServiceProvider）を作成
-            // Factoryクラスは、自作のTestFactoryクラス＆その中で使うTestAddInクラスがないとうまくいかない
-            TestFactory testFactory = new TestFactory();
-            IServiceProvider testService = Substitute.For<IServiceProvider>();
+            //// Factoryクラスは、自作のTestFactoryクラス＆その中で使うTestAddInクラスがないとうまくいかない
+            //// ThisAddInクラスのタイプを取得
+            //TestFactory testFactory = new TestFactory();
+            //IServiceProvider testService = Substitute.For<IServiceProvider>();
+            //ThisAddIn testAddIn = new ThisAddIn(testFactory, testService);
 
-            // ThisAddInクラスのタイプを取得
-            ThisAddIn testAddIn = new ThisAddIn(testFactory, testService);
-            typeThisAddIn = testAddIn.GetType();
+            //// リフレクション
+            //// アセンブリを読み込み、モジュールを取得
+            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+            // batで、このプロジェクトのテストをまとめて実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            // 共通で使うThisAddInクラスを取得
+            ThisAddIn testAddIn = GetContactItemUnitTest.testAddIn;
+
+            // リフレクション
+            // アセンブリを読み込み、モジュールを取得
+            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
+
+            // ------------------------------------------------------------------------------------------------
+
+            Module mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
+            Type typeThisAddIn = testAddIn.GetType();
 
             // Applicaitionのモック作成
             FieldInfo fieldApp = typeThisAddIn.GetField("Application", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -73,20 +92,18 @@ namespace ORCAUnitTest
             testNs = Substitute.For<NameSpace>();
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
-            
-            // リフレクション
-            // アセンブリを読み込み、モジュールを取得
-            //(VSでテストする時)
-            //Assembly asm = Assembly.LoadFrom(@".\ORCAUnitTest\bin\Debug\OutlookRecipientConfirmationAddin.dll");
-            //(batで実行するとき)
-            Assembly asm = Assembly.LoadFrom(@".\OutlookRecipientConfirmationAddin.dll");
-            mod = asm.GetModule("OutlookRecipientConfirmationAddin.dll");
 
-            // Globalsのタイプと、ThisAddInプロパティを取得
-            Type typeGlobal = mod.GetType("OutlookRecipientConfirmationAddin.Globals");
-            PropertyInfo testProp = typeGlobal.GetProperty("ThisAddIn", BindingFlags.NonPublic | BindingFlags.Static);
-            // ThisAddinプロパティに、モックなどを使って作った値をセットする
-            testProp.SetValue(null, testAddIn);
+            // ------------------------------------------------------------------------------------------------
+            // このクラスを単独で実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            //// Globalsのタイプと、ThisAddInプロパティを取得
+            //Type typeGlobal = mod.GetType("OutlookRecipientConfirmationAddin.Globals");
+            //PropertyInfo testProp = typeGlobal.GetProperty("ThisAddIn", BindingFlags.NonPublic | BindingFlags.Static);
+            //// ThisAddinプロパティに、モックなどを使って作った値をセットする
+            //testProp.SetValue(null, testAddIn);
+
+            // ------------------------------------------------------------------------------------------------
 
             // テスト対象のクラス（Utility）のタイプを取得
             Type type = mod.GetType("OutlookRecipientConfirmationAddin.Utility");
@@ -94,16 +111,7 @@ namespace ORCAUnitTest
             obj = Activator.CreateInstance(type);
             mi = type.GetMethod("GetSenderInfomation");
         }
-        
-        ///// <summary>
-        ///// 各メソッド実行後に呼ばれる
-        ///// </summary>
-        //[TearDown]
-        //public void Dispose()
-        //{
-        //   testAdd.GetExchangeUser().Returns((ExchangeUser)null);
-        //}
-        
+
         /// <summary>
         /// MailItem
         /// Senderプロパティが取得でき、それを使いExchangeUserも取得できる場合
@@ -124,7 +132,7 @@ namespace ORCAUnitTest
             // モックでつかうデータを用意
             testMail.Sender = testAdd;
             testAdd.Address = "kenta.kosaka@jp.ricoh.com";
-            
+
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
 
@@ -133,12 +141,12 @@ namespace ORCAUnitTest
             testExchUser.CompanyName.Returns(testCompanyName);
             testExchUser.JobTitle.Returns(testJobTitle);
             testAdd.GetExchangeUser().Returns(testExchUser);
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
-            
+
             // 期待結果
-            RecipientInformationDto expected = new RecipientInformationDto(testName, testDepartment, testCompanyName, expectedJobTitle, OlMailRecipientType.olOriginator );
+            RecipientInformationDto expected = new RecipientInformationDto(testName, testDepartment, testCompanyName, expectedJobTitle, OlMailRecipientType.olOriginator);
 
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
@@ -154,7 +162,7 @@ namespace ORCAUnitTest
         {
             string testName = "Kosaka Kenta (小坂 健太)";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
-            string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testEmailAddress);
 
             testAdd = Substitute.For<AddressEntry>();
 
@@ -165,14 +173,14 @@ namespace ORCAUnitTest
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
 
-                // getExchangeUserメソッドで、ExchangeUserが見つからない
-                testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
+            // getExchangeUserメソッドで、ExchangeUserが見つからない
+            testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
 
             testMail.SenderName.Returns(testName);
             testMail.SenderEmailAddress.Returns(testEmailAddress);
 
-                // テストするメソッドにアクセスし、実際の結果を取得
-                RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
+            // テストするメソッドにアクセスし、実際の結果を取得
+            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
 
 
             // 期待結果
@@ -181,7 +189,7 @@ namespace ORCAUnitTest
             // actualとexpectedを比較
             CompareRecInfoDto(actual, expected);
         }
-        
+
         /// <summary>
         /// MailItem
         /// Senderプロパティがnullだが、SenderEamilAddressプロパティからExchangeUserが取得できる場合
@@ -206,7 +214,7 @@ namespace ORCAUnitTest
 
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
-            
+
             testExchUser.Name.Returns(testName);
             testExchUser.Department.Returns(testDepartment);
             testExchUser.CompanyName.Returns(testCompanyName);
@@ -235,7 +243,7 @@ namespace ORCAUnitTest
         {
             string testName = "Kosaka Kenta (小坂 健太)";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
-            string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testEmailAddress);
 
             testAdd = Substitute.For<AddressEntry>();
 
@@ -249,7 +257,7 @@ namespace ORCAUnitTest
 
             // getExchangeUserメソッドで、ExchangeUserが見つからない
             testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMail });
 
@@ -285,6 +293,7 @@ namespace ORCAUnitTest
             // メソッドの戻り値がnullであることを確認
             Assert.IsNull(actual);
         }
+
 
         /// <summary>
         /// MeetingItem
@@ -326,7 +335,7 @@ namespace ORCAUnitTest
 
         /// <summary>
         /// MeetingItem
-        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない場合
+        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(例外が発生)場合
         /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
         /// </summary>
         [Test]
@@ -334,7 +343,7 @@ namespace ORCAUnitTest
         {
             string testName = "Kosaka Kenta (小坂 健太)";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
-            string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testEmailAddress);
 
             testAdd = Substitute.For<AddressEntry>();
 
@@ -373,18 +382,91 @@ namespace ORCAUnitTest
             // モックでつかうデータを用意
             testMeeting.SenderName.Returns((string)null);
             testMeeting.SenderEmailAddress.Returns(testEmailAddress);
-            
+
             // モックのReturn値を設定
             testRec.AddressEntry.Returns(testAdd);
 
             // GetExchangeUserメソッドで、例外が発生
             testAdd.GetExchangeUser().Returns(x => { throw new System.Exception(); });
-            
+
             // テストするメソッドにアクセスし、実際の結果を取得
             RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMeeting });
 
             // メソッドの戻り値がnullであることを確認
             Assert.IsNull(actual);
+        }
+
+        /// <summary>
+        /// MeetingItem
+        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
+        /// RecipientのNameプロパティですでに「名前(メールアドレス)」の形式
+        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// </summary>
+        [Test]
+        public void GetSenderInfoMeetingTest4()
+        {
+            string testName = "Kosaka Kenta (小坂 健太)";
+            string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
+            string testNameAndAddress = "小坂 健太 (kenta.kosaka@jp.ricoh.com)";
+
+            testAdd = Substitute.For<AddressEntry>();
+
+            // モックでつかうデータを用意
+            testMeeting.SenderName.Returns(testName);
+            testMeeting.SenderEmailAddress.Returns(testEmailAddress);
+
+            // モックのReturn値を設定
+            testRec.AddressEntry.Returns(testAdd);
+            testRec.Name.Returns(testNameAndAddress);
+
+            // GetExchangeUserメソッドで、例外が発生
+            testAdd.GetExchangeUser().Returns((ExchangeUser)null);
+
+            // テストするメソッドにアクセスし、実際の結果を取得
+            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMeeting });
+
+            // 期待結果
+            RecipientInformationDto expected = new RecipientInformationDto(testNameAndAddress, OlMailRecipientType.olOriginator);
+
+            // actualとexpectedを比較
+            CompareRecInfoDto(actual, expected);
+        }
+
+        /// <summary>
+        /// MeetingItem
+        /// 送信者のAddressEntry が取得できるが、それを使いExchangeUserが取得できない(ExchangeUserがnull)場合
+        /// 表示用に"名前<メールアドレス>"の形式の文字列にする
+        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
+        /// </summary>
+        [Test]
+        public void GetSenderInfoMeetingTest5()
+        {
+            string testAddress = "yasuyuki.kinoshita@jrits.ricoh.co.jp";
+            string testName = "Yasuyuki Kinoshita / R / RSI";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testAddress);
+
+            testAdd = Substitute.For<AddressEntry>();
+
+            // モックでつかうデータを用意
+            testMeeting.SenderName.Returns(testName);
+            testMeeting.SenderEmailAddress.Returns(testAddress);
+
+            // モックのReturn値を設定
+            testRec.AddressEntry.Returns(testAdd);
+            testRec.Name.Returns(testName);
+            testRec.Address.Returns(testAddress);
+
+            // GetExchangeUserメソッドで、例外が発生
+            testAdd.GetExchangeUser().Returns((ExchangeUser)null);
+
+            // テストするメソッドにアクセスし、実際の結果を取得
+            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testMeeting });
+
+            // 期待結果
+            RecipientInformationDto expected = new RecipientInformationDto(expectedNameAndAddress, OlMailRecipientType.olOriginator);
+
+            // actualとexpectedを比較
+            CompareRecInfoDto(actual, expected);
         }
 
         /// <summary>
@@ -468,10 +550,45 @@ namespace ORCAUnitTest
         /// AppointmentItem
         /// Recipients[1]のExchangeUserが取得できない
         /// 現在のユーザの AddressEntryから、ExchangeUserが取得できない
-        /// senderInformationDtoがnull
+        /// senderInformationDtoのrecipientTypeとemailAddressが取得できる
         /// </summary>
         [Test]
         public void GetSenderInfoAppointTest3()
+        {
+            string testName = "Kinoshita Yasuyuki (木下 康行)";
+            string testEmailAddress = "yasuyuki.kinoshita@jp.ricoh.com";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testEmailAddress);
+
+            testAdd = Substitute.For<AddressEntry>();
+            testAppointment = Substitute.For<AppointmentItem>();
+
+            // Recipients[1]のExchangeUserで例外が発生
+            testAppointment.Recipients[1].AddressEntry.Returns(x => { throw new System.Exception(); });
+
+            // モックのReturn値を設定
+            testNs.CurrentUser.AddressEntry.Returns(testAdd);
+            testAdd.Name = testName;
+            testAdd.Address = testEmailAddress;
+            testAdd.GetExchangeUser().Returns((ExchangeUser)null);
+
+            // テストするメソッドにアクセスし、実際の結果を取得
+            RecipientInformationDto actual = (RecipientInformationDto)mi.Invoke(obj, new object[] { testAppointment });
+
+            // 期待結果
+            RecipientInformationDto expected = new RecipientInformationDto(expectedNameAndAddress, OlMailRecipientType.olOriginator);
+
+            // actualとexpectedを比較
+            CompareRecInfoDto(actual, expected);
+        }
+
+        /// <summary>
+        /// AppointmentItem
+        /// Recipients[1]のExchangeUserが取得できない
+        /// 現在のユーザの AddressEntryが取得できない
+        /// senderInformationDtoがnull
+        /// </summary>
+        [Test]
+        public void GetSenderInfoAppointTest4()
         {
 
             testAdd = Substitute.For<AddressEntry>();
@@ -562,7 +679,7 @@ namespace ORCAUnitTest
         {
             string testName = "Kosaka Kenta (小坂 健太)";
             string testEmailAddress = "kenta.kosaka@jp.ricoh.com";
-            string expectedNameAndAddress = "Kosaka Kenta (小坂 健太)<kenta.kosaka@jp.ricoh.com>";
+            string expectedNameAndAddress = string.Format("{0}<{1}>", testName, testEmailAddress);
 
             testAdd = Substitute.For<AddressEntry>();
 
@@ -615,14 +732,13 @@ namespace ORCAUnitTest
             // メソッドの戻り値がnullであることを確認
             Assert.IsNull(actual);
         }
-
-
+        
         /// <summary>
         /// テスト対象メソッドの戻り値と、期待結果を比較するメソッド
         /// </summary>
         /// <param name="actual">メソッドからもどってきたRecipientInformationDto</param>
         /// <param name="expected">期待する結果を入れたRecipientInformationDto</param>
-        private void CompareRecInfoDto (RecipientInformationDto actual, RecipientInformationDto expected)
+        private void CompareRecInfoDto(RecipientInformationDto actual, RecipientInformationDto expected)
         {
             Assert.That(actual.fullName, Is.EqualTo(expected.fullName));
             Assert.That(actual.division, Is.EqualTo(expected.division));

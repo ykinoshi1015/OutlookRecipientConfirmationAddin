@@ -1,0 +1,248 @@
+<Type Name="GetContactItemUnitTest" FullName="ORCAUnitTest.GetContactItemUnitTest">
+  <TypeSignature Language="C#" Value="public class GetContactItemUnitTest" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GetContactItemUnitTest extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>NUnit.Framework.TestFixture</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Office365ContactクラスgetContactItemメソッドのテストクラス
+            Microsoft Exchange Serverなどから連絡先情報を探す
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GetContactItemUnitTest ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest1">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            RecipientがNotesメールのグループアドレスの場合
+            ContactItemがnull
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest2">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientがアドレス帳のAll Groupsにあるグループアドレスの場合
+            ContactItemのFullNameにグループ名が入る
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest3">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientがアドレス帳の、グローバルアドレス一覧にあるNotesメールのアドレスの場合（グループアドレスでない）
+            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest4">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest4 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest4() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientがアドレス帳の、グローバルアドレス一覧にあるOutlookメールのアドレスの場合（グループアドレスでない）
+            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest5">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest5 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest5() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientが連絡先に登録されたアドレスの場合（グローバルアドレス一覧に存在しないもの）
+            ContactItemがnull
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest6">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest6 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest6() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientが連絡先に登録されたアドレスの場合（Notesメールアドレス）
+            ContactItemのFullName, CompanyName, Departmentに正しい情報が入る
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetContactItemTest7">
+      <MemberSignature Language="C#" Value="public void GetContactItemTest7 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetContactItemTest7() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Recipientが連絡先に登録されたアドレスの場合（O365メールアドレス）
+            ContactItemのFullName, CompanyName, Department, JobTitleに正しい情報が入る
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Init">
+      <MemberSignature Language="C#" Value="public void Init ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Init() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.OneTimeSetUp</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            テスト時に一度だけ実行される処理
+            アセンブリの読み込み、Typeの取得など
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="testAddIn">
+      <MemberSignature Language="C#" Value="public static OutlookRecipientConfirmationAddin.ThisAddIn testAddIn;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class OutlookRecipientConfirmationAddin.ThisAddIn testAddIn" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>OutlookRecipientConfirmationAddin.ThisAddIn</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            テストクラス全てで使う共通のThisAddInクラス
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
