@@ -1,0 +1,308 @@
+<Type Name="ApplicationEvents_11_Event" FullName="Microsoft.Office.Interop.Outlook.ApplicationEvents_11_Event">
+  <TypeSignature Language="C#" Value="public interface ApplicationEvents_11_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract ApplicationEvents_11_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.ComEventInterface(typeof(Microsoft.Office.Interop.Outlook.ApplicationEvents_11), typeof(Microsoft.Office.Interop.Outlook.ApplicationEvents_11))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ApplicationEvents_11_Event")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AdvancedSearchComplete">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchCompleteEventHandler AdvancedSearchComplete;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchCompleteEventHandler AdvancedSearchComplete" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchCompleteEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdvancedSearchStopped">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchStoppedEventHandler AdvancedSearchStopped;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchStoppedEventHandler AdvancedSearchStopped" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AdvancedSearchStoppedEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttachmentContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AttachmentContextMenuDisplayEventHandler AttachmentContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AttachmentContextMenuDisplayEventHandler AttachmentContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_AttachmentContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeFolderSharingDialog">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_BeforeFolderSharingDialogEventHandler BeforeFolderSharingDialog;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_BeforeFolderSharingDialogEventHandler BeforeFolderSharingDialog" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_BeforeFolderSharingDialogEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContextMenuClose">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ContextMenuCloseEventHandler ContextMenuClose;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ContextMenuCloseEventHandler ContextMenuClose" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ContextMenuCloseEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FolderContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_FolderContextMenuDisplayEventHandler FolderContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_FolderContextMenuDisplayEventHandler FolderContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_FolderContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemContextMenuDisplayEventHandler ItemContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemContextMenuDisplayEventHandler ItemContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemLoad">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemLoadEventHandler ItemLoad;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemLoadEventHandler ItemLoad" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemLoadEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemSend">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemSendEventHandler ItemSend;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemSendEventHandler ItemSend" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ItemSendEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MAPILogonComplete">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_MAPILogonCompleteEventHandler MAPILogonComplete;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_MAPILogonCompleteEventHandler MAPILogonComplete" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_MAPILogonCompleteEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewMail">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailEventHandler NewMail;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailEventHandler NewMail" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewMailEx">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailExEventHandler NewMailEx;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailExEventHandler NewMailEx" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_NewMailExEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptionsPagesAdd">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_OptionsPagesAddEventHandler OptionsPagesAdd;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_OptionsPagesAddEventHandler OptionsPagesAdd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_OptionsPagesAddEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Quit">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_QuitEventHandler Quit;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_QuitEventHandler Quit" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_QuitEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Reminder">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ReminderEventHandler Reminder;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ReminderEventHandler Reminder" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ReminderEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShortcutContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ShortcutContextMenuDisplayEventHandler ShortcutContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ShortcutContextMenuDisplayEventHandler ShortcutContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ShortcutContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Startup">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StartupEventHandler Startup;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StartupEventHandler Startup" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StartupEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StoreContextMenuDisplayEventHandler StoreContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StoreContextMenuDisplayEventHandler StoreContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_StoreContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ViewContextMenuDisplayEventHandler ViewContextMenuDisplay;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ViewContextMenuDisplayEventHandler ViewContextMenuDisplay" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ViewContextMenuDisplayEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

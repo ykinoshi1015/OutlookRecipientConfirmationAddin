@@ -1,0 +1,29 @@
+<Type Name="SmartTagCollection" FullName="Microsoft.Office.Tools.SmartTagCollection">
+  <TypeSignature Language="C#" Value="public interface SmartTagCollection : IDisposable, System.Collections.IEnumerable" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract SmartTagCollection implements class System.Collections.IEnumerable, class System.IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.IEnumerable</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("30a90086-8c89-4e19-8299-47765d808408")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

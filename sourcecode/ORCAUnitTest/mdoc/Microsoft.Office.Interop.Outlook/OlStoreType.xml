@@ -1,0 +1,64 @@
+<Type Name="OlStoreType" FullName="Microsoft.Office.Interop.Outlook.OlStoreType">
+  <TypeSignature Language="C#" Value="public enum OlStoreType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed OlStoreType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.OlStoreType")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="olStoreANSI">
+      <MemberSignature Language="C#" Value="olStoreANSI" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlStoreType olStoreANSI = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlStoreType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="olStoreDefault">
+      <MemberSignature Language="C#" Value="olStoreDefault" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlStoreType olStoreDefault = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlStoreType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="olStoreUnicode">
+      <MemberSignature Language="C#" Value="olStoreUnicode" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlStoreType olStoreUnicode = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlStoreType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

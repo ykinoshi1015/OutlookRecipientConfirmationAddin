@@ -1,0 +1,660 @@
+<Type Name="ItemEvents_10" FullName="Microsoft.Office.Interop.Outlook.ItemEvents_10">
+  <TypeSignature Language="C#" Value="public interface ItemEvents_10" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract ItemEvents_10" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("0006302B-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.InterfaceType(2)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AfterWrite">
+      <MemberSignature Language="C#" Value="public void AfterWrite ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AfterWrite() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64653)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttachmentAdd">
+      <MemberSignature Language="C#" Value="public void AttachmentAdd (Microsoft.Office.Interop.Outlook.Attachment Attachment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AttachmentAdd(class Microsoft.Office.Interop.Outlook.Attachment Attachment) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61451)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttachmentRead">
+      <MemberSignature Language="C#" Value="public void AttachmentRead (Microsoft.Office.Interop.Outlook.Attachment Attachment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AttachmentRead(class Microsoft.Office.Interop.Outlook.Attachment Attachment) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61452)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttachmentRemove">
+      <MemberSignature Language="C#" Value="public void AttachmentRemove (Microsoft.Office.Interop.Outlook.Attachment Attachment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AttachmentRemove(class Microsoft.Office.Interop.Outlook.Attachment Attachment) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64430)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAttachmentAdd">
+      <MemberSignature Language="C#" Value="public void BeforeAttachmentAdd (Microsoft.Office.Interop.Outlook.Attachment Attachment, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAttachmentAdd(class Microsoft.Office.Interop.Outlook.Attachment Attachment, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64432)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAttachmentPreview">
+      <MemberSignature Language="C#" Value="public void BeforeAttachmentPreview (Microsoft.Office.Interop.Outlook.Attachment Attachment, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAttachmentPreview(class Microsoft.Office.Interop.Outlook.Attachment Attachment, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64431)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAttachmentRead">
+      <MemberSignature Language="C#" Value="public void BeforeAttachmentRead (Microsoft.Office.Interop.Outlook.Attachment Attachment, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAttachmentRead(class Microsoft.Office.Interop.Outlook.Attachment Attachment, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64427)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAttachmentSave">
+      <MemberSignature Language="C#" Value="public void BeforeAttachmentSave (Microsoft.Office.Interop.Outlook.Attachment Attachment, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAttachmentSave(class Microsoft.Office.Interop.Outlook.Attachment Attachment, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61453)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAttachmentWriteToTempFile">
+      <MemberSignature Language="C#" Value="public void BeforeAttachmentWriteToTempFile (Microsoft.Office.Interop.Outlook.Attachment Attachment, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAttachmentWriteToTempFile(class Microsoft.Office.Interop.Outlook.Attachment Attachment, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64434)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Attachment" Type="Microsoft.Office.Interop.Outlook.Attachment" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Attachment">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeAutoSave">
+      <MemberSignature Language="C#" Value="public void BeforeAutoSave (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeAutoSave(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64514)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeCheckNames">
+      <MemberSignature Language="C#" Value="public void BeforeCheckNames (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeCheckNames(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61450)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeDelete">
+      <MemberSignature Language="C#" Value="public void BeforeDelete (object Item, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeDelete(object Item, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64117)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Item" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Item">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeRead">
+      <MemberSignature Language="C#" Value="public void BeforeRead ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeRead() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64652)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public void Close (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Close(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61444)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomAction">
+      <MemberSignature Language="C#" Value="public void CustomAction (object Action, object Response, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CustomAction(object Action, object Response, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61446)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Action" Type="System.Object" />
+        <Parameter Name="Response" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Action">To be added.</param>
+        <param name="Response">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomPropertyChange">
+      <MemberSignature Language="C#" Value="public void CustomPropertyChange (string Name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CustomPropertyChange(string Name) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61448)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="Name">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Forward">
+      <MemberSignature Language="C#" Value="public void Forward (object Forward, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Forward(object Forward, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(62568)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Forward" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Forward">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public void Open (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Open(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61443)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyChange">
+      <MemberSignature Language="C#" Value="public void PropertyChange (string Name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PropertyChange(string Name) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61449)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="Name">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Read">
+      <MemberSignature Language="C#" Value="public void Read ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Read() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61441)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadComplete">
+      <MemberSignature Language="C#" Value="public void ReadComplete (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReadComplete(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64655)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Reply">
+      <MemberSignature Language="C#" Value="public void Reply (object Response, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Reply(object Response, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(62566)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Response" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Response">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReplyAll">
+      <MemberSignature Language="C#" Value="public void ReplyAll (object Response, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReplyAll(object Response, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(62567)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Response" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Response">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Send">
+      <MemberSignature Language="C#" Value="public void Send (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Send(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61445)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Unload">
+      <MemberSignature Language="C#" Value="public void Unload ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Unload() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64429)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Write">
+      <MemberSignature Language="C#" Value="public void Write (out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Write(bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61442)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

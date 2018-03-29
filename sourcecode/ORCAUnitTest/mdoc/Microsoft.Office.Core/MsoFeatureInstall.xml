@@ -1,0 +1,64 @@
+<Type Name="MsoFeatureInstall" FullName="Microsoft.Office.Core.MsoFeatureInstall">
+  <TypeSignature Language="C#" Value="public enum MsoFeatureInstall" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed MsoFeatureInstall extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("2df8d04c-5bfa-101b-bde5-00aa0044de52", "Microsoft.Office.Core.MsoFeatureInstall")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="msoFeatureInstallNone">
+      <MemberSignature Language="C#" Value="msoFeatureInstallNone" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Core.MsoFeatureInstall msoFeatureInstallNone = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Core.MsoFeatureInstall</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="msoFeatureInstallOnDemand">
+      <MemberSignature Language="C#" Value="msoFeatureInstallOnDemand" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Core.MsoFeatureInstall msoFeatureInstallOnDemand = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Core.MsoFeatureInstall</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="msoFeatureInstallOnDemandWithUI">
+      <MemberSignature Language="C#" Value="msoFeatureInstallOnDemandWithUI" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Core.MsoFeatureInstall msoFeatureInstallOnDemandWithUI = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Core.MsoFeatureInstall</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

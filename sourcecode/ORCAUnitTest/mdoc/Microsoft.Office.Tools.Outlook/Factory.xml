@@ -1,0 +1,171 @@
+<Type Name="Factory" FullName="Microsoft.Office.Tools.Outlook.Factory">
+  <TypeSignature Language="C#" Value="public interface Factory : Microsoft.Office.Tools.Factory" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Factory implements class Microsoft.Office.Tools.Factory" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.Factory</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("787FA642-2A27-4626-84A9-EED0B47FA4A6")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CreateFormRegionCollection">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt; CreateFormRegionCollection ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IList`1&lt;class Microsoft.Office.Tools.Outlook.IFormRegion&gt; CreateFormRegionCollection() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFormRegionControl">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.FormRegionControl CreateFormRegionControl (Microsoft.Office.Interop.Outlook.FormRegion region, Microsoft.Office.Tools.IExtension extension);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.FormRegionControl CreateFormRegionControl(class Microsoft.Office.Interop.Outlook.FormRegion region, class Microsoft.Office.Tools.IExtension extension) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionControl</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="region" Type="Microsoft.Office.Interop.Outlook.FormRegion" />
+        <Parameter Name="extension" Type="Microsoft.Office.Tools.IExtension" />
+      </Parameters>
+      <Docs>
+        <param name="region">To be added.</param>
+        <param name="extension">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFormRegionCustomAction">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.FormRegionCustomAction CreateFormRegionCustomAction ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.FormRegionCustomAction CreateFormRegionCustomAction() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionCustomAction</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFormRegionCustomAction">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.FormRegionCustomAction CreateFormRegionCustomAction (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.FormRegionCustomAction CreateFormRegionCustomAction(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionCustomAction</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFormRegionInitializingEventArgs">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.FormRegionInitializingEventArgs CreateFormRegionInitializingEventArgs (object outlookItem, Microsoft.Office.Interop.Outlook.OlFormRegionMode formRegionMode, Microsoft.Office.Interop.Outlook.OlFormRegionSize formRegionSize, bool cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.FormRegionInitializingEventArgs CreateFormRegionInitializingEventArgs(object outlookItem, valuetype Microsoft.Office.Interop.Outlook.OlFormRegionMode formRegionMode, valuetype Microsoft.Office.Interop.Outlook.OlFormRegionSize formRegionSize, bool cancel) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionInitializingEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="outlookItem" Type="System.Object" />
+        <Parameter Name="formRegionMode" Type="Microsoft.Office.Interop.Outlook.OlFormRegionMode" />
+        <Parameter Name="formRegionSize" Type="Microsoft.Office.Interop.Outlook.OlFormRegionSize" />
+        <Parameter Name="cancel" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="outlookItem">To be added.</param>
+        <param name="formRegionMode">To be added.</param>
+        <param name="formRegionSize">To be added.</param>
+        <param name="cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateFormRegionManifest">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.FormRegionManifest CreateFormRegionManifest ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.FormRegionManifest CreateFormRegionManifest() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionManifest</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateImportedFormRegion">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Tools.Outlook.ImportedFormRegion CreateImportedFormRegion (Microsoft.Office.Interop.Outlook.FormRegion region, Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension extension);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Tools.Outlook.ImportedFormRegion CreateImportedFormRegion(class Microsoft.Office.Interop.Outlook.FormRegion region, class Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension extension) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.ImportedFormRegion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="region" Type="Microsoft.Office.Interop.Outlook.FormRegion" />
+        <Parameter Name="extension" Type="Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension" />
+      </Parameters>
+      <Docs>
+        <param name="region">To be added.</param>
+        <param name="extension">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,792 @@
+<html>
+  <head>
+    <title>ORCAUnitTest.GetSenderInformationUnitTest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ORCAUnitTest</a> : <a href="index.html">ORCAUnitTest Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ORCAUnitTest.GetSenderInformationUnitTest">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.GetSenderInformationUnitTest:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.GetSenderInformationUnitTest:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ORCAUnitTest.GetSenderInformationUnitTest:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ORCAUnitTest.GetSenderInformationUnitTest">GetSenderInformationUnitTest  Class</h1>
+    <p class="Summary" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Summary">
+            Utilityクラス GetSenderInformationメソッドのテストクラス
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Signature">[NUnit.Framework.TestFixture]<br />public class  <b>GetSenderInformationUnitTest</b></div>
+    </div>
+    <div class="Remarks" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs:Remarks">
+            アイテムから、送信者情報を取得するメソッドの単体テストコード
+            </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Docs:Version Information">
+        <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Constructors</h2>
+        <div class="SectionBox" id="Public Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ORCAUnitTest.GetSenderInformationUnitTest()">GetSenderInformationUnitTest</a>
+                    </b>()</div>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1()">GetSenderInfoAppointTest1</a>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できる）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2()">GetSenderInfoAppointTest2</a>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3()">GetSenderInfoAppointTest3</a>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4()">GetSenderInfoAppointTest4</a>
+                  </b>()<blockquote><p>アイテムが、AppointmentItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>(現在のユーザの AddressEntryが取得できない)</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1()">GetSenderInfoMailTest1</a>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティが取得できる）</p><p>（Senderプロパティから、ExchangeUserが取得できる）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2()">GetSenderInfoMailTest2</a>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティが取得できる）</p><p>（Senderプロパティから、ExchangeUserが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3()">GetSenderInfoMailTest3</a>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティがnull）</p><p>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4()">GetSenderInfoMailTest4</a>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティがnull）</p><p>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5()">GetSenderInfoMailTest5</a>
+                  </b>()<blockquote><p>アイテムが、MailItemの場合</p><p>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1()">GetSenderInfoMeetingTest1</a>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserも取得できる）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2()">GetSenderInfoMeetingTest2</a>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3()">GetSenderInfoMeetingTest3</a>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4()">GetSenderInfoMeetingTest4</a>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p><p>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5()">GetSenderInfoMeetingTest5</a>
+                  </b>()<blockquote><p>アイテムが、MeetingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p><p>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1()">GetSenderInfoReportTest1</a>
+                  </b>()<blockquote><p>アイテムが、ReportItemの場合</p><p>（Recipients[1]のExchangeUserが取得できない）</p><p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1()">GetSenderInfoSharingTest1</a>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2()">GetSenderInfoSharingTest2</a>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できる）</p><p>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3()">GetSenderInfoSharingTest3</a>
+                  </b>()<blockquote><p>アイテムが、SharingItemの場合</p><p>（送信者のAddressEntryが取得できない）</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ORCAUnitTest.GetSenderInformationUnitTest.Init()">Init</a>
+                  </b>()<blockquote>
+            テスト時に一度だけ実行される処理
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ORCAUnitTest.GetSenderInformationUnitTest:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:ORCAUnitTest.GetSenderInformationUnitTest()">GetSenderInformationUnitTest Constructor</h3>
+        <blockquote id="C:ORCAUnitTest.GetSenderInformationUnitTest():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>GetSenderInformationUnitTest</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ORCAUnitTest.GetSenderInformationUnitTest():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ORCAUnitTest.GetSenderInformationUnitTest():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1()">GetSenderInfoAppointTest1 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():member">
+          <div class="msummary">
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できる）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest1</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():Remarks">
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest1():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2()">GetSenderInfoAppointTest2 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():member">
+          <div class="msummary">
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest2</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():Remarks">
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest2():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3()">GetSenderInfoAppointTest3 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():member">
+          <div class="msummary">
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest3</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest3():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4()">GetSenderInfoAppointTest4 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():member">
+          <div class="msummary">
+            <p>アイテムが、AppointmentItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>(現在のユーザの AddressEntryが取得できない)</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoAppointTest4</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():Remarks">senderInformationDtoがnull</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoAppointTest4():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1()">GetSenderInfoMailTest1 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():member">
+          <div class="msummary">
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティが取得できる）</p>
+            <p>（Senderプロパティから、ExchangeUserが取得できる）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest1</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():Remarks">
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest1():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2()">GetSenderInfoMailTest2 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():member">
+          <div class="msummary">
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティが取得できる）</p>
+            <p>（Senderプロパティから、ExchangeUserが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest2</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest2():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3()">GetSenderInfoMailTest3 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():member">
+          <div class="msummary">
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティがnull）</p>
+            <p>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest3</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():Remarks">
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが"部長"になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest3():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4()">GetSenderInfoMailTest4 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():member">
+          <div class="msummary">
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティがnull）</p>
+            <p>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest4</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest4():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5()">GetSenderInfoMailTest5 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():member">
+          <div class="msummary">
+            <p>アイテムが、MailItemの場合</p>
+            <p>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMailTest5</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():Remarks">senderInformationDtoがnull</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMailTest5():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1()">GetSenderInfoMeetingTest1 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():member">
+          <div class="msummary">
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserも取得できる）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest1</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():Remarks">
+            【期待結果】
+            <p> senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p> jobTitleが""になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest1():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2()">GetSenderInfoMeetingTest2 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():member">
+          <div class="msummary">
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest2</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():Remarks"> senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest2():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3()">GetSenderInfoMeetingTest3 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():member">
+          <div class="msummary">
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest3</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():Remarks">senderInformationDtoがnull</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest3():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4()">GetSenderInfoMeetingTest4 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():member">
+          <div class="msummary">
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p>
+            <p>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest4</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest4():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5()">GetSenderInfoMeetingTest5 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():member">
+          <div class="msummary">
+            <p>アイテムが、MeetingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</p>
+            <p>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoMeetingTest5</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoMeetingTest5():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1()">GetSenderInfoReportTest1 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():member">
+          <div class="msummary">
+            <p>アイテムが、ReportItemの場合</p>
+            <p>（Recipients[1]のExchangeUserが取得できない）</p>
+            <p>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoReportTest1</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():Remarks">senderInformationDtoがnull</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoReportTest1():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1()">GetSenderInfoSharingTest1 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():member">
+          <div class="msummary">
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest1</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():Remarks">
+            【期待結果】
+            <p>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</p><p>jobTitleが""になる</p></div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest1():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2()">GetSenderInfoSharingTest2 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():member">
+          <div class="msummary">
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できる）</p>
+            <p>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest2</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():Remarks">senderInformationDtoのrecipientTypeとemailAddressが取得できる</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest2():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3()">GetSenderInfoSharingTest3 Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():member">
+          <div class="msummary">
+            <p>アイテムが、SharingItemの場合</p>
+            <p>（送信者のAddressEntryが取得できない）</p>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.Test]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetSenderInfoSharingTest3</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():Remarks">senderInformationDtoがnull</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.GetSenderInfoSharingTest3():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init()">Init Method</h3>
+        <blockquote id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():member">
+          <div class="msummary">
+            テスト時に一度だけ実行される処理
+            </div>
+          <h2>Syntax</h2>
+          <div class="Signature">[NUnit.Framework.OneTimeSetUp]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Init</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():Remarks">
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ORCAUnitTest.GetSenderInformationUnitTest.Init():Version Information">
+            <b>Namespace: </b>ORCAUnitTest<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

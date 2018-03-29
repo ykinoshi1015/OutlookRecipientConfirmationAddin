@@ -1,0 +1,22 @@
+<Type Name="FormRegionCustomAction" FullName="Microsoft.Office.Tools.Outlook.FormRegionCustomAction">
+  <TypeSignature Language="C#" Value="public interface FormRegionCustomAction" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract FormRegionCustomAction" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("e0f1e721-d4f3-4abf-9e4e-938fa7cd98c3")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

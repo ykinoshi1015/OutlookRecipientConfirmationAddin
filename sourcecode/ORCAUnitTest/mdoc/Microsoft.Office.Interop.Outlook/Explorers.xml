@@ -1,0 +1,32 @@
+<Type Name="Explorers" FullName="Microsoft.Office.Interop.Outlook.Explorers">
+  <TypeSignature Language="C#" Value="public interface Explorers : Microsoft.Office.Interop.Outlook._Explorers, Microsoft.Office.Interop.Outlook.ExplorersEvents_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Explorers implements class Microsoft.Office.Interop.Outlook._Explorers, class Microsoft.Office.Interop.Outlook.ExplorersEvents_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook._Explorers</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook.ExplorersEvents_Event</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.CoClass(typeof(System.Object))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("0006300A-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

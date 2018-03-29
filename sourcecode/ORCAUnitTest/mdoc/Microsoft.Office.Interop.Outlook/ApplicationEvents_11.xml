@@ -1,0 +1,486 @@
+<Type Name="ApplicationEvents_11" FullName="Microsoft.Office.Interop.Outlook.ApplicationEvents_11">
+  <TypeSignature Language="C#" Value="public interface ApplicationEvents_11" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract ApplicationEvents_11" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("0006302C-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.InterfaceType(2)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AdvancedSearchComplete">
+      <MemberSignature Language="C#" Value="public void AdvancedSearchComplete (Microsoft.Office.Interop.Outlook.Search SearchObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AdvancedSearchComplete(class Microsoft.Office.Interop.Outlook.Search SearchObject) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64106)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="SearchObject" Type="Microsoft.Office.Interop.Outlook.Search" />
+      </Parameters>
+      <Docs>
+        <param name="SearchObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdvancedSearchStopped">
+      <MemberSignature Language="C#" Value="public void AdvancedSearchStopped (Microsoft.Office.Interop.Outlook.Search SearchObject);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AdvancedSearchStopped(class Microsoft.Office.Interop.Outlook.Search SearchObject) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64107)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="SearchObject" Type="Microsoft.Office.Interop.Outlook.Search" />
+      </Parameters>
+      <Docs>
+        <param name="SearchObject">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AttachmentContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void AttachmentContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.AttachmentSelection Attachments);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AttachmentContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.AttachmentSelection Attachments) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64318)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="Attachments" Type="Microsoft.Office.Interop.Outlook.AttachmentSelection" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="Attachments">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeFolderSharingDialog">
+      <MemberSignature Language="C#" Value="public void BeforeFolderSharingDialog (Microsoft.Office.Interop.Outlook.MAPIFolder FolderToShare, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void BeforeFolderSharingDialog(class Microsoft.Office.Interop.Outlook.MAPIFolder FolderToShare, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64513)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="FolderToShare" Type="Microsoft.Office.Interop.Outlook.MAPIFolder" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="FolderToShare">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContextMenuClose">
+      <MemberSignature Language="C#" Value="public void ContextMenuClose (Microsoft.Office.Interop.Outlook.OlContextMenu ContextMenu);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ContextMenuClose(valuetype Microsoft.Office.Interop.Outlook.OlContextMenu ContextMenu) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64422)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ContextMenu" Type="Microsoft.Office.Interop.Outlook.OlContextMenu" />
+      </Parameters>
+      <Docs>
+        <param name="ContextMenu">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FolderContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void FolderContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.MAPIFolder Folder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void FolderContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.MAPIFolder Folder) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64322)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="Folder" Type="Microsoft.Office.Interop.Outlook.MAPIFolder" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="Folder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void ItemContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.Selection Selection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ItemContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.Selection Selection) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64321)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="Selection" Type="Microsoft.Office.Interop.Outlook.Selection" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="Selection">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemLoad">
+      <MemberSignature Language="C#" Value="public void ItemLoad (object Item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ItemLoad(object Item) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64423)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Item" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Item">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ItemSend">
+      <MemberSignature Language="C#" Value="public void ItemSend (object Item, out bool Cancel);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ItemSend(object Item, bool Cancel) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61442)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Item" Type="System.Object" />
+        <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="Item">To be added.</param>
+        <param name="Cancel">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MAPILogonComplete">
+      <MemberSignature Language="C#" Value="public void MAPILogonComplete ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void MAPILogonComplete() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64144)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewMail">
+      <MemberSignature Language="C#" Value="public void NewMail ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void NewMail() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61443)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewMailEx">
+      <MemberSignature Language="C#" Value="public void NewMailEx (string EntryIDCollection);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void NewMailEx(string EntryIDCollection) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64181)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDCollection" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDCollection">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptionsPagesAdd">
+      <MemberSignature Language="C#" Value="public void OptionsPagesAdd (Microsoft.Office.Interop.Outlook.PropertyPages Pages);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OptionsPagesAdd(class Microsoft.Office.Interop.Outlook.PropertyPages Pages) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61445)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Pages" Type="Microsoft.Office.Interop.Outlook.PropertyPages" />
+      </Parameters>
+      <Docs>
+        <param name="Pages">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Quit">
+      <MemberSignature Language="C#" Value="public void Quit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Quit() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61447)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Reminder">
+      <MemberSignature Language="C#" Value="public void Reminder (object Item);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Reminder(object Item) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61444)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Item" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Item">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShortcutContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void ShortcutContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.OutlookBarShortcut Shortcut);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ShortcutContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.OutlookBarShortcut Shortcut) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64324)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="Shortcut" Type="Microsoft.Office.Interop.Outlook.OutlookBarShortcut" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="Shortcut">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Startup">
+      <MemberSignature Language="C#" Value="public void Startup ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Startup() runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(61446)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StoreContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void StoreContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.Store Store);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StoreContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.Store Store) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64323)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="Store" Type="Microsoft.Office.Interop.Outlook.Store" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="Store">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ViewContextMenuDisplay">
+      <MemberSignature Language="C#" Value="public void ViewContextMenuDisplay (Microsoft.Office.Core.CommandBar CommandBar, Microsoft.Office.Interop.Outlook.View View);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ViewContextMenuDisplay(class Microsoft.Office.Core.CommandBar CommandBar, class Microsoft.Office.Interop.Outlook.View View) runtime managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.DispId(64320)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CommandBar" Type="Microsoft.Office.Core.CommandBar" />
+        <Parameter Name="View" Type="Microsoft.Office.Interop.Outlook.View" />
+      </Parameters>
+      <Docs>
+        <param name="CommandBar">To be added.</param>
+        <param name="View">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

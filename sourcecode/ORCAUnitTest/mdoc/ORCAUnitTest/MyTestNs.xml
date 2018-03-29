@@ -1,0 +1,946 @@
+<Type Name="MyTestNs" FullName="ORCAUnitTest.MyTestNs">
+  <TypeSignature Language="C#" Value="public abstract class MyTestNs : Microsoft.Office.Interop.Outlook.NameSpace" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit MyTestNs extends System.Object implements class Microsoft.Office.Interop.Outlook._NameSpace, class Microsoft.Office.Interop.Outlook.NameSpace, class Microsoft.Office.Interop.Outlook.NameSpaceEvents_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook.NameSpace</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+            dynamicを返すGetItemFromIDで怒られるのの対策
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected MyTestNs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Accounts">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Accounts Accounts { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Accounts Accounts" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Accounts</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddressLists">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.AddressLists AddressLists { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.AddressLists AddressLists" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.AddressLists</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddStore">
+      <MemberSignature Language="C#" Value="public abstract void AddStore (object Store);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddStore(object Store) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Store" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Store">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddStoreEx">
+      <MemberSignature Language="C#" Value="public abstract void AddStoreEx (object Store, Microsoft.Office.Interop.Outlook.OlStoreType Type);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddStoreEx(object Store, valuetype Microsoft.Office.Interop.Outlook.OlStoreType Type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Store" Type="System.Object" />
+        <Parameter Name="Type" Type="Microsoft.Office.Interop.Outlook.OlStoreType" />
+      </Parameters>
+      <Docs>
+        <param name="Store">To be added.</param>
+        <param name="Type">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Application">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Application Application { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Application Application" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Application</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoDiscoverComplete">
+      <MemberSignature Language="C#" Value="public abstract event Microsoft.Office.Interop.Outlook.NameSpaceEvents_AutoDiscoverCompleteEventHandler AutoDiscoverComplete;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.NameSpaceEvents_AutoDiscoverCompleteEventHandler AutoDiscoverComplete" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.NameSpaceEvents_AutoDiscoverCompleteEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoDiscoverConnectionMode">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode AutoDiscoverConnectionMode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode AutoDiscoverConnectionMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoDiscoverXml">
+      <MemberSignature Language="C#" Value="public abstract string AutoDiscoverXml { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AutoDiscoverXml" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Categories">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Categories Categories { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Categories Categories" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Categories</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Class">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.OlObjectClass Class { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Interop.Outlook.OlObjectClass Class" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlObjectClass</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareEntryIDs">
+      <MemberSignature Language="C#" Value="public abstract bool CompareEntryIDs (string FirstEntryID, string SecondEntryID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool CompareEntryIDs(string FirstEntryID, string SecondEntryID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="FirstEntryID" Type="System.String" />
+        <Parameter Name="SecondEntryID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="FirstEntryID">To be added.</param>
+        <param name="SecondEntryID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateContactCard">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Core.ContactCard CreateContactCard (Microsoft.Office.Interop.Outlook.AddressEntry AddressEntry);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Core.ContactCard CreateContactCard(class Microsoft.Office.Interop.Outlook.AddressEntry AddressEntry) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Core.ContactCard</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="AddressEntry" Type="Microsoft.Office.Interop.Outlook.AddressEntry" />
+      </Parameters>
+      <Docs>
+        <param name="AddressEntry">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateRecipient">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Recipient CreateRecipient (string RecipientName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.Recipient CreateRecipient(string RecipientName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Recipient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="RecipientName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="RecipientName">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSharingItem">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.SharingItem CreateSharingItem (object Context, object Provider);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.SharingItem CreateSharingItem(object Context, object Provider) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.SharingItem</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Context" Type="System.Object" />
+        <Parameter Name="Provider" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Context">To be added.</param>
+        <param name="Provider">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrentProfileName">
+      <MemberSignature Language="C#" Value="public abstract string CurrentProfileName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string CurrentProfileName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrentUser">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Recipient CurrentUser { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Recipient CurrentUser" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Recipient</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultStore">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Store DefaultStore { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Store DefaultStore" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Store</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dial">
+      <MemberSignature Language="C#" Value="public abstract void Dial (object ContactItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Dial(object ContactItem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ContactItem" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="ContactItem">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExchangeConnectionMode">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.OlExchangeConnectionMode ExchangeConnectionMode { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Interop.Outlook.OlExchangeConnectionMode ExchangeConnectionMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlExchangeConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExchangeMailboxServerName">
+      <MemberSignature Language="C#" Value="public abstract string ExchangeMailboxServerName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ExchangeMailboxServerName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ExchangeMailboxServerVersion">
+      <MemberSignature Language="C#" Value="public abstract string ExchangeMailboxServerVersion { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ExchangeMailboxServerVersion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Folders">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Folders Folders { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Folders Folders" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Folders</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetAddressEntryFromID">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.AddressEntry GetAddressEntryFromID (string ID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.AddressEntry GetAddressEntryFromID(string ID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.AddressEntry</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="ID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDefaultFolder">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.MAPIFolder GetDefaultFolder (Microsoft.Office.Interop.Outlook.OlDefaultFolders FolderType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MAPIFolder GetDefaultFolder(valuetype Microsoft.Office.Interop.Outlook.OlDefaultFolders FolderType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MAPIFolder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="FolderType" Type="Microsoft.Office.Interop.Outlook.OlDefaultFolders" />
+      </Parameters>
+      <Docs>
+        <param name="FolderType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFolderFromID">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.MAPIFolder GetFolderFromID (string EntryIDFolder, object EntryIDStore);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MAPIFolder GetFolderFromID(string EntryIDFolder, object EntryIDStore) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MAPIFolder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDFolder" Type="System.String" />
+        <Parameter Name="EntryIDStore" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDFolder">To be added.</param>
+        <param name="EntryIDStore">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetGlobalAddressList">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.AddressList GetGlobalAddressList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.AddressList GetGlobalAddressList() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.AddressList</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetItemFromID">
+      <MemberSignature Language="C#" Value="public dynamic GetItemFromID (string EntryIDItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance object GetItemFromID(string EntryIDItem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDItem" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDItem">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetItemFromID">
+      <MemberSignature Language="C#" Value="public dynamic GetItemFromID (string EntryIDItem, object EntryIDStore);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance object GetItemFromID(string EntryIDItem, object EntryIDStore) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDItem" Type="System.String" />
+        <Parameter Name="EntryIDStore" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDItem">To be added.</param>
+        <param name="EntryIDStore">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetItemFromIDHon">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Interop.Outlook.MailItem GetItemFromIDHon (string EntryIDItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MailItem GetItemFromIDHon(string EntryIDItem) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MailItem</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDItem" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDItem">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetItemFromIDHon">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Interop.Outlook.MailItem GetItemFromIDHon (string EntryIDItem, object EntryIDStore);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MailItem GetItemFromIDHon(string EntryIDItem, object EntryIDStore) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MailItem</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryIDItem" Type="System.String" />
+        <Parameter Name="EntryIDStore" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="EntryIDItem">To be added.</param>
+        <param name="EntryIDStore">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientFromID">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Recipient GetRecipientFromID (string EntryID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.Recipient GetRecipientFromID(string EntryID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Recipient</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="EntryID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="EntryID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSelectNamesDialog">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.SelectNamesDialog GetSelectNamesDialog ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.SelectNamesDialog GetSelectNamesDialog() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.SelectNamesDialog</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSharedDefaultFolder">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.MAPIFolder GetSharedDefaultFolder (Microsoft.Office.Interop.Outlook.Recipient Recipient, Microsoft.Office.Interop.Outlook.OlDefaultFolders FolderType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MAPIFolder GetSharedDefaultFolder(class Microsoft.Office.Interop.Outlook.Recipient Recipient, valuetype Microsoft.Office.Interop.Outlook.OlDefaultFolders FolderType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MAPIFolder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Recipient" Type="Microsoft.Office.Interop.Outlook.Recipient" />
+        <Parameter Name="FolderType" Type="Microsoft.Office.Interop.Outlook.OlDefaultFolders" />
+      </Parameters>
+      <Docs>
+        <param name="Recipient">To be added.</param>
+        <param name="FolderType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetStoreFromID">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Store GetStoreFromID (string ID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.Store GetStoreFromID(string ID) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Store</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ID" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="ID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Logoff">
+      <MemberSignature Language="C#" Value="public abstract void Logoff ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Logoff() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Logon">
+      <MemberSignature Language="C#" Value="public abstract void Logon (object Profile, object Password, object ShowDialog, object NewSession);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Logon(object Profile, object Password, object ShowDialog, object NewSession) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Profile" Type="System.Object" />
+        <Parameter Name="Password" Type="System.Object" />
+        <Parameter Name="ShowDialog" Type="System.Object" />
+        <Parameter Name="NewSession" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Profile">To be added.</param>
+        <param name="Password">To be added.</param>
+        <param name="ShowDialog">To be added.</param>
+        <param name="NewSession">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MAPIOBJECT">
+      <MemberSignature Language="C#" Value="public abstract dynamic MAPIOBJECT { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance object MAPIOBJECT" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Offline">
+      <MemberSignature Language="C#" Value="public abstract bool Offline { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Offline" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenSharedFolder">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.MAPIFolder OpenSharedFolder (string Path, object Name, object DownloadAttachments, object UseTTL);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MAPIFolder OpenSharedFolder(string Path, object Name, object DownloadAttachments, object UseTTL) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MAPIFolder</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Path" Type="System.String" />
+        <Parameter Name="Name" Type="System.Object" />
+        <Parameter Name="DownloadAttachments" Type="System.Object" />
+        <Parameter Name="UseTTL" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="Path">To be added.</param>
+        <param name="Name">To be added.</param>
+        <param name="DownloadAttachments">To be added.</param>
+        <param name="UseTTL">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OpenSharedItem">
+      <MemberSignature Language="C#" Value="public abstract dynamic OpenSharedItem (string Path);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance object OpenSharedItem(string Path) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Path" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="Path">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OptionsPagesAdd">
+      <MemberSignature Language="C#" Value="public abstract event Microsoft.Office.Interop.Outlook.NameSpaceEvents_OptionsPagesAddEventHandler OptionsPagesAdd;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Interop.Outlook.NameSpaceEvents_OptionsPagesAddEventHandler OptionsPagesAdd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.NameSpaceEvents_OptionsPagesAddEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Parent">
+      <MemberSignature Language="C#" Value="public abstract dynamic Parent { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance object Parent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PickFolder">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.MAPIFolder PickFolder ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Interop.Outlook.MAPIFolder PickFolder() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.MAPIFolder</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RefreshRemoteHeaders">
+      <MemberSignature Language="C#" Value="public abstract void RefreshRemoteHeaders ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RefreshRemoteHeaders() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveStore">
+      <MemberSignature Language="C#" Value="public abstract void RemoveStore (Microsoft.Office.Interop.Outlook.MAPIFolder Folder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveStore(class Microsoft.Office.Interop.Outlook.MAPIFolder Folder) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Folder" Type="Microsoft.Office.Interop.Outlook.MAPIFolder" />
+      </Parameters>
+      <Docs>
+        <param name="Folder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendAndReceive">
+      <MemberSignature Language="C#" Value="public abstract void SendAndReceive (bool showProgressDialog);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SendAndReceive(bool showProgressDialog) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="showProgressDialog" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="showProgressDialog">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Session">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.NameSpace Session { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.NameSpace Session" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.NameSpace</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Stores">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.Stores Stores { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.Stores Stores" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.Stores</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SyncObjects">
+      <MemberSignature Language="C#" Value="public abstract Microsoft.Office.Interop.Outlook.SyncObjects SyncObjects { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Interop.Outlook.SyncObjects SyncObjects" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.SyncObjects</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public abstract string Type { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

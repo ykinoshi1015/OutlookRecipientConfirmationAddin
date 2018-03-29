@@ -1,0 +1,29 @@
+<Type Name="IAddInExtension" FullName="Microsoft.Office.Tools.IAddInExtension">
+  <TypeSignature Language="C#" Value="public interface IAddInExtension : Microsoft.Office.Tools.EntryPoint, Microsoft.Office.Tools.IExtension" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IAddInExtension implements class Microsoft.Office.Tools.EntryPoint, class Microsoft.Office.Tools.IExtension" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.EntryPoint</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.IExtension</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("6fc8ca93-840b-46d7-a108-71cbdf411669")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

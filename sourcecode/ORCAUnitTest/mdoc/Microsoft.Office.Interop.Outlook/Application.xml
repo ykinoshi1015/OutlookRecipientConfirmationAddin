@@ -1,0 +1,32 @@
+<Type Name="Application" FullName="Microsoft.Office.Interop.Outlook.Application">
+  <TypeSignature Language="C#" Value="public interface Application : Microsoft.Office.Interop.Outlook._Application, Microsoft.Office.Interop.Outlook.ApplicationEvents_11_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Application implements class Microsoft.Office.Interop.Outlook._Application, class Microsoft.Office.Interop.Outlook.ApplicationEvents_11_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook._Application</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook.ApplicationEvents_11_Event</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.CoClass(typeof(System.Object))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("00063001-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>
