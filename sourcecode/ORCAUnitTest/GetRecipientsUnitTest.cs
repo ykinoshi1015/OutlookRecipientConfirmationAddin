@@ -108,6 +108,18 @@ namespace ORCAUnitTest
             testNs.CreateRecipient(Arg.Any<string>()).Returns(testRec);
             testApp.Session.Returns(testNs);
 
+            // ------------------------------------------------------------------------------------------------
+            // このクラスを単独で実行する場合
+            // ------------------------------------------------------------------------------------------------
+
+            //// Globalsのタイプと、ThisAddInプロパティを取得
+            //Type typeGlobal = mod.GetType("OutlookRecipientConfirmationAddin.Globals");
+            //PropertyInfo testProp = typeGlobal.GetProperty("ThisAddIn", BindingFlags.NonPublic | BindingFlags.Static);
+            //// ThisAddinプロパティに、モックなどを使って作った値をセットする
+            //testProp.SetValue(null, testAddIn);
+
+            // ------------------------------------------------------------------------------------------------
+
             // テスト対象のクラス（Utility）のタイプを取得
             Type type = mod.GetType("OutlookRecipientConfirmationAddin.Utility");
             // インスタンスを生成し、メソッドにアクセスできるようにする
