@@ -74,23 +74,40 @@ namespace OutlookRecipientConfirmationAddin
                 }
 
                 /// 宛先タイプごとにリストに追加
-                switch (recipient.recipientType)
+                if (_type == Utility.OutlookItemType.Task)
                 {
-                    case Outlook.OlMailRecipientType.olOriginator:
-                        originator = formattedRecipient;
-                        break;
+                    switch (recipient.recipientType)
+                    {
+                        case Outlook.OlMailRecipientType.olOriginator:
+                            originator = formattedRecipient;
+                            break;
 
-                    case Outlook.OlMailRecipientType.olTo:
-                        toList.Add(formattedRecipient);
-                        break;
+                        default:
+                            /// Taskの場合、すべて宛先として扱う
+                            toList.Add(formattedRecipient);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (recipient.recipientType)
+                    {
+                        case Outlook.OlMailRecipientType.olOriginator:
+                            originator = formattedRecipient;
+                            break;
 
-                    case Outlook.OlMailRecipientType.olCC:
-                        ccList.Add(formattedRecipient);
-                        break;
+                        case Outlook.OlMailRecipientType.olTo:
+                            toList.Add(formattedRecipient);
+                            break;
 
-                    case Outlook.OlMailRecipientType.olBCC:
-                        bccList.Add(formattedRecipient);
-                        break;
+                        case Outlook.OlMailRecipientType.olCC:
+                            ccList.Add(formattedRecipient);
+                            break;
+
+                        case Outlook.OlMailRecipientType.olBCC:
+                            bccList.Add(formattedRecipient);
+                            break;
+                    }
                 }
             }
 
@@ -113,6 +130,7 @@ namespace OutlookRecipientConfirmationAddin
                     break;
 
                 case Utility.OutlookItemType.Report:
+                case Utility.OutlookItemType.Task:
                     firstHeader = "宛先";
                     break;
             }
@@ -127,6 +145,7 @@ namespace OutlookRecipientConfirmationAddin
                 textBox1.Text += recipient + "\r\n";
             }
 
+            // ReportItemとTaskはCC/BCCが設定できないので、宛先だけ表示すればOK
             if (_type != Utility.OutlookItemType.Report)
             {
                 textBox1.AppendText("\r\n");
