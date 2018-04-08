@@ -20,6 +20,9 @@ namespace OutlookRecipientConfirmationAddin
         
         private const string RECIPIENT_HEADER = "■------------ {0}: {1}件 ------------■\r\n";
 
+        private Graphics _measureGraphics;
+        private System.Drawing.Font _measureFont;
+
         private RecipientCommonWindow()
         {
             InitializeComponent();
@@ -30,6 +33,9 @@ namespace OutlookRecipientConfirmationAddin
             InitializeComponent();
             _type = type;
             _recipientsList = recipients;
+
+            _measureFont = textBox1.Font;
+            _measureGraphics = textBox1.CreateGraphics();
         }
 
         /// <summary>
@@ -41,7 +47,7 @@ namespace OutlookRecipientConfirmationAddin
         {
         }
 
-        public void RecipientCommonWindow_format()
+        protected void RecipientCommonWindow_format()
         {
             /// フォーマッティングした宛先と、それを入れるリスト
             string formattedRecipient;
@@ -49,6 +55,8 @@ namespace OutlookRecipientConfirmationAddin
             List<string> toList = new List<string>();
             List<string> ccList = new List<string>();
             List<string> bccList = new List<string>();
+
+            float maxWidth = GetNameAndJobTitleMaxWidth(_recipientsList);
 
             /// 宛先をフォーマッティングする
             foreach (var recipient in _recipientsList)
@@ -58,7 +66,8 @@ namespace OutlookRecipientConfirmationAddin
                     /// Exchangeアドレス帳で受信者の情報が見つかった場合（名前、所属情報を表示）
                     if (recipient.division != null)
                     {
-                        formattedRecipient = string.Format("{0} {1} ({2}【{3}】)", recipient.fullName, recipient.jobTitle, recipient.division, recipient.companyName);
+                        string nameAndJob = string.Format("{0} {1} ", recipient.fullName, recipient.jobTitle);
+                        formattedRecipient = string.Format("{0}({1}【{2}】)", PaddingRight(nameAndJob, maxWidth), recipient.division, recipient.companyName);
                     }
                     /// グループ名のみを表示
                     else
@@ -171,6 +180,44 @@ namespace OutlookRecipientConfirmationAddin
 
         }
 
+        private float GetNameAndJobTitleMaxWidth(List<RecipientInformationDto> recipients)
+        {
+            string maxNameJob = "";
+            float maxWidth = 0;
+
+            foreach (RecipientInformationDto recipient in recipients)
+            {
+                string name_job = string.Format("{0} {1} ", recipient.fullName, recipient.jobTitle);
+                float width = TextRenderer.MeasureText(_measureGraphics, name_job, _measureFont).Width;
+                if (width >= maxWidth)
+                {
+                    maxNameJob = name_job;
+                    maxWidth = width;
+                }
+            }
+            return maxWidth;
+        }
+
+        private string PaddingRight(string src, float paddingWidth)
+        {
+            string paddingString;
+            StringBuilder builder = new StringBuilder();
+            builder.Append(src);
+
+            while(true)
+            {
+                paddingString = builder.ToString();
+                float width = TextRenderer.MeasureText(_measureGraphics, paddingString, _measureFont).Width;
+                if (width < paddingWidth)
+                {
+                    builder.Append(' ');
+                    continue;
+                }
+                break;
+            }
+            return paddingString;
+        }
+
         /// <summary>
         ///  「GitHub」のリンクが押された場合
         /// </summary>
@@ -179,6 +226,11 @@ namespace OutlookRecipientConfirmationAddin
         public void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/ykinoshi1015/OutlookRecipientConfirmationAddin");
+        }
+
+        private void RecipientCommonWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _measureGraphics.Dispose();
         }
     }
 }
