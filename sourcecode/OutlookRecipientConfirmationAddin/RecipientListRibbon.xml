@@ -20,8 +20,7 @@
       <!--新ウィンドウでメールを編集する時のメッセージタブにボタン設置-->
       <tab idMso="TabNewMailMessage">
         <group id="RecipientList2" label="宛先リスト" autoScale="true">
-          <button id="RecipientListButton2" label="宛先確認" imageMso="ContactProperties" size="large"
-                  onAction="RecipientListButton_Click"/>
+          <button id="RecipientListButton2" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
         </group>
       </tab>  
 
@@ -39,20 +38,32 @@
       <!--新ウィンドウでメールを編集する時のメッセージタブにボタン設置-->
       <tab idMso="TabAppointment">
         <group id="RecipientList4" label="宛先リスト" autoScale="true">
-          <button id="RecipientListButton4" label="宛先確認" imageMso="ContactProperties" size="large"
-                  onAction="RecipientListButton_Click"/>
+          <button id="RecipientListButton4" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
         </group>
       </tab>
 
+      <!--タスク割り当て時のタスクタブにボタン設置-->
+<!--      <tab idMso="TabTask">
+        <group id="RecipientList5" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton5" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
+        </group>
+      </tab>
+-->      
+      <tab idMso="TabTask">
+        <group id="RecipientList5" label="宛先リスト" autoScale="true">
+          <button id="RecipientListButton5" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
+        </group>
+      </tab>
+      
+      
     </tabs>
 
     <!--作成ツールのメッセージタブにボタン設置-->
     <contextualTabs>
       <tabSet idMso="TabComposeTools">
         <tab idMso="TabMessage">
-          <group id="RecipientList5" label="宛先リスト" autoScale="true">
-            <button id="RecipientListButton5" label="宛先確認" imageMso="ContactProperties" size="large"
-                    onAction="RecipientListButton_Click"/>
+          <group id="RecipientList6" label="宛先リスト" autoScale="true">
+            <button id="RecipientListButton6" label="宛先確認" imageMso="ContactProperties" size="large" onAction="RecipientListButton_Click"/>
           </group>
         </tab>
       </tabSet>
