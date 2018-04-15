@@ -88,15 +88,7 @@ namespace OutlookRecipientConfirmationAddin
                 Cursor.Current = Cursors.Default;
 
                 // 引数に宛先情報を渡し、宛先表示画面を表示する
-                RecipientCommonWindow recipientWindow;
-                if (itemType == Utility.OutlookItemType.Task)
-                {
-                    recipientWindow = new RecipientListWindow(itemType, recipientList);
-                }
-                else
-                {
-                    recipientWindow = new RecipientConfirmationWindow(itemType, recipientList);
-                }
+                RecipientCommonWindow  recipientWindow = new RecipientConfirmationWindow(itemType, recipientList);
                 DialogResult result = recipientWindow.ShowDialog();
 
                 // 画面でOK以外が選択された場合
