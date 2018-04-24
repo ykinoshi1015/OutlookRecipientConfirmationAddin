@@ -17,7 +17,7 @@ namespace OutlookRecipientConfirmationAddin
         /// </summary>
         /// <param name="addressList">メールのTO, CC, BCC</param> 
         /// <returns> 検索した宛先情報のリスト</returns>
-        public List<RecipientInformationDto> SearchContact(List<Recipient> recipientsList)
+        public List<RecipientInformationDto> SearchContact(List<Recipient> recipientsList, Utility.OutlookItemType itemType)
         {
 
             /// 検索結果の宛先情報のリスト
@@ -44,7 +44,12 @@ namespace OutlookRecipientConfirmationAddin
                         {
                             string jobTitle = Utility.FormatJobTitle(contactItem.JobTitle);
 
-                            recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, (OlMailRecipientType)recipient.Type);
+                            // TaskRequstResponseは強制的にToにする
+                            OlMailRecipientType recipientType = itemType != Utility.OutlookItemType.TaskRequestResponse ?
+                                                                    (OlMailRecipientType)recipient.Type :
+                                                                    OlMailRecipientType.olTo;
+
+                            recipientInformation = new RecipientInformationDto(contactItem.FullName, contactItem.Department, contactItem.CompanyName, jobTitle, recipientType);
                             break;
                         }
                     }
