@@ -127,7 +127,7 @@ namespace OutlookRecipientConfirmationAddin
 
             /// 検索し、受信者の宛先情報リストが戻ってくる
             SearchRecipient searchRecipient = new SearchRecipient();
-            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
+            List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList, itemType);
 
             /// 送信者のExchangeUserオブジェクトを取得
             senderInformation = Utility.GetSenderInfomation(activeItem);

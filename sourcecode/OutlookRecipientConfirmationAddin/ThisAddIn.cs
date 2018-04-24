@@ -66,14 +66,15 @@ namespace OutlookRecipientConfirmationAddin
                 recipientsList = Utility.GetRecipients(Item, ref itemType, true);
 
                 // 会議の招待に対する返事の場合、宛先表示しない
-                if (itemType == Utility.OutlookItemType.MeetingResponse)
+                if (itemType == Utility.OutlookItemType.MeetingResponse ||
+                    recipientsList == null)
                 {
                     return;
                 }
 
                 // 宛先情報のリストを取得
                 SearchRecipient searchRecipient = new SearchRecipient();
-                List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList);
+                List<RecipientInformationDto> recipientList = searchRecipient.SearchContact(recipientsList, itemType);
 
                 // 送信者のExchangeUserオブジェクトを取得
                 RecipientInformationDto senderInformation = null;

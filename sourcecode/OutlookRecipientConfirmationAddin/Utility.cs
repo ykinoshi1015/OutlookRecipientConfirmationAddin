@@ -15,7 +15,7 @@ namespace OutlookRecipientConfirmationAddin
     public class Utility
     {
         // アイテムの種類
-        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing, Report, Task };
+        public enum OutlookItemType { Mail, Meeting, Appointment, MeetingResponse, Sharing, Report, Task, TaskRequestResponse };
 
         private const string TANTOU = "担当";
 
@@ -86,27 +86,31 @@ namespace OutlookRecipientConfirmationAddin
             }
             else if (Item is Outlook.TaskItem)
             {
-                type = OutlookItemType.Task;
-                Outlook.TaskItem task = Item as Outlook.TaskItem;
-                return GetRecipientList(task);
+                return null;
+                //type = OutlookItemType.Task;
+                //Outlook.TaskItem task = Item as Outlook.TaskItem;
+                //return GetRecipientList(task);
             }
             else if (Item is Outlook.TaskRequestItem)
             {
-                type = OutlookItemType.Task;
-                Outlook.TaskRequestItem taskRequest = Item as Outlook.TaskRequestItem;
-                return GetRecipientList(taskRequest);
+                return null;
+                //type = OutlookItemType.Task;
+                //Outlook.TaskRequestItem taskRequest = Item as Outlook.TaskRequestItem;
+                //return GetRecipientList(taskRequest);
             }
             else if (Item is Outlook.TaskRequestAcceptItem)
             {
-                type = OutlookItemType.Task;
-                Outlook.TaskRequestAcceptItem taskRequestAccept = Item as Outlook.TaskRequestAcceptItem;
-                return GetRecipientList(taskRequestAccept);
+                return null;
+                //type = OutlookItemType.TaskRequestResponse;
+                //Outlook.TaskRequestAcceptItem taskRequestAccept = Item as Outlook.TaskRequestAcceptItem;
+                //return GetRecipientList(taskRequestAccept);
             }
             else if (Item is Outlook.TaskRequestDeclineItem)
             {
-                type = OutlookItemType.Task;
-                Outlook.TaskRequestDeclineItem taskRequestDecline = Item as Outlook.TaskRequestDeclineItem;
-                return GetRecipientList(taskRequestDecline);
+                return null;
+                //type = OutlookItemType.TaskRequestResponse;
+                //Outlook.TaskRequestDeclineItem taskRequestDecline = Item as Outlook.TaskRequestDeclineItem;
+                //return GetRecipientList(taskRequestDecline);
             }
 
             throw new NotSupportedException("未対応のOutlook機能です。");
@@ -262,6 +266,24 @@ namespace OutlookRecipientConfirmationAddin
             Outlook.Recipients recipients = task.Recipients;
             List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
 
+            if (recipients.Count == 0)
+            {
+                //ReportItemのままだと送信先が取れないため、
+                //いったんIPM.Noteとして別名保存⇒ロードしてからRecipientsを取得する
+                Outlook.TaskRequestItem copiedItem = item.Copy();
+                copiedItem.MessageClass = "IPM.Note";
+                copiedItem.Save();
+
+                //IPM.Noteとして保存してからロードするとMailItemとして扱えるようになる
+                var newReportItem = Globals.ThisAddIn.Application.Session.GetItemFromID(copiedItem.EntryID);
+                Outlook.MailItem newMailItem = newReportItem as Outlook.MailItem;
+
+                recipientsList = GetRecipientList(newMailItem);
+
+                copiedItem.Delete();
+                return recipientsList;
+            }
+
             if (IsSendTaskRequest(task))
             {
                 //これから送信するTaskRequestItem
@@ -286,19 +308,10 @@ namespace OutlookRecipientConfirmationAddin
         /// <returns>List<Outlook.Recipient></returns>
         private static List<Outlook.Recipient> GetRecipientList(Outlook.TaskRequestAcceptItem item)
         {
-            Outlook.TaskItem task = item.GetAssociatedTask(false);
-            Outlook.Recipients recipients = task.Recipients;
-
-            List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            for (int i = 1; i <= recipients.Count; i++)
-            {
-                //なぜか同じ宛先なのにType1/2/3の３つに分かれているので、とりあえずToのヤツだけ表示する
-                if (recipients[i].Type == (int)Outlook.OlMailRecipientType.olTo)
-                {
-                    recipientsList.Add(recipients[i]);
-                }
-            }
-            return recipientsList;
+            //相手からの承認メールなので、必ず自分宛という想定
+            List<Outlook.Recipient> recipientList = new List<Outlook.Recipient>();
+            recipientList.Add(Globals.ThisAddIn.Application.Session.CurrentUser);
+            return recipientList;
         }
 
         /// <summary>
@@ -308,19 +321,10 @@ namespace OutlookRecipientConfirmationAddin
         /// <returns>List<Outlook.Recipient></returns>
         private static List<Outlook.Recipient> GetRecipientList(Outlook.TaskRequestDeclineItem item)
         {
-            Outlook.TaskItem task = item.GetAssociatedTask(false);
-            Outlook.Recipients recipients = task.Recipients;
-
-            List<Outlook.Recipient> recipientsList = new List<Outlook.Recipient>();
-            for (int i = 1; i <= recipients.Count; i++)
-            {
-                //なぜか同じ宛先なのにType1/2/3の３つに分かれているので、とりあえずToのヤツだけ表示する
-                if (recipients[i].Type == (int)Outlook.OlMailRecipientType.olTo)
-                {
-                    recipientsList.Add(recipients[i]);
-                }
-            }
-            return recipientsList;
+            //相手からの辞退メールなので、必ず自分宛という想定
+            List<Outlook.Recipient> recipientList = new List<Outlook.Recipient>();
+            recipientList.Add(Globals.ThisAddIn.Application.Session.CurrentUser);
+            return recipientList;
         }
         #endregion
 
@@ -366,10 +370,17 @@ namespace OutlookRecipientConfirmationAddin
                 Outlook.TaskRequestItem taskRequest = Item as Outlook.TaskRequestItem;
                 return GetSenderInformation(taskRequest);
             }
-            else if (Item is Outlook.TaskRequestAcceptItem ||
-                     Item is Outlook.TaskRequestDeclineItem)
+            else if (Item is Outlook.TaskRequestAcceptItem)
             {
-                return GetCurrentUserInformation();
+                Outlook.TaskRequestAcceptItem taskRequestAcceptItem = Item as Outlook.TaskRequestAcceptItem;
+                string mailHeader = GetMailHeader(taskRequestAcceptItem.PropertyAccessor);
+                return GetSenderInformationFromMailHeader(mailHeader);
+            }
+            else if (Item is Outlook.TaskRequestDeclineItem)
+            {
+                Outlook.TaskRequestDeclineItem taskRequestDeclineItem = Item as Outlook.TaskRequestDeclineItem;
+                string mailHeader = GetMailHeader(taskRequestDeclineItem.PropertyAccessor);
+                return GetSenderInformationFromMailHeader(mailHeader);
             }
             else
             {
@@ -924,6 +935,107 @@ namespace OutlookRecipientConfirmationAddin
                 return true;
             }
         }
-        
+
+        public static string GetMailHeader(Outlook.PropertyAccessor prop)
+        {
+            const string PR_TRANSPORT_MESSAGE_HEADERS = "http://schemas.microsoft.com/mapi/proptag/0x007D001E";
+            string headerString = (string)prop.GetProperty(PR_TRANSPORT_MESSAGE_HEADERS);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(prop);
+
+            return headerString;
+        }
+
+        public static RecipientInformationDto GetSenderInformationFromMailHeader(string MailHeader)
+        {
+            string[] headerStrings = MailHeader.Replace("\r\n", "\n").Split('\n');
+
+            for (int i=0; i<headerStrings.Length; i++)
+            {
+                string[] headerItems = headerStrings[i].Split(':');
+                if (headerItems[0].CompareTo("From") != 0)
+                {
+                    continue;
+                }
+                //『From』には以下のように入っている
+                //From: =?utf-8?B?TmFrYW5pc2hpIFl1bmEgKOS4reilvyDmgqDoj5wp?=
+                //\t < yuna.nakanishi@jp.ricoh.com >
+
+                //表示名を取得
+                string[] froms = headerItems[1].Split('?');
+                byte[] fromBytes = Convert.FromBase64String(froms[3]);
+                string fromName = Encoding.UTF8.GetString(fromBytes);
+
+                Outlook.Recipient recipient = Globals.ThisAddIn.Application.Session.CreateRecipient(fromName);
+
+                string fromAddress = null;
+                if (recipient == null)
+                {
+                    //メールアドレスを取得
+                    System.Text.RegularExpressions.Regex pattern = new System.Text.RegularExpressions.Regex(@".+\<(.+)\>");
+                    System.Text.RegularExpressions.Match match = pattern.Match(headerStrings[i + 1]);
+                    if (match.Success)
+                    {
+                        string detail = match.Groups[1].Value;
+                        if (IsEmailAddress(detail))
+                        {
+                            fromAddress = detail;
+                            recipient = Globals.ThisAddIn.Application.Session.CreateRecipient(fromAddress);
+                        }
+                    }
+                }
+
+                if (recipient != null)
+                {
+                    Outlook.ExchangeUser exchUser = recipient.AddressEntry.GetExchangeUser();
+                    if (exchUser != null)
+                    {
+                        return new RecipientInformationDto(exchUser.Name,
+                                                           exchUser.Department,
+                                                           exchUser.CompanyName,
+                                                           FormatJobTitle(exchUser.JobTitle),
+                                                           Outlook.OlMailRecipientType.olOriginator);
+
+                    }
+
+                    Outlook.ContactItem contactItem = recipient.AddressEntry.GetContact();
+                    if (contactItem != null)
+                    {
+                        new RecipientInformationDto(contactItem.FullName,
+                                                    contactItem.Department,
+                                                    contactItem.CompanyName,
+                                                    FormatJobTitle(contactItem.JobTitle),
+                                                    Outlook.OlMailRecipientType.olOriginator);
+                    }
+
+                    string displayName;
+                    if (!Utility.IsEmailAddress(recipient.Name))
+                        displayName = GetDisplayNameAndAddress(recipient);
+                    else if (recipient.AddressEntry != null)
+                        displayName = FormatDisplayNameAndAddress(recipient.AddressEntry.Name, recipient.AddressEntry.Address);
+                    else if (recipient != null)
+                        displayName = recipient.Name;
+                    else
+                        displayName = "※取得できませんでした";
+
+                    return new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
+
+                }
+                else
+                {
+                    string displayName;
+                    if (fromName != null && fromAddress != null)
+                        displayName = FormatDisplayNameAndAddress(fromName, fromAddress);
+                    else if (fromName != null)
+                        displayName = fromName;
+                    else if (fromAddress != null)
+                        displayName = fromAddress;
+                    else
+                        displayName = "※取得できませんでした";
+
+                    return new RecipientInformationDto(displayName, Outlook.OlMailRecipientType.olOriginator);
+                }
+            }
+            return new RecipientInformationDto("※取得できませんでした", Outlook.OlMailRecipientType.olOriginator);
+        }
     }
 }
