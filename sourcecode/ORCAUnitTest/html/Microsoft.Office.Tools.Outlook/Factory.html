@@ -1,0 +1,528 @@
+<html>
+  <head>
+    <title>Microsoft.Office.Tools.Outlook.Factory</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ORCAUnitTest</a> : <a href="index.html">Microsoft.Office.Tools.Outlook Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:Microsoft.Office.Tools.Outlook.Factory">Overview</a>
+      </p>
+      <p>
+        <a href="#T:Microsoft.Office.Tools.Outlook.Factory:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:Microsoft.Office.Tools.Outlook.Factory:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:Microsoft.Office.Tools.Outlook.Factory:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:Microsoft.Office.Tools.Outlook.Factory">Factory  Interface</h1>
+    <p class="Summary" id="T:Microsoft.Office.Tools.Outlook.Factory:Summary">
+      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+    </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:Microsoft.Office.Tools.Outlook.Factory:Signature">[System.Runtime.InteropServices.Guid("787FA642-2A27-4626-84A9-EED0B47FA4A6")]<br />[System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)]<br />[System.Runtime.InteropServices.TypeIdentifier]<br />public interface  <b>Factory</b> : <a href="../Microsoft.Office.Tools/Factory.html">Microsoft.Office.Tools.Factory</a></div>
+    </div>
+    <div class="Remarks" id="T:Microsoft.Office.Tools.Outlook.Factory:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:Microsoft.Office.Tools.Outlook.Factory:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:Microsoft.Office.Tools.Outlook.Factory:Docs:Version Information">
+        <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection()">CreateFormRegionCollection</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IFormRegion&gt;</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension)">CreateFormRegionControl</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/FormRegion.html">Microsoft.Office.Interop.Outlook.FormRegion</a>, <a href="../Microsoft.Office.Tools/IExtension.html">Microsoft.Office.Tools.IExtension</a>)<nobr> : <a href="../Microsoft.Office.Tools.Outlook/FormRegionControl.html">FormRegionControl</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction()">CreateFormRegionCustomAction</a>
+                  </b>()<nobr> : <a href="../Microsoft.Office.Tools.Outlook/FormRegionCustomAction.html">FormRegionCustomAction</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String)">CreateFormRegionCustomAction</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../Microsoft.Office.Tools.Outlook/FormRegionCustomAction.html">FormRegionCustomAction</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean)">CreateFormRegionInitializingEventArgs</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>, <a href="../Microsoft.Office.Interop.Outlook/OlFormRegionMode.html">Microsoft.Office.Interop.Outlook.OlFormRegionMode</a>, <a href="../Microsoft.Office.Interop.Outlook/OlFormRegionSize.html">Microsoft.Office.Interop.Outlook.OlFormRegionSize</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<nobr> : <a href="../Microsoft.Office.Tools.Outlook/FormRegionInitializingEventArgs.html">FormRegionInitializingEventArgs</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest()">CreateFormRegionManifest</a>
+                  </b>()<nobr> : <a href="../Microsoft.Office.Tools.Outlook/FormRegionManifest.html">FormRegionManifest</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension)">CreateImportedFormRegion</a>
+                  </b>(<a href="../Microsoft.Office.Interop.Outlook/FormRegion.html">Microsoft.Office.Interop.Outlook.FormRegion</a>, <a href="../Microsoft.Office.Tools.Outlook/IImportedFormRegionExtension.html">IImportedFormRegionExtension</a>)<nobr> : <a href="../Microsoft.Office.Tools.Outlook/ImportedFormRegion.html">ImportedFormRegion</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:Microsoft.Office.Tools.Outlook.Factory:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection()">CreateFormRegionCollection Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IFormRegion&gt;</a> <b>CreateFormRegionCollection</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCollection():Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension)">CreateFormRegionControl Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/FormRegionControl.html">FormRegionControl</a> <b>CreateFormRegionControl</b> (<a href="../Microsoft.Office.Interop.Outlook/FormRegion.html">Microsoft.Office.Interop.Outlook.FormRegion</a> region, <a href="../Microsoft.Office.Tools/IExtension.html">Microsoft.Office.Tools.IExtension</a> extension)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension):Parameters">
+            <dl>
+              <dt>
+                <i>region</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>extension</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionControl(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.IExtension):Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction()">CreateFormRegionCustomAction Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/FormRegionCustomAction.html">FormRegionCustomAction</a> <b>CreateFormRegionCustomAction</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction():Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String)">CreateFormRegionCustomAction Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/FormRegionCustomAction.html">FormRegionCustomAction</a> <b>CreateFormRegionCustomAction</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionCustomAction(System.String):Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean)">CreateFormRegionInitializingEventArgs Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/FormRegionInitializingEventArgs.html">FormRegionInitializingEventArgs</a> <b>CreateFormRegionInitializingEventArgs</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> outlookItem, <a href="../Microsoft.Office.Interop.Outlook/OlFormRegionMode.html">Microsoft.Office.Interop.Outlook.OlFormRegionMode</a> formRegionMode, <a href="../Microsoft.Office.Interop.Outlook/OlFormRegionSize.html">Microsoft.Office.Interop.Outlook.OlFormRegionSize</a> formRegionSize, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> cancel)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean):Parameters">
+            <dl>
+              <dt>
+                <i>outlookItem</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>formRegionMode</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>formRegionSize</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>cancel</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionInitializingEventArgs(System.Object,Microsoft.Office.Interop.Outlook.OlFormRegionMode,Microsoft.Office.Interop.Outlook.OlFormRegionSize,System.Boolean):Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest()">CreateFormRegionManifest Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest():member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/FormRegionManifest.html">FormRegionManifest</a> <b>CreateFormRegionManifest</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateFormRegionManifest():Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension)">CreateImportedFormRegion Method</h3>
+        <blockquote id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension):member">
+          <div class="msummary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../Microsoft.Office.Tools.Outlook/ImportedFormRegion.html">ImportedFormRegion</a> <b>CreateImportedFormRegion</b> (<a href="../Microsoft.Office.Interop.Outlook/FormRegion.html">Microsoft.Office.Interop.Outlook.FormRegion</a> region, <a href="../Microsoft.Office.Tools.Outlook/IImportedFormRegionExtension.html">IImportedFormRegionExtension</a> extension)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension):Parameters">
+            <dl>
+              <dt>
+                <i>region</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>extension</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Microsoft.Office.Tools.Outlook.Factory.CreateImportedFormRegion(Microsoft.Office.Interop.Outlook.FormRegion,Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension):Version Information">
+            <b>Namespace: </b>Microsoft.Office.Tools.Outlook<br /><b>Assembly: </b>ORCAUnitTest (in ORCAUnitTest.dll)<br /><b>Assembly Versions: </b>1.0.0.0</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

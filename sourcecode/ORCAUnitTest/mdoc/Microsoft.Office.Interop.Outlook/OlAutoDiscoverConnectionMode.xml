@@ -1,0 +1,78 @@
+<Type Name="OlAutoDiscoverConnectionMode" FullName="Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode">
+  <TypeSignature Language="C#" Value="public enum OlAutoDiscoverConnectionMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed OlAutoDiscoverConnectionMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="olAutoDiscoverConnectionExternal">
+      <MemberSignature Language="C#" Value="olAutoDiscoverConnectionExternal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode olAutoDiscoverConnectionExternal = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="olAutoDiscoverConnectionInternal">
+      <MemberSignature Language="C#" Value="olAutoDiscoverConnectionInternal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode olAutoDiscoverConnectionInternal = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="olAutoDiscoverConnectionInternalDomain">
+      <MemberSignature Language="C#" Value="olAutoDiscoverConnectionInternalDomain" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode olAutoDiscoverConnectionInternalDomain = int32(3)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="olAutoDiscoverConnectionUnknown">
+      <MemberSignature Language="C#" Value="olAutoDiscoverConnectionUnknown" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode olAutoDiscoverConnectionUnknown = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Interop.Outlook.OlAutoDiscoverConnectionMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

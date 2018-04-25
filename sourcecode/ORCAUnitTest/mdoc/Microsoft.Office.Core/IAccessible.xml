@@ -1,0 +1,22 @@
+<Type Name="IAccessible" FullName="Microsoft.Office.Core.IAccessible">
+  <TypeSignature Language="C#" Value="public interface IAccessible" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IAccessible" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("618736E0-3C3D-11CF-810C-00AA00389B71")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

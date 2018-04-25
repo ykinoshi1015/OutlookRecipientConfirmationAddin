@@ -1,0 +1,29 @@
+<Type Name="CustomTaskPaneCollection" FullName="Microsoft.Office.Tools.CustomTaskPaneCollection">
+  <TypeSignature Language="C#" Value="public interface CustomTaskPaneCollection : IDisposable, System.Collections.Generic.IEnumerable&lt;Microsoft.Office.Tools.CustomTaskPane&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract CustomTaskPaneCollection implements class System.Collections.Generic.IEnumerable`1&lt;class Microsoft.Office.Tools.CustomTaskPane&gt;, class System.Collections.IEnumerable, class System.IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IEnumerable&lt;Microsoft.Office.Tools.CustomTaskPane&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("c3a84bf1-e95b-4d23-952d-59e35673958e")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

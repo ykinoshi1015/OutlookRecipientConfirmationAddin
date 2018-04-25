@@ -72,6 +72,7 @@
             this.Name = "RecipientCommonWindow";
             this.Text = "RecipientCommonWindow";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RecipientCommonWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

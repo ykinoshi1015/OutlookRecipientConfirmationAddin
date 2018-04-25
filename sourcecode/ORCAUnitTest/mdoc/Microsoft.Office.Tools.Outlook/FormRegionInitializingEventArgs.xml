@@ -1,0 +1,22 @@
+<Type Name="FormRegionInitializingEventArgs" FullName="Microsoft.Office.Tools.Outlook.FormRegionInitializingEventArgs">
+  <TypeSignature Language="C#" Value="public interface FormRegionInitializingEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract FormRegionInitializingEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("73b891d8-9b79-467c-ae65-c8afd4abe8b0")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

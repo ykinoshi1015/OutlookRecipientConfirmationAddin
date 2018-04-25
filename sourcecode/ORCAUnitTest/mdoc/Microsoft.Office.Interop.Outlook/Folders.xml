@@ -1,0 +1,32 @@
+<Type Name="Folders" FullName="Microsoft.Office.Interop.Outlook.Folders">
+  <TypeSignature Language="C#" Value="public interface Folders : Microsoft.Office.Interop.Outlook._Folders, Microsoft.Office.Interop.Outlook.FoldersEvents_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Folders implements class Microsoft.Office.Interop.Outlook._Folders, class Microsoft.Office.Interop.Outlook.FoldersEvents_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook._Folders</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook.FoldersEvents_Event</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.CoClass(typeof(System.Object))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("00063040-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

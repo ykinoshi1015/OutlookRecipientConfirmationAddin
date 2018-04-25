@@ -1,0 +1,22 @@
+<Type Name="IAssistance" FullName="Microsoft.Office.Core.IAssistance">
+  <TypeSignature Language="C#" Value="public interface IAssistance" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IAssistance" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("4291224C-DEFE-485B-8E69-6CF8AA85CB76")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

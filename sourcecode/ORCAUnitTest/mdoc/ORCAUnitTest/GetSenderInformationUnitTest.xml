@@ -1,0 +1,549 @@
+<Type Name="GetSenderInformationUnitTest" FullName="ORCAUnitTest.GetSenderInformationUnitTest">
+  <TypeSignature Language="C#" Value="public class GetSenderInformationUnitTest" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GetSenderInformationUnitTest extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>NUnit.Framework.TestFixture</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Utilityクラス GetSenderInformationメソッドのテストクラス
+            </summary>
+    <remarks>
+            アイテムから、送信者情報を取得するメソッドの単体テストコード
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GetSenderInformationUnitTest ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoAppointTest1">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoAppointTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoAppointTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoAppointTest2">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoAppointTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoAppointTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoAppointTest3">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoAppointTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoAppointTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoAppointTest4">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoAppointTest4 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoAppointTest4() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、AppointmentItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>(現在のユーザの AddressEntryが取得できない)</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMailTest1">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMailTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMailTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティが取得できる）</para>
+          <para>（Senderプロパティから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMailTest2">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMailTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMailTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティが取得できる）</para>
+          <para>（Senderプロパティから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMailTest3">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMailTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMailTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティがnull）</para>
+          <para>（SenderEamilAddressプロパティから、ExchangeUserが取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが"部長"になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMailTest4">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMailTest4 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMailTest4() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティがnull）</para>
+          <para>（SenderEamilAddressプロパティはnullでないが、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMailTest5">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMailTest5 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMailTest5() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MailItemの場合</para>
+          <para>（Senderプロパティ/SenderEamilAddressプロパティから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMeetingTest1">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMeetingTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMeetingTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserも取得できる）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para> senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para> jobTitleが""になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMeetingTest2">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMeetingTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMeetingTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(例外が発生)）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para> senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMeetingTest3">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMeetingTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMeetingTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMeetingTest4">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMeetingTest4 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMeetingTest4() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+          <para>（RecipientのNameプロパティですでに「名前(メールアドレス)」の形式になっている）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoMeetingTest5">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoMeetingTest5 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoMeetingTest5() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryからExchangeUserが取得できない(ExchangeUserがnull)）</para>
+          <para>（表示用に"名前＜メールアドレス＞"の形式の文字列にする）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoReportTest1">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoReportTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoReportTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、ReportItemの場合</para>
+          <para>（Recipients[1]のExchangeUserが取得できない）</para>
+          <para>（現在のユーザの AddressEntryから、ExchangeUserが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoSharingTest1">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoSharingTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoSharingTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserも取得できる場合）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのfullName, division, companyName, recipientTypeが取得できる</para><para>jobTitleが""になる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoSharingTest2">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoSharingTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoSharingTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できる）</para>
+          <para>（送信者のAddressEntryから、ExchangeUserが取得できない場合）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoのrecipientTypeとemailAddressが取得できる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSenderInfoSharingTest3">
+      <MemberSignature Language="C#" Value="public void GetSenderInfoSharingTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetSenderInfoSharingTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、SharingItemの場合</para>
+          <para>（送信者のAddressEntryが取得できない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>senderInformationDtoがnull</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Init">
+      <MemberSignature Language="C#" Value="public void Init ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Init() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.OneTimeSetUp</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            テスト時に一度だけ実行される処理
+            </summary>
+        <remarks>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

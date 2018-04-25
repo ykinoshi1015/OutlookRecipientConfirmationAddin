@@ -1,0 +1,29 @@
+<Type Name="ItemEvents_10_ReplyEventHandler" FullName="Microsoft.Office.Interop.Outlook.ItemEvents_10_ReplyEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ItemEvents_10_ReplyEventHandler(object Response, out bool Cancel);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ItemEvents_10_ReplyEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ItemEvents_10_ReplyEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="Response" Type="System.Object" />
+    <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="Response">To be added.</param>
+    <param name="Cancel">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

@@ -1,0 +1,22 @@
+<Type Name="FormRegionFactoryResolveEventArgs" FullName="Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventArgs">
+  <TypeSignature Language="C#" Value="public interface FormRegionFactoryResolveEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract FormRegionFactoryResolveEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("110351bc-c296-43b2-98c9-762a826f34d3")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

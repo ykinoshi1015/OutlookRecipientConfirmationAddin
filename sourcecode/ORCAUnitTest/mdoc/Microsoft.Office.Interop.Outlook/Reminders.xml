@@ -1,0 +1,32 @@
+<Type Name="Reminders" FullName="Microsoft.Office.Interop.Outlook.Reminders">
+  <TypeSignature Language="C#" Value="public interface Reminders : Microsoft.Office.Interop.Outlook._Reminders, Microsoft.Office.Interop.Outlook.ReminderCollectionEvents_Event" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract Reminders implements class Microsoft.Office.Interop.Outlook._Reminders, class Microsoft.Office.Interop.Outlook.ReminderCollectionEvents_Event" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook._Reminders</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook.ReminderCollectionEvents_Event</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.CoClass(typeof(System.Object))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("000630B1-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

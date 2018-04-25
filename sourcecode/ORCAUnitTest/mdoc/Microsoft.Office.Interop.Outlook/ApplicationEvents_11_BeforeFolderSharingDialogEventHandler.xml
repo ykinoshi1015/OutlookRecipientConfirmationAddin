@@ -1,0 +1,29 @@
+<Type Name="ApplicationEvents_11_BeforeFolderSharingDialogEventHandler" FullName="Microsoft.Office.Interop.Outlook.ApplicationEvents_11_BeforeFolderSharingDialogEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ApplicationEvents_11_BeforeFolderSharingDialogEventHandler(MAPIFolder FolderToShare, out bool Cancel);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ApplicationEvents_11_BeforeFolderSharingDialogEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ApplicationEvents_11_BeforeFolderSharingDialogEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="FolderToShare" Type="Microsoft.Office.Interop.Outlook.MAPIFolder" />
+    <Parameter Name="Cancel" Type="System.Boolean&amp;" RefType="out" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="FolderToShare">To be added.</param>
+    <param name="Cancel">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

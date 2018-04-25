@@ -1,0 +1,112 @@
+<Type Name="OutlookAddIn" FullName="Microsoft.Office.Tools.Outlook.OutlookAddIn">
+  <TypeSignature Language="C#" Value="public interface OutlookAddIn : IDisposable, Microsoft.Office.Tools.AddIn, System.ComponentModel.IComponent, System.Windows.Forms.IBindableComponent" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract OutlookAddIn implements class Microsoft.Office.Tools.AddIn, class System.ComponentModel.IComponent, class System.IDisposable, class System.Windows.Forms.IBindableComponent" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.AddIn</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.ComponentModel.IComponent</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Windows.Forms.IBindableComponent</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("af8e9f42-f1c8-4a6c-8d64-d21168c8ad80")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="FormRegionFactoryResolve">
+      <MemberSignature Language="C#" Value="public event Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventHandler FormRegionFactoryResolve;" />
+      <MemberSignature Language="ILAsm" Value=".event class Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventHandler FormRegionFactoryResolve" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Tools.Outlook.FormRegionFactoryResolveEventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFormRegions">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IList`1&lt;class Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFormRegions">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions (Microsoft.Office.Interop.Outlook.Explorer explorer, Type customCollectionType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IList`1&lt;class Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions(class Microsoft.Office.Interop.Outlook.Explorer explorer, class System.Type customCollectionType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="explorer" Type="Microsoft.Office.Interop.Outlook.Explorer" />
+        <Parameter Name="customCollectionType" Type="System.Type" />
+      </Parameters>
+      <Docs>
+        <param name="explorer">To be added.</param>
+        <param name="customCollectionType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetFormRegions">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions (Microsoft.Office.Interop.Outlook.Inspector inspector, Type customCollectionType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IList`1&lt;class Microsoft.Office.Tools.Outlook.IFormRegion&gt; GetFormRegions(class Microsoft.Office.Interop.Outlook.Inspector inspector, class System.Type customCollectionType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Microsoft.Office.Tools.Outlook.IFormRegion&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="inspector" Type="Microsoft.Office.Interop.Outlook.Inspector" />
+        <Parameter Name="customCollectionType" Type="System.Type" />
+      </Parameters>
+      <Docs>
+        <param name="inspector">To be added.</param>
+        <param name="customCollectionType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,29 @@
+<Type Name="PropertyAccessor" FullName="Microsoft.Office.Interop.Outlook.PropertyAccessor">
+  <TypeSignature Language="C#" Value="public interface PropertyAccessor : Microsoft.Office.Interop.Outlook._PropertyAccessor" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract PropertyAccessor implements class Microsoft.Office.Interop.Outlook._PropertyAccessor" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Interop.Outlook._PropertyAccessor</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.CoClass(typeof(System.Object))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("0006302D-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

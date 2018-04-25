@@ -1,0 +1,26 @@
+<Type Name="FormRegionControl" FullName="Microsoft.Office.Tools.Outlook.FormRegionControl">
+  <TypeSignature Language="C#" Value="public interface FormRegionControl : IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract FormRegionControl implements class System.IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("78db499d-9c54-4fd3-9746-8b9ab0455df1")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

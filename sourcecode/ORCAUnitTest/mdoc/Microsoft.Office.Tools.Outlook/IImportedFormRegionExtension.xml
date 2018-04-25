@@ -1,0 +1,26 @@
+<Type Name="IImportedFormRegionExtension" FullName="Microsoft.Office.Tools.Outlook.IImportedFormRegionExtension">
+  <TypeSignature Language="C#" Value="public interface IImportedFormRegionExtension : Microsoft.Office.Tools.IExtension" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IImportedFormRegionExtension implements class Microsoft.Office.Tools.IExtension" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.IExtension</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("6AA517D6-29E3-4B02-98D7-CE59B916EAFC")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

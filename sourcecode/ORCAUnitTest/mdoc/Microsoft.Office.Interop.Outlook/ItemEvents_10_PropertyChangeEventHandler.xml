@@ -1,0 +1,27 @@
+<Type Name="ItemEvents_10_PropertyChangeEventHandler" FullName="Microsoft.Office.Interop.Outlook.ItemEvents_10_PropertyChangeEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ItemEvents_10_PropertyChangeEventHandler(string Name);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ItemEvents_10_PropertyChangeEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ItemEvents_10_PropertyChangeEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="Name" Type="System.String" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="Name">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

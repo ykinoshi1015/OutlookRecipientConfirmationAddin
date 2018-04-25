@@ -1,0 +1,27 @@
+<Type Name="ApplicationEvents_11_ContextMenuCloseEventHandler" FullName="Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ContextMenuCloseEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ApplicationEvents_11_ContextMenuCloseEventHandler(OlContextMenu ContextMenu);" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed ApplicationEvents_11_ContextMenuCloseEventHandler extends System.MulticastDelegate" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier("00062fff-0000-0000-c000-000000000046", "Microsoft.Office.Interop.Outlook.ApplicationEvents_11_ContextMenuCloseEventHandler")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Parameters>
+    <Parameter Name="ContextMenu" Type="Microsoft.Office.Interop.Outlook.OlContextMenu" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="ContextMenu">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

@@ -1,0 +1,26 @@
+<Type Name="CustomTaskPane" FullName="Microsoft.Office.Tools.CustomTaskPane">
+  <TypeSignature Language="C#" Value="public interface CustomTaskPane : IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract CustomTaskPane implements class System.IDisposable" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("881b42fd-484d-4494-8500-779de4e4aac1")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

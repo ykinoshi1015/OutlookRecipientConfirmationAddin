@@ -1,0 +1,26 @@
+<Type Name="ImportedFormRegion" FullName="Microsoft.Office.Tools.Outlook.ImportedFormRegion">
+  <TypeSignature Language="C#" Value="public interface ImportedFormRegion : Microsoft.Office.Tools.Outlook.IFormRegion" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract ImportedFormRegion implements class Microsoft.Office.Tools.Outlook.IFormRegion" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Tools.Outlook.IFormRegion</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("EA4CADDC-CFDA-4B89-8546-E793D1A79980")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

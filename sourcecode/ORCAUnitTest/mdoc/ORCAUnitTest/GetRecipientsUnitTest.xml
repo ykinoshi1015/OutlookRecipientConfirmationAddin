@@ -1,0 +1,311 @@
+<Type Name="GetRecipientsUnitTest" FullName="ORCAUnitTest.GetRecipientsUnitTest">
+  <TypeSignature Language="C#" Value="public class GetRecipientsUnitTest" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit GetRecipientsUnitTest extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>NUnit.Framework.TestFixture</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+            Utilityクラス GetRecipientsメソッドのテストクラス
+            </summary>
+    <remarks>
+            アイテムから、そのアイテムの宛先(Recipient型のリスト)を取得するメソッドの単体テストコード
+            </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GetRecipientsUnitTest ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest1">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest1 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest1() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+             アイテムが、MailItemの場合
+            </summary>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMailのままになる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest2">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest2 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest2() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信でない）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMeetingになる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest3">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest3 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest3() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信 i.e. MessageClassプロパティに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+          <para>（IgnoreMeetingResponseがfalse）</para>
+        </summary>
+        <remarks>
+            【期待結果】
+            <para>Recipientsを取得できる</para><para>TypeがMeetingResponseになる</para></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest4">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest4 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest4() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、MeetingItemの場合</para>
+          <para>（会議出席依頼の返信でない）</para>
+          <para>（IgnoreMeetingResponseがtrue）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para>Recipientsを取得できる</para>
+          <para>TypeがMeetingになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest5">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest5 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest5() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、MeetingItemの場合</para>
+          <para>（会議招集メールの返信 i.e. MessageCLassに"IPM.Schedule.Meeting.Resp."が含まれる）</para>
+          <para>（IgnoreMeetingResponseがtrue）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para>Recipientsがnull</para>
+          <para>TypeがMeetingResponseになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest6">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest6 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest6() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、AppointmentItemの場合</para>
+          <para>（リソース選択あり）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> 自分（送信者）以外のRecipientsが取得できる</para>
+          <para> TypeがAppointmentになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest7">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest7 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest7() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、AppointmentItemの場合</para>
+          <para>（リソース選択なし）</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> 自分（送信者）以外のRecipientsが取得できる</para>
+          <para> TypeがAppointmentになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest8">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest8 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest8() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、SharingItemの場合</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> Recipientsを取得できる</para>
+          <para> TypeがSharingになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetRecipientsTest9">
+      <MemberSignature Language="C#" Value="public void GetRecipientsTest9 ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetRecipientsTest9() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.Test</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para> アイテムが、ReportItemの場合</para>
+        </summary>
+        <remarks>
+          <para>【期待結果】</para>
+          <para> Recipientsを取得できる</para>
+          <para> TypeがReportになる</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Init">
+      <MemberSignature Language="C#" Value="public void Init ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Init() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>NUnit.Framework.OneTimeSetUp</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            テスト時に一度だけ実行される処理
+            </summary>
+        <remarks>
+            アセンブリの読み込み、Typeの取得、モックの作成など
+            </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

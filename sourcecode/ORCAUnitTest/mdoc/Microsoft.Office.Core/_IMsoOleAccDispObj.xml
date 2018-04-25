@@ -1,0 +1,26 @@
+<Type Name="_IMsoOleAccDispObj" FullName="Microsoft.Office.Core._IMsoOleAccDispObj">
+  <TypeSignature Language="C#" Value="public interface _IMsoOleAccDispObj : Microsoft.Office.Core.IAccessible" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract _IMsoOleAccDispObj implements class Microsoft.Office.Core.IAccessible" />
+  <AssemblyInfo>
+    <AssemblyName>ORCAUnitTest</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Core.IAccessible</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.Guid("000C0301-0000-0000-C000-000000000046")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Runtime.InteropServices.TypeIdentifier</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>
