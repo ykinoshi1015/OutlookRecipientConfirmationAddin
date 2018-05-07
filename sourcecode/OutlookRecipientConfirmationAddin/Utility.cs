@@ -428,7 +428,14 @@ namespace OutlookRecipientConfirmationAddin
             contactItem = null;
             if (addressEntry != null)
             {
-                contactItem = addressEntry.GetContact();
+                try
+                {
+                    contactItem = addressEntry.GetContact();
+                }
+                catch
+                {
+                    contactItem = null;
+                }
             }
 
             RecipientInformationDto senderInformation = null;
@@ -487,7 +494,14 @@ namespace OutlookRecipientConfirmationAddin
             {
                 addressEntry = recipient.AddressEntry;
                 exchUser = getExchangeUser(addressEntry);
-                contactItem = addressEntry.GetContact();
+                try
+                {
+                    contactItem = addressEntry.GetContact();
+                }
+                catch
+                {
+                    contactItem = null;
+                }
             }
 
             RecipientInformationDto senderInformation = null;
@@ -719,7 +733,14 @@ namespace OutlookRecipientConfirmationAddin
                 //受信したTaskRequestItem
                 Outlook.TaskItem task = item.GetAssociatedTask(false);
                 recipient = task.Recipients[1];
-                contactItem = recipient.AddressEntry.GetContact();
+                try
+                {
+                    contactItem = recipient.AddressEntry.GetContact();
+                }
+                catch
+                {
+                    contactItem = null;
+                }
             }
             Outlook.AddressEntry addressEntry = recipient.AddressEntry;
             Outlook.ExchangeUser exchUser = getExchangeUser(addressEntry);
@@ -997,7 +1018,16 @@ namespace OutlookRecipientConfirmationAddin
 
                     }
 
-                    Outlook.ContactItem contactItem = recipient.AddressEntry.GetContact();
+                    Outlook.ContactItem contactItem = null;
+                    try
+                    {
+                        contactItem = recipient.AddressEntry.GetContact();
+                    }
+                    catch
+                    {
+                        contactItem = null;
+                    }
+                    
                     if (contactItem != null)
                     {
                         new RecipientInformationDto(contactItem.FullName,
