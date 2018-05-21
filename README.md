@@ -1,10 +1,9 @@
-﻿# Outlook宛先表示アドイン
+# Outlook宛先表示アドイン
 
 
 Outlook Recipient Confirmation Add-In、通称Outlook宛先表示アドイン。  
 
 メールを送信する際の宛先表示機能を、デスクトップ版 Outlook2016で使えるよう開発されました。  
-新しいバージョンも随時リリース予定です。
 
 
 ## 機能
@@ -40,7 +39,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 
 *  Windows7またはWindows10
 *  **デスクトップ版** Outlook2016
-* アドレス帳がExchangeを利用していること
+* アドレス帳にExchangeを利用していること
 
 ## インストール手順
 ### 確認事項
@@ -49,6 +48,7 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 
 *  インストールの実行をネットワークドライブ上で行わないこと
 *  プロキシを使用していないこと  
+* **Outlook2016を終了しておくこと**
 
 また、以下のプログラムがお使いのPCにインストールされていない場合、自動的にインストールされます。
 
@@ -59,17 +59,16 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 1. setupフォルダをクリックします  
 ![readme_installation_setupfolder](https://user-images.githubusercontent.com/34431835/34713370-6470b122-f569-11e7-91a5-a9a3107010cd.PNG)
 
-2. setup.zipをクリックし、Downloadボタンを押します  
+2. setup.exeをクリックし、Downloadボタンを押します  
 ![readme_installation_setup zip](https://user-images.githubusercontent.com/29644865/34401117-aec2321a-ebdb-11e7-80c8-ef7945369371.PNG)
 
-3. setup.zipがダウンロードされるので、**すべて展開(解凍)し**、setup.cmdをダブルクリックします  
-![setupcmd](https://user-images.githubusercontent.com/34431835/34712849-a20a93e2-f567-11e7-9f98-0b12769f2cfb.PNG)
+3. ダウンロードしたsetup.exeを実行します　　
 
 4. 詳細情報を押し、実行を選択します  
 ![readme_installation_protected](https://user-images.githubusercontent.com/29644865/36298153-f8a34402-1339-11e8-9694-b89422aab416.PNG)
 ![readme_installation_protected2](https://user-images.githubusercontent.com/29644865/36298152-f87d8fdc-1339-11e8-8480-c7abc3960d35.PNG)
 
-5. この画面が表示されるので、Agreeボタンを押します  
+5. この画面が表示されたら、Agreeボタンを押します  
 ![readme_streams_agreement](https://user-images.githubusercontent.com/29644865/36298004-222d0bc4-1339-11e8-8d60-8a0a80ee9e26.PNG)
 
 6. インストールボタンを押します  
@@ -82,7 +81,6 @@ Outlook宛先表示アドインには、以下の環境が必要です。
 **お疲れ様でした**  :smiley:
 
 Outlook2016を起動すると、アドインが有効になります。  
-すでに開いている場合は、再度開き直してください。
 
 
 ## FAQ
